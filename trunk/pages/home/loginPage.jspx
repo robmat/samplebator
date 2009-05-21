@@ -1,0 +1,27 @@
+<jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	<jsp:output omit-xml-declaration="true" doctype-root-element="html"
+		doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"
+		doctype-public="-//W3C//DTD XHTML 1.1//NL" />
+	<jsp:directive.page contentType="text/html; charset=UTF-8" />
+
+	<f:view>
+		<html>
+		<body>
+		<div><h:form>
+			<h:panelGrid columns="2">
+				<h:outputText value="User:" />
+				<h:inputText value="#{loginZiarenko.user}" />
+				<h:outputText value="Password:" />
+				<h:inputSecret value="#{loginZiarenko.pass}" />
+				<h:commandLink action="#{loginZiarenko.loginAkcja}" actionListener="#{loginZiarenko.loginNasluch}">
+					<h:outputText value="Loguj" />
+				</h:commandLink>
+			</h:panelGrid>
+			<h:outputText style="color: red;" value="#{loginZiarenko.msg}" />
+		</h:form></div>
+		</body>
+		</html>
+	</f:view>
+</jsp:root>
