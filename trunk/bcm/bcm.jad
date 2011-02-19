@@ -3,10 +3,10 @@ RIM-COD-Module-Name: bcm
 RIM-COD-Module-Dependencies: net_rim_cldc,net_rim_xml_org,net_rim_bbapi_browser,net_rim_xml
 MIDlet-Jar-Size: 138611
 MIDlet-1: BCM,,site1
-RIM-COD-Creation-Time: 1298116915
+RIM-COD-Creation-Time: 1298117952
 MIDlet-Jar-URL: bcm.jar
 RIM-COD-URL: bcm.cod
-RIM-COD-SHA1: 24 ca bb 9c 6d 62 b1 9d 7f 93 12 94 30 c5 c8 07 2f 65 e1 f8
+RIM-COD-SHA1: 3f 57 1d 5e 6f 75 e8 3a 02 6e bd a6 23 7a a2 e1 89 11 6d d8
 RIM-COD-Size: 54172
 MicroEdition-Configuration: CLDC-1.1
 MIDlet-Version: 0.0001
