@@ -1,0 +1,72 @@
+// Decompiled by DJ v3.11.11.95 Copyright 2009 Atanas Neshkov  Date: 2011-02-22 21:02:43
+// Home Page: http://members.fortunecity.com/neshkov/dj.html  http://www.neshkov.com/dj.html - Check often for new version!
+// Decompiler options: packimports(3) 
+// Source File Name:   BcmResource.java
+
+package com.bcm;
+
+
+public interface BcmResource
+{
+
+    public static final long BUNDLE_ID = 0xe742e5d6f5442ebcL;
+    public static final String BUNDLE_NAME = "com.bcm.Bcm";
+    public static final int cancelLbl = 4;
+    public static final int statusLbl = 15;
+    public static final int loginLbl = 2;
+    public static final int scenariosLbl = 7;
+    public static final int refreshLbl = 12;
+    public static final int valueLbl = 13;
+    public static final int assetsLbl = 19;
+    public static final int loadDataLbl = 9;
+    public static final int activatingScenarioLbl = 16;
+    public static final int exitLbl = 18;
+    public static final int authorizingFaultLbl = 5;
+    public static final int mainFormTitle = 8;
+    public static final int nameLbl = 14;
+    public static final int loginFormTitle = 0;
+    public static final int passwordLbl = 1;
+    public static final int activatingScenarioFailedLbl = 17;
+    public static final int processDetailTitle = 10;
+    public static final int notifyLbl = 21;
+    public static final int processesLbl = 6;
+    public static final int authorizingLbl = 3;
+    public static final int incidentsLbl = 20;
+    public static final int activateScenarioLbl = 11;
+    public static final int recoveryLbl = 22;
+    public static final int unavailableInThisVersionLbl = 23;
+    public static final int showAssetsLbl = 24;
+    public static final int typeLbl = 25;
+    public static final int allLbl = 26;
+    public static final int showInfrastructureLbl = 27;
+    public static final int infrastructuresLbl = 28;
+    public static final int tasksLbl = 29;
+    public static final int myTasksLbl = 31;
+    public static final int allTasksLbl = 32;
+    public static final int fromTemplateLbl = 33;
+    public static final int newBtn = 34;
+    public static final int monitorLbl = 35;
+    public static final int numberLbl = 36;
+    public static final int timeLbl = 37;
+    public static final int callLogsLbl = 38;
+    public static final int notifyTemplatesLbl = 39;
+    public static final int templatesLbl = 40;
+    public static final int newTemplateTitleLbl = 41;
+    public static final int incidentNameLbl = 42;
+    public static final int messageContentLbl = 43;
+    public static final int voiceIntroLbl = 44;
+    public static final int deliverViaLbl = 45;
+    public static final int voiceLbl = 46;
+    public static final int loadFromTemplateLbl = 47;
+    public static final int callOptLbl = 48;
+    public static final int isPersonalizedLbl = 0;
+    public static final int requiresPinLbl = 0;
+    public static final int groupsLbl = 0;
+    public static final int newNotificationTitleLbl = 0;
+    public static final int createLbl = 0;
+    public static final int logInLbl = 0;
+    public static final int logoutLbl = 0;
+    public static final int supportLbl = 0;
+    public static final int clientNameLbl = 0;
+    public static final int reallyActivateScenarioLbl = 0;
+}
