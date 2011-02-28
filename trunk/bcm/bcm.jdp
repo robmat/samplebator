@@ -30,11 +30,13 @@ src\com\bcm\CallLogsScreen.java
 src\com\bcm\CellularLabelfield.java
 src\com\bcm\ColouredListField.java
 src\com\bcm\CommonsForScreen.java
+src\com\bcm\DataCache.java
 src\com\bcm\DataReceiver.java
 src\com\bcm\Dictionary.java
 src\com\bcm\EntryPoint.java
 src\com\bcm\GridFieldManager.java
 src\com\bcm\I18n.java
+src\com\bcm\IDataCacheAware.java
 src\com\bcm\ImageUtils.java
 src\com\bcm\INavListener.java
 src\com\bcm\IncidentsScreen.java
