@@ -31,6 +31,7 @@ myTasksLbl#0="Moje zadania";
 nameLbl#0="Nazwa";
 newBtn#0="Nowy";
 newNotificationTitleLbl#0="Nowe powiadomienie";
+noDataLbl#0="Brak danych";
 notifyLbl#0="Powiadomienia";
 notifyTemplatesLbl#0="Szablony powiadomie\u0144";
 numberLbl#0="Numer";

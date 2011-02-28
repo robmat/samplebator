@@ -31,6 +31,7 @@ myTasksLbl#0="My tasks";
 nameLbl#0="Name";
 newBtn#0="New";
 newNotificationTitleLbl#0="New notification";
+noDataLbl#0="No data available";
 notifyLbl#0="Notify";
 notifyTemplatesLbl#0="Notify templates";
 numberLbl#0="Number";
