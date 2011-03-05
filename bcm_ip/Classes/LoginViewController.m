@@ -8,8 +8,9 @@
 
 #import "LoginViewController.h"
 
-
 @implementation LoginViewController
+
+@synthesize loginBtn;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -21,12 +22,13 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-    [super viewDidLoad];
+	[super viewDidLoad];
+	loginBtn.titleLabel.text = NSLocalizedString(@"loginBtnLbl", nil);
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -51,6 +53,7 @@
 
 
 - (void)dealloc {
+	[loginBtn release];
     [super dealloc];
 }
 
