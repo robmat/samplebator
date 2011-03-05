@@ -1,258 +1,0 @@
-Tbcm_ip
-v7
-r0
-t321002544.197467
-cCheck dependencies
-cProcessInfoPlistFile "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/Info.plist" bcm_ip-Info.plist
-cCompileXIB "/Users/User/Desktop/svn (trunk)/bcm_ip/MainWindow.xib"
-cCompileXIB "/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/LoginFormController.xib"
-cProcessPCH /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/bcm_ip_Prefix-gcpgvnmrvhdhzkhhomqjrxmyfhxm/bcm_ip_Prefix.pch.gch bcm_ip_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/main.o "/Users/User/Desktop/svn (trunk)/bcm_ip/main.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/bcm_ipAppDelegate.o "/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/bcm_ipAppDelegate.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/LoginFormController.o "/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/LoginFormController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-cLd "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/bcm_ip" normal i386
-cGenerateDSYMFile "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app.dSYM" "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/bcm_ip"
-cTouch "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app"
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk
-c000000004C6C30170000000000000110
-t1282158615
-s272
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-c000000004C5A4DB60000000000295900
-t1280986550
-s2709760
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c000000004C5A4DB0000000000029D580
-t1280986544
-s2741632
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c000000004C5A4DA10000000000001466
-t1280986529
-s5222
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
-c000000004C6241ED00000000000009CD
-t1281507821
-s2509
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c000000004C6242840000000001E228C0
-t1281507972
-s31598784
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/LoginFormController.h
-c000000004D71E04200000000000000E0
-t1299308610
-s224
-i<UIKit/UIKit.h>
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/LoginFormController.m
-c000000004D71E042000000000000059B
-t1299308610
-s1435
-i"LoginFormController.h"
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/LoginFormController.xib
-c000000004D71E43E000000000000446E
-t1299309630
-s17518
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/bcm_ipAppDelegate.h
-c000000004D71E41D00000000000001CF
-t1299309597
-s463
-i<UIKit/UIKit.h>
-i"LoginFormController.h"
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/bcm_ipAppDelegate.m
-c000000004D71E4AF0000000000000A3F
-t1299309743
-s2623
-i"bcm_ipAppDelegate.h"
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/MainWindow.xib
-c000000004D71DE5F0000000000002103
-t1299308127
-s8451
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/bcm_ip_Prefix.pch
-c000000004D71DE5F00000000000000B5
-t1299308127
-s181
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app
-t1299309744
-s238
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app.dSYM
-t1299309744
-s102
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/Info.plist
-t1299308312
-s587
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/LoginFormController.nib
-t1299309636
-s2202
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/MainWindow.nib
-t1299308314
-s1530
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/PkgInfo
-t1299308313
-s8
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/bcm_ip
-t1299309744
-s16732
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/LoginFormController.o
-t1299309490
-s34612
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/bcm_ip.LinkFileList
-c000000004D71E3B00000000000000184
-t1299309488
-s388
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/bcm_ipAppDelegate.o
-t1299309744
-s47548
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/main.o
-t1299308317
-s6304
-
-N/Users/User/Desktop/svn (trunk)/bcm_ip/main.m
-c000000004D71DE5F000000000000015F
-t1299308127
-s351
-i<UIKit/UIKit.h>
-
-N/var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/bcm_ip_Prefix-gcpgvnmrvhdhzkhhomqjrxmyfhxm/bcm_ip_Prefix.pch.gch
-t1299308316
-s15211536
-
-Nbcm_ip-Info.plist
-c000000004D71DE5F000000000000038D
-t1299308127
-s909
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies321002543#321002543#0(0"0(0#1#0"8619412704#0"0#
-
-CCompileC build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/LoginFormController.o "/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/LoginFormController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-s321002289.761445
-e321002290.111766
-r1
-xCompileC
-xbuild/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/LoginFormController.o
-x/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/LoginFormController.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@76"Compile /Users/User/Desktop/svn (trunk)/bcm_ip/Classes/LoginFormController.m321002289#321002290#0(0"0(0#0#68"/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/LoginFormController.m8613175968#1954"    cd "/Users/User/Desktop/svn (trunk)/bcm_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/DerivedSources" -include /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/bcm_ip_Prefix-gcpgvnmrvhdhzkhhomqjrxmyfhxm/bcm_ip_Prefix.pch -c "/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/LoginFormController.m" -o "/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/LoginFormController.o"0#
-
-CCompileC build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/bcm_ipAppDelegate.o "/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/bcm_ipAppDelegate.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-s321002543.174293
-e321002544.040310
-r1
-xCompileC
-xbuild/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/bcm_ipAppDelegate.o
-x/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/bcm_ipAppDelegate.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-o/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/bcm_ipAppDelegate.m:88: warning: property 'loginController' requires method '-loginController' to be defined - use @synthesize, @dynamic or provide a method implementation
-o/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/bcm_ipAppDelegate.m:88: warning: property 'loginController' requires the method 'setLoginController:' to be defined - use @synthesize, @dynamic or provide a method implementation
-lSLF07#2@74"Compile /Users/User/Desktop/svn (trunk)/bcm_ip/Classes/bcm_ipAppDelegate.m321002543#321002544#0(445"/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/bcm_ipAppDelegate.m:88: warning: property 'loginController' requires method '-loginController' to be defined - use @synthesize, @dynamic or provide a method implementation/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/bcm_ipAppDelegate.m:88: warning: property 'loginController' requires the method 'setLoginController:' to be defined - use @synthesize, @dynamic or provide a method implementation2(22@138"Property 'loginController' requires method '-loginController' to be defined - use @synthesize, @dynamic or provide a method implementation321002543#0#219#0(6@66"/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/bcm_ipAppDelegate.m321002543#88#0#88#0#0"0(22@145"Property 'loginController' requires the method 'setLoginController:' to be defined - use @synthesize, @dynamic or provide a method implementation321002543#219#226#0(6@66"/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/bcm_ipAppDelegate.m321002543#88#0#88#0#0"0(0#0#66"/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/bcm_ipAppDelegate.m8617007328#1950"    cd "/Users/User/Desktop/svn (trunk)/bcm_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/DerivedSources" -include /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/bcm_ip_Prefix-gcpgvnmrvhdhzkhhomqjrxmyfhxm/bcm_ip_Prefix.pch -c "/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/bcm_ipAppDelegate.m" -o "/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/bcm_ipAppDelegate.o"0#
-
-CCompileC build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/main.o "/Users/User/Desktop/svn (trunk)/bcm_ip/main.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-s321001116.938899
-e321001117.904956
-r1
-xCompileC
-xbuild/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/main.o
-x/Users/User/Desktop/svn (trunk)/bcm_ip/main.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@53"Compile /Users/User/Desktop/svn (trunk)/bcm_ip/main.m321001116#321001117#0(0"0(0#0#45"/Users/User/Desktop/svn (trunk)/bcm_ip/main.m8601713056#1916"    cd "/Users/User/Desktop/svn (trunk)/bcm_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/DerivedSources" -include /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/bcm_ip_Prefix-gcpgvnmrvhdhzkhhomqjrxmyfhxm/bcm_ip_Prefix.pch -c "/Users/User/Desktop/svn (trunk)/bcm_ip/main.m" -o "/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/main.o"0#
-
-CCompileXIB "/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/LoginFormController.xib"
-s321002435.812060
-e321002437.055126
-r1
-xCompileXIB
-x/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/LoginFormController.xib
-lSLF07#2@42"CompileXIB Classes/LoginFormController.xib321002435#321002437#0(0"0(0#0#70"/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/LoginFormController.xib8619555968#601"    cd "/Users/User/Desktop/svn (trunk)/bcm_ip"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/LoginFormController.nib" "/Users/User/Desktop/svn (trunk)/bcm_ip/Classes/LoginFormController.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk0#
-
-CCompileXIB "/Users/User/Desktop/svn (trunk)/bcm_ip/MainWindow.xib"
-s321001113.033016
-e321001114.476797
-r1
-xCompileXIB
-x/Users/User/Desktop/svn (trunk)/bcm_ip/MainWindow.xib
-lSLF07#2@25"CompileXIB MainWindow.xib321001113#321001114#0(0"0(0#0#53"/Users/User/Desktop/svn (trunk)/bcm_ip/MainWindow.xib8603672384#575"    cd "/Users/User/Desktop/svn (trunk)/bcm_ip"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/MainWindow.nib" "/Users/User/Desktop/svn (trunk)/bcm_ip/MainWindow.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk0#
-
-CGenerateDSYMFile "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app.dSYM" "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/bcm_ip"
-s321002544.107863
-e321002544.147696
-r1
-xGenerateDSYMFile
-x/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app.dSYM
-x/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/bcm_ip
-lSLF07#2@106"GenerateDSYMFile build/Debug-iphonesimulator/bcm_ip.app.dSYM build/Debug-iphonesimulator/bcm_ip.app/bcm_ip321002544#321002544#0(0"0(0#0#84"/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/bcm_ip8613159648#386"    cd "/Users/User/Desktop/svn (trunk)/bcm_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/bcm_ip" -o "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app.dSYM"0#
-
-CLd "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/bcm_ip" normal i386
-s321002544.040480
-e321002544.107785
-r1
-xLd
-x/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/bcm_ip
-xnormal
-xi386
-lSLF07#2@89"Link /Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/bcm_ip321002544#321002544#0(0"0(0#0#0"8616510432#905"    cd "/Users/User/Desktop/svn (trunk)/bcm_ip"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk "-L/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator" "-F/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator" -filelist "/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/Objects-normal/i386/bcm_ip.LinkFileList" -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -framework Foundation -framework UIKit -framework CoreGraphics -o "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/bcm_ip"0#
-
-CProcessInfoPlistFile "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/Info.plist" bcm_ip-Info.plist
-s321001112.947094
-e321001113.032891
-r1
-xProcessInfoPlistFile
-x/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/Info.plist
-xbcm_ip-Info.plist
-lSLF07#2@25"Process bcm_ip-Info.plist321001112#321001113#0(0"0(0#0#56"/Users/User/Desktop/svn (trunk)/bcm_ip/bcm_ip-Info.plist8458434393682504704#482"    cd "/Users/User/Desktop/svn (trunk)/bcm_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility bcm_ip-Info.plist -genpkginfo "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/PkgInfo" -expandbuildsettings -format binary -platform iphonesimulator -o "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app/Info.plist"0#
-
-CProcessPCH /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/bcm_ip_Prefix-gcpgvnmrvhdhzkhhomqjrxmyfhxm/bcm_ip_Prefix.pch.gch bcm_ip_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-s321001114.477130
-e321001116.938677
-r1
-xProcessPCH
-x/var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/bcm_ip_Prefix-gcpgvnmrvhdhzkhhomqjrxmyfhxm/bcm_ip_Prefix.pch.gch
-xbcm_ip_Prefix.pch
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@28"Precompile bcm_ip_Prefix.pch321001114#321001116#0(0"0(0#0#56"/Users/User/Desktop/svn (trunk)/bcm_ip/bcm_ip_Prefix.pch8600850912#1807"    cd "/Users/User/Desktop/svn (trunk)/bcm_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/bcm_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/bcm_ip/build/bcm_ip.build/Debug-iphonesimulator/bcm_ip.build/DerivedSources" -c "/Users/User/Desktop/svn (trunk)/bcm_ip/bcm_ip_Prefix.pch" -o /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/bcm_ip_Prefix-gcpgvnmrvhdhzkhhomqjrxmyfhxm/bcm_ip_Prefix.pch.gch0#
-
-CTouch "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app"
-s321002544.147771
-e321002544.197418
-r1
-xTouch
-x/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app
-lSLF07#2@83"Touch /Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app321002544#321002544#0(0"0(0#0#0"8620911008#281"    cd "/Users/User/Desktop/svn (trunk)/bcm_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/User/Desktop/svn (trunk)/bcm_ip/build/Debug-iphonesimulator/bcm_ip.app"0#
-
