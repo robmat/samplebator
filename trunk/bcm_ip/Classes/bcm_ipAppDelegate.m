@@ -20,7 +20,7 @@
     
     // Override point for customization after application launch.
     
-	loginController = [[LoginFormController alloc] init];
+	loginController = [[LoginViewController alloc] init];
 	
 	[window addSubview: loginController.view];
 	

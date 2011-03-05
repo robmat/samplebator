@@ -1,15 +1,15 @@
 //
-//  LoginFormController.m
+//  LoginViewController.m
 //  bcm_ip
 //
-//  Created by User on 3/4/11.
+//  Created by User on 3/5/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LoginFormController.h"
+#import "LoginViewController.h"
 
 
-@implementation LoginFormController
+@implementation LoginViewController
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
