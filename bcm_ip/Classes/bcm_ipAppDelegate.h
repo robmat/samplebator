@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LoginFormController.h"
+#import "LoginViewController.h"
 
 @interface bcm_ipAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-	LoginFormController* loginController;
+	LoginViewController* loginController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet LoginFormController* loginController;
+@property (nonatomic, retain) IBOutlet LoginViewController* loginController;
 
 @end
 
