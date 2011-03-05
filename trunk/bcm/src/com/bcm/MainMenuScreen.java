@@ -23,16 +23,8 @@ public class MainMenuScreen extends CommonsForScreen implements IDataCacheAware 
 	public LongButtonField logoutBtn = new LongButtonField(I18n.bundle.getString(BcmResource.logoutLbl), ButtonField.CONSUME_CLICK);
 	public LongButtonField supportBtn = new LongButtonField(I18n.bundle.getString(BcmResource.supportLbl), ButtonField.CONSUME_CLICK);
 	public BitmapField logo = new BitmapField(EncodedImage.getEncodedImageResource("logo.jpg").getBitmap(), BitmapField.FIELD_HCENTER | BitmapField.USE_ALL_WIDTH);
-	public DataCache[] caches = new DataCache[] {
-			new DataCache(this, "getAllProcesses"),
-			new DataCache(this, "getAllScenarios"),
-			new DataCache(this, "getAllAssets")};
+	
 	public MainMenuScreen() {
-		for (int i = 0; i < caches.length; i++) {
-			if (caches[i].fillInCache()) {
-				System.out.println("Yeb!");
-			}
-		}
 		setTitle(new LabelField(I18n.bundle.getString(BcmResource.mainFormTitle), DrawStyle.HCENTER | Field.USE_ALL_WIDTH));
 		GridFieldManager mcm = new GridFieldManager(2, Manager.VERTICAL_SCROLL | Manager.USE_ALL_HEIGHT | Manager.USE_ALL_WIDTH);
 		add(logo);
@@ -48,7 +40,7 @@ public class MainMenuScreen extends CommonsForScreen implements IDataCacheAware 
 		add(mcm);
 		processesBtn.setChangeListener(new FieldChangeListener() {
 			public void fieldChanged(Field arg0, int arg1) {
-				UiApplication.getUiApplication().pushScreen(new ProcessesScreen());
+				UiApplication.getUiApplication().pushScreen(new ProcessesScreen(true));
 			}
 		});
 		scenariosBtn.setChangeListener(new FieldChangeListener() {
@@ -93,6 +85,22 @@ public class MainMenuScreen extends CommonsForScreen implements IDataCacheAware 
 				Browser.getDefaultSession().displayPage("http://support.bcmlogic.com/");
 			}
 		});
+		fillInCaches();
+	}
+
+	private void fillInCaches() {
+		new Thread(new Runnable() {
+			public void run() {
+				if (EntryPoint.caches == null) {
+					EntryPoint.caches = new DataCache[] { new DataCache(MainMenuScreen.this, "getAllProcesses"), new DataCache(MainMenuScreen.this, "getAllScenarios"), new DataCache(MainMenuScreen.this, "getAllAssets") };
+					for (int i = 0; i < EntryPoint.caches.length; i++) {
+						if (!EntryPoint.caches[i].fillInCache()) {
+							errorDialog("Error filling " + EntryPoint.caches[i].command + " cache.");
+						}
+					}
+				}
+			}
+		}).start();
 	}
 
 	public boolean onSavePrompt() {
