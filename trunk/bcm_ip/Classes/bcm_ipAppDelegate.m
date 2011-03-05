@@ -20,6 +20,10 @@
     
     // Override point for customization after application launch.
     
+	loginController = [[LoginFormController alloc] init];
+	
+	[window addSubview: loginController.view];
+	
     [window makeKeyAndVisible];
     
     return YES;
@@ -75,6 +79,7 @@
 
 
 - (void)dealloc {
+	[loginController release];
     [window release];
     [super dealloc];
 }
