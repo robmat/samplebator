@@ -11,6 +11,8 @@
 
 @interface LoginViewController : UIViewController {
 
+	IBOutlet UIButton* loginBtn;
+	
 }
-
+@property (nonatomic, retain) IBOutlet UIButton* loginBtn;
 @end

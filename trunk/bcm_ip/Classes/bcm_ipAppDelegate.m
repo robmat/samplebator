@@ -10,7 +10,7 @@
 
 @implementation bcm_ipAppDelegate
 
-@synthesize window;
+@synthesize window, loginController;
 
 
 #pragma mark -
