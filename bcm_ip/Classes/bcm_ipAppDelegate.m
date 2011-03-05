@@ -16,6 +16,13 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
+
++ (NSString*) baseURL {
+	return @"https://app.bcmlogic.com/";
+}
++ (NSString*) apiSuffix {
+	return @"/Api.aspx";
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     // Override point for customization after application launch.

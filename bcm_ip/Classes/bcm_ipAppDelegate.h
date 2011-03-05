@@ -17,5 +17,8 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet LoginViewController* loginController;
 
++ (NSString*) baseURL;
++ (NSString*) apiSuffix;
+
 @end
 
