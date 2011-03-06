@@ -14,6 +14,7 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		CE262A58132229B6009203ED /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE262A56132229B6009203ED /* LoginViewController.m */; };
+		CE76685F1323A7D200B5E56C /* Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CE76685E1323A7D200B5E56C /* Dictionary.m */; };
 		CECE5B961322B8E300094BE7 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CECE5B951322B8E300094BE7 /* logo.jpg */; };
 		CECE5BCC1322BE8B00094BE7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECE5BCB1322BE8B00094BE7 /* LoginViewController.xib */; };
 		CECE5DF01322CD2600094BE7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECE5DEF1322CD2600094BE7 /* CFNetwork.framework */; };
@@ -46,6 +47,8 @@
 		8D1107310486CEB800E47090 /* bcm_ip-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bcm_ip-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		CE262A55132229B6009203ED /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CE262A56132229B6009203ED /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CE76685D1323A7D200B5E56C /* Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dictionary.h; sourceTree = "<group>"; };
+		CE76685E1323A7D200B5E56C /* Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dictionary.m; sourceTree = "<group>"; };
 		CECE5B951322B8E300094BE7 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
 		CECE5BCD1322BE9100094BE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LoginViewController.xib; sourceTree = "<group>"; };
 		CECE5BCE1322BE9600094BE7 /* pl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pl; path = pl.lproj/LoginViewController.xib; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 				CE262A0113221C63009203ED /* Views */,
 				1D3623240D0F684500981E51 /* bcm_ipAppDelegate.h */,
 				1D3623250D0F684500981E51 /* bcm_ipAppDelegate.m */,
+				CE76685D1323A7D200B5E56C /* Dictionary.h */,
+				CE76685E1323A7D200B5E56C /* Dictionary.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				CECE5F541322D30900094BE7 /* ASIInputStream.m in Sources */,
 				CECE5F551322D30900094BE7 /* ASINetworkQueue.m in Sources */,
 				CECE5F561322D30900094BE7 /* Reachability.m in Sources */,
+				CE76685F1323A7D200B5E56C /* Dictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,6 +23,14 @@
 + (NSString*) apiSuffix {
 	return @"/Api.aspx";
 }
++ (NSString*) getLoginDataFilePath {
+	NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) ;
+	return [[paths objectAtIndex:0] stringByAppendingPathComponent:@"loginData.plist"];
+}
++ (NSString*) getFullURLWithSite {
+	NSArray* loginDataArr = [[[NSArray alloc] initWithContentsOfFile: [self getLoginDataFilePath]] autorelease];
+	return [NSString stringWithFormat:@"%@%@%@", [self baseURL], [loginDataArr objectAtIndex:2], [self apiSuffix]];
+}	
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     // Override point for customization after application launch.

@@ -24,15 +24,9 @@
     return self;
 }
 */
-- (NSString*) getLoginDataFilePath {
-	NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) ;
-	return [[paths objectAtIndex:0] stringByAppendingPathComponent:@"loginData.plist"];
-}
-
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	NSString* filePath = [self getLoginDataFilePath];
-	
 	if ( [[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
 		NSArray* loginDataArr = [NSArray arrayWithContentsOfFile: filePath];
 		if ([loginDataArr count] == 3) {
@@ -41,9 +35,23 @@
 			siteTxtFld.text = [loginDataArr objectAtIndex:2];
 		}
 	}	
-	
+	userTxtFld.delegate = self;
+	passTxtFld.delegate = self;
+	siteTxtFld.delegate = self;
 	[super viewDidLoad];
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	if (textField == userTxtFld) {
+		[passTxtFld becomeFirstResponder];
+	} else if (textField == passTxtFld) {
+		[siteTxtFld becomeFirstResponder];
+	} else if (textField == siteTxtFld) {
+		[self loginAction:loginBtn];
+	}
+	return YES;
+}
+
 - (IBAction) loginAction: (id) sender {
 	NSString* urlStr = [NSString stringWithString: [bcm_ipAppDelegate baseURL]];
 	urlStr = [urlStr stringByAppendingString:siteTxtFld.text];
@@ -65,15 +73,25 @@
 	NSLog(@"Response: %@", responseString);
 	if ( [responseString isEqual:@"<response>ok</response>"] ) {
 		NSArray* loginDataArr = [NSArray arrayWithObjects: userTxtFld.text, passTxtFld.text, siteTxtFld.text, nil ];
-		[loginDataArr writeToFile:[self getLoginDataFilePath] atomically: YES];
+		[loginDataArr writeToFile:[bcm_ipAppDelegate getLoginDataFilePath] atomically: YES];
 	} else {
-		
+		UIAlertView* alert;
+		if ( [responseString rangeOfString:@"HTTP 404"].location != NSNotFound ) {
+			alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"errorDialogTitle", nil) message: NSLocalizedString(@"errorDialog404Message", nil) delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+		} else if ( [responseString rangeOfString:@"<response isError='true'>Wrong authorization</response>"].location != NSNotFound ) {
+			alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"errorDialogTitle", nil) message: NSLocalizedString(@"errorDialogWrongCredentialsMessage", nil) delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+		}
+		[alert show];
+		[alert release];
 	}	
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-	//NSError *error = [request error];
+	NSError *error = [request error];
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"errorDialogTitle", nil) message: [error localizedDescription] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+	[alert show];
+	[alert release];
 }
 
 /*
