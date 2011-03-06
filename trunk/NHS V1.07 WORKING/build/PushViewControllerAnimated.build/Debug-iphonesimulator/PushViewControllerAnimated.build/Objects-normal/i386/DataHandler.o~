@@ -1,2 +1,0 @@
-/Users/User/Desktop/NHS V1.07 WORKING/DataHandler.m: In function '-[DataHandler getDataByCategory:]':
-/Users/User/Desktop/NHS V1.07 WORKING/DataHandler.m:17: warning: incompatible Objective-C types initializing 'struct NSArray *', expected 'struct NSMutableArray *'
