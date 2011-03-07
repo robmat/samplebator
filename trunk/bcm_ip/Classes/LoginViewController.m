@@ -10,6 +10,7 @@
 #import "ASIHTTPRequest.h"
 #import "bcm_ipAppDelegate.h"
 #import "ASIFormDataRequest.h"
+#import "Dictionary.h"
 
 @implementation LoginViewController
 
@@ -26,7 +27,7 @@
 */
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	NSString* filePath = [self getLoginDataFilePath];
+	NSString* filePath = [bcm_ipAppDelegate getLoginDataFilePath];
 	if ( [[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
 		NSArray* loginDataArr = [NSArray arrayWithContentsOfFile: filePath];
 		if ([loginDataArr count] == 3) {
@@ -53,6 +54,11 @@
 }
 
 - (IBAction) loginAction: (id) sender {
+	Dictionary* dict = [[[Dictionary alloc] init] retain];	
+	[dict loadDictionaryAndRetry:YES asynchronous:NO];
+	NSLog( [dict valueByDictionary:@"ASSET_TYPE" andKey:@"1"] );
+	[dict loadDictionaryAndRetry:YES asynchronous:NO];
+	
 	NSString* urlStr = [NSString stringWithString: [bcm_ipAppDelegate baseURL]];
 	urlStr = [urlStr stringByAppendingString:siteTxtFld.text];
 	urlStr = [urlStr stringByAppendingString: [bcm_ipAppDelegate apiSuffix]];
@@ -63,14 +69,13 @@
 	[request setPostValue: userTxtFld.text forKey:@"user"];
 	[request setPostValue: passTxtFld.text forKey:@"password"];
 	[request setPostValue: [UIDevice currentDevice].uniqueIdentifier forKey:@"id"];
+	[request setPostValue: [Dictionary localeAbbr] forKey:@"lang"];
 	[request setDelegate:self];
 	[request startAsynchronous];
 }
 
-- (void)requestFinished:(ASIHTTPRequest *)request
-{
+- (void)requestFinished:(ASIHTTPRequest *)request {
 	NSString *responseString = [request responseString];
-	NSLog(@"Response: %@", responseString);
 	if ( [responseString isEqual:@"<response>ok</response>"] ) {
 		NSArray* loginDataArr = [NSArray arrayWithObjects: userTxtFld.text, passTxtFld.text, siteTxtFld.text, nil ];
 		[loginDataArr writeToFile:[bcm_ipAppDelegate getLoginDataFilePath] atomically: YES];
@@ -86,8 +91,7 @@
 	}	
 }
 
-- (void)requestFailed:(ASIHTTPRequest *)request
-{
+- (void)requestFailed:(ASIHTTPRequest *)request {
 	NSError *error = [request error];
 	UIAlertView* alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"errorDialogTitle", nil) message: [error localizedDescription] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
 	[alert show];

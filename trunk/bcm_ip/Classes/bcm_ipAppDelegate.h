@@ -20,6 +20,7 @@
 + (NSString*) baseURL;
 + (NSString*) apiSuffix;
 + (NSString*) getLoginDataFilePath;
++ (NSString*) getDictFilePath;
 + (NSString*) getFullURLWithSite;
 
 @end

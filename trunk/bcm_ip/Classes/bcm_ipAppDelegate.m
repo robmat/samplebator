@@ -27,6 +27,10 @@
 	NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) ;
 	return [[paths objectAtIndex:0] stringByAppendingPathComponent:@"loginData.plist"];
 }
++ (NSString*) getDictFilePath {
+	NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) ;
+	return [[paths objectAtIndex:0] stringByAppendingPathComponent:@"dictionary.plist"];
+}
 + (NSString*) getFullURLWithSite {
 	NSArray* loginDataArr = [[[NSArray alloc] initWithContentsOfFile: [self getLoginDataFilePath]] autorelease];
 	return [NSString stringWithFormat:@"%@%@%@", [self baseURL], [loginDataArr objectAtIndex:2], [self apiSuffix]];
