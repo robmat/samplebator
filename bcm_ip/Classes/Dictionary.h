@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TBXML.h"
 
 @interface Dictionary : NSObject {
-	
+	TBXML* xmlDoc;
+	BOOL asynchronous;
 }
 
-+ (void) initDictionary;
-
+- (Dictionary*) loadDictionaryAndRetry: (BOOL) retry asynchronous: (BOOL) async;
+- (NSString*) valueByDictionary: (NSString*) dictKey andKey: (NSString*) key;
++ (NSString*) localeAbbr;
 @end
