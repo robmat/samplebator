@@ -11,7 +11,7 @@
 
 @interface bcm_ipAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-	LoginViewController* loginController;
+	UINavigationController* navController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

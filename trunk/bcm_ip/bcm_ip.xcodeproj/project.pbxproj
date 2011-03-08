@@ -14,8 +14,11 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		CE262A58132229B6009203ED /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE262A56132229B6009203ED /* LoginViewController.m */; };
+		CE682E8813269AD4000C7469 /* HttpRequestWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE682E8713269AD4000C7469 /* HttpRequestWrapper.m */; };
 		CE6AA28E132569FF002513D0 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6AA28B132569FF002513D0 /* NSDataAdditions.m */; };
 		CE6AA28F132569FF002513D0 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6AA28D132569FF002513D0 /* TBXML.m */; };
+		CE6B320A1326B36C006C7813 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6B32081326B36C006C7813 /* MainMenuViewController.m */; };
+		CE6B324F1326B971006C7813 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6B324E1326B971006C7813 /* MainMenuViewController.xib */; };
 		CE76685F1323A7D200B5E56C /* Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CE76685E1323A7D200B5E56C /* Dictionary.m */; };
 		CECE5B961322B8E300094BE7 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CECE5B951322B8E300094BE7 /* logo.jpg */; };
 		CECE5BCC1322BE8B00094BE7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECE5BCB1322BE8B00094BE7 /* LoginViewController.xib */; };
@@ -49,10 +52,16 @@
 		8D1107310486CEB800E47090 /* bcm_ip-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bcm_ip-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		CE262A55132229B6009203ED /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CE262A56132229B6009203ED /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CE682E8613269AD4000C7469 /* HttpRequestWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestWrapper.h; sourceTree = "<group>"; };
+		CE682E8713269AD4000C7469 /* HttpRequestWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestWrapper.m; sourceTree = "<group>"; };
 		CE6AA28A132569FF002513D0 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = xml_dom/NSDataAdditions.h; sourceTree = "<group>"; };
 		CE6AA28B132569FF002513D0 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = xml_dom/NSDataAdditions.m; sourceTree = "<group>"; };
 		CE6AA28C132569FF002513D0 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXML.h; path = xml_dom/TBXML.h; sourceTree = "<group>"; };
 		CE6AA28D132569FF002513D0 /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBXML.m; path = xml_dom/TBXML.m; sourceTree = "<group>"; };
+		CE6B32071326B36C006C7813 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		CE6B32081326B36C006C7813 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		CE6B32501326B977006C7813 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenuViewController.xib; sourceTree = "<group>"; };
+		CE6B32511326B97B006C7813 /* pl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pl; path = pl.lproj/MainMenuViewController.xib; sourceTree = "<group>"; };
 		CE76685D1323A7D200B5E56C /* Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dictionary.h; sourceTree = "<group>"; };
 		CE76685E1323A7D200B5E56C /* Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dictionary.m; sourceTree = "<group>"; };
 		CECE5B951322B8E300094BE7 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
@@ -118,6 +127,8 @@
 				1D3623250D0F684500981E51 /* bcm_ipAppDelegate.m */,
 				CE76685D1323A7D200B5E56C /* Dictionary.h */,
 				CE76685E1323A7D200B5E56C /* Dictionary.m */,
+				CE682E8613269AD4000C7469 /* HttpRequestWrapper.h */,
+				CE682E8713269AD4000C7469 /* HttpRequestWrapper.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -191,6 +202,9 @@
 				CE262A55132229B6009203ED /* LoginViewController.h */,
 				CE262A56132229B6009203ED /* LoginViewController.m */,
 				CECE5BCB1322BE8B00094BE7 /* LoginViewController.xib */,
+				CE6B32071326B36C006C7813 /* MainMenuViewController.h */,
+				CE6B32081326B36C006C7813 /* MainMenuViewController.m */,
+				CE6B324E1326B971006C7813 /* MainMenuViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -290,6 +304,7 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				CECE5BCC1322BE8B00094BE7 /* LoginViewController.xib in Resources */,
 				CECE5B961322B8E300094BE7 /* logo.jpg in Resources */,
+				CE6B324F1326B971006C7813 /* MainMenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,12 +330,23 @@
 				CE76685F1323A7D200B5E56C /* Dictionary.m in Sources */,
 				CE6AA28E132569FF002513D0 /* NSDataAdditions.m in Sources */,
 				CE6AA28F132569FF002513D0 /* TBXML.m in Sources */,
+				CE682E8813269AD4000C7469 /* HttpRequestWrapper.m in Sources */,
+				CE6B320A1326B36C006C7813 /* MainMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		CE6B324E1326B971006C7813 /* MainMenuViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE6B32501326B977006C7813 /* en */,
+				CE6B32511326B97B006C7813 /* pl */,
+			);
+			name = MainMenuViewController.xib;
+			sourceTree = "<group>";
+		};
 		CECE5BCB1322BE8B00094BE7 /* LoginViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

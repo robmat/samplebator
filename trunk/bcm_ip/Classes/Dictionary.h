@@ -14,7 +14,7 @@
 	BOOL asynchronous;
 }
 
-- (Dictionary*) loadDictionaryAndRetry: (BOOL) retry asynchronous: (BOOL) async;
+- (Dictionary*) loadDictionaryAndRetry: (BOOL) retry asynchronous: (BOOL) async overwrite: (BOOL) overwrite;
 - (NSString*) valueByDictionary: (NSString*) dictKey andKey: (NSString*) key;
 + (NSString*) localeAbbr;
 @end

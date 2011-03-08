@@ -11,6 +11,7 @@
 #import "bcm_ipAppDelegate.h"
 #import "ASIFormDataRequest.h"
 #import "Dictionary.h"
+#import "MainMenuViewController.h"
 
 @implementation LoginViewController
 
@@ -54,11 +55,6 @@
 }
 
 - (IBAction) loginAction: (id) sender {
-	Dictionary* dict = [[[Dictionary alloc] init] retain];	
-	[dict loadDictionaryAndRetry:YES asynchronous:NO];
-	NSLog( [dict valueByDictionary:@"ASSET_TYPE" andKey:@"1"] );
-	[dict loadDictionaryAndRetry:YES asynchronous:NO];
-	
 	NSString* urlStr = [NSString stringWithString: [bcm_ipAppDelegate baseURL]];
 	urlStr = [urlStr stringByAppendingString:siteTxtFld.text];
 	urlStr = [urlStr stringByAppendingString: [bcm_ipAppDelegate apiSuffix]];
@@ -68,10 +64,15 @@
 	[request setPostValue: @"validateUser" forKey:@"action"];
 	[request setPostValue: userTxtFld.text forKey:@"user"];
 	[request setPostValue: passTxtFld.text forKey:@"password"];
-	[request setPostValue: [UIDevice currentDevice].uniqueIdentifier forKey:@"id"];
+	[request setPostValue: [UIDevice currentDevice].uniqueIdentifier forKey:@"devid"];
 	[request setPostValue: [Dictionary localeAbbr] forKey:@"lang"];
 	[request setDelegate:self];
 	[request startAsynchronous];
+	
+	MainMenuViewController* mmvc = [[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil];
+	[self.navigationController pushViewController:mmvc animated:YES];
+	[mmvc release];
+	
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request {
@@ -79,6 +80,8 @@
 	if ( [responseString isEqual:@"<response>ok</response>"] ) {
 		NSArray* loginDataArr = [NSArray arrayWithObjects: userTxtFld.text, passTxtFld.text, siteTxtFld.text, nil ];
 		[loginDataArr writeToFile:[bcm_ipAppDelegate getLoginDataFilePath] atomically: YES];
+		Dictionary* dict = [[[Dictionary alloc] init] autorelease];	
+		[dict loadDictionaryAndRetry:YES asynchronous:NO overwrite:YES];
 	} else {
 		UIAlertView* alert;
 		if ( [responseString rangeOfString:@"HTTP 404"].location != NSNotFound ) {

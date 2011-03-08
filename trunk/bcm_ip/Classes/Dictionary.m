@@ -20,9 +20,9 @@
 	NSArray* locArr = [loc componentsSeparatedByString:@"_"];
 	return [locArr objectAtIndex:0];
 }
-- (Dictionary*) loadDictionaryAndRetry: (BOOL) retry asynchronous: (BOOL) async {
+- (Dictionary*) loadDictionaryAndRetry: (BOOL) retry asynchronous: (BOOL) async overwrite: (BOOL) overwrite {
 	NSString* filePath = [bcm_ipAppDelegate getDictFilePath];
-	if ( [[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+	if ( [[NSFileManager defaultManager] fileExistsAtPath:filePath] && !overwrite) {
 		NSString* xmlDocStr = [NSString stringWithContentsOfFile: filePath encoding:NSUTF8StringEncoding error:nil];
 		xmlDoc = [[[TBXML alloc] initWithXMLString:xmlDocStr] retain];
 		return self;
@@ -35,8 +35,8 @@
 	[request setPostValue: @"getAllDictionaries" forKey:@"action"];
 	[request setPostValue: [loginData objectAtIndex:0] forKey:@"user"];
 	[request setPostValue: [loginData objectAtIndex:1] forKey:@"password"];
-	[request setPostValue: [UIDevice currentDevice].uniqueIdentifier forKey:@"id"];
-	[request setPostValue: [[NSLocale currentLocale] localeIdentifier] forKey:@"lang"];
+	[request setPostValue: [UIDevice currentDevice].uniqueIdentifier forKey:@"devid"];
+	[request setPostValue: [Dictionary localeAbbr] forKey:@"lang"];
 	if (!async) {
 		[request startSynchronous];
 		NSString *responseString = [request responseString];
