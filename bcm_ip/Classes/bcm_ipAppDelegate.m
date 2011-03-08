@@ -39,9 +39,15 @@
     
     // Override point for customization after application launch.
     
-	loginController = [[LoginViewController alloc] init];
+	navController = [[UINavigationController alloc] init];
 	
-	[window addSubview: loginController.view];
+	[window addSubview: navController.view];
+	
+	LoginViewController* loginVC = [[LoginViewController alloc] init];
+	
+	[navController pushViewController: loginVC animated:YES];
+	
+	[loginVC release];
 	
     [window makeKeyAndVisible];
     
@@ -98,7 +104,7 @@
 
 
 - (void)dealloc {
-	[loginController release];
+	[navController release];
     [window release];
     [super dealloc];
 }
