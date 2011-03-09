@@ -18,7 +18,10 @@
 	[self.navigationController pushViewController:loginVC animated:YES];
 	[loginVC release];
 }
-
+- (IBAction) supportAction: (id) sender {
+	NSURL *url = [NSURL URLWithString:@"http://support.bcmlogic.com/"];
+	[[UIApplication sharedApplication] openURL:url];
+}
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {

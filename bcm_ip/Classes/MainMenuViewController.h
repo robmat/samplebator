@@ -14,5 +14,5 @@
 }
 
 - (IBAction) logoutAction: (id) sender;
-
+- (IBAction) supportAction: (id) sender;
 @end
