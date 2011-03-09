@@ -49,7 +49,7 @@
 	} else if (textField == passTxtFld) {
 		[siteTxtFld becomeFirstResponder];
 	} else if (textField == siteTxtFld) {
-		[self loginAction:loginBtn];
+		[siteTxtFld resignFirstResponder];
 	}
 	return YES;
 }
@@ -68,11 +68,6 @@
 	[request setPostValue: [Dictionary localeAbbr] forKey:@"lang"];
 	[request setDelegate:self];
 	[request startAsynchronous];
-	
-	MainMenuViewController* mmvc = [[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil];
-	[self.navigationController pushViewController:mmvc animated:YES];
-	[mmvc release];
-	
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request {
@@ -82,6 +77,9 @@
 		[loginDataArr writeToFile:[bcm_ipAppDelegate getLoginDataFilePath] atomically: YES];
 		Dictionary* dict = [[[Dictionary alloc] init] autorelease];	
 		[dict loadDictionaryAndRetry:YES asynchronous:NO overwrite:YES];
+		MainMenuViewController* mmvc = [[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil];
+		[self.navigationController pushViewController:mmvc animated:YES];
+		[mmvc release];
 	} else {
 		UIAlertView* alert;
 		if ( [responseString rangeOfString:@"HTTP 404"].location != NSNotFound ) {
@@ -100,7 +98,28 @@
 	[alert show];
 	[alert release];
 }
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self animateTextField: textField up: YES];
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self animateTextField: textField up: NO];
+}
 
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    const int movementDistance = 80; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+	
+    int movement = (up ? -movementDistance : movementDistance);
+	
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
 /*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

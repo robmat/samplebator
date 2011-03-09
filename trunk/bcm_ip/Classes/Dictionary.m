@@ -42,7 +42,7 @@
 		NSString *responseString = [request responseString];
 		xmlDoc = [[[TBXML alloc] initWithXMLString:responseString] retain];
 		if (!xmlDoc && retry) {
-			[self loadDictionaryAndRetry:NO asynchronous:async];
+			[self loadDictionaryAndRetry:NO asynchronous:async overwrite: overwrite];
 		}
 		[responseString writeToFile:[bcm_ipAppDelegate getDictFilePath] atomically:YES encoding: NSUTF8StringEncoding error: nil];
 	} else {

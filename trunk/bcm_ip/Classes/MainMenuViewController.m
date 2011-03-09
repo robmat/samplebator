@@ -7,9 +7,17 @@
 //
 
 #import "MainMenuViewController.h"
-
+#import "bcm_ipAppDelegate.h"
+#import "LoginViewController.h"
 
 @implementation MainMenuViewController
+
+- (IBAction) logoutAction: (id) sender {
+	[[NSFileManager defaultManager] removeItemAtPath:[bcm_ipAppDelegate getLoginDataFilePath] error:nil];
+	LoginViewController* loginVC = [[LoginViewController alloc] init];
+	[self.navigationController pushViewController:loginVC animated:YES];
+	[loginVC release];
+}
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
