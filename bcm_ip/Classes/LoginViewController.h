@@ -30,5 +30,6 @@
 
 
 - (IBAction) loginAction: (id) sender;
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up;
 
 @end
