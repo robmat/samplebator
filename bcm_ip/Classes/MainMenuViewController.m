@@ -9,6 +9,7 @@
 #import "MainMenuViewController.h"
 #import "bcm_ipAppDelegate.h"
 #import "LoginViewController.h"
+#import "ProcessesViewController.h"
 
 @implementation MainMenuViewController
 
@@ -22,6 +23,11 @@
 	NSURL *url = [NSURL URLWithString:@"http://support.bcmlogic.com/"];
 	[[UIApplication sharedApplication] openURL:url];
 }
+- (IBAction) processesAction: (id) sender {
+	ProcessesViewController* procVC = [[ProcessesViewController alloc] init];
+	[self.navigationController pushViewController:procVC animated:YES];
+	[procVC release];
+}	
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {

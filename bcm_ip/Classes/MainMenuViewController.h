@@ -15,4 +15,6 @@
 
 - (IBAction) logoutAction: (id) sender;
 - (IBAction) supportAction: (id) sender;
+- (IBAction) processesAction: (id) sender;
+
 @end
