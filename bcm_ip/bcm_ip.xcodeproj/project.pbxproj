@@ -16,9 +16,9 @@
 		CE262A58132229B6009203ED /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE262A56132229B6009203ED /* LoginViewController.m */; };
 		CE682E8813269AD4000C7469 /* HttpRequestWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE682E8713269AD4000C7469 /* HttpRequestWrapper.m */; };
 		CE69EBE713294FA70093593C /* ProcessesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE69EBE513294FA70093593C /* ProcessesViewController.m */; };
-		CE69EC03132962D60093593C /* ProcessesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE69EC02132962D60093593C /* ProcessesViewController.xib */; };
 		CE6AA28E132569FF002513D0 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6AA28B132569FF002513D0 /* NSDataAdditions.m */; };
 		CE6AA28F132569FF002513D0 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6AA28D132569FF002513D0 /* TBXML.m */; };
+		CE6B2D9A1329790A00A67C19 /* ProcessesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6B2D991329790A00A67C19 /* ProcessesViewController.xib */; };
 		CE6B320A1326B36C006C7813 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6B32081326B36C006C7813 /* MainMenuViewController.m */; };
 		CE6B324F1326B971006C7813 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6B324E1326B971006C7813 /* MainMenuViewController.xib */; };
 		CE76685F1323A7D200B5E56C /* Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CE76685E1323A7D200B5E56C /* Dictionary.m */; };
@@ -58,12 +58,11 @@
 		CE682E8713269AD4000C7469 /* HttpRequestWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestWrapper.m; sourceTree = "<group>"; };
 		CE69EBE413294FA70093593C /* ProcessesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessesViewController.h; sourceTree = "<group>"; };
 		CE69EBE513294FA70093593C /* ProcessesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessesViewController.m; sourceTree = "<group>"; };
-		CE69EC04132962DE0093593C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ProcessesViewController.xib; sourceTree = "<group>"; };
-		CE69EC05132962E10093593C /* pl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pl; path = pl.lproj/ProcessesViewController.xib; sourceTree = "<group>"; };
 		CE6AA28A132569FF002513D0 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = xml_dom/NSDataAdditions.h; sourceTree = "<group>"; };
 		CE6AA28B132569FF002513D0 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = xml_dom/NSDataAdditions.m; sourceTree = "<group>"; };
 		CE6AA28C132569FF002513D0 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXML.h; path = xml_dom/TBXML.h; sourceTree = "<group>"; };
 		CE6AA28D132569FF002513D0 /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBXML.m; path = xml_dom/TBXML.m; sourceTree = "<group>"; };
+		CE6B2D991329790A00A67C19 /* ProcessesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProcessesViewController.xib; sourceTree = "<group>"; };
 		CE6B32071326B36C006C7813 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		CE6B32081326B36C006C7813 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		CE6B32501326B977006C7813 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenuViewController.xib; sourceTree = "<group>"; };
@@ -213,7 +212,7 @@
 				CE6B324E1326B971006C7813 /* MainMenuViewController.xib */,
 				CE69EBE413294FA70093593C /* ProcessesViewController.h */,
 				CE69EBE513294FA70093593C /* ProcessesViewController.m */,
-				CE69EC02132962D60093593C /* ProcessesViewController.xib */,
+				CE6B2D991329790A00A67C19 /* ProcessesViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -314,7 +313,7 @@
 				CECE5BCC1322BE8B00094BE7 /* LoginViewController.xib in Resources */,
 				CECE5B961322B8E300094BE7 /* logo.jpg in Resources */,
 				CE6B324F1326B971006C7813 /* MainMenuViewController.xib in Resources */,
-				CE69EC03132962D60093593C /* ProcessesViewController.xib in Resources */,
+				CE6B2D9A1329790A00A67C19 /* ProcessesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,15 +348,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE69EC02132962D60093593C /* ProcessesViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE69EC04132962DE0093593C /* en */,
-				CE69EC05132962E10093593C /* pl */,
-			);
-			name = ProcessesViewController.xib;
-			sourceTree = "<group>";
-		};
 		CE6B324E1326B971006C7813 /* MainMenuViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
