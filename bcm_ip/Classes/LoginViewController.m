@@ -28,6 +28,7 @@
 */
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+	self.title = NSLocalizedString(@"loginFormTitle", nil);
 	NSString* filePath = [bcm_ipAppDelegate getLoginDataFilePath];
 	if ( [[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
 		NSArray* loginDataArr = [NSArray arrayWithContentsOfFile: filePath];

@@ -22,20 +22,26 @@
     [super viewDidLoad];
 	httpRequest = [[HttpRequestWrapper alloc] initWithDelegate:self];
 	[httpRequest makeRequestWithParams:[NSDictionary dictionaryWithObjectsAndKeys: @"getAllProcesses", @"action", nil]];
+	self.title = NSLocalizedString(@"processesFormTitle", nil);
+	selectedRow = [NSNumber numberWithInt: -1];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"refreshBtnLbl", nil) style:UIBarButtonItemStylePlain target:self action: @selector(refreshAction)];
 }
-
+- (void) refreshAction {
+	[httpRequest release];
+	httpRequest = [[HttpRequestWrapper alloc] initWithDelegate:self];
+	[httpRequest makeRequestWithParams:[NSDictionary dictionaryWithObjectsAndKeys: @"getAllProcesses", @"action", nil]];
+}
 - (void)requestFinished:(ASIHTTPRequest *)request {
 	NSString* responseString = [request responseString];
 	TBXML* xmlDoc = [TBXML tbxmlWithXMLString:responseString];
-	processesArray = [[NSMutableArray alloc] init];
+	itemsArray = [[NSMutableArray alloc] init];
 	TBXMLElement* itemElem = [TBXML childElementNamed:@"BusinessProcess" parentElement: xmlDoc.rootXMLElement]; 
 	
 	do {
 		TBXMLElement* itemChildElem = itemElem->firstChild;
 		NSMutableDictionary* processDict = [NSMutableDictionary dictionaryWithCapacity:10];
-		[processesArray addObject:processDict];
+		[itemsArray addObject:processDict];
 		
 		while (itemChildElem = itemChildElem->nextSibling) {
 			NSString* elemName = [TBXML elementName:itemChildElem];
@@ -91,7 +97,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return [processesArray count];
+	return [itemsArray count];
 }
 
 
@@ -102,14 +108,37 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    
-    cell.textLabel.text = [[processesArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
-    
+    if ([selectedRow isEqualToNumber:[NSNumber numberWithInt:indexPath.row]]) {
+		[cell.contentView addSubview: [self composeViewForSelectedRow: indexPath cellContentFrame: cell.contentView.frame]];
+	} else {
+		cell.textLabel.text = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
+		cell.detailTextLabel.text = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Desc"];
+	}
     return cell;
 }
-
+- (UIView*) composeViewForSelectedRow: (NSIndexPath*) indexPath cellContentFrame: (CGRect) frame {
+	UIView* container = [[[UIView alloc] initWithFrame: frame] autorelease];
+	NSDictionary* item = [itemsArray objectAtIndex:indexPath.row];
+	NSNumber* maxSizeOfValue = [NSNumber numberWithInt:-1];
+	NSNumber* labelsHeight = [NSNumber numberWithInt:-1];
+	for (NSString* key in [item keyEnumerator]) {
+		CGSize size = [key sizeWithFont: [UIFont fontWithName: @"Helvetica" size: 17]];
+		if (size.width > [maxSizeOfValue intValue]) {
+			maxSizeOfValue = [NSNumber numberWithFloat:size.width];
+		}	
+		labelsHeight = [NSNumber numberWithInt:size.height];
+	}
+	NSNumber* yIndex = [NSNumber numberWithInt:0];
+	for (NSString* key in [item keyEnumerator]) {
+		UILabel* keyLbl = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, [maxSizeOfValue floatValue], [labelsHeight floatValue] )];
+		keyLbl.text = key;
+		NSString* value = [item objectForKey:key];
+		
+	}
+	return container;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -162,8 +191,16 @@
 	 [self.navigationController pushViewController:detailViewController animated:YES];
 	 [detailViewController release];
 	 */
+	
+	//UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+	//UIView* view = [[UIView alloc] initWithFrame:cell.contentView.frame];	
+	selectedRow = [NSNumber numberWithInt: indexPath.row];
+	[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation: UITableViewScrollPositionNone];
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return /*[selectedRow isEqualToNumber:[NSNumber numberWithInt:indexPath.row]] ? 90 :*/ 60;
+}
 
 #pragma mark -
 #pragma mark Memory management
@@ -184,7 +221,8 @@
 - (void)dealloc {
     [super dealloc];
 	[httpRequest release];
-	[processesArray release];
+	[itemsArray release];
+	[selectedRow release];
 }
 
 
