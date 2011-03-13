@@ -23,7 +23,7 @@
 	httpRequest = [[HttpRequestWrapper alloc] initWithDelegate:self];
 	[httpRequest makeRequestWithParams:[NSDictionary dictionaryWithObjectsAndKeys: @"getAllProcesses", @"action", nil]];
 	self.title = NSLocalizedString(@"processesFormTitle", nil);
-	selectedRow = [NSNumber numberWithInt: -1];
+	selectedRow = -1;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"refreshBtnLbl", nil) style:UIBarButtonItemStylePlain target:self action: @selector(refreshAction)];
 }
@@ -110,8 +110,15 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    if ([selectedRow isEqualToNumber:[NSNumber numberWithInt:indexPath.row]]) {
-		[cell.contentView addSubview: [self composeViewForSelectedRow: indexPath cellContentFrame: cell.contentView.frame]];
+	while ([cell.contentView.subviews count] != 0) {
+		[[cell.contentView.subviews objectAtIndex:0] removeFromSuperview];
+	}
+	cell.textLabel.text = @"";
+	cell.detailTextLabel.text = @"";
+    if ([[NSNumber numberWithInt:selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]]) {
+		UIView* contentView = [self composeViewForSelectedRow: indexPath cellContentFrame: cell.contentView.frame];
+		[cell.contentView addSubview: contentView];
+		[contentView release];
 	} else {
 		cell.textLabel.text = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
 		cell.detailTextLabel.text = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Desc"];
@@ -119,7 +126,7 @@
     return cell;
 }
 - (UIView*) composeViewForSelectedRow: (NSIndexPath*) indexPath cellContentFrame: (CGRect) frame {
-	UIView* container = [[[UIView alloc] initWithFrame: frame] autorelease];
+	UIView* container = [[UIView alloc] initWithFrame: frame];
 	NSDictionary* item = [itemsArray objectAtIndex:indexPath.row];
 	NSNumber* maxSizeOfValue = [NSNumber numberWithInt:-1];
 	NSNumber* labelsHeight = [NSNumber numberWithInt:-1];
@@ -132,10 +139,20 @@
 	}
 	NSNumber* yIndex = [NSNumber numberWithInt:0];
 	for (NSString* key in [item keyEnumerator]) {
-		UILabel* keyLbl = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, [maxSizeOfValue floatValue], [labelsHeight floatValue] )];
+		UILabel* keyLbl = [[UILabel alloc] initWithFrame: CGRectMake(0, [yIndex intValue], [maxSizeOfValue floatValue], [labelsHeight floatValue] )];
 		keyLbl.text = key;
-		NSString* value = [item objectForKey:key];
+		keyLbl.font = [UIFont fontWithName:@"Helvetica" size:17];
+		[container addSubview:keyLbl];
+		[keyLbl release];
 		
+		NSString* value = [item objectForKey:key];
+		UILabel* valLbl = [[UILabel alloc] initWithFrame: CGRectMake([maxSizeOfValue floatValue] + 10, [yIndex intValue], frame.size.width, [labelsHeight floatValue] )];
+		valLbl.text = value;
+		valLbl.font = [UIFont fontWithName:@"Helvetica" size:17];
+		[container addSubview:valLbl];
+		[valLbl release];
+		
+		yIndex = [NSNumber numberWithInt: [yIndex intValue] + [labelsHeight intValue] ];
 	}
 	return container;
 }
@@ -194,12 +211,18 @@
 	
 	//UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
 	//UIView* view = [[UIView alloc] initWithFrame:cell.contentView.frame];	
-	selectedRow = [NSNumber numberWithInt: indexPath.row];
+	int rowTemp = selectedRow;
+	selectedRow = indexPath.row;
+	if (rowTemp > -1) {
+		[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:rowTemp inSection:0]] withRowAnimation: UITableViewScrollPositionNone];
+	}
 	[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation: UITableViewScrollPositionNone];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return /*[selectedRow isEqualToNumber:[NSNumber numberWithInt:indexPath.row]] ? 90 :*/ 60;
+    float height = [[NSString stringWithString:@"A"] sizeWithFont:[UIFont fontWithName:@"Helvetica" size:17]].height;
+	int retVal = [[ NSNumber numberWithInt: selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]] ? [[itemsArray objectAtIndex:selectedRow] count] * height + 30: 60;
+	return retVal;
 }
 
 #pragma mark -

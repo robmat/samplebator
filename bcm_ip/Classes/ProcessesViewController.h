@@ -12,7 +12,7 @@
 @interface ProcessesViewController : UITableViewController {
 	HttpRequestWrapper* httpRequest;
 	NSMutableArray* itemsArray;
-	NSNumber* selectedRow;
+	int selectedRow;
 }
 - (UITableViewCell*) composeViewForSelectedRow: (NSIndexPath*) indexPath cellContentFrame: (CGRect) frame;
 @end
