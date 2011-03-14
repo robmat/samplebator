@@ -51,7 +51,6 @@ tasksLbl#0="Tasks";
 templatesLbl#0="Templates";
 timeLbl#0="Date";
 typeLbl#0="Type";
-unavailableInThisVersionLbl#0="This feature is unavailable in version 1.0";
 valueLbl#0="Value";
 voiceIntroLbl#0="Voice intro";
 voiceLbl#0="Voice";

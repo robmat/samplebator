@@ -51,7 +51,6 @@ tasksLbl#0="Zadania";
 templatesLbl#0="Szablony";
 timeLbl#0="Data";
 typeLbl#0="Typ";
-unavailableInThisVersionLbl#0="Ta funkcja jest nie dost\u0119pna w wersji 1.0";
 valueLbl#0="Warto\u015B\u0107";
 voiceIntroLbl#0="Intro g\u0142osowe";
 voiceLbl#0="G\u0142osowo";
