@@ -100,6 +100,11 @@
 	return [itemsArray count];
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+	if ([[NSNumber numberWithInt:selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]]) {
+		cell.selectionStyle = UITableViewCellSelectionStyleGray;
+	}
+}
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -110,11 +115,12 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-	while ([cell.contentView.subviews count] != 0) {
+	while ([cell.contentView.subviews count] != 0 && [[cell.contentView.subviews objectAtIndex:0] tag] == 666) {
 		[[cell.contentView.subviews objectAtIndex:0] removeFromSuperview];
 	}
 	cell.textLabel.text = @"";
 	cell.detailTextLabel.text = @"";
+	cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     if ([[NSNumber numberWithInt:selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]]) {
 		UIView* contentView = [self composeViewForSelectedRow: indexPath cellContentFrame: cell.contentView.frame];
 		[cell.contentView addSubview: contentView];
@@ -127,34 +133,46 @@
 }
 - (UIView*) composeViewForSelectedRow: (NSIndexPath*) indexPath cellContentFrame: (CGRect) frame {
 	UIView* container = [[UIView alloc] initWithFrame: frame];
+	container.tag = 666;
 	NSDictionary* item = [itemsArray objectAtIndex:indexPath.row];
 	NSNumber* maxSizeOfValue = [NSNumber numberWithInt:-1];
 	NSNumber* labelsHeight = [NSNumber numberWithInt:-1];
 	for (NSString* key in [item keyEnumerator]) {
-		CGSize size = [key sizeWithFont: [UIFont fontWithName: @"Helvetica" size: 17]];
+		CGSize size = [key sizeWithFont: [UIFont fontWithName: @"Helvetica" size: 15]];
 		if (size.width > [maxSizeOfValue intValue]) {
 			maxSizeOfValue = [NSNumber numberWithFloat:size.width];
 		}	
 		labelsHeight = [NSNumber numberWithInt:size.height];
 	}
-	NSNumber* yIndex = [NSNumber numberWithInt:0];
+	NSNumber* yIndex = [NSNumber numberWithInt:5];
 	for (NSString* key in [item keyEnumerator]) {
-		UILabel* keyLbl = [[UILabel alloc] initWithFrame: CGRectMake(0, [yIndex intValue], [maxSizeOfValue floatValue], [labelsHeight floatValue] )];
+		UILabel* keyLbl = [[UILabel alloc] initWithFrame: CGRectMake(5, [yIndex intValue], [maxSizeOfValue floatValue], [labelsHeight floatValue] )];
 		keyLbl.text = key;
-		keyLbl.font = [UIFont fontWithName:@"Helvetica" size:17];
+		keyLbl.font = [UIFont fontWithName:@"Helvetica" size:15];
 		[container addSubview:keyLbl];
 		[keyLbl release];
 		
 		NSString* value = [item objectForKey:key];
-		UILabel* valLbl = [[UILabel alloc] initWithFrame: CGRectMake([maxSizeOfValue floatValue] + 10, [yIndex intValue], frame.size.width, [labelsHeight floatValue] )];
+		UILabel* valLbl = [[UILabel alloc] initWithFrame: CGRectMake([maxSizeOfValue floatValue] + 10, [yIndex intValue], frame.size.width, [labelsHeight floatValue])];
 		valLbl.text = value;
-		valLbl.font = [UIFont fontWithName:@"Helvetica" size:17];
+		valLbl.font = [UIFont fontWithName:@"Helvetica" size:15];
 		[container addSubview:valLbl];
 		[valLbl release];
 		
 		yIndex = [NSNumber numberWithInt: [yIndex intValue] + [labelsHeight intValue] ];
 	}
+	/*
+	UIButton* detailBtn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+	[detailBtn setTitle: NSLocalizedString(@"makResourcesLbl", nil) forState: UIControlStateNormal];
+	detailBtn.frame = CGRectMake(0, [yIndex intValue] + 5, frame.size.width, [labelsHeight floatValue] + 20);
+	[detailBtn addTarget:self action:@selector(detailAction:) forControlEvents:UIControlEventTouchDown];
+	[container addSubview:detailBtn];
+	[detailBtn release];
+	 */
 	return container;
+}
+- (void) detailAction: (id) sender {
+	NSLog(@"@%", @"dewwedwedwedwedw");
 }
 /*
 // Override to support conditional editing of the table view.
@@ -211,8 +229,9 @@
 	
 	//UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
 	//UIView* view = [[UIView alloc] initWithFrame:cell.contentView.frame];	
+	
 	int rowTemp = selectedRow;
-	selectedRow = indexPath.row;
+	selectedRow = [[NSNumber numberWithInt: indexPath.row] isEqualToNumber:[NSNumber numberWithInt:selectedRow]] ? -1 : indexPath.row;
 	if (rowTemp > -1) {
 		[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:rowTemp inSection:0]] withRowAnimation: UITableViewScrollPositionNone];
 	}
@@ -221,7 +240,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     float height = [[NSString stringWithString:@"A"] sizeWithFont:[UIFont fontWithName:@"Helvetica" size:17]].height;
-	int retVal = [[ NSNumber numberWithInt: selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]] ? [[itemsArray objectAtIndex:selectedRow] count] * height + 30: 60;
+	int retVal = [[ NSNumber numberWithInt: selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]] ? [[itemsArray objectAtIndex:selectedRow] count] * height: 60;
 	return retVal;
 }
 
@@ -242,10 +261,9 @@
 
 
 - (void)dealloc {
-    [super dealloc];
 	[httpRequest release];
 	[itemsArray release];
-	[selectedRow release];
+	[super dealloc];
 }
 
 
