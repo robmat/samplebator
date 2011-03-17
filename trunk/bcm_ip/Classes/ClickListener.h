@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@protocol ClickListener
+@protocol ClickListener <NSObject>
 
-- (void) detailClicked;
+- (void) detailClicked: (NSString*) idStr;
 - (BOOL) respondsToSelector: (SEL) sel;
+
 @end
