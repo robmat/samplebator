@@ -6,11 +6,11 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ProcesDetailDelegate.h"
+#import "ProcessAssetsDelegate.h"
 #import "ItemsViewController.h"
+#import "AssetITInfrastructureDelegate.h"
 
-
-@implementation ProcesDetailDelegate
+@implementation ProcessAssetsDelegate
 
 @synthesize navigationController;
 
@@ -18,15 +18,20 @@
 	ItemsViewController* procVC = [[ItemsViewController alloc] init];
 	procVC.requestParams = [NSDictionary dictionaryWithObjectsAndKeys: @"getAssetsByProcess", @"action", idStr, @"processId", nil];
 	procVC.xmlItemName = [NSString stringWithString:@"Asset"];
-	procVC.delegate = [[[ProcesDetailDelegate alloc] init] autorelease];
+	AssetITInfrastructureDelegate* delegate = [[[AssetITInfrastructureDelegate alloc] init] autorelease];
+	delegate.navigationController = self.navigationController;
+	procVC.delegate = delegate;
 	procVC.title = NSLocalizedString(@"assetsViewTitle", nil);
+	procVC.dictionary = [[[[Dictionary alloc] init] loadDictionaryAndRetry:YES asynchronous:YES overwrite:NO] autorelease];
+	procVC.dictionary.dictMappings = [NSDictionary dictionaryWithObjectsAndKeys: 
+									  @"ASSET_STATUS_PROBE", @"StatusProbe", 
+									  @"ASSET_STATUS", @"Status", 
+									  @"ASSET_TYPE", @"Type", nil];	
 	[self.navigationController pushViewController:procVC animated:YES];
 	[procVC release];
 	
 }
-- (BOOL) respondsToSelector:(SEL)aSelector {
-	return [super respondsToSelector:aSelector];
-}
+
 - (void) dealloc {
 	[navigationController release];
 	[super dealloc];

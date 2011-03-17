@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ClickListener.h"
 
-@interface ProcesDetailDelegate : NSObject <ClickListener> {
+@interface ProcessAssetsDelegate : NSObject <ClickListener> {
 
 	UINavigationController* navigationController;
 	
