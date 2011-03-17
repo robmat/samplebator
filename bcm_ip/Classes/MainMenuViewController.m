@@ -9,7 +9,8 @@
 #import "MainMenuViewController.h"
 #import "bcm_ipAppDelegate.h"
 #import "LoginViewController.h"
-#import "ProcessesViewController.h"
+#import "ItemsViewController.h"
+#import "ProcesDetailDelegate.h"
 
 @implementation MainMenuViewController
 
@@ -24,7 +25,11 @@
 	[[UIApplication sharedApplication] openURL:url];
 }
 - (IBAction) processesAction: (id) sender {
-	ProcessesViewController* procVC = [[ProcessesViewController alloc] init];
+	ItemsViewController* procVC = [[ItemsViewController alloc] init];
+	procVC.requestParams = [NSDictionary dictionaryWithObjectsAndKeys: @"getAllProcesses", @"action", nil];
+	procVC.xmlItemName = [NSString stringWithString:@"BusinessProcess"];
+	procVC.delegate = [[[ProcesDetailDelegate alloc] init] autorelease];
+	procVC.title = NSLocalizedString(@"processesViewTitle", nil);
 	[self.navigationController pushViewController:procVC animated:YES];
 	[procVC release];
 }	

@@ -35,6 +35,9 @@
 	NSArray* loginDataArr = [[[NSArray alloc] initWithContentsOfFile: [self getLoginDataFilePath]] autorelease];
 	return [NSString stringWithFormat:@"%@%@%@", [self baseURL], [loginDataArr objectAtIndex:2], [self apiSuffix]];
 }	
++ (UIFont*) defaultFont {
+	return [UIFont fontWithName: @"Helvetica" size: 15];
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     // Override point for customization after application launch.
