@@ -6,13 +6,14 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ProcessesViewController.h"
+#import "ItemsViewController.h"
 #import "HttpRequestWrapper.h"
 #import "TBXML.h"
+#import "bcm_ipAppDelegate.h"
 
+@implementation ItemsViewController
 
-@implementation ProcessesViewController
-
+@synthesize requestParams, xmlItemName, delegate;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -21,8 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	httpRequest = [[HttpRequestWrapper alloc] initWithDelegate:self];
-	[httpRequest makeRequestWithParams:[NSDictionary dictionaryWithObjectsAndKeys: @"getAllProcesses", @"action", nil]];
-	self.title = NSLocalizedString(@"processesFormTitle", nil);
+	[httpRequest makeRequestWithParams: requestParams];
 	selectedRow = -1;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"refreshBtnLbl", nil) style:UIBarButtonItemStylePlain target:self action: @selector(refreshAction)];
@@ -30,13 +30,16 @@
 - (void) refreshAction {
 	[httpRequest release];
 	httpRequest = [[HttpRequestWrapper alloc] initWithDelegate:self];
-	[httpRequest makeRequestWithParams:[NSDictionary dictionaryWithObjectsAndKeys: @"getAllProcesses", @"action", nil]];
+	[httpRequest makeRequestWithParams: requestParams];
 }
 - (void)requestFinished:(ASIHTTPRequest *)request {
 	NSString* responseString = [request responseString];
 	TBXML* xmlDoc = [TBXML tbxmlWithXMLString:responseString];
+	if (itemsArray) {
+		[itemsArray release];
+	}
 	itemsArray = [[NSMutableArray alloc] init];
-	TBXMLElement* itemElem = [TBXML childElementNamed:@"BusinessProcess" parentElement: xmlDoc.rootXMLElement]; 
+	TBXMLElement* itemElem = [TBXML childElementNamed: xmlItemName parentElement: xmlDoc.rootXMLElement]; 
 	
 	do {
 		TBXMLElement* itemChildElem = itemElem->firstChild;
@@ -49,7 +52,7 @@
 			[processDict setObject:elemValu forKey:elemName];
 		}
 		
-		itemElem = [TBXML nextSiblingNamed:@"BusinessProcess" searchFromElement:itemElem];
+		itemElem = [TBXML nextSiblingNamed: xmlItemName searchFromElement:itemElem];
 	} while (itemElem);
 	[self.tableView reloadData];
 }
@@ -138,7 +141,7 @@
 	NSNumber* maxSizeOfValue = [NSNumber numberWithInt:-1];
 	NSNumber* labelsHeight = [NSNumber numberWithInt:-1];
 	for (NSString* key in [item keyEnumerator]) {
-		CGSize size = [key sizeWithFont: [UIFont fontWithName: @"Helvetica" size: 15]];
+		CGSize size = [key sizeWithFont: [bcm_ipAppDelegate defaultFont]];
 		if (size.width > [maxSizeOfValue intValue]) {
 			maxSizeOfValue = [NSNumber numberWithFloat:size.width];
 		}	
@@ -148,31 +151,25 @@
 	for (NSString* key in [item keyEnumerator]) {
 		UILabel* keyLbl = [[UILabel alloc] initWithFrame: CGRectMake(5, [yIndex intValue], [maxSizeOfValue floatValue], [labelsHeight floatValue] )];
 		keyLbl.text = key;
-		keyLbl.font = [UIFont fontWithName:@"Helvetica" size:15];
+		keyLbl.font = [bcm_ipAppDelegate defaultFont];
 		[container addSubview:keyLbl];
 		[keyLbl release];
 		
 		NSString* value = [item objectForKey:key];
-		UILabel* valLbl = [[UILabel alloc] initWithFrame: CGRectMake([maxSizeOfValue floatValue] + 10, [yIndex intValue], frame.size.width, [labelsHeight floatValue])];
+		UILabel* valLbl = [[UILabel alloc] initWithFrame: CGRectMake([maxSizeOfValue floatValue] + 10, [yIndex intValue], frame.size.width - 20 - [maxSizeOfValue floatValue], [labelsHeight floatValue])];
 		valLbl.text = value;
-		valLbl.font = [UIFont fontWithName:@"Helvetica" size:15];
+		valLbl.font = [bcm_ipAppDelegate defaultFont];
 		[container addSubview:valLbl];
 		[valLbl release];
 		
 		yIndex = [NSNumber numberWithInt: [yIndex intValue] + [labelsHeight intValue] ];
 	}
-	/*
-	UIButton* detailBtn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
-	[detailBtn setTitle: NSLocalizedString(@"makResourcesLbl", nil) forState: UIControlStateNormal];
-	detailBtn.frame = CGRectMake(0, [yIndex intValue] + 5, frame.size.width, [labelsHeight floatValue] + 20);
-	[detailBtn addTarget:self action:@selector(detailAction:) forControlEvents:UIControlEventTouchDown];
-	[container addSubview:detailBtn];
-	[detailBtn release];
-	 */
 	return container;
 }
-- (void) detailAction: (id) sender {
-	NSLog(@"@%", @"dewwedwedwedwedw");
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+	if ([delegate respondsToSelector: @selector(detailClicked)]) {
+		[delegate detailClicked];
+	}
 }
 /*
 // Override to support conditional editing of the table view.
@@ -239,8 +236,8 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    float height = [[NSString stringWithString:@"A"] sizeWithFont:[UIFont fontWithName:@"Helvetica" size:17]].height;
-	int retVal = [[ NSNumber numberWithInt: selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]] ? [[itemsArray objectAtIndex:selectedRow] count] * height: 60;
+    float height = [[NSString stringWithString:@"A"] sizeWithFont:[bcm_ipAppDelegate defaultFont]].height;
+	int retVal = [[ NSNumber numberWithInt: selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]] ? [[itemsArray objectAtIndex:selectedRow] count] * (height + 2) : 60;
 	return retVal;
 }
 
