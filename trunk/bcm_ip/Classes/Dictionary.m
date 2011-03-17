@@ -15,6 +15,8 @@
 
 @implementation Dictionary
 
+@synthesize dictMappings;
+
 + (NSString*) localeAbbr{
 	NSString* loc = [[NSLocale currentLocale] localeIdentifier];
 	NSArray* locArr = [loc componentsSeparatedByString:@"_"];
@@ -51,6 +53,9 @@
 	return self;
 }
 - (NSString*) valueByDictionary: (NSString*) dictKey andKey: (NSString*) key {
+	if ([dictMappings objectForKey: dictKey]) {
+		dictKey = [dictMappings objectForKey: dictKey];
+	}	
 	TBXMLElement* dictElem = [TBXML childElementNamed:@"Dictionary" parentElement: xmlDoc.rootXMLElement]; 
 	do {
 		TBXMLElement* typeElem = [TBXML childElementNamed:@"Type" parentElement:dictElem];
