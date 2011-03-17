@@ -14,8 +14,9 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		CE262A58132229B6009203ED /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE262A56132229B6009203ED /* LoginViewController.m */; };
+		CE655F511332AA1E002E00E3 /* AssetITInfrastructureDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE655F501332AA1E002E00E3 /* AssetITInfrastructureDelegate.m */; };
 		CE682E8813269AD4000C7469 /* HttpRequestWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE682E8713269AD4000C7469 /* HttpRequestWrapper.m */; };
-		CE69EBE713294FA70093593C /* ProcessesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE69EBE513294FA70093593C /* ProcessesViewController.m */; };
+		CE69EBE713294FA70093593C /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE69EBE513294FA70093593C /* ItemsViewController.m */; };
 		CE6AA28E132569FF002513D0 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6AA28B132569FF002513D0 /* NSDataAdditions.m */; };
 		CE6AA28F132569FF002513D0 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6AA28D132569FF002513D0 /* TBXML.m */; };
 		CE6B320A1326B36C006C7813 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6B32081326B36C006C7813 /* MainMenuViewController.m */; };
@@ -38,6 +39,7 @@
 		CECE5F541322D30900094BE7 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = CECE5F481322D30900094BE7 /* ASIInputStream.m */; };
 		CECE5F551322D30900094BE7 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CECE5F4A1322D30900094BE7 /* ASINetworkQueue.m */; };
 		CECE5F561322D30900094BE7 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CECE5F4D1322D30900094BE7 /* Reachability.m */; };
+		CEF4A49D13326CC200138D65 /* ProcessAssetsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4A49C13326CC200138D65 /* ProcessAssetsDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,10 +55,13 @@
 		8D1107310486CEB800E47090 /* bcm_ip-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bcm_ip-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		CE262A55132229B6009203ED /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CE262A56132229B6009203ED /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CE655F4F1332AA1E002E00E3 /* AssetITInfrastructureDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetITInfrastructureDelegate.h; sourceTree = "<group>"; };
+		CE655F501332AA1E002E00E3 /* AssetITInfrastructureDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetITInfrastructureDelegate.m; sourceTree = "<group>"; };
 		CE682E8613269AD4000C7469 /* HttpRequestWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestWrapper.h; sourceTree = "<group>"; };
 		CE682E8713269AD4000C7469 /* HttpRequestWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestWrapper.m; sourceTree = "<group>"; };
-		CE69EBE413294FA70093593C /* ProcessesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessesViewController.h; sourceTree = "<group>"; };
-		CE69EBE513294FA70093593C /* ProcessesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessesViewController.m; sourceTree = "<group>"; };
+		CE69EBE413294FA70093593C /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
+		CE69EBE513294FA70093593C /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
+		CE6A35211332651A00B75A7D /* ClickListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClickListener.h; sourceTree = "<group>"; };
 		CE6AA28A132569FF002513D0 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = xml_dom/NSDataAdditions.h; sourceTree = "<group>"; };
 		CE6AA28B132569FF002513D0 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = xml_dom/NSDataAdditions.m; sourceTree = "<group>"; };
 		CE6AA28C132569FF002513D0 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXML.h; path = xml_dom/TBXML.h; sourceTree = "<group>"; };
@@ -98,6 +103,8 @@
 		CECE5F4B1322D30900094BE7 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIProgressDelegate.h; path = http_helper/ASIProgressDelegate.h; sourceTree = "<group>"; };
 		CECE5F4C1322D30900094BE7 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = http_helper/Reachability.h; sourceTree = "<group>"; };
 		CECE5F4D1322D30900094BE7 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = http_helper/Reachability.m; sourceTree = "<group>"; };
+		CEF4A49B13326CC200138D65 /* ProcessAssetsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessAssetsDelegate.h; sourceTree = "<group>"; };
+		CEF4A49C13326CC200138D65 /* ProcessAssetsDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessAssetsDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,14 +209,15 @@
 		CE262A0113221C63009203ED /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEF4A49913326C9800138D65 /* DetailDelegates */,
 				CE262A55132229B6009203ED /* LoginViewController.h */,
 				CE262A56132229B6009203ED /* LoginViewController.m */,
 				CECE5BCB1322BE8B00094BE7 /* LoginViewController.xib */,
 				CE6B32071326B36C006C7813 /* MainMenuViewController.h */,
 				CE6B32081326B36C006C7813 /* MainMenuViewController.m */,
 				CE6B324E1326B971006C7813 /* MainMenuViewController.xib */,
-				CE69EBE413294FA70093593C /* ProcessesViewController.h */,
-				CE69EBE513294FA70093593C /* ProcessesViewController.m */,
+				CE69EBE413294FA70093593C /* ItemsViewController.h */,
+				CE69EBE513294FA70093593C /* ItemsViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -252,6 +260,18 @@
 				CECE5F4D1322D30900094BE7 /* Reachability.m */,
 			);
 			name = HttpHelper;
+			sourceTree = "<group>";
+		};
+		CEF4A49913326C9800138D65 /* DetailDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				CE6A35211332651A00B75A7D /* ClickListener.h */,
+				CEF4A49B13326CC200138D65 /* ProcessAssetsDelegate.h */,
+				CEF4A49C13326CC200138D65 /* ProcessAssetsDelegate.m */,
+				CE655F4F1332AA1E002E00E3 /* AssetITInfrastructureDelegate.h */,
+				CE655F501332AA1E002E00E3 /* AssetITInfrastructureDelegate.m */,
+			);
+			name = DetailDelegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,7 +357,9 @@
 				CE6AA28F132569FF002513D0 /* TBXML.m in Sources */,
 				CE682E8813269AD4000C7469 /* HttpRequestWrapper.m in Sources */,
 				CE6B320A1326B36C006C7813 /* MainMenuViewController.m in Sources */,
-				CE69EBE713294FA70093593C /* ProcessesViewController.m in Sources */,
+				CE69EBE713294FA70093593C /* ItemsViewController.m in Sources */,
+				CEF4A49D13326CC200138D65 /* ProcessAssetsDelegate.m in Sources */,
+				CE655F511332AA1E002E00E3 /* AssetITInfrastructureDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

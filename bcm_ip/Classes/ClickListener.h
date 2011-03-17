@@ -12,6 +12,5 @@
 @protocol ClickListener <NSObject>
 
 - (void) detailClicked: (NSString*) idStr;
-- (BOOL) respondsToSelector: (SEL) sel;
 
 @end
