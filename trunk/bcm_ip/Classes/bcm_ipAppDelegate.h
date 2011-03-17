@@ -22,6 +22,6 @@
 + (NSString*) getLoginDataFilePath;
 + (NSString*) getDictFilePath;
 + (NSString*) getFullURLWithSite;
-
++ (UIFont*)   defaultFont;
 @end
 
