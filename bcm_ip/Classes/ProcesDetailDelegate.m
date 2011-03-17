@@ -7,15 +7,29 @@
 //
 
 #import "ProcesDetailDelegate.h"
+#import "ItemsViewController.h"
 
 
 @implementation ProcesDetailDelegate
 
-- (void) detailClicked {
-	NSLog(@"%@", @"vlelelel");
+@synthesize navigationController;
+
+- (void) detailClicked: (NSString*) idStr {
+	ItemsViewController* procVC = [[ItemsViewController alloc] init];
+	procVC.requestParams = [NSDictionary dictionaryWithObjectsAndKeys: @"getAssetsByProcess", @"action", idStr, @"processId", nil];
+	procVC.xmlItemName = [NSString stringWithString:@"Asset"];
+	procVC.delegate = [[[ProcesDetailDelegate alloc] init] autorelease];
+	procVC.title = NSLocalizedString(@"assetsViewTitle", nil);
+	[self.navigationController pushViewController:procVC animated:YES];
+	[procVC release];
+	
 }
 - (BOOL) respondsToSelector:(SEL)aSelector {
 	return [super respondsToSelector:aSelector];
+}
+- (void) dealloc {
+	[navigationController release];
+	[super dealloc];
 }
 
 @end

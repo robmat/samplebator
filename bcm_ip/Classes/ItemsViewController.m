@@ -41,19 +41,25 @@
 	itemsArray = [[NSMutableArray alloc] init];
 	TBXMLElement* itemElem = [TBXML childElementNamed: xmlItemName parentElement: xmlDoc.rootXMLElement]; 
 	
-	do {
-		TBXMLElement* itemChildElem = itemElem->firstChild;
-		NSMutableDictionary* processDict = [NSMutableDictionary dictionaryWithCapacity:10];
-		[itemsArray addObject:processDict];
+	if (itemElem) {
+		anyItemsAvailable = YES;
+		do {
+			TBXMLElement* itemChildElem = itemElem->firstChild;
+			NSMutableDictionary* processDict = [NSMutableDictionary dictionaryWithCapacity:10];
+			[itemsArray addObject:processDict];
 		
-		while (itemChildElem = itemChildElem->nextSibling) {
-			NSString* elemName = [TBXML elementName:itemChildElem];
-			NSString* elemValu = [TBXML textForElement:itemChildElem];
-			[processDict setObject:elemValu forKey:elemName];
-		}
+			do {
+				NSString* elemName = [TBXML elementName:itemChildElem];
+				NSString* elemValu = [TBXML textForElement:itemChildElem];
+				[processDict setObject:elemValu forKey:elemName];
+			} while (itemChildElem = itemChildElem->nextSibling);
 		
-		itemElem = [TBXML nextSiblingNamed: xmlItemName searchFromElement:itemElem];
-	} while (itemElem);
+			itemElem = [TBXML nextSiblingNamed: xmlItemName searchFromElement:itemElem];
+		} while (itemElem);
+	} else {
+		anyItemsAvailable = NO;
+		[itemsArray addObject: [NSDictionary dictionaryWithObjectsAndKeys: NSLocalizedString(@"noItemDataAvailableLbl", nil), @"Name", nil] ];
+	}
 	[self.tableView reloadData];
 }
 - (void)requestFailed:(ASIHTTPRequest *)request {
@@ -123,7 +129,9 @@
 	}
 	cell.textLabel.text = @"";
 	cell.detailTextLabel.text = @"";
-	cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+	if (anyItemsAvailable) {	
+		cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+	}
     if ([[NSNumber numberWithInt:selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]]) {
 		UIView* contentView = [self composeViewForSelectedRow: indexPath cellContentFrame: cell.contentView.frame];
 		[cell.contentView addSubview: contentView];
@@ -167,8 +175,10 @@
 	return container;
 }
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-	if ([delegate respondsToSelector: @selector(detailClicked)]) {
-		[delegate detailClicked];
+	if ([delegate respondsToSelector: @selector(detailClicked:)] && anyItemsAvailable) {
+		NSDictionary* item = [itemsArray objectAtIndex:indexPath.row];
+		NSString* idStr = [item objectForKey:@"Id"]; 
+		[delegate detailClicked: idStr];
 	}
 }
 /*
@@ -226,13 +236,14 @@
 	
 	//UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
 	//UIView* view = [[UIView alloc] initWithFrame:cell.contentView.frame];	
-	
-	int rowTemp = selectedRow;
-	selectedRow = [[NSNumber numberWithInt: indexPath.row] isEqualToNumber:[NSNumber numberWithInt:selectedRow]] ? -1 : indexPath.row;
-	if (rowTemp > -1) {
-		[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:rowTemp inSection:0]] withRowAnimation: UITableViewScrollPositionNone];
+	if (anyItemsAvailable) {
+		int rowTemp = selectedRow;
+		selectedRow = [[NSNumber numberWithInt: indexPath.row] isEqualToNumber:[NSNumber numberWithInt:selectedRow]] ? -1 : indexPath.row;
+		if (rowTemp > -1) {
+			[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:rowTemp inSection:0]] withRowAnimation: UITableViewScrollPositionNone];
+		}
+		[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation: UITableViewScrollPositionNone];
 	}
-	[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation: UITableViewScrollPositionNone];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -260,6 +271,9 @@
 - (void)dealloc {
 	[httpRequest release];
 	[itemsArray release];
+	[requestParams release];
+	[xmlItemName release];
+	[delegate release];
 	[super dealloc];
 }
 

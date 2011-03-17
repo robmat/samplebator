@@ -28,7 +28,9 @@
 	ItemsViewController* procVC = [[ItemsViewController alloc] init];
 	procVC.requestParams = [NSDictionary dictionaryWithObjectsAndKeys: @"getAllProcesses", @"action", nil];
 	procVC.xmlItemName = [NSString stringWithString:@"BusinessProcess"];
-	procVC.delegate = [[[ProcesDetailDelegate alloc] init] autorelease];
+	ProcesDetailDelegate* delegate = [[[ProcesDetailDelegate alloc] init] autorelease];
+	delegate.navigationController = self.navigationController;
+	procVC.delegate = delegate;
 	procVC.title = NSLocalizedString(@"processesViewTitle", nil);
 	[self.navigationController pushViewController:procVC animated:YES];
 	[procVC release];

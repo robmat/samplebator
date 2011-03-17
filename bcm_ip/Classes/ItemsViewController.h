@@ -14,6 +14,7 @@
 	HttpRequestWrapper* httpRequest;
 	NSMutableArray* itemsArray;
 	int selectedRow;
+	BOOL anyItemsAvailable;
 	
 	NSDictionary* requestParams;
 	NSString* xmlItemName;
