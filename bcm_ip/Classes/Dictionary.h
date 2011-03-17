@@ -12,7 +12,10 @@
 @interface Dictionary : NSObject {
 	TBXML* xmlDoc;
 	BOOL asynchronous;
+	NSDictionary* dictMappings;
 }
+
+@property (nonatomic, retain) NSDictionary* dictMappings;
 
 - (Dictionary*) loadDictionaryAndRetry: (BOOL) retry asynchronous: (BOOL) async overwrite: (BOOL) overwrite;
 - (NSString*) valueByDictionary: (NSString*) dictKey andKey: (NSString*) key;

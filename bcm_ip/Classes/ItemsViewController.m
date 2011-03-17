@@ -13,7 +13,7 @@
 
 @implementation ItemsViewController
 
-@synthesize requestParams, xmlItemName, delegate;
+@synthesize requestParams, xmlItemName, delegate, dictionary;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -51,7 +51,12 @@
 			do {
 				NSString* elemName = [TBXML elementName:itemChildElem];
 				NSString* elemValu = [TBXML textForElement:itemChildElem];
-				[processDict setObject:elemValu forKey:elemName];
+				if ([dictionary valueByDictionary:elemName andKey:elemValu]) {
+					[processDict setObject:[dictionary valueByDictionary:elemName andKey:elemValu] forKey:elemName];
+				} else {
+					[processDict setObject:elemValu forKey:elemName];
+				}				
+				
 			} while (itemChildElem = itemChildElem->nextSibling);
 		
 			itemElem = [TBXML nextSiblingNamed: xmlItemName searchFromElement:itemElem];

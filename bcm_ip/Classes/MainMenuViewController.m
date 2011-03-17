@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import "ItemsViewController.h"
 #import "ProcesDetailDelegate.h"
+#import "Dictionary.h"
 
 @implementation MainMenuViewController
 
@@ -32,6 +33,15 @@
 	delegate.navigationController = self.navigationController;
 	procVC.delegate = delegate;
 	procVC.title = NSLocalizedString(@"processesViewTitle", nil);
+	procVC.dictionary = [[[[Dictionary alloc] init] loadDictionaryAndRetry:YES asynchronous:YES overwrite:NO] autorelease];
+	
+	procVC.dictionary.dictMappings = [NSDictionary dictionaryWithObjectsAndKeys: 
+									  @"BP_STATUS", @"Status", 
+									  @"BP_RTO", @"Rto", 
+									  @"BP_CRITICALITY", @"Criticality", 
+									  @"BP_TYPE", @"Type", 
+									  @"BP_PERIODICITY", @"Pariodicity", nil];
+
 	[self.navigationController pushViewController:procVC animated:YES];
 	[procVC release];
 }	
