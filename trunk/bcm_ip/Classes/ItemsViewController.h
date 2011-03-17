@@ -8,11 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "HttpRequestWrapper.h"
+#import "ClickListener.h"
 
-@interface ProcessesViewController : UITableViewController {
+@interface ItemsViewController : UITableViewController {
 	HttpRequestWrapper* httpRequest;
 	NSMutableArray* itemsArray;
 	int selectedRow;
+	
+	NSDictionary* requestParams;
+	NSString* xmlItemName;
+	id <ClickListener> delegate;
 }
+
+@property (nonatomic, retain) NSDictionary* requestParams;
+@property (nonatomic, retain) NSString* xmlItemName;
+@property (nonatomic, retain) id <ClickListener> delegate;
+
 - (UITableViewCell*) composeViewForSelectedRow: (NSIndexPath*) indexPath cellContentFrame: (CGRect) frame;
 @end
