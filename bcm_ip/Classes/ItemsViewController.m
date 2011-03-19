@@ -13,19 +13,47 @@
 
 @implementation ItemsViewController
 
-@synthesize requestParams, xmlItemName, delegate, dictionary;
+@synthesize requestParams, xmlItemName, delegate, dictionary, toolbarOutlet, tableViewOutlet;
 
 #pragma mark -
 #pragma mark View lifecycle
 
-
+- (void) setAccessoryType: (UITableViewCellAccessoryType) type {
+	accessory = type;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+	self.tableView = tableViewOutlet;
 	httpRequest = [[HttpRequestWrapper alloc] initWithDelegate:self];
 	[httpRequest makeRequestWithParams: requestParams];
 	selectedRow = -1;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"refreshBtnLbl", nil) style:UIBarButtonItemStylePlain target:self action: @selector(refreshAction)];
+	
+	UIBarButtonItem *refreshBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+																				 target:self
+																				 action:@selector(refreshAction)];
+	browserBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+																target:self
+																action:@selector(launchBrowser)];
+	UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+																			  target:nil
+																			  action:nil];
+	NSArray *items = [NSArray arrayWithObjects: refreshBtn, flexItem, browserBtn, nil];
+	[browserBtn setEnabled:NO];
+	[refreshBtn release];
+	[browserBtn release];
+	[flexItem release];
+	[toolbarOutlet setItems:items animated:NO];
+}
+- (void) launchBrowser {
+	NSDictionary* item = [itemsArray objectAtIndex:selectedRow];
+	for (NSString* key in [item keyEnumerator]) {
+		NSString* value = [item objectForKey:key];
+		if ([NSURL URLWithString:value]) {
+			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:value]];
+		}	
+	}
 }
 - (void) refreshAction {
 	[httpRequest release];
@@ -135,7 +163,7 @@
 	cell.textLabel.text = @"";
 	cell.detailTextLabel.text = @"";
 	if (anyItemsAvailable) {	
-		cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+		cell.accessoryType = accessory;
 	}
     if ([[NSNumber numberWithInt:selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]]) {
 		UIView* contentView = [self composeViewForSelectedRow: indexPath cellContentFrame: cell.contentView.frame];
@@ -242,12 +270,22 @@
 	//UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
 	//UIView* view = [[UIView alloc] initWithFrame:cell.contentView.frame];	
 	if (anyItemsAvailable) {
+		[browserBtn setEnabled:NO];
 		int rowTemp = selectedRow;
 		selectedRow = [[NSNumber numberWithInt: indexPath.row] isEqualToNumber:[NSNumber numberWithInt:selectedRow]] ? -1 : indexPath.row;
 		if (rowTemp > -1) {
 			[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:rowTemp inSection:0]] withRowAnimation: UITableViewScrollPositionNone];
 		}
 		[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation: UITableViewScrollPositionNone];
+		if (selectedRow > -1) {
+			NSDictionary* item = [itemsArray objectAtIndex:selectedRow];
+			for (NSString* key in [item keyEnumerator]) {
+				NSString* value = [item objectForKey:key];
+				if ([NSURL URLWithString:value] && [value rangeOfString:@"http"].location == 0) {
+					[browserBtn setEnabled:YES];
+				}	
+			}
+		}
 	}
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -279,6 +317,9 @@
 	[requestParams release];
 	[xmlItemName release];
 	[delegate release];
+	[browserBtn release];
+	[toolbarOutlet release];
+	[tableViewOutlet release];
 	[super dealloc];
 }
 

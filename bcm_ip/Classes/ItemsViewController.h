@@ -16,7 +16,11 @@
 	NSMutableArray* itemsArray;
 	int selectedRow;
 	BOOL anyItemsAvailable;
+	UIBarButtonItem *browserBtn;
+	UITableView* tableViewOutlet;
+	UIToolbar* toolbarOutlet;
 	
+	UITableViewCellAccessoryType accessory;
 	Dictionary* dictionary;
 	NSDictionary* requestParams;
 	NSString* xmlItemName;
@@ -27,6 +31,9 @@
 @property (nonatomic, retain) NSString* xmlItemName;
 @property (nonatomic, retain) id <ClickListener> delegate;
 @property (nonatomic, retain) Dictionary* dictionary;
+@property (nonatomic, retain) UITableView* tableViewOutlet;
+@property (nonatomic, retain) UIToolbar* toolbarOutlet;
 
 - (UITableViewCell*) composeViewForSelectedRow: (NSIndexPath*) indexPath cellContentFrame: (CGRect) frame;
+- (void) setAccessoryType: (UITableViewCellAccessoryType) type;
 @end
