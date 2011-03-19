@@ -12,6 +12,7 @@
 #import "ItemsViewController.h"
 #import "ProcessAssetsDelegate.h"
 #import "Dictionary.h"
+#import "ItemsListViewController.h"
 
 @implementation MainMenuViewController
 
@@ -26,13 +27,14 @@
 	[[UIApplication sharedApplication] openURL:url];
 }
 - (IBAction) processesAction: (id) sender {
+	ItemsListViewController* ilvc = [[ItemsListViewController alloc] initWithNibName:@"ItemsViewController" bundle:nil];
 	ItemsViewController* procVC = [[ItemsViewController alloc] init];
 	procVC.requestParams = [NSDictionary dictionaryWithObjectsAndKeys: @"getAllProcesses", @"action", nil];
 	procVC.xmlItemName = [NSString stringWithString:@"BusinessProcess"];
 	ProcessAssetsDelegate* delegate = [[[ProcessAssetsDelegate alloc] init] autorelease];
 	delegate.navigationController = self.navigationController;
 	procVC.delegate = delegate;
-	procVC.title = NSLocalizedString(@"processesViewTitle", nil);
+	ilvc.title = NSLocalizedString(@"processesViewTitle", nil);
 	procVC.dictionary = [[[[Dictionary alloc] init] loadDictionaryAndRetry:YES asynchronous:YES overwrite:NO] autorelease];
 	
 	procVC.dictionary.dictMappings = [NSDictionary dictionaryWithObjectsAndKeys: 
@@ -41,9 +43,11 @@
 									  @"BP_CRITICALITY", @"Criticality", 
 									  @"BP_TYPE", @"Type", 
 									  @"BP_PERIODICITY", @"Pariodicity", nil];
-
-	[self.navigationController pushViewController:procVC animated:YES];
+	ilvc.itemsViewController = procVC;
+	[procVC setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
+	[self.navigationController pushViewController:ilvc animated:YES];
 	[procVC release];
+	[ilvc release];
 }	
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
