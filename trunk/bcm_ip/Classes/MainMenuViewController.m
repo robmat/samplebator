@@ -1,11 +1,3 @@
-//
-//  MainMenuViewController.m
-//  bcm_ip
-//
-//  Created by User on 3/8/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #import "MainMenuViewController.h"
 #import "bcm_ipAppDelegate.h"
 #import "LoginViewController.h"
@@ -13,6 +5,7 @@
 #import "ProcessAssetsDelegate.h"
 #import "Dictionary.h"
 #import "ItemsListViewController.h"
+#import "AssetITInfrastructureDelegate.h"
 
 @implementation MainMenuViewController
 
@@ -49,30 +42,71 @@
 	[procVC release];
 	[ilvc release];
 }	
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
+- (IBAction) assetsAction: (id) sender {
+	ItemsListViewController* ilvc = [[ItemsListViewController alloc] initWithNibName:@"ItemsViewController" bundle:nil];
+	ItemsViewController* procVC = [[ItemsViewController alloc] init];
+	procVC.requestParams = [NSDictionary dictionaryWithObjectsAndKeys: @"getAllAssets", @"action", nil];
+	procVC.xmlItemName = [NSString stringWithString:@"Asset"];
+	AssetITInfrastructureDelegate* delegate = [[[AssetITInfrastructureDelegate alloc] init] autorelease];
+	delegate.navigationController = self.navigationController;
+	[procVC setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
+	procVC.delegate = delegate;
+	ilvc.title = NSLocalizedString(@"assetsViewTitle", nil);
+	procVC.dictionary = [[[[Dictionary alloc] init] loadDictionaryAndRetry:YES asynchronous:YES overwrite:NO] autorelease];
+	procVC.dictionary.dictMappings = [NSDictionary dictionaryWithObjectsAndKeys: 
+									  @"ASSET_STATUS_PROBE", @"StatusProbe", 
+									  @"ASSET_STATUS", @"Status", 
+									  @"ASSET_TYPE", @"Type", nil];	
+	ilvc.itemsViewController = procVC;
+	[self.navigationController pushViewController:ilvc animated:YES];
+	[procVC release];
+	[ilvc release];
 }
-*/
+- (IBAction) scenariosAction: (id) sender {
+	ItemsListViewController* ilvc = [[ItemsListViewController alloc] initWithNibName:@"ItemsViewController" bundle:nil];
+	ItemsViewController* procVC = [[ItemsViewController alloc] init];
+	procVC.requestParams = [NSDictionary dictionaryWithObjectsAndKeys: @"getAllScenarios", @"action", nil];
+	procVC.xmlItemName = [NSString stringWithString:@"Scenario"];
+	[procVC setAccessoryType:UITableViewCellAccessoryNone];
+	ilvc.title = NSLocalizedString(@"scenariosViewTitle", nil);
+	procVC.dictionary = [[[[Dictionary alloc] init] loadDictionaryAndRetry:YES asynchronous:YES overwrite:NO] autorelease];
+	procVC.dictionary.dictMappings = [NSDictionary dictionaryWithObjectsAndKeys: nil];	
+	ilvc.itemsViewController = procVC;
+	[self.navigationController pushViewController:ilvc animated:YES];
+	[procVC release];
+	[ilvc release];
+}
+- (IBAction) incidentsAction: (id) sender {
+	ItemsListViewController* ilvc = [[ItemsListViewController alloc] initWithNibName:@"ItemsViewController" bundle:nil];
+	ItemsViewController* procVC = [[ItemsViewController alloc] init];
+	procVC.requestParams = [NSDictionary dictionaryWithObjectsAndKeys: @"getAllIncidents", @"action", nil];
+	procVC.xmlItemName = [NSString stringWithString:@"Incident"];
+	[procVC setAccessoryType:UITableViewCellAccessoryNone];
+	ilvc.title = NSLocalizedString(@"incidentsViewTitle", nil);
+	procVC.dictionary = [[[[Dictionary alloc] init] loadDictionaryAndRetry:YES asynchronous:YES overwrite:NO] autorelease];
+	procVC.dictionary.dictMappings = [NSDictionary dictionaryWithObjectsAndKeys: nil];	
+	ilvc.itemsViewController = procVC;
+	[self.navigationController pushViewController:ilvc animated:YES];
+	[procVC release];
+	[ilvc release];
+}
 
-
+- (IBAction) recoveryAction: (id) sender {
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"recoveryAlertTitle", nil) 
+													message:nil 
+												   delegate:self 
+										  cancelButtonTitle:NSLocalizedString(@"cancelLbl", nil) 
+										  otherButtonTitles:NSLocalizedString(@"allTasksLbl", nil), NSLocalizedString(@"myTasksLbl", nil), nil];
+	[alert show];
+	[alert release];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = NSLocalizedString(@"mainMenuFormTitle", nil);
 }
-
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
