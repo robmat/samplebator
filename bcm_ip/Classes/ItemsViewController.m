@@ -50,7 +50,10 @@
 	NSDictionary* item = [itemsArray objectAtIndex:selectedRow];
 	for (NSString* key in [item keyEnumerator]) {
 		NSString* value = [item objectForKey:key];
-		if ([NSURL URLWithString:value]) {
+		if ([NSURL URLWithString:value] && ([value rangeOfString:@"http"].location == 0 || [value rangeOfString:@"www"].location == 0)) {
+			if (!([value rangeOfString:@"http://"].location == 0)) {
+				value = [NSString stringWithFormat: @"%@%@", @"http://", value];
+			}
 			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:value]];
 		}	
 	}
@@ -101,34 +104,6 @@
 	[alert show];
 	[alert release];
 }
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-*/
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
-
 
 #pragma mark -
 #pragma mark Table view data source
@@ -171,6 +146,9 @@
 		[contentView release];
 	} else {
 		cell.textLabel.text = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
+		if (![[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Name"]) {
+			cell.textLabel.text = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"IncidentTime"];
+		}
 		cell.detailTextLabel.text = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Desc"];
 	}
     return cell;
@@ -214,61 +192,11 @@
 		[delegate detailClicked: idStr];
 	}
 }
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark -
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
-	
-	//UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
-	//UIView* view = [[UIView alloc] initWithFrame:cell.contentView.frame];	
 	if (anyItemsAvailable) {
 		[browserBtn setEnabled:NO];
 		int rowTemp = selectedRow;
@@ -281,7 +209,7 @@
 			NSDictionary* item = [itemsArray objectAtIndex:selectedRow];
 			for (NSString* key in [item keyEnumerator]) {
 				NSString* value = [item objectForKey:key];
-				if ([NSURL URLWithString:value] && [value rangeOfString:@"http"].location == 0) {
+				if ([NSURL URLWithString:value] && ([value rangeOfString:@"http"].location == 0 || [value rangeOfString:@"www"].location == 0)) {
 					[browserBtn setEnabled:YES];
 				}	
 			}
@@ -291,7 +219,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     float height = [[NSString stringWithString:@"A"] sizeWithFont:[bcm_ipAppDelegate defaultFont]].height;
-	int retVal = [[ NSNumber numberWithInt: selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]] ? [[itemsArray objectAtIndex:selectedRow] count] * (height + 2) : 60;
+	int retVal = [[ NSNumber numberWithInt: selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]] ? [[itemsArray objectAtIndex:selectedRow] count] * (height + 2) + 5 : 60;
 	return retVal;
 }
 

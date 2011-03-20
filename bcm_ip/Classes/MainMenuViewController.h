@@ -1,11 +1,3 @@
-//
-//  MainMenuViewController.h
-//  bcm_ip
-//
-//  Created by User on 3/8/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
 
@@ -16,5 +8,9 @@
 - (IBAction) logoutAction: (id) sender;
 - (IBAction) supportAction: (id) sender;
 - (IBAction) processesAction: (id) sender;
+- (IBAction) assetsAction: (id) sender;
+- (IBAction) scenariosAction: (id) sender;
+- (IBAction) incidentsAction: (id) sender;
+- (IBAction) recoveryAction: (id) sender;
 
 @end

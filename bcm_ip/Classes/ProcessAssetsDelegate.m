@@ -34,7 +34,6 @@
 	[self.navigationController pushViewController:ilvc animated:YES];
 	[procVC release];
 	[ilvc release];
-	
 }
 
 - (void) dealloc {
