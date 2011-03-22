@@ -144,12 +144,18 @@
 		UIView* contentView = [self composeViewForSelectedRow: indexPath cellContentFrame: cell.contentView.frame];
 		[cell.contentView addSubview: contentView];
 		[contentView release];
-	} else {
+	} else { //todo make it more generic, parametrize!
 		cell.textLabel.text = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
 		if (![[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Name"]) {
 			cell.textLabel.text = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"IncidentTime"];
+			if (![[itemsArray objectAtIndex:indexPath.row] objectForKey:@"IncidentTime"]) {
+				cell.textLabel.text = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Message"];
+			}
 		}
 		cell.detailTextLabel.text = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Desc"];
+		if (![[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Desc"]) {
+			cell.detailTextLabel.text = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"CallTime"];
+		}
 	}
     return cell;
 }
@@ -186,10 +192,10 @@
 	return container;
 }
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-	if ([delegate respondsToSelector: @selector(detailClicked:)] && anyItemsAvailable) {
+	if ([delegate respondsToSelector: @selector(detailClicked:itemsArray:)] && anyItemsAvailable) {
 		NSDictionary* item = [itemsArray objectAtIndex:indexPath.row];
 		NSString* idStr = [item objectForKey:@"Id"]; 
-		[delegate detailClicked: idStr];
+		[delegate detailClicked: idStr itemsArray: itemsArray];
 	}
 }
 

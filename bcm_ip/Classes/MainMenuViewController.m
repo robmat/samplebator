@@ -6,8 +6,12 @@
 #import "Dictionary.h"
 #import "ItemsListViewController.h"
 #import "AssetITInfrastructureDelegate.h"
+#import "NotifyTemplatesDelegate.h"
 
 @implementation MainMenuViewController
+
+static int RECOVERY_ALERT_TAG = 1;
+static int NOTIFY_ALERT_TAG = 2;
 
 - (IBAction) logoutAction: (id) sender {
 	[[NSFileManager defaultManager] removeItemAtPath:[bcm_ipAppDelegate getLoginDataFilePath] error:nil];
@@ -97,11 +101,80 @@
 												   delegate:self 
 										  cancelButtonTitle:NSLocalizedString(@"cancelLbl", nil) 
 										  otherButtonTitles:NSLocalizedString(@"allTasksLbl", nil), NSLocalizedString(@"myTasksLbl", nil), nil];
+	alert.tag = RECOVERY_ALERT_TAG;
 	[alert show];
 	[alert release];
 }
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	if (alertView.tag == RECOVERY_ALERT_TAG) {	
+		NSString* actionStr = nil;
+		if (buttonIndex == 1) {
+			actionStr = [NSString stringWithString:@"getAllTasks"];
+		} else if (buttonIndex == 2) {
+			actionStr = [NSString stringWithString:@"getTasksByUser"];
+		} else {
+			return;
+		}
+		ItemsListViewController* ilvc = [[ItemsListViewController alloc] initWithNibName:@"ItemsViewController" bundle:nil];
+		ItemsViewController* procVC = [[ItemsViewController alloc] init];
+		procVC.requestParams = [NSDictionary dictionaryWithObjectsAndKeys: actionStr, @"action", nil];
+		procVC.xmlItemName = [NSString stringWithString:@"RecoveryTask"];
+		[procVC setAccessoryType:UITableViewCellAccessoryNone];
+		ilvc.title = NSLocalizedString(@"allTasksViewTitle", nil);
+		procVC.dictionary = [[[[Dictionary alloc] init] loadDictionaryAndRetry:YES asynchronous:YES overwrite:NO] autorelease];
+		procVC.dictionary.dictMappings = [NSDictionary dictionaryWithObjectsAndKeys: 
+										  @"RT_STATUS", @"Status", 
+										  @"RT_TYPE", @"Type", nil];	
+		ilvc.itemsViewController = procVC;
+		[self.navigationController pushViewController:ilvc animated:YES];
+		[procVC release];
+		[ilvc release];
+	}
+	if (alertView.tag == NOTIFY_ALERT_TAG) {
+		if (buttonIndex == 1) {
+			ItemsListViewController* ilvc = [[ItemsListViewController alloc] initWithNibName:@"ItemsViewController" bundle:nil];
+			ItemsViewController* procVC = [[ItemsViewController alloc] init];
+			procVC.requestParams = [NSDictionary dictionaryWithObjectsAndKeys: @"getAllNotifyTemplates", @"action", nil];
+			procVC.xmlItemName = [NSString stringWithString:@"NotifyTemplate"];
+			NotifyTemplatesDelegate* delegate = [[[NotifyTemplatesDelegate alloc] init] autorelease];
+			delegate.navigationController = self.navigationController;
+			procVC.delegate = delegate;
+			ilvc.title = NSLocalizedString(@"notifyTmeplatesViewTitle", nil);
+			procVC.dictionary = [[[[Dictionary alloc] init] loadDictionaryAndRetry:YES asynchronous:YES overwrite:NO] autorelease];
+			procVC.dictionary.dictMappings = [NSDictionary dictionaryWithObjectsAndKeys: nil];
+			ilvc.itemsViewController = procVC;
+			[procVC setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
+			[self.navigationController pushViewController:ilvc animated:YES];
+			[procVC release];
+			[ilvc release];
+		} else if (buttonIndex == 2) {
+			ItemsListViewController* ilvc = [[ItemsListViewController alloc] initWithNibName:@"ItemsViewController" bundle:nil];
+			ItemsViewController* procVC = [[ItemsViewController alloc] init];
+			procVC.requestParams = [NSDictionary dictionaryWithObjectsAndKeys: @"getAllCallLogs", @"action", nil];
+			procVC.xmlItemName = [NSString stringWithString:@"CallLog"];
+			[procVC setAccessoryType:UITableViewCellAccessoryNone];
+			ilvc.title = NSLocalizedString(@"callLogsViewTitle", nil);
+			procVC.dictionary = [[[[Dictionary alloc] init] loadDictionaryAndRetry:YES asynchronous:YES overwrite:NO] autorelease];
+			procVC.dictionary.dictMappings = [NSDictionary dictionaryWithObjectsAndKeys: nil];	
+			ilvc.itemsViewController = procVC;
+			[self.navigationController pushViewController:ilvc animated:YES];
+			[procVC release];
+			[ilvc release];
+		} else {
+			return;
+		}
+	}	
 	
+}
+- (IBAction) notifyAction : (id) sender {
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notifyAlertTitle", nil) 
+													message:nil 
+												   delegate:self 
+										  cancelButtonTitle:NSLocalizedString(@"cancelLbl", nil) 
+										  otherButtonTitles:NSLocalizedString(@"notifyBtnLbl", nil), NSLocalizedString(@"monitorBtnLbl", nil), nil];
+	alert.tag = NOTIFY_ALERT_TAG;
+	[alert show];
+	[alert release];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

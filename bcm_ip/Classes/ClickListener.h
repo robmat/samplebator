@@ -11,6 +11,6 @@
 
 @protocol ClickListener <NSObject>
 
-- (void) detailClicked: (NSString*) idStr;
+- (void) detailClicked: (NSString*) idStr itemsArray: (NSArray*) itemsArray;
 
 @end

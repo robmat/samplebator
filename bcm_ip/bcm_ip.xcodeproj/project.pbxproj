@@ -14,6 +14,7 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		CE262A58132229B6009203ED /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE262A56132229B6009203ED /* LoginViewController.m */; };
+		CE5DB7771339328800363282 /* NotifyTemplatesDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5DB7761339328800363282 /* NotifyTemplatesDelegate.m */; };
 		CE655F511332AA1E002E00E3 /* AssetITInfrastructureDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE655F501332AA1E002E00E3 /* AssetITInfrastructureDelegate.m */; };
 		CE682E8813269AD4000C7469 /* HttpRequestWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE682E8713269AD4000C7469 /* HttpRequestWrapper.m */; };
 		CE69EBE713294FA70093593C /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE69EBE513294FA70093593C /* ItemsViewController.m */; };
@@ -57,6 +58,8 @@
 		8D1107310486CEB800E47090 /* bcm_ip-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bcm_ip-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		CE262A55132229B6009203ED /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CE262A56132229B6009203ED /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CE5DB7751339328800363282 /* NotifyTemplatesDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifyTemplatesDelegate.h; sourceTree = "<group>"; };
+		CE5DB7761339328800363282 /* NotifyTemplatesDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifyTemplatesDelegate.m; sourceTree = "<group>"; };
 		CE655F4F1332AA1E002E00E3 /* AssetITInfrastructureDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetITInfrastructureDelegate.h; sourceTree = "<group>"; };
 		CE655F501332AA1E002E00E3 /* AssetITInfrastructureDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetITInfrastructureDelegate.m; sourceTree = "<group>"; };
 		CE682E8613269AD4000C7469 /* HttpRequestWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestWrapper.h; sourceTree = "<group>"; };
@@ -278,6 +281,8 @@
 				CEF4A49C13326CC200138D65 /* ProcessAssetsDelegate.m */,
 				CE655F4F1332AA1E002E00E3 /* AssetITInfrastructureDelegate.h */,
 				CE655F501332AA1E002E00E3 /* AssetITInfrastructureDelegate.m */,
+				CE5DB7751339328800363282 /* NotifyTemplatesDelegate.h */,
+				CE5DB7761339328800363282 /* NotifyTemplatesDelegate.m */,
 			);
 			name = DetailDelegates;
 			sourceTree = "<group>";
@@ -370,6 +375,7 @@
 				CEF4A49D13326CC200138D65 /* ProcessAssetsDelegate.m in Sources */,
 				CE655F511332AA1E002E00E3 /* AssetITInfrastructureDelegate.m in Sources */,
 				CE71ED611334D03400FB555D /* ItemsListViewController.m in Sources */,
+				CE5DB7771339328800363282 /* NotifyTemplatesDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
