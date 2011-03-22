@@ -1,7 +1,5 @@
 package com.bcm;
 
-import java.util.Hashtable;
-
 import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.system.DeviceInfo;
 import net.rim.device.api.ui.DrawStyle;
@@ -16,7 +14,6 @@ import net.rim.device.api.ui.component.LabelField;
 import org.w3c.dom.Document;
 
 public class NotifyTemplatesScreen extends CommonsForScreen implements IWaitableScreen {
-	private Hashtable[] items;
 	private ColouredListField clf;
 	private Dialog dialog;
 

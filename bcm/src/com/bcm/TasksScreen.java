@@ -1,7 +1,5 @@
 package com.bcm;
 
-import java.util.Hashtable;
-
 import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.system.DeviceInfo;
 import net.rim.device.api.ui.DrawStyle;
@@ -22,7 +20,6 @@ public class TasksScreen extends CommonsForScreen implements IWaitableScreen {
 	private String id;
 	private int mode;
 	private Dialog dialog;
-	private Hashtable[] items;
 	private ColouredListField clf;
 
 	public TasksScreen(int mode, String id, String name) {
