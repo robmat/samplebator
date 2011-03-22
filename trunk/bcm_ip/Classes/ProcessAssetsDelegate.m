@@ -15,7 +15,7 @@
 
 @synthesize navigationController;
 
-- (void) detailClicked: (NSString*) idStr {
+- (void) detailClicked: (NSString*) idStr itemsArray: (NSArray*) itemsArray {
 	ItemsListViewController* ilvc = [[ItemsListViewController alloc] initWithNibName:@"ItemsViewController" bundle:nil];
 	ItemsViewController* procVC = [[ItemsViewController alloc] init];
 	procVC.requestParams = [NSDictionary dictionaryWithObjectsAndKeys: @"getAssetsByProcess", @"action", idStr, @"processId", nil];

@@ -12,5 +12,6 @@
 - (IBAction) scenariosAction: (id) sender;
 - (IBAction) incidentsAction: (id) sender;
 - (IBAction) recoveryAction: (id) sender;
+- (IBAction) notifyAction : (id) sender;
 
 @end
