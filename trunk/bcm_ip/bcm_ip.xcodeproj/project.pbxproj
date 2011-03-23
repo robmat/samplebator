@@ -22,6 +22,10 @@
 		CE6AA28F132569FF002513D0 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6AA28D132569FF002513D0 /* TBXML.m */; };
 		CE6B320A1326B36C006C7813 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6B32081326B36C006C7813 /* MainMenuViewController.m */; };
 		CE6B324F1326B971006C7813 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6B324E1326B971006C7813 /* MainMenuViewController.xib */; };
+		CE6BA41B133A889600312F04 /* ELCTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6BA41A133A889600312F04 /* ELCTextFieldCell.m */; };
+		CE6BA426133A894100312F04 /* NewNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6BA424133A894100312F04 /* NewNotificationViewController.m */; };
+		CE6BA427133A894100312F04 /* NewNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6BA425133A894100312F04 /* NewNotificationViewController.xib */; };
+		CE6BA431133A8B0A00312F04 /* NewNotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6BA430133A8B0A00312F04 /* NewNotificationTableViewController.m */; };
 		CE71ECFF1334C60A00FB555D /* ItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE71ECFE1334C60A00FB555D /* ItemsViewController.xib */; };
 		CE71ED611334D03400FB555D /* ItemsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE71ED601334D03400FB555D /* ItemsListViewController.m */; };
 		CE76685F1323A7D200B5E56C /* Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CE76685E1323A7D200B5E56C /* Dictionary.m */; };
@@ -75,6 +79,13 @@
 		CE6B32081326B36C006C7813 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		CE6B32501326B977006C7813 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenuViewController.xib; sourceTree = "<group>"; };
 		CE6B32511326B97B006C7813 /* pl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pl; path = pl.lproj/MainMenuViewController.xib; sourceTree = "<group>"; };
+		CE6BA419133A889600312F04 /* ELCTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCTextFieldCell.h; sourceTree = "<group>"; };
+		CE6BA41A133A889600312F04 /* ELCTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCTextFieldCell.m; sourceTree = "<group>"; };
+		CE6BA423133A894100312F04 /* NewNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotificationViewController.h; sourceTree = "<group>"; };
+		CE6BA424133A894100312F04 /* NewNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNotificationViewController.m; sourceTree = "<group>"; };
+		CE6BA425133A894100312F04 /* NewNotificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewNotificationViewController.xib; sourceTree = "<group>"; };
+		CE6BA42F133A8B0A00312F04 /* NewNotificationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotificationTableViewController.h; sourceTree = "<group>"; };
+		CE6BA430133A8B0A00312F04 /* NewNotificationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNotificationTableViewController.m; sourceTree = "<group>"; };
 		CE71ECFE1334C60A00FB555D /* ItemsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemsViewController.xib; sourceTree = "<group>"; };
 		CE71ED5F1334D03400FB555D /* ItemsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsListViewController.h; sourceTree = "<group>"; };
 		CE71ED601334D03400FB555D /* ItemsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsListViewController.m; sourceTree = "<group>"; };
@@ -138,6 +149,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CE6BA418133A886100312F04 /* ELCTextFieldCell */,
 				CE6AA288132569E4002513D0 /* XMLHelper */,
 				CECE5C1D1322C73600094BE7 /* HttpHelper */,
 				CE262A0113221C63009203ED /* Views */,
@@ -229,6 +241,11 @@
 				CE71ECFE1334C60A00FB555D /* ItemsViewController.xib */,
 				CE71ED5F1334D03400FB555D /* ItemsListViewController.h */,
 				CE71ED601334D03400FB555D /* ItemsListViewController.m */,
+				CE6BA423133A894100312F04 /* NewNotificationViewController.h */,
+				CE6BA424133A894100312F04 /* NewNotificationViewController.m */,
+				CE6BA425133A894100312F04 /* NewNotificationViewController.xib */,
+				CE6BA42F133A8B0A00312F04 /* NewNotificationTableViewController.h */,
+				CE6BA430133A8B0A00312F04 /* NewNotificationTableViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -242,6 +259,15 @@
 				CE6AA28D132569FF002513D0 /* TBXML.m */,
 			);
 			name = XMLHelper;
+			sourceTree = "<group>";
+		};
+		CE6BA418133A886100312F04 /* ELCTextFieldCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE6BA419133A889600312F04 /* ELCTextFieldCell.h */,
+				CE6BA41A133A889600312F04 /* ELCTextFieldCell.m */,
+			);
+			name = ELCTextFieldCell;
 			sourceTree = "<group>";
 		};
 		CECE5C1D1322C73600094BE7 /* HttpHelper */ = {
@@ -344,6 +370,7 @@
 				CECE5B961322B8E300094BE7 /* logo.jpg in Resources */,
 				CE6B324F1326B971006C7813 /* MainMenuViewController.xib in Resources */,
 				CE71ECFF1334C60A00FB555D /* ItemsViewController.xib in Resources */,
+				CE6BA427133A894100312F04 /* NewNotificationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +403,9 @@
 				CE655F511332AA1E002E00E3 /* AssetITInfrastructureDelegate.m in Sources */,
 				CE71ED611334D03400FB555D /* ItemsListViewController.m in Sources */,
 				CE5DB7771339328800363282 /* NotifyTemplatesDelegate.m in Sources */,
+				CE6BA41B133A889600312F04 /* ELCTextFieldCell.m in Sources */,
+				CE6BA426133A894100312F04 /* NewNotificationViewController.m in Sources */,
+				CE6BA431133A8B0A00312F04 /* NewNotificationTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

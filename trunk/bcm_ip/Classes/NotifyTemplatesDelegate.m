@@ -7,7 +7,7 @@
 //
 
 #import "NotifyTemplatesDelegate.h"
-
+#import "NewNotificationViewController.h"
 
 @implementation NotifyTemplatesDelegate
 
@@ -17,8 +17,10 @@
 	for (NSDictionary* dict in itemsArray) {
 		for (NSString* key in [dict keyEnumerator]) {
 			if ([key isEqual:[NSString stringWithString:@"Id"]] && [[dict objectForKey:key] isEqual:idStr]) {
-				//todo fire up, form feed it with dict
-				NSLog(idStr);
+				NewNotificationViewController* nnvc = [[NewNotificationViewController alloc] init];
+				nnvc.templateItem = dict;
+				[self.navigationController pushViewController:nnvc animated:YES];
+				[nnvc release];
 			}
 		}
 	}
