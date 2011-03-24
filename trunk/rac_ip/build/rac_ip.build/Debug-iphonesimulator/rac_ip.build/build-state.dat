@@ -1,650 +1,0 @@
-Trac_ip
-v7
-r0
-t322698613.343781
-cCheck dependencies
-cProcessInfoPlistFile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/Info.plist" rac_ip-Info.plist
-cCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/MainWindow.xib"
-cCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.xib"
-cCpResource build/Debug-iphonesimulator/rac_ip.app/splash.jpg img/splash.jpg
-cCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MainMenuViewController.xib"
-cCpResource build/Debug-iphonesimulator/rac_ip.app/main_menu.png img/main_menu.png
-cCpResource build/Debug-iphonesimulator/rac_ip.app/date_btn.png img/date_btn.png
-cCpResource build/Debug-iphonesimulator/rac_ip.app/map_btn.png img/map_btn.png
-cCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/DatePickViewcontroller.xib"
-cCpResource build/Debug-iphonesimulator/rac_ip.app/date_pick.jpg date_pick.jpg
-cCpResource build/Debug-iphonesimulator/rac_ip.app/picker_view.png img/picker_view.png
-cCpResource build/Debug-iphonesimulator/rac_ip.app/racappicon.png img/racappicon.png
-cCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MapViewcontroller.xib"
-cCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/VoucherViewcontroller.xib"
-cCpResource build/Debug-iphonesimulator/rac_ip.app/voucher_view.png img/voucher_view.png
-cProcessPCH /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch.gch rac_ip_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/main.o "/Users/User/Desktop/svn (trunk)/rac_ip/main.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/rac_ipAppDelegate.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/SplashViewController.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MainMenuViewController.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MainMenuViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/DatePickViewcontroller.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/DatePickViewcontroller.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MapViewcontroller.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MapViewcontroller.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MyAnnotation.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MyAnnotation.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/VoucherViewcontroller.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/VoucherViewcontroller.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-cLd "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/rac_ip" normal i386
-cGenerateDSYMFile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app.dSYM" "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/rac_ip"
-cTouch "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app"
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk
-c000000004C6C30170000000000000110
-t1282158615
-s272
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-c000000004C5A4DB60000000000295900
-t1280986550
-s2709760
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c000000004C5A4DB0000000000029D580
-t1280986544
-s2741632
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c000000004C5A4DA10000000000001466
-t1280986529
-s5222
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.h
-c000000004C6C301100000000000002FE
-t1282158609
-s766
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/MapKit.framework/MapKit
-c000000004C6C303B000000000016DD50
-t1282158651
-s1498448
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
-c000000004C6241ED00000000000009CD
-t1281507821
-s2509
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c000000004C6242840000000001E228C0
-t1281507972
-s31598784
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/DatePickViewcontroller.h
-c000000004D8BA8D90000000000000131
-t1300998361
-s305
-i<UIKit/UIKit.h>
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/DatePickViewcontroller.m
-c000000004D8BC440000000000000095E
-t1301005376
-s2398
-i"DatePickViewcontroller.h"
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/DatePickViewcontroller.xib
-c000000004D8BAB810000000000005B31
-t1300999041
-s23345
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MainMenuViewController.h
-c000000004D8B9DCD0000000000000134
-t1300995533
-s308
-i<UIKit/UIKit.h>
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MainMenuViewController.m
-c000000004D8BC5810000000000000836
-t1301005697
-s2102
-i"MainMenuViewController.h"
-i"DatePickViewcontroller.h"
-i"MapViewcontroller.h"
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MainMenuViewController.xib
-c000000004D8BA164000000000000593F
-t1300996452
-s22847
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MapViewcontroller.h
-c000000004D8BB7470000000000000126
-t1301002055
-s294
-i<UIKit/UIKit.h>
-i<MapKit/MapKit.h>
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MapViewcontroller.m
-c000000004D8BC53F0000000000000EF4
-t1301005631
-s3828
-i"MapViewcontroller.h"
-i<MapKit/MapKit.h>
-i"MyAnnotation.h"
-i"VoucherViewcontroller.h"
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MapViewcontroller.xib
-c000000004D8BB75600000000000042CF
-t1301002070
-s17103
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MyAnnotation.h
-c000000004D42F9D800000000000001CB
-t1296234968
-s459
-i<Foundation/Foundation.h>
-i<MapKit/MapKit.h>
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MyAnnotation.m
-c000000004D8BBA30000000000000022D
-t1301002800
-s557
-i"MyAnnotation.h"
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.h
-c000000004D8B97AF0000000000000127
-t1300993967
-s295
-i<UIKit/UIKit.h>
-i<MapKit/MapKit.h>
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.m
-c000000004D8B9F290000000000000732
-t1300995881
-s1842
-i"SplashViewController.h"
-i"MainMenuViewController.h"
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.xib
-c000000004D8BC5ED0000000000004CE1
-t1301005805
-s19681
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/VoucherViewcontroller.h
-c000000004D8BBC34000000000000010C
-t1301003316
-s268
-i<UIKit/UIKit.h>
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/VoucherViewcontroller.m
-c000000004D8BC4400000000000000748
-t1301005376
-s1864
-i"VoucherViewcontroller.h"
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/VoucherViewcontroller.xib
-c000000004D8BBC620000000000004CBD
-t1301003362
-s19645
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.h
-c000000004D8B908F0000000000000164
-t1300992143
-s356
-i<UIKit/UIKit.h>
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m
-c000000004D8BC46A0000000000000FE8
-t1301005418
-s4072
-i"rac_ipAppDelegate.h"
-i"SplashViewController.h"
-i"VoucherViewcontroller.h"
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/MainWindow.xib
-c000000004D8B8FB00000000000002103
-t1300991920
-s8451
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app
-t1301005813
-s646
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app.dSYM
-t1301005713
-s102
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/DatePickViewcontroller.nib
-t1300999046
-s3639
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/Info.plist
-t1300998554
-s627
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/MainMenuViewController.nib
-t1300996457
-s3486
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/MainWindow.nib
-t1300992105
-s1530
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/MapViewcontroller.nib
-t1301002091
-s1897
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/PkgInfo
-t1300998554
-s8
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/SplashViewController.nib
-t1301005813
-s2532
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/VoucherViewcontroller.nib
-t1301003371
-s3125
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/date_btn.png
-t1300996457
-s7218
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/date_pick.jpg
-t1300997521
-s106527
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/main_menu.png
-t1300995534
-s189511
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/map_btn.png
-t1300996457
-s4934
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/picker_view.png
-t1300998362
-s135905
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/rac_ip
-t1301005712
-s34636
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/racappicon.png
-t1300998554
-s6672
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/splash.jpg
-t1300992881
-s36231
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/voucher_view.png
-t1301003211
-s161091
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/DatePickViewcontroller.o
-t1301005381
-s43540
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MainMenuViewController.o
-t1301005712
-s39304
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MapViewcontroller.o
-t1301005653
-s47484
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MyAnnotation.o
-t1301002803
-s14592
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/SplashViewController.o
-t1300995884
-s39020
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/VoucherViewcontroller.o
-t1301005385
-s36824
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/main.o
-t1300992108
-s6304
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/rac_ip.LinkFileList
-c000000004D8BBBCA0000000000000427
-t1301003210
-s1063
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/rac_ipAppDelegate.o
-t1301005419
-s56252
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/date_pick.jpg
-c000000004D8B223E000000000001A01F
-t1300963902
-s106527
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/img/date_btn.png
-c000000004D8BA0E70000000000001C32
-t1300996327
-s7218
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/img/main_menu.png
-c000000004D8B9A5D000000000002E447
-t1300994653
-s189511
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/img/map_btn.png
-c000000004D8BA0C90000000000001346
-t1300996297
-s4934
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/img/picker_view.png
-c000000004D8BA60400000000000212E1
-t1300997636
-s135905
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/img/racappicon.png
-c000000004D8BA9200000000000001A10
-t1300998432
-s6672
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/img/splash.jpg
-c000000004D8B223E0000000000008D87
-t1300963902
-s36231
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/img/voucher_view.png
-c000000004D8BBAC50000000000027543
-t1301002949
-s161091
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/main.m
-c000000004D8B8FB00000000000000160
-t1300991920
-s352
-i<UIKit/UIKit.h>
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/rac_ip_Prefix.pch
-c000000004D8B8FB000000000000000B5
-t1300991920
-s181
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch.gch
-t1300992107
-s15211536
-
-Nrac_ip-Info.plist
-c000000004D8BA997000000000000039B
-t1300998551
-s923
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies322698611#322698612#0(0"0(0#1#0"8614144448#0"0#
-
-CCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/DatePickViewcontroller.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/DatePickViewcontroller.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-s322698178.981939
-e322698181.203208
-r1
-xCompileC
-xbuild/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/DatePickViewcontroller.o
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/DatePickViewcontroller.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@79"Compile /Users/User/Desktop/svn (trunk)/rac_ip/Classes/DatePickViewcontroller.m322698178#322698181#0(0"0(0#0#71"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/DatePickViewcontroller.m3275089324280537600#1960"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources" -include /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch -c "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/DatePickViewcontroller.m" -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/DatePickViewcontroller.o"0#
-
-CCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MainMenuViewController.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MainMenuViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-s322698509.691308
-e322698512.742978
-r1
-xCompileC
-xbuild/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MainMenuViewController.o
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MainMenuViewController.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@79"Compile /Users/User/Desktop/svn (trunk)/rac_ip/Classes/MainMenuViewController.m322698509#322698512#0(0"0(0#0#71"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MainMenuViewController.m8611237184#1960"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources" -include /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch -c "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MainMenuViewController.m" -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MainMenuViewController.o"0#
-
-CCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MapViewcontroller.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MapViewcontroller.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-s322698451.256647
-e322698453.402685
-r1
-xCompileC
-xbuild/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MapViewcontroller.o
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MapViewcontroller.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@74"Compile /Users/User/Desktop/svn (trunk)/rac_ip/Classes/MapViewcontroller.m322698451#322698453#0(0"0(0#0#66"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MapViewcontroller.m8613363360#1950"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources" -include /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch -c "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MapViewcontroller.m" -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MapViewcontroller.o"0#
-
-CCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MyAnnotation.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MyAnnotation.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-s322695601.043041
-e322695603.441023
-r1
-xCompileC
-xbuild/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MyAnnotation.o
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MyAnnotation.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@69"Compile /Users/User/Desktop/svn (trunk)/rac_ip/Classes/MyAnnotation.m322695601#322695603#0(0"0(0#0#61"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MyAnnotation.m8618350912#1940"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources" -include /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch -c "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MyAnnotation.m" -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/MyAnnotation.o"0#
-
-CCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/SplashViewController.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-s322688681.186818
-e322688684.038858
-r1
-xCompileC
-xbuild/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/SplashViewController.o
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@77"Compile /Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.m322688681#322688684#0(0"0(0#0#69"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.m8594529600#1956"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources" -include /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch -c "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.m" -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/SplashViewController.o"0#
-
-CCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/VoucherViewcontroller.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/VoucherViewcontroller.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-s322698183.401682
-e322698185.481334
-r1
-xCompileC
-xbuild/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/VoucherViewcontroller.o
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/VoucherViewcontroller.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@78"Compile /Users/User/Desktop/svn (trunk)/rac_ip/Classes/VoucherViewcontroller.m322698183#322698185#0(0"0(0#0#70"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/VoucherViewcontroller.m8611631264#1958"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources" -include /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch -c "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/VoucherViewcontroller.m" -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/VoucherViewcontroller.o"0#
-
-CCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/main.o "/Users/User/Desktop/svn (trunk)/rac_ip/main.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-s322684907.775879
-e322684908.112833
-r1
-xCompileC
-xbuild/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/main.o
-x/Users/User/Desktop/svn (trunk)/rac_ip/main.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@53"Compile /Users/User/Desktop/svn (trunk)/rac_ip/main.m322684907#322684908#0(0"0(0#0#45"/Users/User/Desktop/svn (trunk)/rac_ip/main.m8613264512#1916"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources" -include /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch -c "/Users/User/Desktop/svn (trunk)/rac_ip/main.m" -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/main.o"0#
-
-CCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/rac_ipAppDelegate.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-s322698218.292798
-e322698219.325724
-r1
-xCompileC
-xbuild/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/rac_ipAppDelegate.o
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@74"Compile /Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m322698218#322698219#0(0"0(0#0#66"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m8604004736#1950"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources" -include /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch -c "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m" -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/rac_ipAppDelegate.o"0#
-
-CCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/DatePickViewcontroller.xib"
-s322691845.240454
-e322691846.373008
-r1
-xCompileXIB
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/DatePickViewcontroller.xib
-lSLF07#2@45"CompileXIB Classes/DatePickViewcontroller.xib322691845#322691846#0(0"0(0#0#73"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/DatePickViewcontroller.xib8615198560#607"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/DatePickViewcontroller.nib" "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/DatePickViewcontroller.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk0#
-
-CCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MainMenuViewController.xib"
-s322689256.069019
-e322689257.391904
-r1
-xCompileXIB
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MainMenuViewController.xib
-lSLF07#2@45"CompileXIB Classes/MainMenuViewController.xib322689256#322689257#0(0"0(0#0#73"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MainMenuViewController.xib8615657344#607"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/MainMenuViewController.nib" "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MainMenuViewController.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk0#
-
-CCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MapViewcontroller.xib"
-s322694889.843680
-e322694892.080012
-r1
-xCompileXIB
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MapViewcontroller.xib
-lSLF07#2@40"CompileXIB Classes/MapViewcontroller.xib322694889#322694892#0(0"0(0#0#68"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MapViewcontroller.xib8619005376#597"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/MapViewcontroller.nib" "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/MapViewcontroller.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk0#
-
-CCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.xib"
-s322698612.001392
-e322698613.313368
-r1
-xCompileXIB
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.xib
-lSLF07#2@43"CompileXIB Classes/SplashViewController.xib322698612#322698613#0(0"0(0#0#71"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.xib8611379488#603"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/SplashViewController.nib" "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk0#
-
-CCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/VoucherViewcontroller.xib"
-s322696169.748506
-e322696171.178186
-r1
-xCompileXIB
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/VoucherViewcontroller.xib
-lSLF07#2@44"CompileXIB Classes/VoucherViewcontroller.xib322696169#322696171#0(0"0(0#0#72"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/VoucherViewcontroller.xib8618984544#605"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/VoucherViewcontroller.nib" "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/VoucherViewcontroller.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk0#
-
-CCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/MainWindow.xib"
-s322684904.449869
-e322684905.683257
-r1
-xCompileXIB
-x/Users/User/Desktop/svn (trunk)/rac_ip/MainWindow.xib
-lSLF07#2@25"CompileXIB MainWindow.xib322684904#322684905#0(0"0(0#0#53"/Users/User/Desktop/svn (trunk)/rac_ip/MainWindow.xib8612884320#575"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/MainWindow.nib" "/Users/User/Desktop/svn (trunk)/rac_ip/MainWindow.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk0#
-
-CCpResource build/Debug-iphonesimulator/rac_ip.app/date_btn.png img/date_btn.png
-s322689257.392048
-e322689257.453469
-r1
-xCpResource
-xbuild/Debug-iphonesimulator/rac_ip.app/date_btn.png
-ximg/date_btn.png
-lSLF07#2@21"Copy img/date_btn.png322689257#322689257#0(0"0(0#0#55"/Users/User/Desktop/svn (trunk)/rac_ip/img/date_btn.png8618890592#465"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks "/Users/User/Desktop/svn (trunk)/rac_ip/img/date_btn.png" "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app"0#
-
-CCpResource build/Debug-iphonesimulator/rac_ip.app/date_pick.jpg date_pick.jpg
-s322690321.301045
-e322690321.323640
-r1
-xCpResource
-xbuild/Debug-iphonesimulator/rac_ip.app/date_pick.jpg
-xdate_pick.jpg
-lSLF07#2@18"Copy date_pick.jpg322690321#322690321#0(0"0(0#0#52"/Users/User/Desktop/svn (trunk)/rac_ip/date_pick.jpg8617498208#462"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks "/Users/User/Desktop/svn (trunk)/rac_ip/date_pick.jpg" "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app"0#
-
-CCpResource build/Debug-iphonesimulator/rac_ip.app/main_menu.png img/main_menu.png
-s322688334.558647
-e322688334.580973
-r1
-xCpResource
-xbuild/Debug-iphonesimulator/rac_ip.app/main_menu.png
-ximg/main_menu.png
-lSLF07#2@22"Copy img/main_menu.png322688334#322688334#0(0"0(0#0#56"/Users/User/Desktop/svn (trunk)/rac_ip/img/main_menu.png8617803616#466"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks "/Users/User/Desktop/svn (trunk)/rac_ip/img/main_menu.png" "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app"0#
-
-CCpResource build/Debug-iphonesimulator/rac_ip.app/map_btn.png img/map_btn.png
-s322689257.395117
-e322689257.453647
-r1
-xCpResource
-xbuild/Debug-iphonesimulator/rac_ip.app/map_btn.png
-ximg/map_btn.png
-lSLF07#2@20"Copy img/map_btn.png322689257#322689257#0(0"0(0#0#54"/Users/User/Desktop/svn (trunk)/rac_ip/img/map_btn.png8618198080#464"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks "/Users/User/Desktop/svn (trunk)/rac_ip/img/map_btn.png" "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app"0#
-
-CCpResource build/Debug-iphonesimulator/rac_ip.app/picker_view.png img/picker_view.png
-s322691162.825047
-e322691162.859713
-r1
-xCpResource
-xbuild/Debug-iphonesimulator/rac_ip.app/picker_view.png
-ximg/picker_view.png
-lSLF07#2@24"Copy img/picker_view.png322691162#322691162#0(0"0(0#0#58"/Users/User/Desktop/svn (trunk)/rac_ip/img/picker_view.png8619484128#468"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks "/Users/User/Desktop/svn (trunk)/rac_ip/img/picker_view.png" "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app"0#
-
-CCpResource build/Debug-iphonesimulator/rac_ip.app/racappicon.png img/racappicon.png
-s322691354.961968
-e322691355.007498
-r1
-xCpResource
-xbuild/Debug-iphonesimulator/rac_ip.app/racappicon.png
-ximg/racappicon.png
-lSLF07#2@23"Copy img/racappicon.png322691354#322691355#0(0"0(0#0#57"/Users/User/Desktop/svn (trunk)/rac_ip/img/racappicon.png8617600864#467"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks "/Users/User/Desktop/svn (trunk)/rac_ip/img/racappicon.png" "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app"0#
-
-CCpResource build/Debug-iphonesimulator/rac_ip.app/splash.jpg img/splash.jpg
-s322685680.955868
-e322685681.006590
-r1
-xCpResource
-xbuild/Debug-iphonesimulator/rac_ip.app/splash.jpg
-ximg/splash.jpg
-lSLF07#2@19"Copy img/splash.jpg322685680#322685681#0(0"0(0#0#53"/Users/User/Desktop/svn (trunk)/rac_ip/img/splash.jpg8614115008#463"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks "/Users/User/Desktop/svn (trunk)/rac_ip/img/splash.jpg" "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app"0#
-
-CCpResource build/Debug-iphonesimulator/rac_ip.app/voucher_view.png img/voucher_view.png
-s322696011.121124
-e322696011.182429
-r1
-xCpResource
-xbuild/Debug-iphonesimulator/rac_ip.app/voucher_view.png
-ximg/voucher_view.png
-lSLF07#2@25"Copy img/voucher_view.png322696011#322696011#0(0"0(0#0#59"/Users/User/Desktop/svn (trunk)/rac_ip/img/voucher_view.png8619212640#469"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks "/Users/User/Desktop/svn (trunk)/rac_ip/img/voucher_view.png" "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app"0#
-
-CGenerateDSYMFile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app.dSYM" "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/rac_ip"
-s322698512.946655
-e322698513.609072
-r1
-xGenerateDSYMFile
-x/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app.dSYM
-x/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/rac_ip
-lSLF07#2@106"GenerateDSYMFile build/Debug-iphonesimulator/rac_ip.app.dSYM build/Debug-iphonesimulator/rac_ip.app/rac_ip322698512#322698513#0(0"0(0#0#84"/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/rac_ip8613582720#386"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/rac_ip" -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app.dSYM"0#
-
-CLd "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/rac_ip" normal i386
-s322698512.743483
-e322698512.946572
-r1
-xLd
-x/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/rac_ip
-xnormal
-xi386
-lSLF07#2@89"Link /Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/rac_ip322698512#322698512#0(0"0(0#0#0"8611544800#923"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk "-L/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" "-F/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" -filelist "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/rac_ip.LinkFileList" -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -framework Foundation -framework UIKit -framework CoreGraphics -framework MapKit -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/rac_ip"0#
-
-CProcessInfoPlistFile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/Info.plist" rac_ip-Info.plist
-s322691354.838942
-e322691354.961462
-r1
-xProcessInfoPlistFile
-x/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/Info.plist
-xrac_ip-Info.plist
-lSLF07#2@25"Process rac_ip-Info.plist322691354#322691355#0(0"0(0#0#56"/Users/User/Desktop/svn (trunk)/rac_ip/rac_ip-Info.plist8619644576#482"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility rac_ip-Info.plist -genpkginfo "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/PkgInfo" -expandbuildsettings -format binary -platform iphonesimulator -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/Info.plist"0#
-
-CProcessPCH /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch.gch rac_ip_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-s322684906.591734
-e322684907.775782
-r1
-xProcessPCH
-x/var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch.gch
-xrac_ip_Prefix.pch
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@28"Precompile rac_ip_Prefix.pch322684906#322684907#0(0"0(0#0#56"/Users/User/Desktop/svn (trunk)/rac_ip/rac_ip_Prefix.pch8613135360#1807"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources" -c "/Users/User/Desktop/svn (trunk)/rac_ip/rac_ip_Prefix.pch" -o /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch.gch0#
-
-CTouch "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app"
-s322698613.314796
-e322698613.343675
-r1
-xTouch
-x/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app
-lSLF07#2@83"Touch /Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app322698613#322698613#0(0"0(0#0#0"8614521792#281"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app"0#
-
