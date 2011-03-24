@@ -1,239 +1,0 @@
-Trac_ip
-v7
-r0
-t322684908.693982
-cCheck dependencies
-cProcessInfoPlistFile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/Info.plist" rac_ip-Info.plist
-cCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/MainWindow.xib"
-cCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.xib"
-cProcessPCH /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch.gch rac_ip_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/main.o "/Users/User/Desktop/svn (trunk)/rac_ip/main.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/rac_ipAppDelegate.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/SplashViewController.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk
-c000000004C6C30170000000000000110
-t1282158615
-s272
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-c000000004C5A4DB60000000000295900
-t1280986550
-s2709760
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c000000004C5A4DB0000000000029D580
-t1280986544
-s2741632
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c000000004C5A4DA10000000000001466
-t1280986529
-s5222
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
-c000000004C6241ED00000000000009CD
-t1281507821
-s2509
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c000000004C6242840000000001E228C0
-t1281507972
-s31598784
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.h
-c000000004D8B8FCB00000000000000E3
-t1300991947
-s227
-i<UIKit/UIKit.h>
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.m
-c000000004D8B8FCB000000000000059F
-t1300991947
-s1439
-i"SplashViewController.h"
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.xib
-c000000004D8B904400000000000040E6
-t1300992068
-s16614
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.h
-c000000004D8B8FB0000000000000013C
-t1300991920
-s316
-i<UIKit/UIKit.h>
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m
-c000000004D8B906800000000000009F1
-t1300992104
-s2545
-i"rac_ipAppDelegate.h"
-i"SplashViewController.h"
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/MainWindow.xib
-c000000004D8B8FB00000000000002103
-t1300991920
-s8451
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app
-t2
-s0
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app.dSYM
-t2
-s0
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/Info.plist
-t1300992104
-s587
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/MainWindow.nib
-t1300992105
-s1530
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/PkgInfo
-t1300992104
-s8
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/SplashViewController.nib
-t1300992106
-s1945
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/rac_ip
-t2
-s0
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/SplashViewController.o
-t1300992108
-s34632
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/main.o
-t1300992108
-s6304
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/rac_ip.LinkFileList
-c000000004D8B90680000000000000185
-t1300992104
-s389
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/rac_ipAppDelegate.o
-t2
-s0
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/main.m
-c000000004D8B8FB00000000000000160
-t1300991920
-s352
-i<UIKit/UIKit.h>
-
-N/Users/User/Desktop/svn (trunk)/rac_ip/rac_ip_Prefix.pch
-c000000004D8B8FB000000000000000B5
-t1300991920
-s181
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch.gch
-t1300992107
-s15211536
-
-Nrac_ip-Info.plist
-c000000004D8B8FB0000000000000038D
-t1300991920
-s909
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies322684904#322684904#0(0"0(0#1#0"3343187568374212096#0"0#
-
-CCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/SplashViewController.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-s322684908.390215
-e322684908.693838
-r1
-xCompileC
-xbuild/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/SplashViewController.o
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@77"Compile /Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.m322684908#322684908#0(0"0(0#0#69"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.m8613127072#1956"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources" -include /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch -c "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.m" -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/SplashViewController.o"0#
-
-CCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/main.o "/Users/User/Desktop/svn (trunk)/rac_ip/main.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-s322684907.775879
-e322684908.112833
-r1
-xCompileC
-xbuild/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/main.o
-x/Users/User/Desktop/svn (trunk)/rac_ip/main.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@53"Compile /Users/User/Desktop/svn (trunk)/rac_ip/main.m322684907#322684908#0(0"0(0#0#45"/Users/User/Desktop/svn (trunk)/rac_ip/main.m8613264512#1916"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources" -include /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch -c "/Users/User/Desktop/svn (trunk)/rac_ip/main.m" -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/main.o"0#
-
-CCompileC build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/rac_ipAppDelegate.o "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m" normal i386 objective-c com.apple.compilers.gcc.4_2
-s322684908.113009
-e322684908.390131
-r0
-xCompileC
-xbuild/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/rac_ipAppDelegate.o
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-o/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m: In function '-[rac_ipAppDelegate application:didFinishLaunchingWithOptions:]':
-o/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m:21: error: 'navController' undeclared (first use in this function)
-o/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m:21: error: (Each undeclared identifier is reported only once
-o/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m:21: error: for each function it appears in.)
-lSLF07#2@74"Compile /Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m322684908#322684908#0(521"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m: In function '-[rac_ipAppDelegate application:didFinishLaunchingWithOptions:]':/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m:21: error: 'navController' undeclared (first use in this function)/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m:21: error: (Each undeclared identifier is reported only once/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m:21: error: for each function it appears in.)1(4@55"'navController' undeclared (first use in this function)322684908#147#134#0(6@66"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m322684904#21#0#21#0#43"'*' undeclared (first use in this function)0(0#0#66"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m8604228992#1950"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources" -include /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch -c "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/rac_ipAppDelegate.m" -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/Objects-normal/i386/rac_ipAppDelegate.o"1#
-
-CCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.xib"
-s322684905.683339
-e322684906.591404
-r1
-xCompileXIB
-x/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.xib
-lSLF07#2@43"CompileXIB Classes/SplashViewController.xib322684905#322684906#0(0"0(0#0#71"/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.xib8613626176#603"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/SplashViewController.nib" "/Users/User/Desktop/svn (trunk)/rac_ip/Classes/SplashViewController.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk0#
-
-CCompileXIB "/Users/User/Desktop/svn (trunk)/rac_ip/MainWindow.xib"
-s322684904.449869
-e322684905.683257
-r1
-xCompileXIB
-x/Users/User/Desktop/svn (trunk)/rac_ip/MainWindow.xib
-lSLF07#2@25"CompileXIB MainWindow.xib322684904#322684905#0(0"0(0#0#53"/Users/User/Desktop/svn (trunk)/rac_ip/MainWindow.xib8612884320#575"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/MainWindow.nib" "/Users/User/Desktop/svn (trunk)/rac_ip/MainWindow.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk0#
-
-CGenerateDSYMFile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app.dSYM" "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/rac_ip"
-r0
-
-CLd "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/rac_ip" normal i386
-r0
-
-CProcessInfoPlistFile "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/Info.plist" rac_ip-Info.plist
-s322684904.404788
-e322684904.449780
-r1
-xProcessInfoPlistFile
-x/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/Info.plist
-xrac_ip-Info.plist
-lSLF07#2@25"Process rac_ip-Info.plist322684904#322684904#0(0"0(0#0#56"/Users/User/Desktop/svn (trunk)/rac_ip/rac_ip-Info.plist8458434393682504704#482"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility rac_ip-Info.plist -genpkginfo "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/PkgInfo" -expandbuildsettings -format binary -platform iphonesimulator -o "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app/Info.plist"0#
-
-CProcessPCH /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch.gch rac_ip_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-s322684906.591734
-e322684907.775782
-r1
-xProcessPCH
-x/var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch.gch
-xrac_ip_Prefix.pch
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@28"Precompile rac_ip_Prefix.pch322684906#322684907#0(0"0(0#0#56"/Users/User/Desktop/svn (trunk)/rac_ip/rac_ip_Prefix.pch8613135360#1807"    cd "/Users/User/Desktop/svn (trunk)/rac_ip"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-generated-files.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-own-target-headers.hmap" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-all-target-headers.hmap" -iquote "/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/rac_ip-project-headers.hmap" "-F/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/include" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources/i386" "-I/Users/User/Desktop/svn (trunk)/rac_ip/build/rac_ip.build/Debug-iphonesimulator/rac_ip.build/DerivedSources" -c "/Users/User/Desktop/svn (trunk)/rac_ip/rac_ip_Prefix.pch" -o /var/folders/rJ/rJuauw91FjWlRBVh293Sek+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/rac_ip_Prefix-eqjmottusuqahldbtlsonzusudsx/rac_ip_Prefix.pch.gch0#
-
-CTouch "/Users/User/Desktop/svn (trunk)/rac_ip/build/Debug-iphonesimulator/rac_ip.app"
-r0
-
