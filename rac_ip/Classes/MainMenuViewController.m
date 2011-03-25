@@ -9,7 +9,7 @@
 #import "MainMenuViewController.h"
 #import "DatePickViewcontroller.h"
 #import "MapViewcontroller.h"
-
+#import <AVFoundation/AVAudioPlayer.h>
 
 @implementation MainMenuViewController
 
@@ -47,9 +47,10 @@
 	[self.navigationController pushViewController:dpvc animated:YES];
 	[dpvc release];
 }
-- (void) viewWillDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [super viewWillDisappear:animated];
+-(void)viewWillDisappear:(BOOL)animated{
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"plak" ofType:@"wav"];
+	AVAudioPlayer* theAudio = [[[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL] autorelease];
+	[theAudio play];
 }
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

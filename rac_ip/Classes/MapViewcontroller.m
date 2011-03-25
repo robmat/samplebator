@@ -75,14 +75,8 @@
 	[self.navigationController pushViewController:vvc animated:YES];
 	[vvc release];
 }
-- (void) viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [super viewWillAppear:animated];
-}
-
-- (void) viewWillDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [super viewWillDisappear:animated];
+- (void) backAction: (id) sender {
+	[self.navigationController popViewControllerAnimated:YES];
 }
 /*
 // Override to allow orientations other than the default portrait orientation.
