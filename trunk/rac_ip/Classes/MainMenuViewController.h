@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <AVFoundation/AVFoundation.h>
 
 @interface MainMenuViewController : UIViewController {
-	
+	AVAudioPlayer* theAudio;
 }
 
 - (IBAction) mapAction: (id) sender;

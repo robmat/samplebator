@@ -49,7 +49,8 @@
 }
 -(void)viewWillDisappear:(BOOL)animated{
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"plak" ofType:@"wav"];
-	AVAudioPlayer* theAudio = [[[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL] autorelease];
+	[theAudio release];
+	theAudio = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
 	[theAudio play];
 }
 - (void)didReceiveMemoryWarning {
@@ -67,6 +68,7 @@
 
 
 - (void)dealloc {
+	[theAudio release];
     [super dealloc];
 }
 
