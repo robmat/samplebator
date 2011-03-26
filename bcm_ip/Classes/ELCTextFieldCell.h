@@ -17,6 +17,7 @@
 	NSIndexPath *indexPath;
 	UISwitch* uiSwitch;
 	BOOL switchable;
+	UITableView* tableView;
 }
 
 @property (nonatomic, assign) id delegate;
@@ -24,6 +25,9 @@
 @property (nonatomic, retain) UITextField *rightTextField;
 @property (nonatomic, retain) NSIndexPath *indexPath;
 @property (nonatomic, retain) UISwitch* uiSwitch;
+@property (nonatomic, retain) UITableView* tableView;
+
+-(void)animateView:(UITextField*)textField up:(BOOL)up;
 
 @end
 

@@ -11,7 +11,7 @@
 
 @implementation NewNotificationTableViewController
 
-@synthesize toolbarOutlet, tableViewOutlet;
+@synthesize toolbarOutlet, tableViewOutlet, templateItem;;
 
 #pragma mark -
 #pragma mark Initialization
@@ -33,6 +33,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.tableView = tableViewOutlet;
+	// incidentName = [templateItem objectForKey:@"incidentName"];
+	messageContent = [templateItem objectForKey:@"TemplateMessageContent"];
+	voiceIntro = [[templateItem objectForKey:@"VoiceIntro"] isEqual:@"true"] ? YES : NO;
+	voice = [[templateItem objectForKey:@"Call"] isEqual:@"true"] ? YES : NO;
+	sms = [[templateItem objectForKey:@"Sms"] isEqual:@"true"] ? YES : NO;
+	email = [[templateItem objectForKey:@"Email"] isEqual:@"true"] ? YES : NO;
+	callOpt1 = [templateItem objectForKey:@"Callopt1"];
+	callOpt2 = [templateItem objectForKey:@"Callopt2"];
+	callOpt3 = [templateItem objectForKey:@"Callopt3"];
+	callOpt4 = [templateItem objectForKey:@"Callopt4"];
+	callOpt5 = [templateItem objectForKey:@"Callopt5"];
+	isPersonalized = [[templateItem objectForKey:@"IsPersonalized"] isEqual:@"true"] ? YES : NO;
+	requiresPin = [[templateItem objectForKey:@"IsPinRequired"] isEqual:@"true"] ? YES : NO;
+	// free1 = [templateItem objectForKey:@"free1"];
+	// free2 = [templateItem objectForKey:@"free2"];
 }
 
 
@@ -69,8 +84,7 @@
 #pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 5;
+	return 5;
 }
 
 
@@ -107,7 +121,7 @@
 	if (indexPath.row == 1 && indexPath.section == 0) {
 		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: NO] autorelease];
 		cell.leftLabel.text = NSLocalizedString(@"messageContentLbl", nil);
-		cell.rightTextField.text = incidentName;
+		cell.rightTextField.text = messageContent;
 		cell.indexPath = indexPath;
 		cell.delegate = self;
 	}
@@ -202,6 +216,7 @@
 		cell.indexPath = indexPath;
 		cell.delegate = self;
 	}
+	cell.tableView = self.tableView;
     return cell;
 }
 
@@ -298,7 +313,7 @@
 	[tableViewOutlet release];
 	[toolbarOutlet release];
 	[incidentName release];
-	[messagecontent release];
+	[messageContent release];
 	[callOpt1 release];
 	[callOpt2 release];
 	[callOpt3 release];
@@ -306,6 +321,7 @@
 	[callOpt5 release];
 	[free1 release];
 	[free2 release];
+	[templateItem release];
     [super dealloc];
 }
 

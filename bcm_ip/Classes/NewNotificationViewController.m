@@ -28,6 +28,7 @@
 	itemsViewController = [[NewNotificationTableViewController alloc] init];
 	itemsViewController.toolbarOutlet = toolbarOutlet;
 	itemsViewController.tableViewOutlet = tableViewOutlet;
+	itemsViewController.templateItem = templateItem;
 	[itemsViewController viewDidLoad];
 }
 

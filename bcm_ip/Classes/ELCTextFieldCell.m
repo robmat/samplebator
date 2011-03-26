@@ -16,6 +16,7 @@
 @synthesize rightTextField;
 @synthesize indexPath;
 @synthesize uiSwitch;
+@synthesize tableView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier switchable: (BOOL) switchable_ {
     
@@ -39,7 +40,7 @@
 		rightTextField = [[UITextField alloc] initWithFrame:CGRectZero];
 		rightTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 		[rightTextField setDelegate:self];
-		[rightTextField setPlaceholder:@"Right Field"];
+		[rightTextField setPlaceholder:@"n/a"];
 		[rightTextField setFont:[UIFont systemFontOfSize:17]];
 		
 		// FOR MWF USE DONE
@@ -58,12 +59,12 @@
 	[super layoutSubviews];
 	CGRect origFrame = self.contentView.frame;
 	if (leftLabel.text != nil) {
-		leftLabel.frame = CGRectMake(origFrame.origin.x, origFrame.origin.y, 90, origFrame.size.height-1);
+		leftLabel.frame = CGRectMake(origFrame.origin.x, origFrame.origin.y, 120, origFrame.size.height-1);
 		if (switchable) {
-			uiSwitch.frame = CGRectMake(origFrame.origin.x+105, origFrame.origin.y + 8, origFrame.size.width-120, origFrame.size.height-1);
+			uiSwitch.frame = CGRectMake(origFrame.origin.x+125, origFrame.origin.y + 8, origFrame.size.width-120, origFrame.size.height-1);
 			return;
 		}
-		rightTextField.frame = CGRectMake(origFrame.origin.x+105, origFrame.origin.y, origFrame.size.width-120, origFrame.size.height-1);	
+		rightTextField.frame = CGRectMake(origFrame.origin.x+125, origFrame.origin.y, origFrame.size.width-120, origFrame.size.height-1);	
 	} else {
 		leftLabel.hidden = YES;
 		NSInteger imageWidth = 0;
@@ -77,12 +78,32 @@
 		rightTextField.frame = CGRectMake(origFrame.origin.x+imageWidth+10, origFrame.origin.y, origFrame.size.width-imageWidth-20, origFrame.size.height-1);
 	}
 }
-
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textView {
+	[tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+	return YES;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
 	
     [super setSelected:selected animated:animated];
 }
-
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [self animateView: textField up: YES];
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self animateView: textField up: NO];
+}
+- (void) animateView: (UITextField*) textField up: (BOOL) up {
+    const int movementDistance = indexPath.section == 4 ? 180 : 0; // tweak as needed
+    const float movementDuration = 1.0f; // tweak as needed
+	
+    int movement = (up ? -movementDistance : movementDistance);
+	
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.tableView.frame = CGRectOffset(self.tableView.frame, 0, movement);
+    [UIView commitAnimations];
+}
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 	
 	if([delegate respondsToSelector:@selector(textFieldDidReturnWithIndexPath:)]) {
@@ -123,7 +144,7 @@
 }
 
 - (void)dealloc {
-	
+	[tableView release];
 	[leftLabel release];
 	[rightTextField release];
 	[indexPath release];
