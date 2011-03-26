@@ -51,9 +51,6 @@
 
 - (void)dealloc {
     [super dealloc];
-	[templateItem release];
-	[tableViewOutlet release];
-	[toolbarOutlet release];
 }
 
 

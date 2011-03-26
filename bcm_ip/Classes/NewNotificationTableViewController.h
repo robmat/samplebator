@@ -12,6 +12,22 @@
 
 	UITableView* tableViewOutlet;
 	UIToolbar* toolbarOutlet;
+	
+	NSString* incidentName;
+	NSString* messagecontent;
+	BOOL voiceIntro;
+	BOOL voice;
+	BOOL sms;
+	BOOL email;
+	NSString* callOpt1;
+	NSString* callOpt2;
+	NSString* callOpt3;
+	NSString* callOpt4;
+	NSString* callOpt5;
+	BOOL isPersonalized;
+	BOOL requiresPin;
+	NSString* free1;
+	NSString* free2;
 }
 
 @property (nonatomic, retain) UITableView* tableViewOutlet;

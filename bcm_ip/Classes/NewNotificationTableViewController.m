@@ -70,24 +70,138 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 2;
+    return 5;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 1;
+    if (section == 0) {
+		return 3;
+	}
+	if (section == 1) {
+		return 3;
+	}
+	if (section == 2) {
+		return 5;
+	}
+	if (section == 3) {
+		return 2;
+	}
+	if (section == 4) {
+		return 2;
+	}
+    return 0;
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	ELCTextfieldCell* cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: YES] autorelease];
-	cell.leftLabel.text = @"cdcdc";
-	cell.rightTextField.text = @"cswegewg";
-	cell.indexPath = indexPath;
-	cell.delegate = self;
-    
+	ELCTextfieldCell* cell = nil;
+	if (indexPath.row == 0 && indexPath.section == 0) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: NO] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"incidentNameLbl", nil);
+		cell.rightTextField.text = incidentName;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	} 
+	if (indexPath.row == 1 && indexPath.section == 0) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: NO] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"messageContentLbl", nil);
+		cell.rightTextField.text = incidentName;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	}
+	if (indexPath.row == 2 && indexPath.section == 0) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: YES] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"voiceIntroLbl", nil);
+		cell.uiSwitch.on = voiceIntro;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	}
+	if (indexPath.row == 0 && indexPath.section == 1) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: YES] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"voiceLbl", nil);
+		cell.uiSwitch.on = voice;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	}
+	if (indexPath.row == 1 && indexPath.section == 1) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: YES] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"smsLbl", nil);
+		cell.uiSwitch.on = sms;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	}
+	if (indexPath.row == 2 && indexPath.section == 1) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: YES] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"emailLbl", nil);
+		cell.uiSwitch.on = email;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	}
+	if (indexPath.row == 0 && indexPath.section == 2) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: NO] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"callOpt1Lbl", nil);
+		cell.rightTextField.text = callOpt1;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	}
+	if (indexPath.row == 1 && indexPath.section == 2) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: NO] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"callOpt2Lbl", nil);
+		cell.rightTextField.text = callOpt2;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	}
+	if (indexPath.row == 2 && indexPath.section == 2) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: NO] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"callOpt3Lbl", nil);
+		cell.rightTextField.text = callOpt3;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	}
+	if (indexPath.row == 3 && indexPath.section == 2) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: NO] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"callOpt4Lbl", nil);
+		cell.rightTextField.text = callOpt4;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	}
+	if (indexPath.row == 4 && indexPath.section == 2) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: NO] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"callOpt5Lbl", nil);
+		cell.rightTextField.text = callOpt5;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	}
+	if (indexPath.row == 0 && indexPath.section == 3) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: YES] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"isPersonalizedLbl", nil);
+		cell.uiSwitch.on = isPersonalized;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	}
+	if (indexPath.row == 1 && indexPath.section == 3) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: YES] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"requiresPinLbl", nil);
+		cell.uiSwitch.on = requiresPin;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	}
+	if (indexPath.row == 0 && indexPath.section == 4) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: NO] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"free1Lbl", nil);
+		cell.rightTextField.text = free1;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	}
+	if (indexPath.row == 1 && indexPath.section == 4) {
+		cell = [[[ELCTextfieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" switchable: NO] autorelease];
+		cell.leftLabel.text = NSLocalizedString(@"free2Lbl", nil);
+		cell.rightTextField.text = free2;
+		cell.indexPath = indexPath;
+		cell.delegate = self;
+	}
     return cell;
 }
 
@@ -181,6 +295,17 @@
 
 
 - (void)dealloc {
+	[tableViewOutlet release];
+	[toolbarOutlet release];
+	[incidentName release];
+	[messagecontent release];
+	[callOpt1 release];
+	[callOpt2 release];
+	[callOpt3 release];
+	[callOpt4 release];
+	[callOpt5 release];
+	[free1 release];
+	[free2 release];
     [super dealloc];
 }
 
