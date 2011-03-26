@@ -12,9 +12,10 @@
 
 	UITableView* tableViewOutlet;
 	UIToolbar* toolbarOutlet;
+	NSDictionary* templateItem;
 	
 	NSString* incidentName;
-	NSString* messagecontent;
+	NSString* messageContent;
 	BOOL voiceIntro;
 	BOOL voice;
 	BOOL sms;
@@ -32,5 +33,6 @@
 
 @property (nonatomic, retain) UITableView* tableViewOutlet;
 @property (nonatomic, retain) UIToolbar* toolbarOutlet;
+@property (nonatomic, retain) NSDictionary* templateItem;
 
 @end
