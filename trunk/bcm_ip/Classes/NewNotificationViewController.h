@@ -15,8 +15,12 @@
 	IBOutlet UIToolbar* toolbarOutlet;
 	NewNotificationTableViewController* itemsViewController;
 	NSDictionary* templateItem;
+	NSMutableArray* addressesGroupIds;
 }
-
+@property (nonatomic, retain) NSMutableArray* addressesGroupIds;
 @property (nonatomic, retain) NSDictionary* templateItem;
+
+- (void) addressGroupAction: (id) sender;
+- (void) newNotificationAction: (id) sender;
 
 @end

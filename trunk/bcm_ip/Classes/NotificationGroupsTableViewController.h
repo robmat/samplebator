@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HttpRequestWrapper.h"
+#import "NewNotificationViewController.h"
 
 @interface NotificationGroupsTableViewController : UITableViewController {
 	UITableView* tableViewOutlet;
@@ -15,7 +16,10 @@
 	HttpRequestWrapper* httpRequest;
 	NSMutableArray* itemsArray;
 	BOOL anyItemsAvailable;
+	NewNotificationViewController* nnvc;
 }
+
+@property (nonatomic, retain) NewNotificationViewController* nnvc;
 @property (nonatomic, retain) UITableView* tableViewOutlet;
 @property (nonatomic, retain) UIToolbar* toolbarOutlet;
 

@@ -11,6 +11,7 @@
 
 @implementation NotificationGroupsView
 
+@synthesize nnvc;
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -23,9 +24,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	[itemsViewController release];
 	itemsViewController = [[NotificationGroupsTableViewController alloc] init];
 	itemsViewController.toolbarOutlet = toolbarOutlet;
 	itemsViewController.tableViewOutlet = tableViewOutlet;
+	itemsViewController.nnvc = self.nnvc;
 	[itemsViewController viewDidLoad];
 }
 

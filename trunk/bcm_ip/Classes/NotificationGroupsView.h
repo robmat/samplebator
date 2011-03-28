@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "NotificationGroupsTableViewController.h"
+#import "NewNotificationViewController.h"
 
 @interface NotificationGroupsView : UIViewController {
 	IBOutlet UITableView* tableViewOutlet;
 	IBOutlet UIToolbar* toolbarOutlet;
 	NotificationGroupsTableViewController* itemsViewController;
+	NewNotificationViewController* nnvc;
 }
+
+@property (nonatomic, retain) NewNotificationViewController* nnvc;
 
 @end
