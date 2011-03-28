@@ -15,15 +15,22 @@
 
 - (void) addressGroupAction: (id) sender {
 	NotificationGroupsView* ngvc = [[NotificationGroupsView alloc] initWithNibName:nil bundle:nil];
-	[self.navigationController pushViewController:ngvc animated:YES];
 	ngvc.nnvc = self;
+	[self.navigationController pushViewController:ngvc animated:YES];
 	[ngvc release];
 }
 - (void) newNotificationAction: (id) sender {
 
 }
+- (void) addGroupId: (NSString*) idStr {
+	[addressesGroupIds addObject:idStr];
+}
+- (void) delGroupId: (NSString*) idStr {
+	[addressesGroupIds removeObjectIdenticalTo:idStr];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+	self.title = NSLocalizedString(@"newNotificationViewTitle", nil);
 	addressesGroupIds = [[NSMutableArray alloc] init];
 	itemsViewController = [[NewNotificationTableViewController alloc] init];
 	itemsViewController.toolbarOutlet = toolbarOutlet;

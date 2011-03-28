@@ -97,6 +97,7 @@
     cell.imageView.image = [UIImage imageNamed:@"tick_gray.png"];
 	if ([nnvc.addressesGroupIds containsObject:[dict objectForKey:@"Id"]]) {
 		cell.imageView.image = [UIImage imageNamed:@"tick.png"];
+		cell.tag = 1;
 	}
     return cell;
 }
@@ -113,15 +114,17 @@
 	 [self.navigationController pushViewController:detailViewController animated:YES];
 	 [detailViewController release];
 	 */
+	NSDictionary* dict = [itemsArray objectAtIndex:indexPath.row];
+	NSString* idStr = [dict objectForKey:@"Id"];
 	UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
 	if (cell.tag == 0) {	
 		cell.imageView.image = [UIImage imageNamed:@"tick.png"];
 		cell.tag = 1;
-		[nnvc.addressesGroupIds addObject:[[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Id"]];
+		[nnvc addGroupId: idStr];
 	} else {
 		cell.imageView.image = [UIImage imageNamed:@"tick_gray.png"];
 		cell.tag = 0;
-		[nnvc.addressesGroupIds removeObjectIdenticalTo:[[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Id"]];
+		[nnvc delGroupId:idStr];
 	}
 }
 

@@ -22,5 +22,6 @@
 
 - (void) addressGroupAction: (id) sender;
 - (void) newNotificationAction: (id) sender;
-
+- (void) addGroupId: (NSString*) idStr;
+- (void) delGroupId: (NSString*) idStr;
 @end
