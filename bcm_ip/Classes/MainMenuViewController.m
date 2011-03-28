@@ -74,7 +74,8 @@ static int NOTIFY_ALERT_TAG = 2;
 	[procVC setAccessoryType:UITableViewCellAccessoryNone];
 	ilvc.title = NSLocalizedString(@"scenariosViewTitle", nil);
 	procVC.dictionary = [[[[Dictionary alloc] init] loadDictionaryAndRetry:YES asynchronous:YES overwrite:NO] autorelease];
-	procVC.dictionary.dictMappings = [NSDictionary dictionaryWithObjectsAndKeys: nil];	
+	procVC.dictionary.dictMappings = [NSDictionary dictionaryWithObjectsAndKeys: 
+									  @"SCENARIO_STATUS", @"Status", nil];	
 	ilvc.itemsViewController = procVC;
 	[self.navigationController pushViewController:ilvc animated:YES];
 	[procVC release];
