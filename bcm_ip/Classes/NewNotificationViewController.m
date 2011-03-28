@@ -7,24 +7,24 @@
 //
 
 #import "NewNotificationViewController.h"
-
+#import "NotificationGroupsView.h"
 
 @implementation NewNotificationViewController
 
-@synthesize templateItem;
+@synthesize templateItem, addressesGroupIds;
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
+- (void) addressGroupAction: (id) sender {
+	NotificationGroupsView* ngvc = [[NotificationGroupsView alloc] initWithNibName:nil bundle:nil];
+	[self.navigationController pushViewController:ngvc animated:YES];
+	ngvc.nnvc = self;
+	[ngvc release];
 }
-*/
+- (void) newNotificationAction: (id) sender {
 
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+	addressesGroupIds = [[NSMutableArray alloc] init];
 	itemsViewController = [[NewNotificationTableViewController alloc] init];
 	itemsViewController.toolbarOutlet = toolbarOutlet;
 	itemsViewController.tableViewOutlet = tableViewOutlet;
@@ -51,6 +51,11 @@
 
 
 - (void)dealloc {
+	[addressesGroupIds release];
+	[tableViewOutlet release];
+	[toolbarOutlet release];
+	[itemsViewController release];
+	[templateItem release];
     [super dealloc];
 }
 
