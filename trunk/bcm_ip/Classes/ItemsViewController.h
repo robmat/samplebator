@@ -19,6 +19,7 @@
 	UIBarButtonItem *browserBtn;
 	UITableView* tableViewOutlet;
 	UIToolbar* toolbarOutlet;
+	float frameWidth;
 	
 	UITableViewCellAccessoryType accessory;
 	Dictionary* dictionary;

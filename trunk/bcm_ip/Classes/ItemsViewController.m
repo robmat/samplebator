@@ -22,6 +22,7 @@
 	accessory = type;
 }
 - (void)viewDidLoad {
+	frameWidth = 302;
     [super viewDidLoad];
 	self.tableView = tableViewOutlet;
 	httpRequest = [[HttpRequestWrapper alloc] initWithDelegate:self];
@@ -160,34 +161,46 @@
     return cell;
 }
 - (UIView*) composeViewForSelectedRow: (NSIndexPath*) indexPath cellContentFrame: (CGRect) frame {
+	frameWidth = frame.size.width;
 	UIView* container = [[UIView alloc] initWithFrame: frame];
 	container.tag = 666;
 	NSDictionary* item = [itemsArray objectAtIndex:indexPath.row];
-	NSNumber* maxSizeOfValue = [NSNumber numberWithInt:-1];
+	NSNumber* maxSizeOfKey = [NSNumber numberWithInt:-1];
 	NSNumber* labelsHeight = [NSNumber numberWithInt:-1];
 	for (NSString* key in [item keyEnumerator]) {
 		CGSize size = [key sizeWithFont: [bcm_ipAppDelegate defaultFont]];
-		if (size.width > [maxSizeOfValue intValue]) {
-			maxSizeOfValue = [NSNumber numberWithFloat:size.width];
+		if (size.width > [maxSizeOfKey intValue]) {
+			maxSizeOfKey = [NSNumber numberWithFloat:size.width];
 		}	
 		labelsHeight = [NSNumber numberWithInt:size.height];
 	}
 	NSNumber* yIndex = [NSNumber numberWithInt:5];
 	for (NSString* key in [item keyEnumerator]) {
-		UILabel* keyLbl = [[UILabel alloc] initWithFrame: CGRectMake(5, [yIndex intValue], [maxSizeOfValue floatValue], [labelsHeight floatValue] )];
+		UILabel* keyLbl = [[UILabel alloc] initWithFrame: CGRectMake(5, [yIndex intValue], [maxSizeOfKey floatValue], [labelsHeight floatValue] )];
 		keyLbl.text = key;
 		keyLbl.font = [bcm_ipAppDelegate defaultFont];
 		[container addSubview:keyLbl];
 		[keyLbl release];
 		
 		NSString* value = [item objectForKey:key];
-		UILabel* valLbl = [[UILabel alloc] initWithFrame: CGRectMake([maxSizeOfValue floatValue] + 10, [yIndex intValue], frame.size.width - 20 - [maxSizeOfValue floatValue], [labelsHeight floatValue])];
+		float width = [value sizeWithFont: [bcm_ipAppDelegate defaultFont]].width;
+		float rows = width / (frame.size.width - [maxSizeOfKey floatValue] - 20);
+		float lblHeight = rows > 1 ? [labelsHeight floatValue] * 2 : [labelsHeight floatValue];
+		lblHeight = rows > 2 ? [labelsHeight floatValue] * 3 : lblHeight;
+		UILabel* valLbl = [[UILabel alloc] initWithFrame: CGRectMake([maxSizeOfKey floatValue] + 10, [yIndex intValue], frame.size.width - 20 - [maxSizeOfKey floatValue], lblHeight)];
 		valLbl.text = value;
 		valLbl.font = [bcm_ipAppDelegate defaultFont];
+		if (rows > 1) {
+			valLbl.numberOfLines = 2;
+			
+		}
+		if (rows > 2) {
+			valLbl.numberOfLines = 3;
+		}
 		[container addSubview:valLbl];
 		[valLbl release];
 		
-		yIndex = [NSNumber numberWithInt: [yIndex intValue] + [labelsHeight intValue] ];
+		yIndex = [NSNumber numberWithInt: [yIndex intValue] + lblHeight ];
 	}
 	return container;
 }
@@ -222,10 +235,34 @@
 		}
 	}
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     float height = [[NSString stringWithString:@"A"] sizeWithFont:[bcm_ipAppDelegate defaultFont]].height;
-	int retVal = [[ NSNumber numberWithInt: selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]] ? [[itemsArray objectAtIndex:selectedRow] count] * (height + 2) + 5 : 60;
+	int retVal = [[ NSNumber numberWithInt: selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]] ? [[itemsArray objectAtIndex:selectedRow] count] * (height + 3) : 60;
+	if (selectedRow != indexPath.row) {
+		return retVal;
+	}
+	NSDictionary* item = [itemsArray objectAtIndex:indexPath.row];
+	NSNumber* maxWidthOfKey = [NSNumber numberWithInt:-1];
+	NSNumber* rowHeight = [NSNumber numberWithInt:-1];
+	for (NSString* key in [item keyEnumerator]) {
+		CGSize size = [key sizeWithFont: [bcm_ipAppDelegate defaultFont]];
+		if (size.width > [maxWidthOfKey intValue]) {
+			maxWidthOfKey = [NSNumber numberWithFloat:size.width];
+		}
+		rowHeight = [NSNumber numberWithFloat: size.height];
+	}
+	for (NSString* key in [item keyEnumerator]) {
+		NSString* value = [item objectForKey:key];
+		CGSize size = [value sizeWithFont: [bcm_ipAppDelegate defaultFont]];
+		float width = size.width;
+		float rows = width / (frameWidth - [maxWidthOfKey floatValue] - 20);
+		if (rows > 1) {
+			retVal += height;
+		}
+		if (rows > 2) {
+			retVal += height;
+		}
+	}
 	return retVal;
 }
 
