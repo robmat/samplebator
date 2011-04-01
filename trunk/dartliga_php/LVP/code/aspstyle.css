@@ -1,0 +1,69 @@
+BODY {
+	font-family:Verdana, serif;
+	font-weight:bold;
+	text-decoration : none;
+	color : #444444;
+	background-color: white;
+	margin:0px;
+}
+P.txt {
+	font-family:Verdana;
+	font-size:10pt;
+	font-weight:normal;
+	text-align:left;
+	color:#444444;
+	margin-left:20px;
+}// style used in the Page Headers
+P.pheader {
+	font-family:Verdana;
+	font-size:14pt;
+	font-weight:bold;
+	text-align:right;
+	color:white;
+}
+table.txt {
+	width: 100%;
+	background-color: white;
+}
+td.txt {
+	font-family:Verdana;
+	font-size:10pt;
+	font-weight:normal;
+	text-align:left;
+	color:#444444;
+}
+.tblhead {
+	font-family:Verdana;
+	font-size:9pt;
+	font-weight:bold;
+	text-align:center;
+	color:#ffffff;
+}
+td.footer{
+	height:18px;
+	font-family:Verdana;
+	font-size:8pt;
+	font-weight:normal;
+	text-align:center;
+	color:#444444;
+	background-color: white;
+}
+.aspli {
+	font-family:Verdana;
+	font-size:10pt;
+	font-weight:normal;
+	text-align:left;
+	color:#444444;
+}
+
+.menu1 {
+	border:1pt solid #444444;
+	font-family:Verdana;
+	font-size:10pt;
+	font-weight:bold;
+	text-align:right;
+	background-color: white;
+	color:#444444;
+	cursor:hand;
+}
+
