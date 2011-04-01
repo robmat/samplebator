@@ -10,10 +10,9 @@ import net.rim.device.api.ui.Manager;
 import net.rim.device.api.ui.UiApplication;
 import net.rim.device.api.ui.component.BitmapField;
 import net.rim.device.api.ui.component.ButtonField;
-import net.rim.device.api.ui.component.Dialog;
 import net.rim.device.api.ui.component.LabelField;
 
-public class MainMenuScreen extends CommonsForScreen implements IDataCacheAware {
+public class MainMenuScreen extends CommonsForScreen {
 	public LongButtonField processesBtn = new LongButtonField(I18n.bundle.getString(BcmResource.processesLbl), ButtonField.CONSUME_CLICK);
 	public LongButtonField scenariosBtn = new LongButtonField(I18n.bundle.getString(BcmResource.scenariosLbl), ButtonField.CONSUME_CLICK);
 	public LongButtonField assetsBtn = new LongButtonField(I18n.bundle.getString(BcmResource.assetsLbl), ButtonField.CONSUME_CLICK);
@@ -23,7 +22,7 @@ public class MainMenuScreen extends CommonsForScreen implements IDataCacheAware 
 	public LongButtonField logoutBtn = new LongButtonField(I18n.bundle.getString(BcmResource.logoutLbl), ButtonField.CONSUME_CLICK);
 	public LongButtonField supportBtn = new LongButtonField(I18n.bundle.getString(BcmResource.supportLbl), ButtonField.CONSUME_CLICK);
 	public BitmapField logo = new BitmapField(EncodedImage.getEncodedImageResource("logo.jpg").getBitmap(), BitmapField.FIELD_HCENTER | BitmapField.USE_ALL_WIDTH);
-	
+
 	public MainMenuScreen() {
 		setTitle(new LabelField(I18n.bundle.getString(BcmResource.mainFormTitle), DrawStyle.HCENTER | Field.USE_ALL_WIDTH));
 		GridFieldManager mcm = new GridFieldManager(2, Manager.VERTICAL_SCROLL | Manager.USE_ALL_HEIGHT | Manager.USE_ALL_WIDTH);
@@ -45,12 +44,12 @@ public class MainMenuScreen extends CommonsForScreen implements IDataCacheAware 
 		});
 		scenariosBtn.setChangeListener(new FieldChangeListener() {
 			public void fieldChanged(Field arg0, int arg1) {
-				UiApplication.getUiApplication().pushScreen(new ScenariosScreen());
+				UiApplication.getUiApplication().pushScreen(new ScenariosScreen(true));
 			}
 		});
 		assetsBtn.setChangeListener(new FieldChangeListener() {
 			public void fieldChanged(Field arg0, int arg1) {
-				UiApplication.getUiApplication().pushScreen(new AssetsScreen(null, null));
+				UiApplication.getUiApplication().pushScreen(new AssetsScreen(null, null, true));
 			}
 		});
 		incidentsBtn.setChangeListener(new FieldChangeListener() {
@@ -85,33 +84,9 @@ public class MainMenuScreen extends CommonsForScreen implements IDataCacheAware 
 				Browser.getDefaultSession().displayPage("http://support.bcmlogic.com/");
 			}
 		});
-		fillInCaches();
-	}
-
-	private void fillInCaches() {
-		new Thread(new Runnable() {
-			public void run() {
-				if (EntryPoint.caches == null) {
-					EntryPoint.caches = new DataCache[] { new DataCache(MainMenuScreen.this, "getAllProcesses"), new DataCache(MainMenuScreen.this, "getAllScenarios"), new DataCache(MainMenuScreen.this, "getAllAssets") };
-					for (int i = 0; i < EntryPoint.caches.length; i++) {
-						if (!EntryPoint.caches[i].fillInCache()) {
-							errorDialog("Error filling " + EntryPoint.caches[i].command + " cache.");
-						}
-					}
-				}
-			}
-		}).start();
 	}
 
 	public boolean onSavePrompt() {
 		return true;
-	}
-
-	public void showDialogWithMsg(final String msg) {
-		UiApplication.getUiApplication().invokeLater(new Runnable() {
-			public void run() {
-				Dialog.alert(msg);
-			}
-		});
 	}
 }

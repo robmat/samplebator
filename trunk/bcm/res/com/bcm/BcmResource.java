@@ -63,4 +63,6 @@ public interface BcmResource {
 	public static final int clientNameLbl = 0;
 	public static final int reallyActivateScenarioLbl = 0;
 	public static final int noDataLbl = 0;
+	public static final int addGroupsOfReceipentsLbl = 0;
+	public static final int notificationGroupsTitle = 0;
 }

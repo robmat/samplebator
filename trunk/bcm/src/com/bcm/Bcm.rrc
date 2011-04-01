@@ -1,6 +1,7 @@
 activateScenarioLbl#0="Activate scenario";
 activatingScenarioFailedLbl#0="Activating of the scenario failed";
 activatingScenarioLbl#0="Activating scenario";
+addGroupsOfReceipentsLbl#0="Add receiver group";
 allLbl#0="All";
 allTasksLbl#0="All tasks";
 assetsLbl#0="Assets";
@@ -32,6 +33,7 @@ nameLbl#0="Name";
 newBtn#0="New";
 newNotificationTitleLbl#0="New notification";
 noDataLbl#0="No data available";
+notificationGroupsTitle#0="Receiver groups";
 notifyLbl#0="Notify";
 notifyTemplatesLbl#0="Notify templates";
 numberLbl#0="Number";

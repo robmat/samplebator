@@ -1,5 +1,7 @@
 package com.bcm;
 
+import java.util.Hashtable;
+
 import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.system.DeviceInfo;
 import net.rim.device.api.ui.DrawStyle;
@@ -30,8 +32,9 @@ public class ProcessesScreen extends CommonsForScreen implements IWaitableScreen
 	}
 
 	public void init() {
-		if (EntryPoint.caches != null && EntryPoint.caches[0] != null && useCache) {
-			items = EntryPoint.caches[0].cache;
+		Hashtable[] itemsTemp = CacheManager.getCache(CacheManager.GET_ALL_PROCESSES, null, null);
+		if (itemsTemp != null && useCache) {
+			items = itemsTemp;
 			callback(null);
 		} else {
 			final DataReceiver dr = new DataReceiver();
