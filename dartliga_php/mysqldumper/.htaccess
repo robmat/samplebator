@@ -1,0 +1,4 @@
+AuthName "MySQLDumper"
+AuthType Basic
+AuthUserFile "/srv/www/htdocs/web363/html/mysqldumper/.htpasswd"
+require valid-user

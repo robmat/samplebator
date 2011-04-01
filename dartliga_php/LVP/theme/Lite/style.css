@@ -1,0 +1,116 @@
+BODY {FONT-FAMILY: Verdana,Helvetica; 
+	FONT-SIZE: 10px;color : #222222;
+	background-color : #ffffff;
+	margin:0px}
+
+ul, ol {
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	}
+ul.navlist a ul.navlist a:link{
+	background-color: #eeeeee;
+	color: #FF0000;
+	border: 1pt solid black
+	}
+ul.navlist a.current,ul.navlist a.current:link, ul.navlist a:hover{
+	background-color: #FF0000;
+	color: #FF0000;
+	}
+/* a:link {color: #AA3333;} */
+*:link,*:visited {color: #222222; TEXT-DECORATION: none}
+
+TR.datarow {background-color:#ffffff;color :#222222}
+TR.clickcell {background-color:#ffffff;color :#222222}
+TR.clickcell:hover {background-color:#B2FFB2;border: 1px solid #CCCCCC;cursor: pointer}
+
+
+TD {FONT-SIZE: 10px}
+.clickbox	{ FONT-SIZE: 12px;FONT-WEIGHT: normal;background-color: #ffffff;border: 1pt solid #eeeeee}
+.legbox	{ FONT-SIZE: 14px;FONT-WEIGHT: bold;background-color: #ffffff; border: 1pt solid #eeeeee;width:8px}
+.bluebox	{ FONT-SIZE: 12px;FONT-WEIGHT: bold;background-color: #e8e8ee}
+.redbox	{ FONT-SIZE: 12px;FONT-WEIGHT: bold;background-color: #202088;color: #FFFFFF}
+.thead {background-color: #222222;color: white;FONT-WEIGHT: bold}
+.theadbold {FONT-WEIGHT: bold}
+.dcell {background-color: #ffffff;padding: 3px;}
+.f1 {width:5px;background-color: #202088}
+.f2 {width:150px;background-color: #202088}
+.f3 {width:850px;background-color: #202088}
+.f4 {width:5px;background-color: #202088}
+.f5 {width:5px;background-color: #ffffff;vertical-align:top;}
+.f6 {width:150px;background-color: #ffffff;vertical-align:top;}
+.f7 {width:850px;background-color: #ffffff;vertical-align:top;}
+.f8 {width:5px;background-color: #ffffff;vertical-align:top;}
+.f9 {height:2px;width:20px;background-color: #ffffff}
+.f10 {height:2px;width:150px;background-color: #ffffff}
+.f11 {height:2px;width:850px;background-color: #ffffff}
+.f12 {height:2px;width:20px;background-color: #ffffff}
+.boxcontent {background-color: #ffffff;}
+.legwon {background-color: #bbeecc;}
+
+TABLE
+.fmain {width:1000px;background-color: #ffffff;padding:0px}
+.leglegend {color : #333333}
+.legdata {color : #333333}
+.tchild {background-color: #f8f8f8;color: #333333;border: 1pt solid #cccccc;width:100%;}
+.box {width:100%;background-color: #ffffff;padding:5px 0pt;border: 1px solid #cccccc;}
+
+
+
+P {FONT-SIZE: 10px}
+.navButts {
+color : #882020;
+font-family : Verdana, Arial, Helvetica, sans-serif;
+font-size : 11px;
+margin-left: 2px;
+margin-bottom : 2px;
+margin-top : 0px
+}
+.navButts a {
+background-color : #F4F4F4;
+color : #333333;
+display : block;
+padding-bottom : 2px;
+padding-left : 10px;
+padding-top : 0px;
+text-decoration : none;
+width : 100%
+}
+.navButts a:hover {
+background-color : #eeeeee;
+color : #882020;
+text-decoration : none
+}
+
+DIV {FONT-SIZE: 10px}
+.h4 {FONT-WEIGHT: bold; color: red}
+.sectionhead {FONT-SIZE: 12px; border: 1pt solid #882020; color: black;background-color : #F4F4F4;padding:1px}
+.master {width:750px;margin-left:50px}
+.child {width:750px;margin-left:50px}
+.axmonitor {position:absolute;left:800px;top:60px}
+.navi {position:absolute;width:140px}
+.menu {FONT-SIZE: 12px; color: black;background-color : #B2D1FF;padding:0px}
+.tableroll{overflow: auto; width: 720px; height: 200px; border-left: 1px gray solid; border-bottom: 1px gray solid; padding:0px; margin: 0px}
+.code{width:90%;margin-left:5%;color:black;border: 1pt dashed #888888;background-color: #eeeedf}
+
+H1	{COLOR: black;  FONT-SIZE: 20px;FONT-WEIGHT: bold}
+H2	{COLOR: black;  FONT-SIZE: 16px;FONT-WEIGHT: bold}
+H3	{COLOR: black;  FONT-SIZE: 14px;FONT-WEIGHT: bold}
+
+input,select,textarea,checkbox {background-color:#fcfcfc;line-height:normal;border: 1px solid #CCCCCC}
+input:focus,select:focus,textarea:focus,checkbox:focus{background-color: #fcfcfc;border: 1px solid #B2D1FF}
+INPUT.lost	{ FONT-SIZE: 18px; FONT-WEIGHT: bold;}
+INPUT.win	{ FONT-SIZE: 18px; FONT-WEIGHT: bold; color: #00AA00}
+INPUT.lsdb	{}
+INPUT.lsdbbutton {background-color:#f8f8f8;width:100%;margin:1px}
+/* elegant but does not work in IE */
+/* INPUT.lsdbbutton:hover {background-color:#B2FFB2;cursor:pointer;} */
+SELECT.lsdb {}
+
+FORM 		{FONT-SIZE: 10px;}
+.title 		{BACKGROUND: none; COLOR: #000000; FONT-SIZE: 14px; FONT-WEIGHT: bold; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: none}
+.content 	{BACKGROUND: none; COLOR: #000000;  FONT-FAMILY: Verdana, Helvetica}
+.boxtitle 	{BACKGROUND: none; COLOR: #363636; FONT-SIZE: 12px; FONT-WEIGHT: bold; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: none}
+.boxcontent 	{BACKGROUND: none; COLOR: #000000;  FONT-FAMILY: Verdana, Helvetica}
+.option 	{BACKGROUND: none; COLOR: #000000;  FONT-WEIGHT: bold; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: none}
+.tiny		{BACKGROUND: none; COLOR: #000000; FONT-SIZE: 8px; FONT-WEIGHT: normal; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: none}
