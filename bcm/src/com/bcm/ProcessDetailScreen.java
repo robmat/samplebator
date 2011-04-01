@@ -46,7 +46,7 @@ public class ProcessDetailScreen extends CommonsForScreen {
 
 			addMenuItem(new MenuItem(I18n.bundle.getString(BcmResource.showAssetsLbl), 0, 1) {
 				public void run() {
-					UiApplication.getUiApplication().pushScreen(new AssetsScreen((String) details.get("Id"), ((String) details.get("Name"))));
+					UiApplication.getUiApplication().pushScreen(new AssetsScreen((String) details.get("Id"), ((String) details.get("Name")), true));
 				}
 			});
 		}

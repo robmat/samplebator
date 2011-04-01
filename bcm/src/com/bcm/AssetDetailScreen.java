@@ -44,7 +44,7 @@ public class AssetDetailScreen extends CommonsForScreen {
 					public void run() {
 						String type = (String) details.get("AssetType");
 						if ("1".equals(type)) {
-							UiApplication.getUiApplication().pushScreen(new InfrastructuresScreen((String) details.get("Id"), (String) details.get("Name")));
+							UiApplication.getUiApplication().pushScreen(new InfrastructuresScreen((String) details.get("Id"), (String) details.get("Name"), true));
 						}
 					}
 				});

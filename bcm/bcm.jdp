@@ -26,6 +26,7 @@ src\com\bcm\AssetsScreen.java
 src\com\bcm\Bcm.rrc
 src\com\bcm\Bcm.rrh
 src\com\bcm\Bcm_pl.rrc
+src\com\bcm\CacheManager.java
 src\com\bcm\CallLogsScreen.java
 src\com\bcm\CellularLabelfield.java
 src\com\bcm\ColouredListField.java
@@ -49,6 +50,7 @@ src\com\bcm\LongButtonField.java
 src\com\bcm\MainMenuScreen.java
 src\com\bcm\MultiRowLabelField.java
 src\com\bcm\NewNotificationScreen.java
+src\com\bcm\NotificationGroupsChooseScreen.java
 src\com\bcm\NotifyMenuScreen.java
 src\com\bcm\NotifyTemplatesScreen.java
 src\com\bcm\PersistentStore.java

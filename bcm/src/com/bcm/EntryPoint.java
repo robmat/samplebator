@@ -10,7 +10,7 @@ public class EntryPoint extends UiApplication {
 	public static int sw = -1;
 	public static int sh = -1;
 	public static String SITE_NAME = "site1";
-	public static DataCache[] caches = null;
+
 	public static void main(String args[]) {
 		EntryPoint ep = new EntryPoint();
 		sw = Display.getWidth();

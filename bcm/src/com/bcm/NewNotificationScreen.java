@@ -2,12 +2,13 @@ package com.bcm;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.Vector;
 
 import net.rim.device.api.system.Bitmap;
-import net.rim.device.api.system.DeviceInfo;
 import net.rim.device.api.ui.DrawStyle;
 import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.Manager;
+import net.rim.device.api.ui.MenuItem;
 import net.rim.device.api.ui.UiApplication;
 import net.rim.device.api.ui.component.ButtonField;
 import net.rim.device.api.ui.component.CheckboxField;
@@ -15,8 +16,6 @@ import net.rim.device.api.ui.component.Dialog;
 import net.rim.device.api.ui.component.LabelField;
 import net.rim.device.api.ui.component.ObjectChoiceField;
 import net.rim.device.api.ui.component.SeparatorField;
-
-import org.w3c.dom.Document;
 
 public class NewNotificationScreen extends CommonsForScreen implements IWaitableScreen {
 	public ObjectChoiceField templateChoice = new ObjectChoiceField(I18n.bundle.getString(BcmResource.templatesLbl), new String[] {});
@@ -39,9 +38,8 @@ public class NewNotificationScreen extends CommonsForScreen implements IWaitable
 	public LabeledTextField free2 = new LabeledTextField("Free1" + " 2 :");
 	public ObjectChoiceField groupChoice = new ObjectChoiceField(I18n.bundle.getString(BcmResource.groupsLbl), new String[] { "Group 1", "Group 2", "Group 3", "Group 4" });
 	public ButtonField createBtn = new ButtonField(I18n.bundle.getString(BcmResource.createLbl), ButtonField.FIELD_HCENTER | ButtonField.CONSUME_CLICK);
-	private Hashtable[] templateItems;
 	private Dialog dialog;
-
+	public Vector selectedGroudIds = new Vector();
 	public void log(String str) {
 	}
 
@@ -98,6 +96,12 @@ public class NewNotificationScreen extends CommonsForScreen implements IWaitable
 				requiresPinChk.setChecked(parseBoolean((String) template.get(key)));
 			}
 		}
+		addMenuItem(new MenuItem(I18n.bundle.getString(BcmResource.addGroupsOfReceipentsLbl), 0, 6) {
+			public void run() {
+				UiApplication.getUiApplication().pushScreen(new NotificationGroupsChooseScreen(selectedGroudIds));
+			}
+		});
+		//createBtn.setChangeListener(arg0);
 	}
 
 	private boolean parseBoolean(String s) {
@@ -108,32 +112,7 @@ public class NewNotificationScreen extends CommonsForScreen implements IWaitable
 	}
 
 	private void init() {
-		new Thread() {
-			public void run() {
-				try {
-					DataReceiver dr = new DataReceiver();
-					dr.getAllData(EntryPoint.authUser, EntryPoint.authPass, DeviceInfo.getDeviceId(), NewNotificationScreen.this, "getAllNotifyTemplates", "");
-					Document doc = XMLUtils.parseXML(dr.getResult());
-					templateItems = XMLUtils.getArrayItems(doc);
-					final String[] choices = new String[templateItems.length];
-					for (int i = 0; i < templateItems.length; i++) {
-						choices[i] = (String) templateItems[i].get("Name");
-						choices[i] = choices[i] == null ? "" : choices[i];
-					}
-					UiApplication.getUiApplication().invokeLater(new Runnable() {
-						public void run() {
-							templateChoice.setChoices(choices);
-							if (choices.length > 0) {
-								templateChoice.setSelectedIndex(0);
-							}
-						}
-					});
-				} catch (Exception e) {
-					NewNotificationScreen.this.errorDialog(e.getClass().getName() + " " + e.getMessage());
-					e.printStackTrace();
-				}
-			};
-		};//.start();
+		
 	}
 
 	public int callback(String msg) {

@@ -44,7 +44,7 @@ public class TaskDetailScreen extends CommonsForScreen {
 			if (updateOption) {
 				addMenuItem(new MenuItem(I18n.bundle.getString(BcmResource.showInfrastructureLbl), 0, 1) {
 					public void run() {
-						UiApplication.getUiApplication().pushScreen(new InfrastructuresScreen((String) details.get("Id"), (String) details.get("Name")));
+						UiApplication.getUiApplication().pushScreen(new InfrastructuresScreen((String) details.get("Id"), (String) details.get("Name"), true));
 					}
 				});
 			}

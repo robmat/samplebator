@@ -17,7 +17,7 @@ import net.rim.device.api.ui.component.PasswordEditField;
 import net.rim.device.api.ui.container.HorizontalFieldManager;
 import net.rim.device.api.ui.container.VerticalFieldManager;
 
-public class LoginFormScreen extends CommonsForScreen implements IWaitableScreen {
+public class LoginFormScreen extends CommonsForScreen implements IWaitableScreen, IDataCacheAware {
 	public BitmapField logo = new BitmapField(EncodedImage.getEncodedImageResource("logo.jpg").getBitmap(), BitmapField.FIELD_HCENTER | BitmapField.USE_ALL_WIDTH);
 	public BasicEditField login = new BasicEditField();
 	public BasicEditField site = new BasicEditField();
@@ -147,12 +147,20 @@ public class LoginFormScreen extends CommonsForScreen implements IWaitableScreen
 		} else if (msg != null) {
 			Dictionary.dictionary = XMLUtils.getDictionary(msg);
 			log("Dictionary.dictionary = " + Dictionary.dictionary.getClass().getName());
+			CacheManager.fillInCaches(null);
 		}
 		log("callback() end");
 		return 0;
 	}
-
+	
 	public boolean onSavePrompt() {
 		return true;
+	}
+	public void showDialogWithMsg(final String msg) {
+		UiApplication.getUiApplication().invokeLater(new Runnable() {
+			public void run() {
+				Dialog.alert(msg);
+			}
+		});
 	}
 }

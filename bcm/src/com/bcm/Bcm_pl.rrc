@@ -1,6 +1,7 @@
 activateScenarioLbl#0="Aktuwyj scenariusz";
 activatingScenarioFailedLbl#0="Aktywacja scenariusz nie uda\u0142a si\u0119";
 activatingScenarioLbl#0="Aktywuj\u0119 scenariusz";
+addGroupsOfReceipentsLbl#0="Dodaj grup\u0119 odbiorców";
 allLbl#0="Wszystkie";
 allTasksLbl#0="Wszystkie zadania";
 assetsLbl#0="Zasoby";
@@ -32,6 +33,7 @@ nameLbl#0="Nazwa";
 newBtn#0="Nowy";
 newNotificationTitleLbl#0="Nowe powiadomienie";
 noDataLbl#0="Brak danych";
+notificationGroupsTitle#0="Grupy adresatów";
 notifyLbl#0="Powiadomienia";
 notifyTemplatesLbl#0="Szablony powiadomie\u0144";
 numberLbl#0="Numer";
