@@ -17,15 +17,13 @@
 
 @synthesize loginBtn, userLbl, passLbl, siteLbl, userTxtFld, passTxtFld, siteTxtFld;
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
+    BOOL ipad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+	if ((self = [super initWithNibName:ipad ? @"IPadLoginViewController" : nibNameOrNil bundle:nibBundleOrNil])) {
     }
     return self;
 }
-*/
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	self.title = NSLocalizedString(@"loginFormTitle", nil);
@@ -101,11 +99,15 @@
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    [self animateTextField: textField up: YES];
+    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+		[self animateTextField: textField up: YES];
+	}	
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    [self animateTextField: textField up: NO];
+    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+		[self animateTextField: textField up: NO];
+	}
 }
 
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up

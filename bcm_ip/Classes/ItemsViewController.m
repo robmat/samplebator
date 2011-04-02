@@ -22,7 +22,8 @@
 	accessory = type;
 }
 - (void)viewDidLoad {
-	frameWidth = 302;
+	BOOL ipad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+	frameWidth = ipad ? 302 : 735;
     [super viewDidLoad];
 	self.tableView = tableViewOutlet;
 	httpRequest = [[HttpRequestWrapper alloc] initWithDelegate:self];
@@ -88,7 +89,6 @@
 				} else {
 					[processDict setObject:elemValu forKey:elemName];
 				}				
-				
 			} while (itemChildElem = itemChildElem->nextSibling);
 		
 			itemElem = [TBXML nextSiblingNamed: xmlItemName searchFromElement:itemElem];
@@ -237,7 +237,10 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     float height = [[NSString stringWithString:@"A"] sizeWithFont:[bcm_ipAppDelegate defaultFont]].height;
-	int retVal = [[ NSNumber numberWithInt: selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]] ? [[itemsArray objectAtIndex:selectedRow] count] * (height + 3) : 60;
+	int retVal = [[ NSNumber numberWithInt: selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]] ? [[itemsArray objectAtIndex:selectedRow] count] * (height + 2) : 60;
+	if ([[ NSNumber numberWithInt: selectedRow] isEqualToNumber:[NSNumber numberWithInt:indexPath.row]]) {
+		retVal = [[itemsArray objectAtIndex:selectedRow] count] == 2 ? retVal + 10 : retVal;
+	}
 	if (selectedRow != indexPath.row) {
 		return retVal;
 	}

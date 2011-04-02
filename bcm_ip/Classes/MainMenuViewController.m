@@ -13,6 +13,12 @@
 static int RECOVERY_ALERT_TAG = 1;
 static int NOTIFY_ALERT_TAG = 2;
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    BOOL ipad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+	if ((self = [super initWithNibName:ipad ? @"IPadMainMenuViewController" : nibNameOrNil bundle:nibBundleOrNil])) {
+    }
+    return self;
+}
 - (IBAction) logoutAction: (id) sender {
 	[[NSFileManager defaultManager] removeItemAtPath:[bcm_ipAppDelegate getLoginDataFilePath] error:nil];
 	LoginViewController* loginVC = [[LoginViewController alloc] init];
