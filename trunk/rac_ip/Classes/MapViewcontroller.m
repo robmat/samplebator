@@ -40,17 +40,17 @@
 	region.span = span;
 	[map setRegion:region animated:YES];
 	
-	latitude += 0.003;
-	longtitude += 0.003;
+	latitude = 51.453751;
+	longtitude = -2.59483;
 	
 	NSString* latStr = [[NSNumber numberWithDouble:latitude] stringValue];
 	NSString* lonStr = [[NSNumber numberWithDouble:longtitude] stringValue];
 	
 	MyAnnotation* anno = [[MyAnnotation alloc] initWithDictionary:[NSDictionary dictionaryWithObjectsAndKeys:
-																   @"Sample location", @"name",
+																   @"ETON Bar and Nightclub", @"name",
 																   latStr, @"latitude", 
 																   lonStr, @"longtitude", 
-																   @"Sample location description", @"postcode",
+																   @"28 Baldwin Street, Bristol BS1 1NL", @"postcode",
 																   nil]];
 	[map addAnnotation:anno];
 	[anno release];
@@ -63,7 +63,7 @@
 	MKAnnotationView *annotationView = [map dequeueReusableAnnotationViewWithIdentifier:identifier];
 	if (annotationView == nil){
 		annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier] autorelease];
-		annotationView.image = [UIImage imageNamed:@"racappicon.png"];
+		annotationView.image = [UIImage imageNamed:@"map_annotation.png"];
 		annotationView.canShowCallout = YES;
 		annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 		//annotationView.leftCalloutAccessoryView =  [[[UIImageView  alloc] initWithImage:[UIImage imageNamed:@"whitelogo.png"]] autorelease];
@@ -75,7 +75,7 @@
 	[self.navigationController pushViewController:vvc animated:YES];
 	[vvc release];
 }
-- (void) backAction: (id) sender {
+- (IBAction) backAction: (id) sender {
 	[self.navigationController popViewControllerAnimated:YES];
 }
 /*
