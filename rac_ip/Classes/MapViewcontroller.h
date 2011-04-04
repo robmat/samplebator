@@ -15,6 +15,6 @@
 	
 }
 
-- (void) backAction: (id) sender; 
+- (IBAction) backAction: (id) sender; 
 
 @end
