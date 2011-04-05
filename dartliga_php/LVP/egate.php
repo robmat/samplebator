@@ -173,9 +173,9 @@ function p_createMatch($mkey,$eventid,$rnum,$vtid,$vpoints,$vsets,$vlegs,$vdate)
 	
 	# Make sure both teams are in the same event ...
 	# 
-	$resq=sql_query("select * from tblteam where tevent_id=$eventid and id in($vtid[0],$vtid[1])");
-	$resrows=sql_fetch_row($resq,$dbi);
-	if (!mysql_num_rows($resrows)==2){
+	$resq=sql_query("select * from tblteam where tevent_id=$eventid and id in($vtid[0],$vtid[1])", $dbi);
+	# $resrows=sql_fetch_row($resq,$dbi);
+	if (mysql_num_rows($resq)!=2){
 		echo "<font color=red>Event: ".$event['evname']." Match: $mkey Creation failed, Wrong TEAMS for event...</font><br/>";
 		return -1;
 	}
