@@ -18,7 +18,7 @@ function _axTeamPerformancePage($eventid=0,$tid=0){
 	echo setpagetitle('Team Leistungen im direkten Vergleich '.$event['evname']);
 	echo form_TeamSelect('','teamperf('.$eventid.','.$event['evstatcode_id'].',1)',$tid,$eventid,0);
 	echo '<p>Der Graph zeigt die Verteilung der H&auml;ufigkeit der Dartsanzahl, die ben&ouml;tigt wurde um ein Leg zu <b>gewinnen</b>. Zur Ermittlung der Werte werde nur alle gewonnenen Legs aller Teamspieler in dieser betreffenden Liga herangezogen. Selbstverst&auml;ndlich kann nur eine Verteilung generiert werden wenn für diese betreffende Liga die <b>Darts-Werte pro Leg</b> erfasst wurden.</p>';
-	echo '<div id="JG" style="position:relative;height:300px;width:700px"></div>';
+	echo '<div id="JG" style="position:relative;height:500px;width:700px"></div>';
 	echo '<div id="lineUpPerf"></div>';
 	echo '<div id="lineUp"></div>';
 }
