@@ -16,7 +16,7 @@
 	UILocalNotification *localNotif = [[UILocalNotification alloc] init];	
 	localNotif.fireDate = date;
 	localNotif.timeZone = [NSTimeZone defaultTimeZone];
-	localNotif.alertBody = @"This is a sample offer, click to view details.";
+	localNotif.alertBody = @"Gourmet Society Two meals for the price of one. Eton Bar, Baldwin Street, Bristol, BS1 1NL";
 	localNotif.alertAction = @"Notification.";
 	localNotif.soundName = UILocalNotificationDefaultSoundName;
 	localNotif.applicationIconBadgeNumber = 1;	
