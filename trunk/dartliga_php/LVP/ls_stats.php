@@ -241,7 +241,20 @@ function _showlegstatDetails($eventid,$pid,$mode=2){
 function _showsetstat($eventid){
 	global $dbi,$tdbg,$tdLost,$tdWon,$event;
 	
-	echo _MakeStatPageHeader($eventid,0);
+	# echo _MakeStatPageHeader($eventid,0);
+	# FIX for the styling bug
+	echo '<table><tr><td><div style="width: 155px;"></div></td><td>';
+	$ret = "";
+	$ret=$ret.'<h2>Spieler Statistik '.$event['evname'].' Saison '.$event['evyear'].'</h2>';
+	$ret=$ret.'<div id="topnav"><table width="100%" border="0"><tr>';
+	$ret=$ret.'<td>'._button("Legs","","ls_stats.php?func=legstats&eventid=$eventid")."</td>";
+	$ret=$ret.'<td>'._button("Sets","","ls_stats.php?func=setstats&eventid=$eventid")."</td>";
+	$ret=$ret.'<td>'._button("3-Darts","","ls_stats.php?func=3darts&eventid=$eventid")."</td>";
+	$ret=$ret.'<td>'._button("Legs Gesamte Liga Gruppe","","ls_stats.php?func=legstatsgroup&eventid=$eventid")."</td>";
+	$ret=$ret.'<td>'._button("Siege","","ls_stats.php?func=wonloststats&eventid=$eventid")."</td>";
+	$ret=$ret.'<td>'._button("Bestleistungen","","ls_stats.php?func=lowstats&eventid=$eventid")."</td>";
+	$ret=$ret.'<td></tr></table></div><br>';
+	echo $ret;
 	
 	# indicate red/green from event configuration singles ...
 	$WonOUT=intval($event['evsgllegs']/2)+1;
@@ -270,6 +283,10 @@ function _showsetstat($eventid){
 		$lastround=$mround;
 		$lastpid=$pid;
 	}
+	
+	# FIX for the styling bug
+	echo '</td></tr></table>';
+	
 	CloseTable();
 }
 
