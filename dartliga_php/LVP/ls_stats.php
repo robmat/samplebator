@@ -246,7 +246,7 @@ function _showsetstat($eventid){
 	echo '<table><tr><td><div style="width: 155px;"></div></td><td>';
 	$ret = "";
 	$ret=$ret.'<h2>Spieler Statistik '.$event['evname'].' Saison '.$event['evyear'].'</h2>';
-	$ret=$ret.'<div id="topnav"><table width="100%" border="0"><tr>';
+	$ret=$ret.'<div id="topnav"><table width="850" border="0"><tr>';
 	$ret=$ret.'<td>'._button("Legs","","ls_stats.php?func=legstats&eventid=$eventid")."</td>";
 	$ret=$ret.'<td>'._button("Sets","","ls_stats.php?func=setstats&eventid=$eventid")."</td>";
 	$ret=$ret.'<td>'._button("3-Darts","","ls_stats.php?func=3darts&eventid=$eventid")."</td>";
