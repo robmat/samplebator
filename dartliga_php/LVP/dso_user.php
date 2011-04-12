@@ -57,7 +57,7 @@ function _usernav() {
 			$strRet=$strRet._usermenuitem('Message Center','lsdbMessage.php','Nachrichten','email.png');
 			$strRet=$strRet._usermenuitem('Statistik Daten','stats_main.php','Statistik','calendar.png');
 			$strRet=$strRet._usermenuitem('eGate Input','egate.php','eGate/upload','optimize.gif');
-			$strRet=$strRet._usermenuitem('Admin panel','admin/adminMainMenu.php','Admin panel','optimize.gif');
+			# $strRet=$strRet._usermenuitem('Admin panel','adminMainMenu.php?op=system_benutzer','Admin panel','optimize.gif');
 			$strRet=$strRet.'</td></tr><tr><td>';
 		case 4:	// Liga Admins
 			$strRet=$strRet._usermenuitem('Workflow Anmeldung','wf.php','Antr&auml;ge','wf.png');
