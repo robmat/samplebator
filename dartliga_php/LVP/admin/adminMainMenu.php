@@ -73,29 +73,12 @@
         <div id="maincontent">
           <table class="box">
             <tr>
-              <td>
-                <table>
-					<tr><td></td></tr>
-				</table>
-              </td>
-			  <td>
-                
-              </td>
-            </tr>
-			 <tr>
-              <td>
-                
-              </td>
-			  <td>
-                
-              </td>
-            </tr>
-			 <tr>
-              <td>
-                
-              </td>
-			  <td>
-                
+              <td class="boxcontent" name="userinfo" id="userinfo">
+                <?php 
+					
+					
+					
+				?>
               </td>
             </tr>
           </table>
