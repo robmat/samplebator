@@ -409,6 +409,33 @@ function DB_listPlayers($DB,$p_id=0,$last_name='',$first_name='',$p_fkey1='',$p_
 	return $RET;
 }
 
+function DB_getSpecialCharsForUsersFilter($DB) {
+    $a=array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+
+    $queryBuilder = array();
+    $output = array();
+
+    foreach( $a as $letter ) {
+        $queryBuilder[] = "plname NOT LIKE UPPER('" . $letter . "%')";
+    }
+
+    $query = "SELECT plname FROM tplayer WHERE " . implode( ' AND ', $queryBuilder );
+    $presult = sql_query($query, $DB);
+    $RET=createRecordSet($presult,$DB);
+
+    if( count( $RET ) > 0 ) {
+        foreach( $RET as $record ) {
+           if( substr( $record[0], 0, 1 ) == '&' ) {
+               $output[] = substr( $record[0], 0, ( strpos( $record[0], ';' ) + 1 ) );
+           } else {
+               $output[] = substr( $record[0], 0, 1 );
+           }
+        }
+    }
+
+    return array_unique( $output );
+}
+
 	/**
 	 * controller for players-Eventgroup
 	 * returns all players who have ever played in this group

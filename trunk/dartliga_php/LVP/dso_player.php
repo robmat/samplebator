@@ -30,15 +30,24 @@ function LastNameBrowseBar($show){
 	# param: $show=the actual Letter Tab OnScreen
 	# enlarging the size of the actual letter box creates a dynamic slide effect ...
 	#
-	global $playercode;
+	global $playercode, $dbi;
 	$outstring="";
-	$a=array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+	$letters = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+    $specialChars = DB_getSpecialCharsForUsersFilter($dbi);
+
+    $a = array_merge( $letters, $specialChars );
+
 	$outstring="<table bgcolor=\"white\" cellpadding=1 cellspacing=1 width=100%><tr>";
 	foreach($a as $i){
 		if ($i==$show){
 			$outstring=$outstring."<td width=100px bgcolor=\"#B2FFB2\" align=\"center\"><font color=\"#000000\">$i</font></td>";
 		} else {
-			$outstring=$outstring."<td>"._button("$i","","$playercode?findstr=$i")."</td>";
+            if( strpos( $i, '&' ) === false ) {
+                $link = $i;
+            } else {
+                $link = urlencode($i);
+            }
+			$outstring=$outstring."<td>"._button("$i","","$playercode?findstr=$link")."</td>";
 		}
 	}
 	$outstring=$outstring."</tr></table>";
