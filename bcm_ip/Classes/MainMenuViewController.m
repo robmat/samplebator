@@ -7,6 +7,7 @@
 #import "ItemsListViewController.h"
 #import "AssetITInfrastructureDelegate.h"
 #import "NotifyTemplatesDelegate.h"
+#import "CacheManager.h"
 
 @implementation MainMenuViewController
 
@@ -186,6 +187,8 @@ static int NOTIFY_ALERT_TAG = 2;
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = NSLocalizedString(@"mainMenuFormTitle", nil);
+	cm = [[CacheManager alloc] init];
+	[cm fillInCaches];
 }
 
 - (void)didReceiveMemoryWarning {

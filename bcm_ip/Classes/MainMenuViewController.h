@@ -1,8 +1,9 @@
 #import <UIKit/UIKit.h>
-
+#import "CacheManager.h"
 
 @interface MainMenuViewController : UIViewController {
 
+	CacheManager* cm;
 }
 
 - (IBAction) logoutAction: (id) sender;
