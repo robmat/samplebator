@@ -23,7 +23,7 @@
 }
 - (void)viewDidLoad {
 	BOOL ipad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
-	frameWidth = ipad ? 302 : 735;
+	frameWidth = !ipad ? 302 : 735; //yes i know, magic numbers...
     [super viewDidLoad];
 	self.tableView = tableViewOutlet;
 	httpRequest = [[HttpRequestWrapper alloc] initWithDelegate:self];
@@ -161,7 +161,7 @@
     return cell;
 }
 - (UIView*) composeViewForSelectedRow: (NSIndexPath*) indexPath cellContentFrame: (CGRect) frame {
-	frameWidth = frame.size.width;
+	frame.origin.x = 9;
 	UIView* container = [[UIView alloc] initWithFrame: frame];
 	container.tag = 666;
 	NSDictionary* item = [itemsArray objectAtIndex:indexPath.row];
@@ -184,10 +184,10 @@
 		
 		NSString* value = [item objectForKey:key];
 		float width = [value sizeWithFont: [bcm_ipAppDelegate defaultFont]].width;
-		float rows = width / (frame.size.width - [maxSizeOfKey floatValue] - 20);
+		float rows = width / (frameWidth - [maxSizeOfKey floatValue] - 20);
 		float lblHeight = rows > 1 ? [labelsHeight floatValue] * 2 : [labelsHeight floatValue];
 		lblHeight = rows > 2 ? [labelsHeight floatValue] * 3 : lblHeight;
-		UILabel* valLbl = [[UILabel alloc] initWithFrame: CGRectMake([maxSizeOfKey floatValue] + 10, [yIndex intValue], frame.size.width - 20 - [maxSizeOfKey floatValue], lblHeight)];
+		UILabel* valLbl = [[UILabel alloc] initWithFrame: CGRectMake([maxSizeOfKey floatValue] + 10, [yIndex intValue], frameWidth - 20 - [maxSizeOfKey floatValue], lblHeight)];
 		valLbl.text = value;
 		valLbl.font = [bcm_ipAppDelegate defaultFont];
 		if (rows > 1) {
@@ -266,6 +266,7 @@
 			retVal += height;
 		}
 	}
+	NSLog(@"%@ %@", [[NSNumber numberWithInt:retVal] stringValue], [[NSNumber numberWithFloat:frameWidth] stringValue]);
 	return retVal;
 }
 
