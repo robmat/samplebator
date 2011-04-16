@@ -7,17 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TBXML.h"
 
 @interface Cache : NSObject {
 
 	NSString* command;
 	BOOL filled;
+	TBXML* xmlDoc;
 }
 
 @property (nonatomic, retain) NSString* command;
+@property (nonatomic, retain) TBXML* xmlDoc;
 
 - (id) initWithCommand: (NSString*) _command;
-- (void) fillInCache;
+- (void) fillInCacheOverwrite: (BOOL) overwrite;
+- (NSString*) getFilePath;
 
 @end

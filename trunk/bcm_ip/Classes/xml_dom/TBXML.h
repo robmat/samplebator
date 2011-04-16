@@ -82,9 +82,10 @@ typedef struct _TBXMLAttributeBuffer {
 // ================================================================================================
 @interface TBXML : NSObject {
 	
-@private
+@public
 	TBXMLElement * rootXMLElement;
 	
+@private	
 	TBXMLElementBuffer * currentElementBuffer;
 	TBXMLAttributeBuffer * currentAttributeBuffer;
 	
