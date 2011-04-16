@@ -181,32 +181,30 @@ static int NOTIFY_ALERT_TAG = 2;
 										  cancelButtonTitle:NSLocalizedString(@"cancelLbl", nil) 
 										  otherButtonTitles:NSLocalizedString(@"notifyBtnLbl", nil), NSLocalizedString(@"monitorBtnLbl", nil), nil];
 	alert.tag = NOTIFY_ALERT_TAG;
-	[alert show];
+	//[alert show];
 	[alert release];
+	NSArray* res = [cm getAssetsByProcessId:@"154"];
+	NSLog(@"%@", [res description]);
 }
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
 	self.title = NSLocalizedString(@"mainMenuFormTitle", nil);
 	cm = [[CacheManager alloc] init];
-	[cm fillInCaches];
+	[cm fillInCachesOverwrite: YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
+- (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
+- (void) viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 
-- (void)dealloc {
+- (void) dealloc {
     [super dealloc];
+	[cm release];
 }
 
 

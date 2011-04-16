@@ -7,14 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TBXML.h"
+#import "Cache.h"
 
 @interface CacheManager : NSObject {
 	
 	NSMutableArray* caches;	
+	BOOL overwrite;
 }
 
 - (id) init;
-- (void) fillInCaches;
-
+- (void) fillInCachesOverwrite: (BOOL) _overwrite;
+- (Cache*) getCacheByCommand: (NSString*) command;
+- (NSArray*) getItInfraByAssetId: (NSString*) assetId;
+- (NSArray*) getAssetsByProcessId: (NSString*) processId;
+- (NSArray*) convertXmlCacheToArrayOfDictionaries: (TBXML*) tbXml;
 @end
