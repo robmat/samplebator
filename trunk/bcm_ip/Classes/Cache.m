@@ -12,7 +12,7 @@
 
 @implementation Cache
 
-@synthesize command, xmlDoc;
+@synthesize command, xmlDoc, rawString;
 
 - (id) initWithCommand: (NSString*) _command {
 	self.command = _command;
@@ -21,7 +21,9 @@
 }
 - (void) fillInCacheOverwrite: (BOOL) overwrite {
 	if ([[NSFileManager defaultManager] fileExistsAtPath:[self getFilePath]] && !overwrite) {
-		xmlDoc = [TBXML tbxmlWithXMLFile:[self getFilePath]];
+		self.rawString = [NSString stringWithContentsOfFile:[self getFilePath] encoding: NSUTF8StringEncoding error: nil];
+		xmlDoc = [[TBXML tbxmlWithXMLString: rawString] retain];
+		filled = YES;
 	} else {
 		HttpRequestWrapper* hrw = [[HttpRequestWrapper alloc] initWithDelegate:self];
 		[hrw makeRequestWithParams:[NSDictionary dictionaryWithObjectsAndKeys: command, @"action", nil]];
@@ -29,6 +31,7 @@
 }
 - (void)requestFinished:(ASIHTTPRequest *)request {
 	xmlDoc = [[TBXML tbxmlWithXMLString:[request responseString]] retain];
+	self.rawString = [request responseString];
 	if (xmlDoc) { //check if really received xml
 		NSString* path = [self getFilePath];
 		[[request responseString] writeToFile:path atomically:YES encoding: NSUTF8StringEncoding  error: nil];
@@ -46,5 +49,6 @@
 	[super dealloc];
 	[command release];
 	[xmlDoc release];
+	[rawString release];
 }
 @end

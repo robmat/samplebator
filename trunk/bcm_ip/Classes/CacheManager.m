@@ -38,6 +38,7 @@
 - (Cache*) getCacheByCommand: (NSString*) command {
 	for (Cache* cache in caches) {
 		if ([cache.command isEqualToString:command]) {
+			[cache fillInCacheOverwrite:NO];
 			return cache;
 		}
 	}
