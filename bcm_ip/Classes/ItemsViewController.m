@@ -10,6 +10,8 @@
 #import "HttpRequestWrapper.h"
 #import "TBXML.h"
 #import "bcm_ipAppDelegate.h"
+#import "CacheManager.h"
+#import "Cache.h"
 
 @implementation ItemsViewController
 
@@ -26,8 +28,26 @@
 	frameWidth = !ipad ? 302 : 735; //yes i know, magic numbers...
     [super viewDidLoad];
 	self.tableView = tableViewOutlet;
-	httpRequest = [[HttpRequestWrapper alloc] initWithDelegate:self];
-	[httpRequest makeRequestWithParams: requestParams];
+	BOOL filledFromCache = NO;
+	cacheManager = [[CacheManager alloc] init]; 
+	Cache* cache = [cacheManager getCacheByCommand:[requestParams objectForKey:@"action"]];
+	if (cache && cache->filled) {
+		[self parseDataString:cache.rawString];
+		filledFromCache = YES;
+	}
+	NSLog(@"action: %@", [requestParams objectForKey:@"action"]);
+	if ([@"getAssetsByProcess" isEqualToString:[requestParams objectForKey:@"action"]]) {
+		itemsArray = [[cacheManager getAssetsByProcessId:[requestParams objectForKey:@"processId"]] retain];
+		[self.tableView reloadData];
+	}
+	if ([@"getItInfrastructureByAsset" isEqualToString:[requestParams objectForKey:@"action"]]) {
+		itemsArray = [[cacheManager getItInfraByAssetId:[requestParams objectForKey:@"assetId"]] retain];
+		[self.tableView reloadData];
+	}
+	//if (!filledFromCache) {
+		httpRequest = [[HttpRequestWrapper alloc] initWithDelegate:self];
+		[httpRequest makeRequestWithParams: requestParams];
+	//}
 	selectedRow = -1;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"refreshBtnLbl", nil) style:UIBarButtonItemStylePlain target:self action: @selector(refreshAction)];
@@ -67,7 +87,10 @@
 }
 - (void)requestFinished:(ASIHTTPRequest *)request {
 	NSString* responseString = [request responseString];
-	TBXML* xmlDoc = [TBXML tbxmlWithXMLString:responseString];
+	[self parseDataString:responseString];
+}
+- (void) parseDataString: (NSString*) dataString {
+	TBXML* xmlDoc = [TBXML tbxmlWithXMLString:dataString];
 	if (itemsArray) {
 		[itemsArray release];
 	}
@@ -80,7 +103,7 @@
 			TBXMLElement* itemChildElem = itemElem->firstChild;
 			NSMutableDictionary* processDict = [NSMutableDictionary dictionaryWithCapacity:10];
 			[itemsArray addObject:processDict];
-		
+			
 			do {
 				NSString* elemName = [TBXML elementName:itemChildElem];
 				NSString* elemValu = [TBXML textForElement:itemChildElem];
@@ -90,7 +113,7 @@
 					[processDict setObject:elemValu forKey:elemName];
 				}				
 			} while (itemChildElem = itemChildElem->nextSibling);
-		
+			
 			itemElem = [TBXML nextSiblingNamed: xmlItemName searchFromElement:itemElem];
 		} while (itemElem);
 	} else {
@@ -266,7 +289,7 @@
 			retVal += height;
 		}
 	}
-	NSLog(@"%@ %@", [[NSNumber numberWithInt:retVal] stringValue], [[NSNumber numberWithFloat:frameWidth] stringValue]);
+	//NSLog(@"%@ %@", [[NSNumber numberWithInt:retVal] stringValue], [[NSNumber numberWithFloat:frameWidth] stringValue]);
 	return retVal;
 }
 
@@ -295,6 +318,7 @@
 	[browserBtn release];
 	[toolbarOutlet release];
 	[tableViewOutlet release];
+	[cacheManager release];
 	[super dealloc];
 }
 

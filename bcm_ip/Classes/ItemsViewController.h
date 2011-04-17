@@ -10,6 +10,7 @@
 #import "HttpRequestWrapper.h"
 #import "ClickListener.h"
 #import "Dictionary.h"
+#import "CacheManager.h"
 
 @interface ItemsViewController : UITableViewController {
 	HttpRequestWrapper* httpRequest;
@@ -20,6 +21,7 @@
 	UITableView* tableViewOutlet;
 	UIToolbar* toolbarOutlet;
 	float frameWidth;
+	CacheManager* cacheManager;
 	
 	UITableViewCellAccessoryType accessory;
 	Dictionary* dictionary;
@@ -37,4 +39,5 @@
 
 - (UITableViewCell*) composeViewForSelectedRow: (NSIndexPath*) indexPath cellContentFrame: (CGRect) frame;
 - (void) setAccessoryType: (UITableViewCellAccessoryType) type;
+- (void) parseDataString: (NSString*) dataString;
 @end

@@ -11,13 +11,16 @@
 
 @interface Cache : NSObject {
 
+	@public
 	NSString* command;
-	BOOL filled;
 	TBXML* xmlDoc;
+	BOOL filled;
+	NSString* rawString;
 }
 
 @property (nonatomic, retain) NSString* command;
 @property (nonatomic, retain) TBXML* xmlDoc;
+@property (nonatomic, retain) NSString* rawString;
 
 - (id) initWithCommand: (NSString*) _command;
 - (void) fillInCacheOverwrite: (BOOL) overwrite;

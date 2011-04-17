@@ -181,10 +181,8 @@ static int NOTIFY_ALERT_TAG = 2;
 										  cancelButtonTitle:NSLocalizedString(@"cancelLbl", nil) 
 										  otherButtonTitles:NSLocalizedString(@"notifyBtnLbl", nil), NSLocalizedString(@"monitorBtnLbl", nil), nil];
 	alert.tag = NOTIFY_ALERT_TAG;
-	//[alert show];
+	[alert show];
 	[alert release];
-	NSArray* res = [cm getAssetsByProcessId:@"154"];
-	NSLog(@"%@", [res description]);
 }
 - (void) viewDidLoad {
     [super viewDidLoad];
