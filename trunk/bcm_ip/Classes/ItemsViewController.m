@@ -61,12 +61,38 @@
 	UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
 																			  target:nil
 																			  action:nil];
-	NSArray *items = [NSArray arrayWithObjects: refreshBtn, flexItem, browserBtn, nil];
+	UIBarButtonItem* activateScenarioBtn = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"activateScenarioBtn", nil) 
+																			style:UIBarButtonItemStylePlain 
+																		   target:self 
+																		   action:@selector(activateScenario)];
+	NSArray* items = nil;
+	BOOL scenarios = [[requestParams objectForKey:@"action"] isEqualToString:@"getAllScenarios"];
+	if (scenarios) {	
+		items = [NSArray arrayWithObjects: refreshBtn, flexItem, activateScenarioBtn, flexItem, browserBtn, nil];
+	} else {
+		items = [NSArray arrayWithObjects: refreshBtn, flexItem, browserBtn, nil];
+	}
 	[browserBtn setEnabled:NO];
 	[refreshBtn release];
 	[browserBtn release];
 	[flexItem release];
 	[toolbarOutlet setItems:items animated:NO];
+}
+- (void) activateScenario {
+	if (selectedRow > -1) {	
+		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"activateScenarioBtn", nil) 
+														message:nil 
+													   delegate:self 
+											  cancelButtonTitle:NSLocalizedString(@"cancelLbl", nil) 
+											  otherButtonTitles:@"OK", nil];
+		[alert show];
+		[alert release];
+	}
+}
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	[httpRequest release];
+	httpRequest = [[HttpRequestWrapper alloc] initWithDelegate:self];
+	[httpRequest makeRequestWithParams:[NSDictionary dictionaryWithObjectsAndKeys:@"", @"action", nil]];
 }
 - (void) launchBrowser {
 	NSDictionary* item = [itemsArray objectAtIndex:selectedRow];
