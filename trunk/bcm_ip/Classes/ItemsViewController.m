@@ -133,11 +133,11 @@
 			do {
 				NSString* elemName = [TBXML elementName:itemChildElem];
 				NSString* elemValu = [TBXML textForElement:itemChildElem];
-				if ([dictionary valueByDictionary:elemName andKey:elemValu]) {
-					[processDict setObject:[dictionary valueByDictionary:elemName andKey:elemValu] forKey:elemName];
-				} else {
-					[processDict setObject:elemValu forKey:elemName];
-				}				
+				//if ([dictionary valueByDictionary:elemName andKey:elemValu]) {
+				//	[processDict setObject:[dictionary valueByDictionary:elemName andKey:elemValu] forKey:elemName];
+				//} else {
+				[processDict setObject:elemValu forKey:elemName];
+				//}				
 			} while (itemChildElem = itemChildElem->nextSibling);
 			
 			itemElem = [TBXML nextSiblingNamed: xmlItemName searchFromElement:itemElem];
@@ -187,6 +187,7 @@
 	}
 	cell.textLabel.text = @"";
 	cell.detailTextLabel.text = @"";
+	cell.imageView.image = nil;
 	if (anyItemsAvailable) {	
 		cell.accessoryType = accessory;
 	}
@@ -205,6 +206,13 @@
 		cell.detailTextLabel.text = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Desc"];
 		if (![[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Desc"]) {
 			cell.detailTextLabel.text = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"CallTime"];
+		}
+		NSString* status = [[itemsArray objectAtIndex:indexPath.row] objectForKey:@"Status"];
+		if (status && [status isEqualToString:@"0"]) {
+			cell.imageView.image = [UIImage imageNamed:@"green_dot.png"];
+		}
+		if (status && [status isEqualToString:@"1"]) {
+			cell.imageView.image = [UIImage imageNamed:@"red_dot.png"];
 		}
 	}
     return cell;
@@ -237,7 +245,13 @@
 		float lblHeight = rows > 1 ? [labelsHeight floatValue] * 2 : [labelsHeight floatValue];
 		lblHeight = rows > 2 ? [labelsHeight floatValue] * 3 : lblHeight;
 		UILabel* valLbl = [[UILabel alloc] initWithFrame: CGRectMake([maxSizeOfKey floatValue] + 10, [yIndex intValue], frameWidth - 20 - [maxSizeOfKey floatValue], lblHeight)];
-		valLbl.text = value;
+		
+		if ([dictionary valueByDictionary:key andKey:value]) {
+			valLbl.text = [dictionary valueByDictionary:key andKey:value];
+		} else {
+			valLbl.text = value;
+		}
+		
 		valLbl.font = [bcm_ipAppDelegate defaultFont];
 		if (rows > 1) {
 			valLbl.numberOfLines = 2;
