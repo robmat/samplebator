@@ -211,7 +211,7 @@
 		if (status && [status isEqualToString:@"0"]) {
 			cell.imageView.image = [UIImage imageNamed:@"green_dot.png"];
 		}
-		if (status && [status isEqualToString:@"1"]) {
+		if (status && ![status isEqualToString:@"0"]) {
 			cell.imageView.image = [UIImage imageNamed:@"red_dot.png"];
 		}
 	}
