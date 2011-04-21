@@ -55,9 +55,10 @@ email;
 	[params setValue:@"true" forKey:@"isBbPin"]; //BB pin?
 	[params setValue:@"true" forKey:@"isImType"]; // im type ?
 	[params setValue:voiceIntro forKey:@"voiceIntro"];
-	int index = 0;
+	int index = 1;
 	for (NSString* grId in addressesGroupIds) {
-		[params setValue:grId forKey:[NSString stringWithFormat:@"%@%@", @"group", [[NSNumber numberWithInt:index] stringValue]]];
+		NSString* groupIndex = [NSString stringWithFormat:@"%@%@", @"group", [[NSNumber numberWithInt:index] stringValue]];
+		[params setValue:grId forKey:groupIndex];
 		index++; 
 	}
 	[http makeRequestWithParams:params];
@@ -66,7 +67,8 @@ email;
 	NSLog(@"%@", [request responseString]);
 	NSString* resp = [request responseString];
 	NSRange range = [resp rangeOfString: @"isError"];
-	if (range.location > -1) {
+	BOOL isError = range.location != NSNotFound;
+	if (isError) {
 		TBXML* xmlDoc = [TBXML tbxmlWithXMLString:[request responseString]];
 		NSString* errorStr = [TBXML textForElement:xmlDoc->rootXMLElement];
 		UIAlertView* alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"errorDialogTitle", nil) message: errorStr delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
