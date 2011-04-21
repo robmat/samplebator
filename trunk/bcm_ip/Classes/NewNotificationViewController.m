@@ -9,6 +9,7 @@
 #import "NewNotificationViewController.h"
 #import "NotificationGroupsView.h"
 #import "HttpRequestWrapper.h"
+#import "TBXML.h"
 
 @implementation NewNotificationViewController
 
@@ -38,9 +39,7 @@ email;
 - (void) newNotificationAction: (id) sender {
 	NSLog(@"sdvsd");
 	HttpRequestWrapper* http = [[HttpRequestWrapper alloc] initWithDelegate:self];
-	//group1=18&isPinRequired=true&isEmailType=true&isSmsType=true&isBbPin=true&isImType=true&voiceIntro=test
-	
-	NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:nil];
+	NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:nil];
 	[params setValue:@"notify" forKey:@"action"];
 	[params setValue:requiresPin forKey:@"isPinRequired"];
 	[params setValue:voice forKey:@"isVoiceType"];
@@ -52,11 +51,42 @@ email;
 	[params setValue:callOpt4 forKey:@"callOpt4"];
 	[params setValue:callOpt5 forKey:@"callOpt5"];
 	[params setValue:sms forKey:@"isSmsType"];
-	[params setValue:requiresPin forKey:@"isPinRequired"];
-	[params setValue:requiresPin forKey:@"isPinRequired"];
-	[params setValue:requiresPin forKey:@"isPinRequired"];
-	[params setValue:requiresPin forKey:@"isPinRequired"];
-	[params setValue:requiresPin forKey:@"isPinRequired"];
+	[params setValue:email forKey:@"isEmailType"];
+	[params setValue:@"true" forKey:@"isBbPin"]; //BB pin?
+	[params setValue:@"true" forKey:@"isImType"]; // im type ?
+	[params setValue:voiceIntro forKey:@"voiceIntro"];
+	int index = 0;
+	for (NSString* grId in addressesGroupIds) {
+		[params setValue:grId forKey:[NSString stringWithFormat:@"%@%@", @"group", [[NSNumber numberWithInt:index] stringValue]]];
+		index++; 
+	}
+	[http makeRequestWithParams:params];
+}
+- (void)requestFinished:(ASIHTTPRequest *)request {
+	NSLog(@"%@", [request responseString]);
+	NSString* resp = [request responseString];
+	NSRange range = [resp rangeOfString: @"isError"];
+	if (range.location > -1) {
+		TBXML* xmlDoc = [TBXML tbxmlWithXMLString:[request responseString]];
+		NSString* errorStr = [TBXML textForElement:xmlDoc->rootXMLElement];
+		UIAlertView* alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"errorDialogTitle", nil) message: errorStr delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+		[alert show];
+		[alert release];
+	} else {
+		UIAlertView* alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"createdNotificationLbl", nil) 
+														message: NSLocalizedString(@"createdNotificationLbl", nil) 
+													   delegate: nil 
+											  cancelButtonTitle: @"OK" 
+											  otherButtonTitles: nil];
+		[alert show];
+		[alert release];
+	}
+}
+- (void)requestFailed:(ASIHTTPRequest *)request {
+	NSError *error = [request error];
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"errorDialogTitle", nil) message: [error localizedDescription] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+	[alert show];
+	[alert release];
 }
 - (void) addGroupId: (NSString*) idStr {
 	[addressesGroupIds addObject:idStr];
