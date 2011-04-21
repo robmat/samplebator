@@ -8,10 +8,23 @@
 
 #import "NewNotificationTableViewController.h"
 #import "ELCTextFieldCell.h"
+#import "NewNotificationViewController.h"
 
 @implementation NewNotificationTableViewController
 
-@synthesize toolbarOutlet, tableViewOutlet, templateItem;;
+@synthesize toolbarOutlet, 
+tableViewOutlet, 
+templateItem, 
+nnvc,
+incidentName,
+messageContent,
+callOpt1,
+callOpt2,
+callOpt3,
+callOpt4,
+callOpt5,
+free1,
+free2;
 
 #pragma mark -
 #pragma mark Initialization
@@ -48,6 +61,19 @@
 	requiresPin = [[templateItem objectForKey:@"IsPinRequired"] isEqual:@"true"] ? YES : NO;
 	// free1 = [templateItem objectForKey:@"free1"];
 	// free2 = [templateItem objectForKey:@"free2"];
+	NewNotificationViewController* nnvcLocal = (NewNotificationViewController*) nnvc;
+	nnvcLocal.messageContent = [templateItem objectForKey:@"TemplateMessageContent"];
+	nnvcLocal.voiceIntro = [templateItem objectForKey:@"VoiceIntro"];
+	nnvcLocal.voice = [templateItem objectForKey:@"Call"];
+	nnvcLocal.sms = [templateItem objectForKey:@"Sms"];
+	nnvcLocal.email = [templateItem objectForKey:@"Email"];
+	nnvcLocal.callOpt1 = [templateItem objectForKey:@"Callopt1"];
+	nnvcLocal.callOpt2 = [templateItem objectForKey:@"Callopt2"];
+	nnvcLocal.callOpt3 = [templateItem objectForKey:@"Callopt3"];
+	nnvcLocal.callOpt4 = [templateItem objectForKey:@"Callopt4"];
+	nnvcLocal.callOpt5 = [templateItem objectForKey:@"Callopt5"];
+	nnvcLocal.isPersonalized = [templateItem objectForKey:@"IsPersonalized"];
+	nnvcLocal.requiresPin = [templateItem objectForKey:@"IsPinRequired"];
 }
 
 
@@ -235,8 +261,8 @@
 }
 
 - (void)updateTextLabelAtIndexPath:(NSIndexPath*)indexPath string:(NSString*)string {
-	
-	NSLog(@"See input: %@ from section: %d row: %d, should update models appropriately", string, indexPath.section, indexPath.row);
+	NewNotificationViewController* nnvcLocal = (NewNotificationViewController*) nnvc;
+	[nnvcLocal updateTextLabelAtIndexPath:indexPath string:string];
 }
 /*
 // Override to support conditional editing of the table view.
@@ -312,6 +338,7 @@
 - (void)dealloc {
 	[tableViewOutlet release];
 	[toolbarOutlet release];
+	[nnvc release];
 	[incidentName release];
 	[messageContent release];
 	[callOpt1 release];
