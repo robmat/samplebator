@@ -1,12 +1,15 @@
 package com.bcm;
 
+import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 
 import net.rim.device.api.system.Bitmap;
+import net.rim.device.api.system.DeviceInfo;
 import net.rim.device.api.ui.DrawStyle;
 import net.rim.device.api.ui.Field;
+import net.rim.device.api.ui.FieldChangeListener;
 import net.rim.device.api.ui.Manager;
 import net.rim.device.api.ui.MenuItem;
 import net.rim.device.api.ui.UiApplication;
@@ -101,7 +104,7 @@ public class NewNotificationScreen extends CommonsForScreen implements IWaitable
 				UiApplication.getUiApplication().pushScreen(new NotificationGroupsChooseScreen(selectedGroudIds));
 			}
 		});
-		//createBtn.setChangeListener(arg0);
+		createBtn.setChangeListener(new NewNotificationFieldChangeListener(this));
 	}
 
 	private boolean parseBoolean(String s) {
@@ -116,6 +119,14 @@ public class NewNotificationScreen extends CommonsForScreen implements IWaitable
 	}
 
 	public int callback(String msg) {
+		if (msg != null && msg.indexOf("isError") > -1 && msg.indexOf("<") != -1 && msg.indexOf(">") != -1) {
+			msg = msg.substring(msg.indexOf(">") + 1, msg.indexOf("<", msg.indexOf(">")));
+			dialog = new Dialog(Dialog.D_OK, I18n.bundle.getString(BcmResource.notificationCreationFailedLbl) + ": " + msg, 0, Bitmap.getPredefinedBitmap(Bitmap.EXCLAMATION), Field.FIELD_HCENTER);
+			dialog.show();
+		} else {
+			dialog = new Dialog(Dialog.D_OK, I18n.bundle.getString(BcmResource.notificationCreationSuccesLbl), 0, Bitmap.getPredefinedBitmap(Bitmap.INFORMATION), Field.FIELD_HCENTER);
+			dialog.show();
+		}
 		return 0;
 	}
 
@@ -139,5 +150,53 @@ public class NewNotificationScreen extends CommonsForScreen implements IWaitable
 
 	protected boolean onSavePrompt() {
 		return true;
+	}
+
+	class NewNotificationFieldChangeListener implements FieldChangeListener {
+		private IWaitableScreen waitable;
+		public NewNotificationFieldChangeListener(IWaitableScreen waitable) {
+			super();
+			this.waitable = waitable;
+		}
+		public void fieldChanged(Field arg0, int arg1) {
+			try {
+				final DataReceiver dr = new DataReceiver();
+				String params = "";
+				params = addParam(params, "notify", "action");
+		        params = addParam(params, requiresPinChk.getChecked() ? "true" : "false", "isPinRequired");
+		        params = addParam(params, voiceChk.getChecked() ? "true" : "false", "isVoiceType");
+		        params = addParam(params, isPersonalizedChk.getChecked() ? "true" : "false", "isPersonalized");
+		        params = addParam(params, messagecontent.getText(), "message");
+		        params = addParam(params, callOpt1.getText(), "callOpt1");
+		        params = addParam(params, callOpt2.getText(), "callOpt2");
+		        params = addParam(params, callOpt3.getText(), "callOpt3");
+		        params = addParam(params, callOpt4.getText(), "callOpt4");
+		        params = addParam(params, callOpt5.getText(), "callOpt5");
+		        params = addParam(params, smsChk.getChecked() ? "true" : "false", "isSmsType");
+		        params = addParam(params, emailChk.getChecked() ? "true" : "false", "isEmailType");
+		        params = addParam(params, "true", "isBbPin"); //BB pin?
+		        params = addParam(params, "true", "isImType"); // im type ?
+		        params = addParam(params, voiceIntro.getText(), "voiceIntro");
+		        for (int i = 0; i < selectedGroudIds.size(); i++) {
+		        	 params = addParam(params, (String) selectedGroudIds.elementAt(i), "group" + (i + 1));
+		        }
+		        final String paramsFinal = params;
+				new Thread(new Runnable() {
+					public void run() {
+						try {
+							dr.getAllData(EntryPoint.authUser, EntryPoint.authPass, DeviceInfo.getDeviceId(), waitable, "notify", paramsFinal);
+						} catch (IOException e) {
+							errorDialog(e.getClass() + ": " + e.getMessage());
+						}
+					}
+				}).start();
+			} catch (Exception e) {
+				errorDialog(e.getClass() + ": " + e.getMessage());
+			}
+		}
+		private String addParam(String params, String value, String key) {
+			params += "&" + key + "=" + value;
+			return params;
+		}
 	}
 }

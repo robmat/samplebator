@@ -58,3 +58,5 @@ reallyActivateScenarioLbl#0=57;
 noDataLbl#0=58;
 addGroupsOfReceipentsLbl#0=59;
 notificationGroupsTitle#0=60;
+notificationCreationFailedLbl#0=61;
+notificationCreationSuccesLbl#0=62;
