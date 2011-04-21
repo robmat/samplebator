@@ -52,7 +52,10 @@
     return self;
 }
 - (void) switchAction {
-	NSLog(@"switch");
+	if([delegate respondsToSelector:@selector(updateTextLabelAtIndexPath:string:)]) {		
+		BOOL switched  = uiSwitch.on;
+		[delegate performSelector:@selector(updateTextLabelAtIndexPath:string:) withObject:indexPath withObject:switched ? @"true" : @"false"];
+	}
 }
 //Layout our fields in case of a layoutchange (fix for iPad doing strange things with margins if width is > 400)
 - (void)layoutSubviews {
