@@ -38,10 +38,25 @@ email;
 - (void) newNotificationAction: (id) sender {
 	NSLog(@"sdvsd");
 	HttpRequestWrapper* http = [[HttpRequestWrapper alloc] initWithDelegate:self];
-	//group1=18&user=bcm&password=bcmtest&action=notify&isPinRequired=true&isEmailType=true&isVoiceType=true&isPersonalized=true&message=test&callOpt1=tak&isSmsType=true&isBbPin=true&isImType=true&voiceIntro=test
+	//group1=18&isPinRequired=true&isEmailType=true&isSmsType=true&isBbPin=true&isImType=true&voiceIntro=test
 	
 	NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:nil];
-	
+	[params setValue:@"notify" forKey:@"action"];
+	[params setValue:requiresPin forKey:@"isPinRequired"];
+	[params setValue:voice forKey:@"isVoiceType"];
+	[params setValue:isPersonalized forKey:@"isPersonalized"];
+	[params setValue:messageContent forKey:@"message"];
+	[params setValue:callOpt1 forKey:@"callOpt1"];
+	[params setValue:callOpt2 forKey:@"callOpt2"];
+	[params setValue:callOpt3 forKey:@"callOpt3"];
+	[params setValue:callOpt4 forKey:@"callOpt4"];
+	[params setValue:callOpt5 forKey:@"callOpt5"];
+	[params setValue:sms forKey:@"isSmsType"];
+	[params setValue:requiresPin forKey:@"isPinRequired"];
+	[params setValue:requiresPin forKey:@"isPinRequired"];
+	[params setValue:requiresPin forKey:@"isPinRequired"];
+	[params setValue:requiresPin forKey:@"isPinRequired"];
+	[params setValue:requiresPin forKey:@"isPinRequired"];
 }
 - (void) addGroupId: (NSString*) idStr {
 	[addressesGroupIds addObject:idStr];
