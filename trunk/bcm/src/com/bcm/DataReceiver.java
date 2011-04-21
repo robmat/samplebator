@@ -6,10 +6,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Enumeration;
+import java.util.Hashtable;
 
 import javax.microedition.io.Connector;
 import javax.microedition.io.HttpConnection;
 
+import net.rim.blackberry.api.browser.URLEncodedPostData;
 import net.rim.device.api.i18n.Locale;
 import net.rim.device.api.io.http.HttpProtocolConstants;
 import net.rim.device.api.system.CoverageInfo;
@@ -126,18 +129,34 @@ public class DataReceiver extends Thread {
 		waitable.log("getViaHttpConnection() start");
 		try {
 			waitable.log("getViaHttpConnection() checkWifiAvailable() invoked"); 
+			//waitable.log("final url: " + url);
+			Hashtable params = convertGetUrlToPostParams(url);
+			url = url.substring(0, url.indexOf("?"));
+			URLEncodedPostData postData = new URLEncodedPostData("UTF-8", false);
+			for (Enumeration keys = params.keys(); keys.hasMoreElements();) {
+				String key = (String) keys.nextElement();
+				postData.append(key, (String) params.get(key));
+			}
+			url += "?" + new String(postData.getBytes());
 			if (checkWifiAvailable(waitable)) {
 				url += ";interface=wifi";
 			} else {
 				url += ";deviceside=true";
 			}
 			System.err.println(url);
-			waitable.log("final url: " + url);
 			connection = (HttpConnection) Connector.open(url + ";ConnectionTimeout=5000", Connector.READ_WRITE);
+			connection.setRequestMethod(HttpConnection.GET);
+			//connection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+			//byte[] postDataBytes = postData.getBytes();
+			//System.out.println(new String(postDataBytes));
+			//connection.setRequestProperty("Content-Length",(new Integer(postDataBytes.length)).toString());
 			waitable.log("connection object created: " + connection.getClass().getName());
 			connection.setRequestProperty(HttpProtocolConstants.HEADER_CONNECTION, "KeepAlive");
 			waitable.log("Encoding: " + connection.getEncoding());
 			System.out.println("Encoding: " + connection.getEncoding());
+			//OutputStream os = connection.openOutputStream();
+			//os.write(postDataBytes);
+			//os.flush();
 			// Getting the response code will open the connection,
 			// send the request, and read the HTTP response headers.
 			// The headers are stored until requested.
@@ -192,7 +211,7 @@ public class DataReceiver extends Thread {
 				//waitable.log("result cut: " + result);
 				result = StrUtils.replaceAll(result, "\u0000", "");
 				//waitable.log("result replace: " + result);
-				//System.out.println(result);
+				System.out.println(result);
 			} else {
 				result = null;
 			}
@@ -207,6 +226,17 @@ public class DataReceiver extends Thread {
 		}
 		//System.out.println(result);
 		return result;
+	}
+
+	private Hashtable convertGetUrlToPostParams(String url) {
+		Hashtable params = new Hashtable();
+		url = url.substring(url.indexOf("?") + 1);
+		String[] split = StrUtils.splitString(url, "&", false);
+		for (int i = 0; i < split.length; i++) {
+			String[] keyVal = StrUtils.splitString(split[i], "=", true);
+			params.put(keyVal[0], keyVal.length == 2 ? keyVal[1] : "");
+		}
+		return params;
 	}
 
 	/**
