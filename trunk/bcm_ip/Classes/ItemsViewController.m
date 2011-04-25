@@ -13,6 +13,41 @@
 #import "CacheManager.h"
 #import "Cache.h"
 
+@implementation ActivateScenarioResultManager
+
+- (void) activateScenarioWithResult: (NSString*) result {
+	if ([result rangeOfString:@">ok<"].location > -1) {
+		UIAlertView* alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"activateScenarioBtn", nil) 
+														message: NSLocalizedString(@"activateScenarioSuccessfulLbl", nil) 
+													   delegate: nil 
+											  cancelButtonTitle: @"OK" 
+											  otherButtonTitles: nil];
+		[alert show];
+		[alert release];
+	} else if ([result rangeOfString:@"isError"].location != NSNotFound) {
+		unsigned int start = [result rangeOfString:@">"].location;
+		unsigned int end = [result rangeOfString:@"</"].location;
+		NSString* errStr = [result substringWithRange:NSMakeRange(start + 1, end - start)];
+		UIAlertView* alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"activateScenarioErrorLbl", nil) 
+														message: errStr 
+													   delegate: nil 
+											  cancelButtonTitle: @"OK" 
+											  otherButtonTitles: nil];
+		[alert show];
+		[alert release];
+	}
+}
+- (void) requestFailed:(ASIHTTPRequest *)request {
+	NSError *error = [request error];
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"errorDialogTitle", nil) message: [error localizedDescription] delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+	[alert show];
+	[alert release];
+}
+- (void) requestFinished:(ASIHTTPRequest *)request {
+	[self activateScenarioWithResult:[request responseString]];
+}
+@end
+
 @implementation ItemsViewController
 
 @synthesize requestParams, xmlItemName, delegate, dictionary, toolbarOutlet, tableViewOutlet;
@@ -24,6 +59,7 @@
 	accessory = type;
 }
 - (void)viewDidLoad {
+	actSceResMan = [[ActivateScenarioResultManager alloc] init];
 	BOOL ipad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
 	frameWidth = !ipad ? 302 : 735; //yes i know, magic numbers...
     [super viewDidLoad];
@@ -90,9 +126,11 @@
 	}
 }
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-	[httpRequest release];
-	httpRequest = [[HttpRequestWrapper alloc] initWithDelegate:self];
-	[httpRequest makeRequestWithParams:[NSDictionary dictionaryWithObjectsAndKeys:@"", @"action", nil]];
+	if (buttonIndex == 1) {
+		[httpRequest release];
+		httpRequest = [[HttpRequestWrapper alloc] initWithDelegate:actSceResMan];
+		[httpRequest makeRequestWithParams:[NSDictionary dictionaryWithObjectsAndKeys:@"activeScenario", @"action", @"", @"id", nil]];
+	}
 }
 - (void) launchBrowser {
 	NSDictionary* item = [itemsArray objectAtIndex:selectedRow];
@@ -359,9 +397,9 @@
 	[toolbarOutlet release];
 	[tableViewOutlet release];
 	[cacheManager release];
+	[actSceResMan release];
 	[super dealloc];
 }
 
 
 @end
-

@@ -12,6 +12,14 @@
 #import "Dictionary.h"
 #import "CacheManager.h"
 
+@interface ActivateScenarioResultManager : NSObject {
+	
+}
+- (void) requestFailed:(ASIHTTPRequest *)request;
+- (void) activateScenarioWithResult: (NSString*) result;
+- (void) requestFinished:(ASIHTTPRequest *)request;
+@end
+
 @interface ItemsViewController : UITableViewController {
 	HttpRequestWrapper* httpRequest;
 	NSMutableArray* itemsArray;
@@ -28,6 +36,7 @@
 	NSDictionary* requestParams;
 	NSString* xmlItemName;
 	id <ClickListener> delegate;
+	ActivateScenarioResultManager* actSceResMan;
 }
 
 @property (nonatomic, retain) NSDictionary* requestParams;
