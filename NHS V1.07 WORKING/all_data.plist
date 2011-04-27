@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plist>
   <array>
+	<dict>
+      <key>name</key>
+      <string>Meadow Dale Group Practice</string>
+      <key>addressLarge</key>
+      <string>Rosemount Estate, Huddersfield Road</string>
+      <key>city</key>
+      <string>Elland</string>
+      <key>district</key>
+      <string>Calderdale</string>
+      <key>postcode</key>
+      <string>HX5 0EE</string>
+      <key>telephone</key>
+      <string>0845 1211023</string>
+      <key>latitude</key>
+      <string>53.6865487</string>
+      <key>longitude</key>
+      <string>-1.4655732</string>
+      <key>category</key>
+      <string>8to8</string>
+    </dict>
     <dict>
       <key>name</key>
       <string>King Street Health Centre</string>
@@ -495,11 +515,31 @@
       <key>telephone</key>
       <string>01302 366666</string>
       <key>latitude</key>
-      <string>53.534839</string>
+      <string>53.530639</string>
       <key>longitude</key>
-      <string>-1.0943558</string>
+      <string>-1.1083558</string>
       <key>category</key>
       <string>ae</string>
+    </dict>
+	<dict>
+      <key>name</key>
+      <string>Doncaster Royal Infirmary Accident &amp; Emergency Department</string>
+      <key>addressLarge</key>
+      <string>Armthorpe Rd</string>
+      <key>city</key>
+      <string>Doncaster</string>
+      <key>district</key>
+      <string>Doncaster</string>
+      <key>postcode</key>
+      <string>DN2 5LT</string>
+      <key>telephone</key>
+      <string>01302 366666</string>
+      <key>latitude</key>
+      <string>53.530639</string>
+      <key>longitude</key>
+      <string>-1.1083558</string>
+      <key>category</key>
+      <string>miu</string>
     </dict>
     <dict>
       <key>name</key>
@@ -1238,26 +1278,6 @@
       <string>53.354544</string>
       <key>longitude</key>
       <string>-1.5273416</string>
-      <key>category</key>
-      <string>dental</string>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>Mr Blyth Ridgeway Dental Practice, Ecclesfield Dental Practice</string>
-      <key>addressLarge</key>
-      <string>80 Ridgeway Rd</string>
-      <key>city</key>
-      <string>Sheffield</string>
-      <key>district</key>
-      <string>Sheffield</string>
-      <key>postcode</key>
-      <string>S12 2SX</string>
-      <key>telephone</key>
-      <string>0114 246 7739</string>
-      <key>latitude</key>
-      <string>53.356465</string>
-      <key>longitude</key>
-      <string>-1.4269966</string>
       <key>category</key>
       <string>dental</string>
     </dict>
@@ -2363,26 +2383,6 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Mr Doherty and Ms Khan Firth Park</string>
-      <key>addressLarge</key>
-      <string>420 Firth Park Road</string>
-      <key>city</key>
-      <string>Sheffield</string>
-      <key>district</key>
-      <string>South Yorkshire</string>
-      <key>postcode</key>
-      <string>S5 6HH</string>
-      <key>telephone</key>
-      <string>0114 242 6548</string>
-      <key>latitude</key>
-      <string>53.417649</string>
-      <key>longitude</key>
-      <string>-1.4460239</string>
-      <key>category</key>
-      <string>dental</string>
-    </dict>
-    <dict>
-      <key>name</key>
       <string>Lidster &amp; Middleton Southey Green</string>
       <key>addressLarge</key>
       <string>30 Southey Hill</string>
@@ -2498,26 +2498,6 @@
       <string>53.423877</string>
       <key>longitude</key>
       <string>-1.341086</string>
-      <key>category</key>
-      <string>dental</string>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>Mr Needham Shiregreen</string>
-      <key>addressLarge</key>
-      <string>2 Molineaux Rd</string>
-      <key>city</key>
-      <string>Sheffield</string>
-      <key>district</key>
-      <string>Sheffield</string>
-      <key>postcode</key>
-      <string>S5 0JX</string>
-      <key>telephone</key>
-      <string>0114 245 6080</string>
-      <key>latitude</key>
-      <string>53.4242472</string>
-      <key>longitude</key>
-      <string>-1.4495553</string>
       <key>category</key>
       <string>dental</string>
     </dict>
@@ -23445,13 +23425,13 @@
       <key>name</key>
       <string>The Todmorden Group Practice</string>
       <key>addressLarge</key>
-      <string>Rose St</string>
+      <string>Lower George Street</string>
       <key>city</key>
       <string>Todmorden</string>
       <key>district</key>
       <string>Calderdale</string>
       <key>postcode</key>
-      <string>OL14 5AT</string>
+      <string>OL14 5RN</string>
       <key>telephone</key>
       <string>01706 817 121</string>
       <key>latitude</key>
@@ -43145,26 +43125,6 @@
       <key>name</key>
       <string>Living Care Pharmacy</string>
       <key>addressLarge</key>
-      <string>20 Bull Green</string>
-      <key>city</key>
-      <string />
-      <key>district</key>
-      <string>Halifax</string>
-      <key>postcode</key>
-      <string>HX1 5AB</string>
-      <key>telephone</key>
-      <string>01422 354178</string>
-      <key>latitude</key>
-      <string>53.7215523</string>
-      <key>longitude</key>
-      <string>-1.8644162</string>
-      <key>category</key>
-      <string>pharmacy</string>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>Living Care Pharmacy</string>
-      <key>addressLarge</key>
       <string>173b Spring Hall Lane</string>
       <key>city</key>
       <string />
@@ -54201,6 +54161,48 @@
       <key>category</key>
       <string>sex</string>
     </dict>
+	<dict>
+      <key>name</key>
+      <string>Great Houghton Medical Centre</string>
+      <key>addressLarge</key>
+      <string>Oakhaven Avenue</string>
+      <key>city</key>
+      <string>Great Houghton</string>
+      <key>district</key>
+      <string>Barnsley</string>
+      <key>postcode</key>
+      <string>S72 0EJ</string>
+      <key>telephone</key>
+      <string>01226 273888</string>
+      <key>latitude</key>
+      <string>53.6865487</string>
+      <key>longitude</key>
+      <string>-1.4655732</string>
+      <key>category</key>
+      <string>walkincentre</string>
+    </dict>
+	
+	<dict>
+      <key>name</key>
+      <string>The Roundhouse Medical Centre</string>
+      <key>addressLarge</key>
+      <string>Langsett Court (off Wakefield Road)</string>
+      <key>city</key>
+      <string>New Lodge</string>
+      <key>district</key>
+      <string>Barnsley</string>
+      <key>postcode</key>
+      <string>S71 1RY</string>
+      <key>telephone</key>
+      <string>08451 228363</string>
+      <key>latitude</key>
+      <string>53.6865487</string>
+      <key>longitude</key>
+      <string>-1.4655732</string>
+      <key>category</key>
+      <string>walkincentre</string>
+    </dict>
+	
     <dict>
       <key>name</key>
       <string>King Street Health Centre</string>
@@ -54214,6 +54216,26 @@
       <string>WF1 2SN</string>
       <key>telephone</key>
       <string>0845 1211023</string>
+      <key>latitude</key>
+      <string>53.6865487</string>
+      <key>longitude</key>
+      <string>-1.4655732</string>
+      <key>category</key>
+      <string>walkincentre</string>
+    </dict>
+	<dict>
+      <key>name</key>
+      <string>Market Hill Walk in centre</string>
+      <key>addressLarge</key>
+      <string>19 Market Hill</string>
+      <key>city</key>
+      <string>Scunthorpe</string>
+      <key>district</key>
+      <string>North Lincolnshire</string>
+      <key>postcode</key>
+      <string>DN15 6SS</string>
+      <key>telephone</key>
+      <string></string>
       <key>latitude</key>
       <string>53.6865487</string>
       <key>longitude</key>
