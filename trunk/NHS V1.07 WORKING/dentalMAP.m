@@ -289,7 +289,7 @@
 	
 	
 	//Build the string to Query Google Maps.
-    NSMutableString *urlString = [NSMutableString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@ ?output=json",inAddress];
+    NSMutableString *urlString = [NSMutableString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&output=json",inAddress];
 	
     //Replace Spaces with a '+' character.
     [urlString setString:[urlString stringByReplacingOccurrencesOfString:@" " withString:@"+"]];
