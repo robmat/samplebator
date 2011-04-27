@@ -1,0 +1,1486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>First Floor, 248 Wells Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Knowle</string>
+		<key>latitude</key>
+		<string>51.436669</string>
+		<key>longitude</key>
+		<string>-2.568813</string>
+		<key>name</key>
+		<string>Gairloch House Dental Practice</string>
+		<key>phone</key>
+		<string>0117 972 3208</string>
+		<key>postcode</key>
+		<string>BS4 2PN</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>313 Wells Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Knowle</string>
+		<key>latitude</key>
+		<string>51.435861</string>
+		<key>longitude</key>
+		<string>-2.568645</string>
+		<key>name</key>
+		<string>Knowle Dental Practice</string>
+		<key>phone</key>
+		<string>0117 977 6567</string>
+		<key>postcode</key>
+		<string>BS4 2PT</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>43 Whitchurch Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Bishopsworth</string>
+		<key>latitude</key>
+		<string>51.415045</string>
+		<key>longitude</key>
+		<string>-2.614948</string>
+		<key>name</key>
+		<string>Bishopsworth Dental Surgery</string>
+		<key>phone</key>
+		<string>0117 964 2687</string>
+		<key>postcode</key>
+		<string>BS13 7RU</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>9 Cotham Road South</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Cotham</string>
+		<key>latitude</key>
+		<string>51.462467</string>
+		<key>longitude</key>
+		<string>-2.597506</string>
+		<key>name</key>
+		<string>Kingsdown Dental Practice</string>
+		<key>phone</key>
+		<string>0117 924 4440</string>
+		<key>postcode</key>
+		<string>BS6 5TZ</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>151 Coronation Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Southville</string>
+		<key>latitude</key>
+		<string>51.446007</string>
+		<key>longitude</key>
+		<string>-2.607277</string>
+		<key>name</key>
+		<string>Coronation Road Dental Surgery</string>
+		<key>phone</key>
+		<string>0117 966 3697</string>
+		<key>postcode</key>
+		<string>BS3 1RE</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>2a North Street</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Bedminster</string>
+		<key>latitude</key>
+		<string>51.441539</string>
+		<key>longitude</key>
+		<string>-2.60188</string>
+		<key>name</key>
+		<string>North Street Dental Practice</string>
+		<key>phone</key>
+		<string>0117 963 7670</string>
+		<key>postcode</key>
+		<string>BS3 1HT</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>32 Whiteladies Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Clifton</string>
+		<key>latitude</key>
+		<string>51.460714</string>
+		<key>longitude</key>
+		<string>-2.60966</string>
+		<key>name</key>
+		<string>P M E Riley &amp; Associates</string>
+		<key>phone</key>
+		<string>0117 973 9346</string>
+		<key>postcode</key>
+		<string>BS8 2LG</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>9 Redland Park</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>   </string>
+		<key>latitude</key>
+		<string>51.468274</string>
+		<key>longitude</key>
+		<string>-2.611733</string>
+		<key>name</key>
+		<string>Redland Park Dental Surgery</string>
+		<key>phone</key>
+		<string>0117 974 2050</string>
+		<key>postcode</key>
+		<string>BS6 6SA</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>325a Wells Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Knowle</string>
+		<key>latitude</key>
+		<string>51.434789</string>
+		<key>longitude</key>
+		<string>-2.567193</string>
+		<key>name</key>
+		<string>Broadwalk Dental Centre</string>
+		<key>phone</key>
+		<string>0117 971 3107</string>
+		<key>postcode</key>
+		<string>BS4 2QB</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>Ground Floor, 248 Wells Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Knowle</string>
+		<key>latitude</key>
+		<string>51.436669</string>
+		<key>longitude</key>
+		<string>-2.568813</string>
+		<key>name</key>
+		<string>The Dental Centre</string>
+		<key>phone</key>
+		<string>0117 977 6498</string>
+		<key>postcode</key>
+		<string>BS4 2PN</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>68-70 East Street</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Bedminster</string>
+		<key>latitude</key>
+		<string>51.441747</string>
+		<key>longitude</key>
+		<string>-2.598228</string>
+		<key>name</key>
+		<string>East Street Dental Centre</string>
+		<key>phone</key>
+		<string>0117 966 3298</string>
+		<key>postcode</key>
+		<string>BS3 4EY</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>11 Clyde Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Redland</string>
+		<key>latitude</key>
+		<string>51.469576</string>
+		<key>longitude</key>
+		<string>-2.607028</string>
+		<key>name</key>
+		<string>Clyde House Surgery - Mr Long</string>
+		<key>phone</key>
+		<string>0117 973 3265</string>
+		<key>postcode</key>
+		<string>BS6 6RJ</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>11 Clyde Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Redland</string>
+		<key>latitude</key>
+		<string>51.469576</string>
+		<key>longitude</key>
+		<string>-2.607028</string>
+		<key>name</key>
+		<string>Clyde House Surgery - Mr Merrill</string>
+		<key>phone</key>
+		<string>0117 973 3265</string>
+		<key>postcode</key>
+		<string>BS6 6RJ</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>11 Clyde Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Redland</string>
+		<key>latitude</key>
+		<string>51.469576</string>
+		<key>longitude</key>
+		<string>-2.607028</string>
+		<key>name</key>
+		<string>Clyde House Surgery - Miss Davies</string>
+		<key>phone</key>
+		<string>0117 973 3265</string>
+		<key>postcode</key>
+		<string>BS6 6RJ</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>28 Victoria Square</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Clifton</string>
+		<key>latitude</key>
+		<string>51.454846</string>
+		<key>longitude</key>
+		<string>-2.615886</string>
+		<key>name</key>
+		<string>Victoria Square Dental Practice - Mrs Gunnery</string>
+		<key>phone</key>
+		<string>0117 973 5685</string>
+		<key>postcode</key>
+		<string>BS8 4EW</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>28 Victoria Square</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Clifton</string>
+		<key>latitude</key>
+		<string>51.454846</string>
+		<key>longitude</key>
+		<string>-2.615886</string>
+		<key>name</key>
+		<string>Victoria Square Dental Practice - Mr Davies</string>
+		<key>phone</key>
+		<string>0117 973 5685</string>
+		<key>postcode</key>
+		<string>BS8 4EW</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>30 Elgin Park</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Redland</string>
+		<key>latitude</key>
+		<string>51.469795</string>
+		<key>longitude</key>
+		<string>-2.609853</string>
+		<key>name</key>
+		<string>Elgin Park Dental Practice</string>
+		<key>phone</key>
+		<string>0117 973 5677</string>
+		<key>postcode</key>
+		<string>BS6 6RX</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>72 Alma Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Clifton</string>
+		<key>latitude</key>
+		<string>51.463003</string>
+		<key>longitude</key>
+		<string>-2.610425</string>
+		<key>name</key>
+		<string>Clifton Down Dental Practice</string>
+		<key>phone</key>
+		<string>0117 974 4867</string>
+		<key>postcode</key>
+		<string>BS8 2DJ</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>82 Church Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Bishopsworth</string>
+		<key>latitude</key>
+		<string>51.414518</string>
+		<key>longitude</key>
+		<string>-2.619312</string>
+		<key>name</key>
+		<string>Harris Dental Surgery</string>
+		<key>phone</key>
+		<string>0117 964 2794</string>
+		<key>postcode</key>
+		<string>BS13 8JX</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>82 Church Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Bishopsworth</string>
+		<key>latitude</key>
+		<string>51.414518</string>
+		<key>longitude</key>
+		<string>-2.619312</string>
+		<key>name</key>
+		<string>Harris Dental Surgery</string>
+		<key>phone</key>
+		<string>No information</string>
+		<key>postcode</key>
+		<string>BS13 8JX</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>12 Richmond Hill</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Clifton</string>
+		<key>latitude</key>
+		<string>51.457196</string>
+		<key>longitude</key>
+		<string>-2.610246</string>
+		<key>name</key>
+		<string>Richmond Hill Practice - Oasis </string>
+		<key>phone</key>
+		<string>0117 974 1207</string>
+		<key>postcode</key>
+		<string>BS8 1AT</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>130 Montreal Avenue</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Horfield</string>
+		<key>latitude</key>
+		<string>51.49666</string>
+		<key>longitude</key>
+		<string>-2.574674</string>
+		<key>name</key>
+		<string>Millennium Dental Care</string>
+		<key>phone</key>
+		<string>0117 969 4696</string>
+		<key>postcode</key>
+		<string>BS7 0NQ</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>808 Whitchurch Lane</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Whitchurch</string>
+		<key>latitude</key>
+		<string>51.406679</string>
+		<key>longitude</key>
+		<string>-2.567593</string>
+		<key>name</key>
+		<string>Whitchurch Dental</string>
+		<key>phone</key>
+		<string>01275 832790</string>
+		<key>postcode</key>
+		<string>BS14 0JW</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>145 Whiteladies Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Clifton</string>
+		<key>latitude</key>
+		<string>51.466149</string>
+		<key>longitude</key>
+		<string>-2.61074</string>
+		<key>name</key>
+		<string>Whiteladies Dental Care</string>
+		<key>phone</key>
+		<string>0117 974 1474</string>
+		<key>postcode</key>
+		<string>BS8 2QB</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>First Floor, 15 The Mall</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Clifton</string>
+		<key>latitude</key>
+		<string>51.455467</string>
+		<key>longitude</key>
+		<string>-2.620859</string>
+		<key>name</key>
+		<string>Dental Surgery - Mr McGill</string>
+		<key>phone</key>
+		<string>0117 973 7444</string>
+		<key>postcode</key>
+		<string>BS8 4DS</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>First Floor, 15 The Mall</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Clifton</string>
+		<key>latitude</key>
+		<string>51.455467</string>
+		<key>longitude</key>
+		<string>-2.620859</string>
+		<key>name</key>
+		<string>Dental Surgery - Mr Trigg</string>
+		<key>phone</key>
+		<string>0117 973 7444</string>
+		<key>postcode</key>
+		<string>BS8 4DS</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>First Floor, 15 The Mall</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Clifton</string>
+		<key>latitude</key>
+		<string>51.455467</string>
+		<key>longitude</key>
+		<string>-2.620859</string>
+		<key>name</key>
+		<string>Dental Surgery - Mr Murphy</string>
+		<key>phone</key>
+		<string>0117 973 7444</string>
+		<key>postcode</key>
+		<string>BS8 4DS</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>62 Hollway Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Stockwood</string>
+		<key>latitude</key>
+		<string>51.411977</string>
+		<key>longitude</key>
+		<string>-2.546277</string>
+		<key>name</key>
+		<string>Davidson Smith &amp; Associates Dental Surgery</string>
+		<key>phone</key>
+		<string>01275 832364</string>
+		<key>postcode</key>
+		<string>BS14 8PG</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>1 Kings Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Brislington</string>
+		<key>latitude</key>
+		<string>51.439237</string>
+		<key>longitude</key>
+		<string>-2.560299</string>
+		<key>name</key>
+		<string>Kings Road Dental Practice</string>
+		<key>phone</key>
+		<string>0117 977 6226</string>
+		<key>postcode</key>
+		<string>BS4 3HH</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>18 St Augustine's Parade</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>   </string>
+		<key>latitude</key>
+		<string>51.453471</string>
+		<key>longitude</key>
+		<string>-2.598338</string>
+		<key>name</key>
+		<string>St Augustine's Dental Practice</string>
+		<key>phone</key>
+		<string>0117 926 2720</string>
+		<key>postcode</key>
+		<string>BS1 4UP</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>2 Warrington Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Brislington</string>
+		<key>latitude</key>
+		<string>51.433077</string>
+		<key>longitude</key>
+		<string>-2.550974</string>
+		<key>name</key>
+		<string>Warrington House Dental Practice - Mr Pears</string>
+		<key>phone</key>
+		<string>0117 977 7181</string>
+		<key>postcode</key>
+		<string>BS4 5AH</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>2 Warrington Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Brislington</string>
+		<key>latitude</key>
+		<string>51.433077</string>
+		<key>longitude</key>
+		<string>-2.550974</string>
+		<key>name</key>
+		<string>Warrington House Dental Practice - Mr Key</string>
+		<key>phone</key>
+		<string>0117 977 7181</string>
+		<key>postcode</key>
+		<string>BS4 5AH</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>2 Warrington Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Brislington</string>
+		<key>latitude</key>
+		<string>51.433077</string>
+		<key>longitude</key>
+		<string>-2.550974</string>
+		<key>name</key>
+		<string>Warrington House Dental Practice - Mr Harvey</string>
+		<key>phone</key>
+		<string>0117 977 7181</string>
+		<key>postcode</key>
+		<string>BS4 5AH</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>24 Clare Street</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>   </string>
+		<key>latitude</key>
+		<string>51.453872</string>
+		<key>longitude</key>
+		<string>-2.595522</string>
+		<key>name</key>
+		<string>Clare Street Dental Centre</string>
+		<key>phone</key>
+		<string>0117 927 5890</string>
+		<key>postcode</key>
+		<string>BS1 1YA</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>Downside House, 4 Downside Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Clifton</string>
+		<key>latitude</key>
+		<string>51.466483</string>
+		<key>longitude</key>
+		<string>-2.618965</string>
+		<key>name</key>
+		<string>Bristol Dental Anaesthetic Clinic</string>
+		<key>phone</key>
+		<string>0117 974 4441</string>
+		<key>postcode</key>
+		<string>BS8 2XE</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>26 Berkeley Square</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Clifton</string>
+		<key>latitude</key>
+		<string>51.455592</string>
+		<key>longitude</key>
+		<string>-2.605519</string>
+		<key>name</key>
+		<string>Clifton Orthodontic Centre</string>
+		<key>phone</key>
+		<string>0117 929 7594</string>
+		<key>postcode</key>
+		<string>BS8 1HP</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>15 Great George Street</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>   </string>
+		<key>latitude</key>
+		<string>51.453751</string>
+		<key>longitude</key>
+		<string>-2.603451</string>
+		<key>name</key>
+		<string>Bristol Orthodontics - Great George Street</string>
+		<key>phone</key>
+		<string>0117 927 2726</string>
+		<key>postcode</key>
+		<string>BS1 5RR</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>University Of Bristol Dental Hospital</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Lower Maudlin Street</string>
+		<key>latitude</key>
+		<string>51.458613</string>
+		<key>longitude</key>
+		<string>-2.595196</string>
+		<key>name</key>
+		<string>Orthodontic Department</string>
+		<key>phone</key>
+		<string>0117 928 4350</string>
+		<key>postcode</key>
+		<string>BS1 2LY</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>University Of Bristol Dental Hospital</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Lower Maudlin Street</string>
+		<key>latitude</key>
+		<string>51.458613</string>
+		<key>longitude</key>
+		<string>-2.595196</string>
+		<key>name</key>
+		<string>Orthodontic Department</string>
+		<key>phone</key>
+		<string>0117 928 4350</string>
+		<key>postcode</key>
+		<string>BS1 2LY</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>85a Bell Barn Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Stoke Bishop</string>
+		<key>latitude</key>
+		<string>51.48744</string>
+		<key>longitude</key>
+		<string>-2.641097</string>
+		<key>name</key>
+		<string>Bell Barn Dental Practice</string>
+		<key>phone</key>
+		<string>0117 968 8882</string>
+		<key>postcode</key>
+		<string>BS9 2DF</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>227 Passage Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Henbury</string>
+		<key>latitude</key>
+		<string>51.507691</string>
+		<key>longitude</key>
+		<string>-2.617318</string>
+		<key>name</key>
+		<string>Passage House Dental Care</string>
+		<key>phone</key>
+		<string>0117 950 3141</string>
+		<key>postcode</key>
+		<string>BS10 7DL</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>187 Southmead Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Westbury -On-Trym</string>
+		<key>latitude</key>
+		<string>51.495179</string>
+		<key>longitude</key>
+		<string>-2.601016</string>
+		<key>name</key>
+		<string>City Bridge Dental Care</string>
+		<key>phone</key>
+		<string>0117 950 7949</string>
+		<key>postcode</key>
+		<string>BS10 5DX</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>3 Oldbury Court Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Fishponds</string>
+		<key>latitude</key>
+		<string>51.482406</string>
+		<key>longitude</key>
+		<string>-2.527289</string>
+		<key>name</key>
+		<string>Oldbury Court Dental Practice</string>
+		<key>phone</key>
+		<string>0117 965 1501</string>
+		<key>postcode</key>
+		<string>BS16 2HH</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>358 Lodge Causeway</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Fishponds</string>
+		<key>latitude</key>
+		<string>51.471</string>
+		<key>longitude</key>
+		<string>-2.522291</string>
+		<key>name</key>
+		<string>Lodge Causeway Dental Centre</string>
+		<key>phone</key>
+		<string>0117 958 6878</string>
+		<key>postcode</key>
+		<string>BS16 3PL</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>525 Gloucester Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Horfield</string>
+		<key>latitude</key>
+		<string>51.488311</string>
+		<key>longitude</key>
+		<string>-2.584636</string>
+		<key>name</key>
+		<string>Horfield Dental Care - Mr Wayne</string>
+		<key>phone</key>
+		<string>0117 951 3026</string>
+		<key>postcode</key>
+		<string>BS7 8UG</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>525 Gloucester Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Horfield</string>
+		<key>latitude</key>
+		<string>51.488311</string>
+		<key>longitude</key>
+		<string>-2.584636</string>
+		<key>name</key>
+		<string>Horfield Dental Care - Mr Gilling</string>
+		<key>phone</key>
+		<string>0117 951 3026</string>
+		<key>postcode</key>
+		<string>BS7 8UG</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>525 Gloucester Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Horfield</string>
+		<key>latitude</key>
+		<string>51.488311</string>
+		<key>longitude</key>
+		<string>-2.584636</string>
+		<key>name</key>
+		<string>Horfield Dental Care - Mr York</string>
+		<key>phone</key>
+		<string>0117 951 3026</string>
+		<key>postcode</key>
+		<string>BS7 8UG</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>126 Stoke Lane</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Westbury-On-Trym</string>
+		<key>latitude</key>
+		<string>51.488942</string>
+		<key>longitude</key>
+		<string>-2.624526</string>
+		<key>name</key>
+		<string>Stoke Lane Dental Practice - Mr Burnside</string>
+		<key>phone</key>
+		<string>0117 962 9902</string>
+		<key>postcode</key>
+		<string>BS9 3RJ</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>126 Stoke Lane</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Westbury-On-Trym</string>
+		<key>latitude</key>
+		<string>51.488942</string>
+		<key>longitude</key>
+		<string>-2.624526</string>
+		<key>name</key>
+		<string>Stoke Lane Dental Practice - Mrs Tomison</string>
+		<key>phone</key>
+		<string>0117 962 9902</string>
+		<key>postcode</key>
+		<string>BS9 3RJ</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>126 Stoke Lane</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Westbury-On-Trym</string>
+		<key>latitude</key>
+		<string>51.488942</string>
+		<key>longitude</key>
+		<string>-2.624526</string>
+		<key>name</key>
+		<string>Stoke Lane Dental Practice - Mrs Milner</string>
+		<key>phone</key>
+		<string>0117 962 9902</string>
+		<key>postcode</key>
+		<string>BS9 3RJ</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>126 Stoke Lane</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Westbury-On-Trym</string>
+		<key>latitude</key>
+		<string>51.488942</string>
+		<key>longitude</key>
+		<string>-2.624526</string>
+		<key>name</key>
+		<string>Stoke Lane Dental Practice - Dr Hardiman</string>
+		<key>phone</key>
+		<string>0117 962 9902</string>
+		<key>postcode</key>
+		<string>BS9 3RJ</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>1-3 North View</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Westbury Park</string>
+		<key>latitude</key>
+		<string>51.47376</string>
+		<key>longitude</key>
+		<string>-2.597623</string>
+		<key>name</key>
+		<string>Whitetree - Mr Tonner</string>
+		<key>phone</key>
+		<string>0117 973 9397</string>
+		<key>postcode</key>
+		<string>BS6 7PU</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>1-3 North View</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Westbury Park</string>
+		<key>latitude</key>
+		<string>51.47376</string>
+		<key>longitude</key>
+		<string>-2.597623</string>
+		<key>name</key>
+		<string>Whitetree - Mr Hutchinson</string>
+		<key>phone</key>
+		<string>0117 973 9397</string>
+		<key>postcode</key>
+		<string>BS6 7PU</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>15 Great George Street</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>   </string>
+		<key>latitude</key>
+		<string>51.453751</string>
+		<key>longitude</key>
+		<string>-2.603451</string>
+		<key>name</key>
+		<string>Whitetree - Bristol Orthodontic Services Ltd</string>
+		<key>phone</key>
+		<string>0117 973 9397</string>
+		<key>postcode</key>
+		<string>BS1 5RR</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>85 Parry's Lane</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Stoke Bishop</string>
+		<key>latitude</key>
+		<string>51.484015</string>
+		<key>longitude</key>
+		<string>-2.629499</string>
+		<key>name</key>
+		<string>Parry's Lane Dental Practice - Mr C Bell</string>
+		<key>phone</key>
+		<string>0117 968 5048</string>
+		<key>postcode</key>
+		<string>BS9 1AN</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>89a Redland Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Redland</string>
+		<key>latitude</key>
+		<string>51.469514</string>
+		<key>longitude</key>
+		<string>-2.598044</string>
+		<key>name</key>
+		<string>Redland Road Dental Practice</string>
+		<key>phone</key>
+		<string>0117 924 6070</string>
+		<key>postcode</key>
+		<string>BS6 6RD</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>6 The Parade</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Shirehampton</string>
+		<key>latitude</key>
+		<string>51.488332</string>
+		<key>longitude</key>
+		<string>-2.674466</string>
+		<key>name</key>
+		<string>Smile Solutions Orthodontic Surgery</string>
+		<key>phone</key>
+		<string>0117 982 8222</string>
+		<key>postcode</key>
+		<string>BS11 9TS</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>269 Church Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Redfield</string>
+		<key>latitude</key>
+		<string>51.459693</string>
+		<key>longitude</key>
+		<string>-2.552604</string>
+		<key>name</key>
+		<string>Church Road Dental Practice</string>
+		<key>phone</key>
+		<string>0117 954 0351</string>
+		<key>postcode</key>
+		<string>BS5 9HT</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>130 Henleaze Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Henleaze</string>
+		<key>latitude</key>
+		<string>51.48547</string>
+		<key>longitude</key>
+		<string>-2.611085</string>
+		<key>name</key>
+		<string>Henleaze Dental Practice</string>
+		<key>phone</key>
+		<string>0117 962 0534</string>
+		<key>postcode</key>
+		<string>BS9 4LB</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>12 Gloucester Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Bishopston</string>
+		<key>latitude</key>
+		<string>51.471328</string>
+		<key>longitude</key>
+		<string>-2.593201</string>
+		<key>name</key>
+		<string>The Promenade Dental Practice</string>
+		<key>phone</key>
+		<string>0117 924 0678</string>
+		<key>postcode</key>
+		<string>BS7 8AE</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>151b Shirehampton Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Sea Mills</string>
+		<key>latitude</key>
+		<string>51.488249</string>
+		<key>longitude</key>
+		<string>-2.649462</string>
+		<key>name</key>
+		<string>Green Dental Practice</string>
+		<key>phone</key>
+		<string>0117 968 6394</string>
+		<key>postcode</key>
+		<string>BS9 2EE</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>15 Druid Hill</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Stoke Bishop</string>
+		<key>latitude</key>
+		<string>51.48129</string>
+		<key>longitude</key>
+		<string>-2.634559</string>
+		<key>name</key>
+		<string>Stoke Bishop Dental Centre</string>
+		<key>phone</key>
+		<string>0117 968 4888</string>
+		<key>postcode</key>
+		<string>BS9 1EW</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>249 Stapleton Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Easton</string>
+		<key>latitude</key>
+		<string>51.464701</string>
+		<key>longitude</key>
+		<string>-2.569723</string>
+		<key>name</key>
+		<string>Easton Dental Practice</string>
+		<key>phone</key>
+		<string>0117 935 4554</string>
+		<key>postcode</key>
+		<string>BS5 0PG</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>382 Gloucester Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Horfield</string>
+		<key>latitude</key>
+		<string>51.484119</string>
+		<key>longitude</key>
+		<string>-2.586844</string>
+		<key>name</key>
+		<string>Ashley Down Dental Care</string>
+		<key>phone</key>
+		<string>0117 924 7005</string>
+		<key>postcode</key>
+		<string>BS7 8TR</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>21 Station Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Shirehampton</string>
+		<key>latitude</key>
+		<string>51.487326</string>
+		<key>longitude</key>
+		<string>-2.67592</string>
+		<key>name</key>
+		<string>Shirehampton Dental Practice</string>
+		<key>phone</key>
+		<string>0117 982 2119</string>
+		<key>postcode</key>
+		<string>BS11 9TU</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>239 Greystoke Avenue</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Southmead</string>
+		<key>latitude</key>
+		<string>51.504474</string>
+		<key>longitude</key>
+		<string>-2.599625</string>
+		<key>name</key>
+		<string>Greystoke Avenue Dental Practice</string>
+		<key>phone</key>
+		<string>0117 950 7292</string>
+		<key>postcode</key>
+		<string>BS10 6BB</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>229 - 231 Gloucester Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Bishopston</string>
+		<key>latitude</key>
+		<string>51.476298</string>
+		<key>longitude</key>
+		<string>-2.590141</string>
+		<key>name</key>
+		<string>Bishopston Dental Surgery</string>
+		<key>phone</key>
+		<string>0117 942 4044</string>
+		<key>postcode</key>
+		<string>BS7 8NR</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>2 Ashley Court, 143 - 153 Ashley Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>St Paul's</string>
+		<key>latitude</key>
+		<string>51.466284</string>
+		<key>longitude</key>
+		<string>-2.580597</string>
+		<key>name</key>
+		<string>St Pauls Dental Practice</string>
+		<key>phone</key>
+		<string>0117 955 0128</string>
+		<key>postcode</key>
+		<string>BS6 5NW</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>11 Crokeswood Walk</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Lawrence Weston</string>
+		<key>latitude</key>
+		<string>51.500971</string>
+		<key>longitude</key>
+		<string>-2.662465</string>
+		<key>name</key>
+		<string>Lawrence Weston Dental Surgery</string>
+		<key>phone</key>
+		<string>0117 982 2303</string>
+		<key>postcode</key>
+		<string>BS11 0NA</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>94 - 96 Filton Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Horfield</string>
+		<key>latitude</key>
+		<string>51.497676</string>
+		<key>longitude</key>
+		<string>-2.580132</string>
+		<key>name</key>
+		<string>Monks Park Dental Centre</string>
+		<key>phone</key>
+		<string>0117 969 2373</string>
+		<key>postcode</key>
+		<string>BS7 0PD</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>Wellspring Healthy Living Centre, Beam Street</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Barton Hill</string>
+		<key>latitude</key>
+		<string>51.452497</string>
+		<key>longitude</key>
+		<string>-2.564606</string>
+		<key>name</key>
+		<string>Wellspring Dental Centre</string>
+		<key>phone</key>
+		<string>0117 955 8780</string>
+		<key>postcode</key>
+		<string>BS5 9UD</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>104 -108 Gatcombe Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Hartcliffe</string>
+		<key>latitude</key>
+		<string>51.411359</string>
+		<key>longitude</key>
+		<string>-2.604359</string>
+		<key>name</key>
+		<string>Hartcliffe Dental Practice</string>
+		<key>phone</key>
+		<string>0117 964 9895</string>
+		<key>postcode</key>
+		<string>BS13 9RG</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>Southmead Health Centre</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Ullswater Road</string>
+		<key>latitude</key>
+		<string>51.50477</string>
+		<key>longitude</key>
+		<string>-2.601618</string>
+		<key>name</key>
+		<string>Southmead Dental Practice</string>
+		<key>phone</key>
+		<string>0117 959 4896</string>
+		<key>postcode</key>
+		<string>BS10 6DF</string>
+	</dict>
+	<dict>
+		<key>NIL</key>
+		<string>a</string>
+		<key>address</key>
+		<string>Unit 5.6, Paintworks</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>district</key>
+		<string>Arnos Vale</string>
+		<key>latitude</key>
+		<string>51.443318</string>
+		<key>longitude</key>
+		<string>-2.567918</string>
+		<key>name</key>
+		<string>Toothworks</string>
+		<key>phone</key>
+		<string>0117 300 5957</string>
+		<key>postcode</key>
+		<string>BS4 3EH</string>
+	</dict>
+</array>
+</plist>

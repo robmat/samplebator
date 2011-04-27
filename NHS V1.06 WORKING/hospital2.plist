@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>address</key>
+		<string>The Brooms, Emersons Green</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.503289</string>
+		<key>longitude</key>
+		<string>-2.484452</string>
+		<key>name</key>
+		<string>Emersons Green Treatment Centre</string>
+		<key>phone</key>
+		<string>0117 906 1801</string>
+		<key>postcode</key>
+		<string>BS16 7FH</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Southmead Road, Westbury-on-Trym</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.497333</string>
+		<key>longitude</key>
+		<string>-2.592948</string>
+		<key>name</key>
+		<string>Southmead Hospital</string>
+		<key>phone</key>
+		<string>0117 959 5245</string>
+		<key>postcode</key>
+		<string>BS10 5NB</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Cotham Hill</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.46212</string>
+		<key>longitude</key>
+		<string>-2.603777</string>
+		<key>name</key>
+		<string>Bristol Homeopathic Hospital</string>
+		<key>phone</key>
+		<string>0117 973 1231</string>
+		<key>postcode</key>
+		<string>BS6 6JU</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Southwell Street</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.459131</string>
+		<key>longitude</key>
+		<string>-2.599391</string>
+		<key>name</key>
+		<string>St Michael&apos;s Hospital</string>
+		<key>phone</key>
+		<string>0117 921 5411</string>
+		<key>postcode</key>
+		<string>BS2 8EG</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Manor Road, Fishponds</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.483145</string>
+		<key>longitude</key>
+		<string>-2.538833</string>
+		<key>name</key>
+		<string>Blackberry Hill Hospital</string>
+		<key>phone</key>
+		<string>0117 965 6061</string>
+		<key>postcode</key>
+		<string>BS16 2EW</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Lower Maudlin Street</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.458613</string>
+		<key>longitude</key>
+		<string>-2.595196</string>
+		<key>name</key>
+		<string>Bristol Dental Hospital</string>
+		<key>phone</key>
+		<string>0117 928 4383</string>
+		<key>postcode</key>
+		<string>BS1 2LY</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Guinea Street</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.446473</string>
+		<key>longitude</key>
+		<string>-2.593584</string>
+		<key>name</key>
+		<string>Bristol General Hospital</string>
+		<key>phone</key>
+		<string>0117 342 6223</string>
+		<key>postcode</key>
+		<string>BS1 6SY</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Frenchay Park Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.496462</string>
+		<key>longitude</key>
+		<string>-2.528863</string>
+		<key>name</key>
+		<string>Frenchay Hospital </string>
+		<key>phone</key>
+		<string>0117 970 1212</string>
+		<key>postcode</key>
+		<string>BS16 1LE </string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Marlborough Street</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.4594</string>
+		<key>longitude</key>
+		<string>-2.596055</string>
+		<key>name</key>
+		<string>Bristol Royal Infirmary</string>
+		<key>phone</key>
+		<string>0117 923 0000</string>
+		<key>postcode</key>
+		<string>BS2 8HW</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Upper Maudlin Street</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.45782</string>
+		<key>longitude</key>
+		<string>-2.597301</string>
+		<key>name</key>
+		<string>Bristol Royal Childrens Hospital</string>
+		<key>phone</key>
+		<string>0117 921 5411</string>
+		<key>postcode</key>
+		<string>BS2 8BJ</string>
+	</dict>
+</array>
+</plist>

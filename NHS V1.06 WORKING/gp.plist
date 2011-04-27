@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Air Balloon Surgey</string>
+		<key>address</key>
+		<string>11 Air Balloon Road, (0117) 909 9914</string>
+		<key>latitude</key>
+		<string>51.458894</string>
+		<key>longitude</key>
+		<string>-5.533239</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Air Baloon Surgey</string>
+		<key>address</key>
+		<string>Kenn Road, (0117) 909 9914</string>
+		<key>latitude</key>
+		<string>51.458907</string>
+		<key>longitude</key>
+		<string>-2.531437</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Armada Practice</string>
+		<key>address</key>
+		<string>Armada Road, (01275) 839 421</string>
+		<key>latitude</key>
+		<string>51.414196</string>
+		<key>longitude</key>
+		<string>-2.572532</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Avonmouth Medical Center</string>
+		<key>address</key>
+		<string>Collins street, (0117) 982 4322</string>
+		<key>latitude</key>
+		<string>51.498405</string>
+		<key>longitude</key>
+		<string>-2.695168</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Bedmister Family Practice</string>
+		<key>address</key>
+		<string>Regent road, (0117) 966 3149</string>
+		<key>latitude</key>
+		<string>51.444032</string>
+		<key>longitude</key>
+		<string>-2.594237</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Beechwood Medical Centre</string>
+		<key>address</key>
+		<string>Beechwood Road, (0117) 908 2360</string>
+		<key>latitude</key>
+		<string>51.479641</string>
+		<key>longitude</key>
+		<string>-2.525683</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Fishponds Primary Care Centre</string>
+		<key>address</key>
+		<string>Beechwood Road, (0117) 908 2360</string>
+		<key>latitude</key>
+		<string>51.479642</string>
+		<key>longitude</key>
+		<string>-2.525684</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Hola</string>
+		<key>address</key>
+		<string>Beechwood Road, (0117) 908 2360</string>
+		<key>latitude</key>
+		<string>51.479641</string>
+		<key>longitude</key>
+		<string>-2.525683</string>
+	</dict>
+</array>
+</plist>

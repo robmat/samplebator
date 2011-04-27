@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>address</key>
+		<string>Southmead Road </string>
+		<key>address2</key>
+		<string>Westbury-on-trym</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.497333</string>
+		<key>longitude</key>
+		<string>-2.592948</string>
+		<key>name</key>
+		<string>Southmead Minor-Injuries Unit</string>
+		<key>phone</key>
+		<string>0117 959 5100</string>
+		<key>postcode</key>
+		<string>BS10 5NB</string>
+		<key>timetable</key>
+		<string>09:00-21:00, 7 days a week, 365 days a year</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>33 Broad Street</string>
+		<key>address2</key>
+		<string></string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.455926</string>
+		<key>longitude</key>
+		<string>-2.594786</string>
+		<key>name</key>
+		<string>Bristol City Walk-in Centre</string>
+		<key>phone</key>
+		<string>0117 906 9610</string>
+		<key>postcode</key>
+		<string>BS1 2EZ</string>
+		<key>timetable</key>
+		<string>Monday to Saturday: 8am to 8 pm. Sunday or Bank Holiday: 10 am to 6 pm.</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>5 Knowle West Health Park</string>
+		<key>address2</key>
+		<string>Downton Road, Knole West</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.428755</string>
+		<key>longitude</key>
+		<string>-2.59626</string>
+		<key>name</key>
+		<string>Bristol South Walk-in Centre</string>
+		<key>phone</key>
+		<string>0117 903 0000</string>
+		<key>postcode</key>
+		<string>BS4 1WH</string>
+		<key>timetable</key>
+		<string>Open seven days a week, 9am - 9pm.</string>
+	</dict>
+</array>
+</plist>
