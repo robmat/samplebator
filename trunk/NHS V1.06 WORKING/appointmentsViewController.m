@@ -127,209 +127,49 @@
 		}
 		else {
 			NSLog(@"Envio el reminder!") ;
-			//ENVIO EL MENSAJEE !!!!!
-			
-			NSString * texto = [NSString stringWithFormat:@"%@%@%@%@%@",  @"NHS Bristol: You have an appointment. " , serviceLabel.text , @" in ", appointmentBefore.text , @"." ] ;
-			
-			//#if !TARGET_IPHONE_SIMULATOR
-			
-			// Get Bundle Info for Remote Registration (handy if you have more than one app)
-			NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
-			NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
-			
-			// Check what Notifications the user has turned on.  We registered for all three, but they may have manually disabled some or all of them.
-			NSUInteger rntypes = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
-			
-			// Set the defaults to disabled unless we find otherwise...
-			NSString *pushBadge = @"disabled";
-			NSString *pushAlert = @"disabled";
-			NSString *pushSound = @"disabled";
-			
-			// Check what Registered Types are turned on. This is a bit tricky since if two are enabled, and one is off, it will return a number 2... not telling you which
-			// one is actually disabled. So we are literally checking to see if rnTypes matches what is turned on, instead of by number. The "tricky" part is that the 
-			// single notification types will only match if they are the ONLY one enabled.  Likewise, when we are checking for a pair of notifications, it will only be 
-			// true if those two notifications are on.  This is why the code is written this way ;)
-			if(rntypes == UIRemoteNotificationTypeBadge){
-				pushBadge = @"enabled";
-			}
-			else if(rntypes == UIRemoteNotificationTypeAlert){
-				pushAlert = @"enabled";
-			}
-			else if(rntypes == UIRemoteNotificationTypeSound){
-				pushSound = @"enabled";
-			}
-			else if(rntypes == ( UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert)){
-				pushBadge = @"enabled";
-				pushAlert = @"enabled";
-			}
-			else if(rntypes == ( UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)){
-				pushBadge = @"enabled";
-				pushSound = @"enabled";
-			}
-			else if(rntypes == ( UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)){
-				pushAlert = @"enabled";
-				pushSound = @"enabled";
-			}
-			else if(rntypes == ( UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)){
-				pushBadge = @"enabled";
-				pushAlert = @"enabled";
-				pushSound = @"enabled";
-			}
-			
-			
-			// Get the users Device Model, Display Name, Unique ID, Token & Version Number
-			UIDevice *dev = [UIDevice currentDevice];
-			NSString *deviceUuid = dev.uniqueIdentifier;
-			NSString *deviceName = dev.name;
-			NSString *deviceModel = dev.model;
-			NSString *deviceSystemVersion = dev.systemVersion;
-			
-			//Puedo cogerlo todo excepto el token! Por eso me lo traigo de memoria!
-			
-			NSString *deviceToken = @"" ;
-			
-			// Cojo desde memoria la informacion del token del dispositivo:
-			NSString * filePathTOKEN = [self dataFilePathTOKEN ] ;
-			if ( [[NSFileManager defaultManager] fileExistsAtPath:filePathTOKEN]) {
-				NSArray * arrayTOKEN = [[NSArray alloc] initWithContentsOfFile:filePathTOKEN] ;
-				
-				deviceToken = [arrayTOKEN objectAtIndex:0] ; 
-				NSLog(@"%@", deviceToken) ;
-				
-			}	
-			
-			// Build URL String for Registration
-			NSString *host = @"www.myoxygen.co.uk/pushaps";
-			
-			// Con esto actualizo el device
-			NSString *urlString = [NSString stringWithFormat:@"/apns.php?task=%@&appname=%@&appversion=%@&deviceuid=%@&devicetoken=%@&devicename=%@&devicemodel=%@&deviceversion=%@&pushbadge=%@&pushalert=%@&pushsound=%@", @"register", appName,appVersion, deviceUuid, deviceToken, deviceName, deviceModel, deviceSystemVersion, pushBadge, pushAlert, pushSound];
-			
-			// Register the Device Data
-			// !!! CHANGE "http" TO "https" IF YOU ARE USING HTTPS PROTOCOL
-			NSURL *url = [[NSURL alloc] initWithScheme:@"http" host:host path:urlString];
-			NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-			//NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-			//NSLog(@"Register URL: %@", url);
-			//NSLog(@"Return Data: %@", returnData);
-			
-			
-			//NSLog(dateString) ;
-			
-			
-			// ******************************    MANDAR MENSAJE PARA RECORDAR CITA   *********************
-			
-			//NSString * stringdateString = [NSString init] ;
-			//stringdateString = dateString ;
-			
-			//	NSLog(stringdateString) ;
-			
-			NSString * dateString = [[NSString alloc] init];
-			NSDateFormatter * df = [[NSDateFormatter alloc] init] ;
-			df.dateStyle = NSDateFormatterFullStyle;
-			//NSDate * today = [NSDate date ] ;
-			NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-			[dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss a"];
-			dateString = [dateFormat stringFromDate:datePicker.date ];
+			UILocalNotification* notification = [[UILocalNotification alloc] init];
+			notification.alertAction = @"Reminder";
+			notification.alertBody = [NSString stringWithFormat:@"%@ %@ %@ %@", @"You have a scheduled", serviceLabel.text, @"within", appointmentBefore.text];
+			NSDate* date = datePicker.date;
 			
 			int segundosARestar = 0 ;
-			
-			//Restamos 30 minutos, 60, 90 o 24 horas!!
-			if ( [appointmentBefore.text isEqualToString: @"30 minutes" ]){
-				NSLog(@"Voy a restar 30 minutos a la hora elegida por el appointment") ;
-				segundosARestar = -1800 ;
-				
-			}else {
-				if ([appointmentBefore.text isEqualToString: @"60 minutes"]){
-					NSLog(@"Voy a restar 60 minutos a la hora elegida por el appointment") ;
-					segundosARestar = -3600 ;
-				}
-				else {
-					if([appointmentBefore.text isEqualToString: @"90 minutes"]){
-						NSLog(@"Voy a restar 90 minutos a la hora elegida por el appointment") ;
-						segundosARestar = -5400 ;
-					}
-					else {
-						if([appointmentBefore.text isEqualToString: @"24 hours"]){
-							NSLog(@"Voy a restar 24 hours a la hora elegida por el appointment") ;
-							segundosARestar = -86400 ;
-						}
-					}
-				}
-			}
-			
-			//#endif			
-			NSDate * appintmentDate = [[ NSDate alloc] initWithTimeInterval: segundosARestar sinceDate:datePicker.date ] ;
-			NSString * stringAppintmentDate = [[NSString alloc] init] ;
-			stringAppintmentDate = [dateFormat stringFromDate: appintmentDate ];
-			
-			NSLog(@"El reminder sera envidado en: %@", stringAppintmentDate) ;
-			
-			//NSLog(@"date: %@", dateString) ;
-			[dateFormat release] ;
-			
-			NSString *host2 = @"www.myoxygen.co.uk/pushaps";
-			NSString *urlString2 = [NSString stringWithFormat:@"/samplesTOKEN.php?device=%@&token=%@&message=%@&date=%@", deviceUuid, deviceToken, texto, stringAppintmentDate];
-			//NSString *urlString2 = [NSString stringWithFormat:@"/samplesTOKEN2.php?device=%@&token=%@&message=%@", deviceUuid, deviceToken, texto ];
-			
-			NSURL *url2 = [[NSURL alloc] initWithScheme:@"http" host:host2 path:urlString2];
-			NSURLRequest *request2 = [[NSURLRequest alloc] initWithURL:url2];
-			NSData *returnData2 = [NSURLConnection sendSynchronousRequest:request2 returningResponse:nil error:nil];
-			
-			NSLog(@"Register URL: %@", url2);
-			NSLog(@"Return Data: %@", returnData2);
-			
-			
-			//CONFIRMO EL MENSAJE ENVIADO
-			serviceLabel.text = @"Service" ;
-			appointmentBefore.text = @"Time" ;
-			
-			
-			//Test internet connection:
-			//NSString * connected = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"www.myoxygen.co.uk/pushaps/hola.txt"]];
-			//int * entero ;
-			//entero = [[int alloc] init ] ;
-			//entero = 20000 ;
-			//NSData *returnData = [NSURLConnection sendSynchronousRequest:@"www.myoxygen.co.uk/pushaps/smallfile.php" returningResponse:nil error:nil];
-			//NSLog(@"Register URL: %@", url);
-			//NSLog(@"Return Data: %@", returnData2);
-			
-			//sleep(4) ;
-			//wait(40000) ;
-
-			
-			
-			if( returnData2 == NULL){
-				NSLog(@"Not connected to internet") ;
-				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Set Reminder Menu" message:@"ERROR: You need internet to set reminders. Your reminder hasn't been set."
-															   delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-				[alert show];
-				[alert release];
-			}	
-			else{
-				//NSLog(@"Connected: %@", connected) ;
-				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Set Reminder Menu" message:@"Correct. Your reminder has been set :)"
-														   delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-				[alert show];
-				[alert release];
-			}	
-			
-
-				
-			min30Button.alpha = 0.3 ;
-			min60Button.alpha = 0.3 ;
-			min90Button.alpha = 0.3 ; 
-			hour24Button.alpha = 0.3 ;
-			
-			emergenciesButton.alpha = 0.3 ;
-			hospitalButton.alpha = 0.3 ;
-			gpButton.alpha = 0.3 ;
-			dentistButton.alpha = 0.3 ;
-			
-			//NSLog(dateString) ;
+            if ( [appointmentBefore.text isEqualToString: @"30 minutes" ]){
+                NSLog(@"Voy a restar 30 minutos a la hora elegida por el appointment") ;
+                segundosARestar = -1800 ;
+                
+            }else {
+                if ([appointmentBefore.text isEqualToString: @"60 minutes"]){
+                    NSLog(@"Voy a restar 60 minutos a la hora elegida por el appointment") ;
+                    segundosARestar = -3600 ;
+                }
+                else {
+                    if([appointmentBefore.text isEqualToString: @"90 minutes"]){
+                        NSLog(@"Voy a restar 90 minutos a la hora elegida por el appointment") ;
+                        segundosARestar = -5400 ;
+                    }
+                    else {
+                        if([appointmentBefore.text isEqualToString: @"24 hours"]){
+                            NSLog(@"Voy a restar 24 hours a la hora elegida por el appointment") ;
+                            segundosARestar = -86400 ;
+                        }
+                    }
+                }
+            }
+			NSTimeZone* timeZone = [NSTimeZone defaultTimeZone];
+			date = [date dateByAddingTimeInterval:segundosARestar];
+			notification.fireDate = date;
+			notification.timeZone = timeZone;
+			notification.soundName = UILocalNotificationDefaultSoundName;
+			notification.applicationIconBadgeNumber = -1;
+			[[UIApplication sharedApplication] scheduleLocalNotification: notification];
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reminder set" message:@"This reminder has been set." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+			[alert show];
+			[alert release];	
 			
 		}
 	}
 }
+
 
 
 -(IBAction)sendReminder {
