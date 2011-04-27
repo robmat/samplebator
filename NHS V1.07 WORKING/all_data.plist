@@ -43681,6 +43681,48 @@
       <key>category</key>
       <string>pharmacy</string>
     </dict>
+	<dict>
+      <key>name</key>
+      <string>East Riding Pharmacy</string>
+      <key>addressLarge</key>
+      <string>Unit 4, Biggin Avenue</string>
+      <key>city</key>
+      <string>Withernsea</string>
+      <key>district</key>
+      <string>Hull</string>
+      <key>postcode</key>
+      <string>HU7 4NR</string>
+      <key>telephone</key>
+      <string>01482 829279</string>
+      <key>latitude</key>
+      <string>53.789455</string>
+      <key>longitude</key>
+      <string>-0.312823</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+	
+	<dict>
+      <key>name</key>
+      <string>Sainsbury Pharmacy</string>
+      <key>addressLarge</key>
+      <string>Sainsbury Way</string>
+      <key>city</key>
+      <string>Hessle</string>
+      <key>district</key>
+      <string>Hull</string>
+      <key>postcode</key>
+      <string>HU7 4NR</string>
+      <key>telephone</key>
+      <string>01482 351981</string>
+      <key>latitude</key>
+      <string>53.723166</string>
+      <key>longitude</key>
+      <string>-0.420896</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+	
     <dict>
       <key>name</key>
       <string>Living Care Pharmacy</string>
@@ -54175,9 +54217,9 @@
       <key>telephone</key>
       <string>01226 273888</string>
       <key>latitude</key>
-      <string>53.6865487</string>
+      <string>53.552703</string>
       <key>longitude</key>
-      <string>-1.4655732</string>
+      <string>-1.350202</string>
       <key>category</key>
       <string>walkincentre</string>
     </dict>
@@ -54196,9 +54238,9 @@
       <key>telephone</key>
       <string>08451 228363</string>
       <key>latitude</key>
-      <string>53.6865487</string>
+      <string>53.578467</string>
       <key>longitude</key>
-      <string>-1.4655732</string>
+      <string>-1.483201</string>
       <key>category</key>
       <string>walkincentre</string>
     </dict>
