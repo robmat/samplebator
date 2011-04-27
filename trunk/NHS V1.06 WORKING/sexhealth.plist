@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>address</key>
+		<string>111 Pembroke Road, Clifton</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.464336</string>
+		<key>longitude</key>
+		<string>-2.618518</string>
+		<key>name</key>
+		<string>Pembroke Road Surgery</string>
+		<key>phone</key>
+		<string>0117 9733790</string>
+		<key>postcode</key>
+		<string>BS8 3EU</string>
+		<key>times</key>
+		<string>Mon 8.15am-6.30pm
+		Tue 8.15am-8.00pm
+		Wed 8.15am-6.30pm
+		Thu 8.15am-6.30pm
+		Fri 8.15am-6.30pm 
+		Sat 8.30am-10.00am</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>The Cotswold Centre, Monks Park Ave.</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.497333</string>
+		<key>longitude</key>
+		<string>-2.592949</string>
+		<key>name</key>
+		<string>Southmead Hospital</string>
+		<key>phone</key>
+		<string>0117 3235095</string>
+		<key>postcode</key>
+		<string>BS10 5NB</string>
+		<key>times</key>
+		<string>Appointments (all ages) 
+		Wed 6.00pm-8.30pm </string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Southmead Health Centre, Ullswater Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.504770</string>
+		<key>longitude</key>
+		<string>-2.601618</string>
+		<key>name</key>
+		<string>Southmead Young People&apos;s Clinic</string>
+		<key>phone</key>
+		<string>0117 9084654</string>
+		<key>postcode</key>
+		<string>BS10 6DF</string>
+		<key>times</key>
+		<string>Drop in
+		Mon 4.15pm-6.30pm
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Thirlmere Road, Patchway</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.531741</string>
+		<key>longitude</key>
+		<string>-2.573487</string>
+		<key>name</key>
+		<string>Patchway Young People&apos;s Clinic</string>
+		<key>phone</key>
+		<string>0117 9692370</string>
+		<key>postcode</key>
+		<string>BS34 5PD</string>
+		<key>times</key>
+		<string>Drop in
+		Wed 5.30pm-7.45pm</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Lawrence Weston Clinic, Ridingleaze</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.501361</string>
+		<key>longitude</key>
+		<string>-2.658653</string>
+		<key>name</key>
+		<string>Lawrence Weston Young People&apos;s Clinic</string>
+		<key>phone</key>
+		<string>0117 9823205</string>
+		<key>postcode</key>
+		<string>BS11 0QE</string>
+		<key>times</key>
+		<string>Drop in
+		Fri 3.30pm-5.45pm </string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>South Bristol Walk-in Centre, Downton Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.428755</string>
+		<key>longitude</key>
+		<string>-2.596260</string>
+		<key>name</key>
+		<string>Knowle West Sexual Health Clinic</string>
+		<key>phone</key>
+		<string>0117 9030000</string>
+		<key>postcode</key>
+		<string>BS4 1WH</string>
+		<key>times</key>
+		<string>Drop in 
+		Tue 3.30pm-5.30pm
+		Appointments (all ages) 
+		Thu 1.30pm-3.15pm </string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Alma Road, Kingswood</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.462959</string>
+		<key>longitude</key>
+		<string>-2.500132</string>
+		<key>name</key>
+		<string>Kingswood Health Centre</string>
+		<key>phone</key>
+		<string>0117 9677191</string>
+		<key>postcode</key>
+		<string>BS15 4EJ</string>
+		<key>times</key>
+		<string>Drop in 
+		Mon 2.45pm-4.15pm
+		Appointments (all ages) 
+		Mon 1.45pm-2.30pm</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Frenchay Park Road, Frenchay</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.496462</string>
+		<key>longitude</key>
+		<string>-2.528863</string>
+		<key>name</key>
+		<string>Frenchay Hospital</string>
+		<key>phone</key>
+		<string>0117 9671661</string>
+		<key>postcode</key>
+		<string>BS16 1LE</string>
+		<key>times</key>
+		<string>Appointments (all ages) 
+		Mon 7.00pm-9.30pm </string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Queen&apos;s Road, Withywood</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.407310</string>
+		<key>longitude</key>
+		<string>-2.622119</string>
+		<key>name</key>
+		<string>Amelia Nutt Clinic</string>
+		<key>phone</key>
+		<string>0117 9878301</string>
+		<key>postcode</key>
+		<string>BS13 8QA</string>
+		<key>times</key>
+		<string>Drop in
+		Mon 3.30pm-6.00pm
+		Thu 3.30pm-6.00pm
+		Appointments (all ages)
+		Wed 9.00am-11.00am </string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Seymour Road, Easton</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.465</string>
+		<key>longitude</key>
+		<string>-2.571</string>
+		<key>name</key>
+		<string>Charlotte Keel Health Clinic</string>
+		<key>phone</key>
+		<string>0117 9027111</string>
+		<key>postcode</key>
+		<string>BS5 0UA</string>
+		<key>times</key>
+		<string>Telephone for an appointment
+		OR visit the young people&apos;s walk in clinic:
+		Wed 2.30pm-3.45pm
+		
+		*Multi-ethnic specialist centre. 
+		Interpretation services available.*</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Central Health Clinic, Tower Hill</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.454415</string>
+		<key>longitude</key>
+		<string>-2.585959</string>
+		<key>name</key>
+		<string>Bristol Sexual Health Centre</string>
+		<key>phone</key>
+		<string>0117 3426900</string>
+		<key>postcode</key>
+		<string>BS2 0JD</string>
+		<key>times</key>
+		<string>Drop in 
+		Mon 9.00am-12.00pm
+		Tue 9.00am-12.00pm
+		Wed 10.00am-1.00pm
+		Thu 9.00am-12.00pm
+		Fri 9.00am-12.00pm
+		Appointments all ages Mon-Fri 
+		(Call to Book)
+		Sat Under 24&apos;s drop in clinic 9.00am-12.00pm (arrive early)</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>1 Unity Street</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.453354</string>
+		<key>longitude</key>
+		<string>-2.600121</string>
+		<key>name</key>
+		<string>Brook Young People&apos;s Clinic</string>
+		<key>phone</key>
+		<string>0117 9290090</string>
+		<key>postcode</key>
+		<string>BS1 5HH</string>
+		<key>times</key>
+		<string>Drop in:
+		Mon 10-12, 1-3, 4-6
+		Tue 1-3, 4-6
+		Wed 12.30-2.30, 4-6
+		Thu 12-2, 4-6
+		Fri 12-2
+		Sat 10-2
+Appointments:
+		Thu 12-2
+		Fri 12-2
+Counselling on sex and relationships:
+		Wed 2-6
+		Thu 2-6
+(Call for appointments)</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Armada Road, Whitchurch</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.413447</string>
+		<key>longitude</key>
+		<string>-2.571818</string>
+		<key>name</key>
+		<string>Whitchurch Health Centre</string>
+		<key>phone</key>
+		<string>01275 839421</string>
+		<key>postcode</key>
+		<string>BS14 0SU</string>
+		<key>times</key>
+		<string>Mon 8.30am-8.00pm
+		Tue 8.30am-8.00pm
+		Wed 8.30am-8.00pm
+		Thu 8.30am-6.30pm
+		Fri 8.30am-6.30pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Westbury Hill, Westbury-on-Trym</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.493006</string>
+		<key>longitude</key>
+		<string>-2.617682</string>
+		<key>name</key>
+		<string>The Westbury-on-Trym Primary Care Centre</string>
+		<key>phone</key>
+		<string>0117 9623406</string>
+		<key>postcode</key>
+		<string>BS9 3AA</string>
+		<key>times</key>
+		<string>Mon 8.30am-6.00pm
+		Tue 8.30am-6.00pm
+		Wed 8.30am-6.00pm
+		Thu 8.30am-6.00pm
+		Fri 8.30am-6.00pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Kenn Road, St George</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.459000</string>
+		<key>longitude</key>
+		<string>-2.531438</string>
+		<key>name</key>
+		<string>Airballon Surgery</string>
+		<key>phone</key>
+		<string>0117 9099912</string>
+		<key>postcode</key>
+		<string>BS5 7PD</string>
+		<key>times</key>
+		<string>Mon 8.00am-8.00pm
+		Tue 8.00am-8.00pm
+		Wed 8.00am-8.00pm
+		Thu 8.00am-8.00pm
+		Fri 8.00am-7.00pm
+		Sat 8.30am-11.00am
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Greystoke Ave, Southmead</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.499595</string>
+		<key>longitude</key>
+		<string>-2.611274</string>
+		<key>name</key>
+		<string>Greenway Community Practice</string>
+		<key>phone</key>
+		<string>0117 9598939</string>
+		<key>postcode</key>
+		<string>BS10 6AF</string>
+		<key>times</key>
+		<string>Mon 8.30am-7.00pm
+		Tue 8.30am-7.00pm
+		Wed 8.30am-7.00pm
+		Thu 8.30am-7.00pm
+		Fri 8.30am-7.00pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Ullswater Road, Southmead</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.504770</string>
+		<key>longitude</key>
+		<string>-2.601618</string>
+		<key>name</key>
+		<string>Southmead Health Centre</string>
+		<key>phone</key>
+		<string>0117 9507150</string>
+		<key>postcode</key>
+		<string>BS10 6DF</string>
+		<key>times</key>
+		<string>Mon 8.00am-7.00pm
+		Tue 8.00am-7.00pm
+		Wed 8.00am-7.00pm
+		Thu 8.00am-7.00pm
+		Fri 8.00am-7.00pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Pembroke Road, Shirehampton</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.489137</string>
+		<key>longitude</key>
+		<string>-2.676768</string>
+		<key>name</key>
+		<string>Shirehampton Health Centre</string>
+		<key>phone</key>
+		<string>0117 9162226</string>
+		<key>postcode</key>
+		<string>BS11 9SB</string>
+		<key>times</key>
+		<string>Mon 8.30am-6.30pm
+		Tue 8.30am-6.30pm
+		Wed 8.30am-6.30pm
+		Thu 8.30am-6.30pm
+		Fri 8.30am-6.30pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>2 Riverleaze, Sea Mills</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.484587</string>
+		<key>longitude</key>
+		<string>-2.649928</string>
+		<key>name</key>
+		<string>Sea Mills Surgery</string>
+		<key>phone</key>
+		<string>0117 9681182</string>
+		<key>postcode</key>
+		<string>BS9 2HL</string>
+		<key>times</key>
+		<string>Mon 8.30am-6.30pm
+		Tue 8.30am-6.30pm
+		Wed 8.30am-6.30pm
+		Thu 8.30am-6.30pm
+		Fri 8.30am-6.30pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Ridingleaze</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.501</string>
+		<key>longitude</key>
+		<string>-2.658</string>
+		<key>name</key>
+		<string>Ridingleaze Medical Centre</string>
+		<key>phone</key>
+		<string>0117 9822693</string>
+		<key>postcode</key>
+		<string>BS11 0QE</string>
+		<key>times</key>
+		<string>Mon 8.30am-12.30pm 13.30pm-6.30pm
+Tue 8.30am-12.30pm 13.30pm-6.30pm
+Wed 8.30am-12.30pm 13.30pm-6.30pm
+Thu 8.30am-12.30pm 13.30pm-6.30pm
+Fri 8.30am-12.30pm 13.30pm-6.30pm
+Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Beam Street, Redfield</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.455812</string>
+		<key>longitude</key>
+		<string>-2.561467</string>
+		<key>name</key>
+		<string>Wellspring Surgery</string>
+		<key>phone</key>
+		<string>0117 9557474</string>
+		<key>postcode</key>
+		<string>BS5 9QY</string>
+		<key>times</key>
+		<string>Mon 8.00am-1.00pm 2.00pm-6.30pm
+Tue 8.00am-1.00pm 2.00pm-6.30pm
+Wed 8.00am-1.00pm 2.00pm-6.30pm
+Thu 8.00am-1.00pm 2.00pm-6.30pm
+Fri 8.00am-1.00pm 2.00pm-6.30pm
+Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Hassell Drive, Easton</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.457547</string>
+		<key>longitude</key>
+		<string>-2.572686</string>
+		<key>name</key>
+		<string>Lawrence Hill Health Centre</string>
+		<key>phone</key>
+		<string>0117 9543060</string>
+		<key>postcode</key>
+		<string>BS2 0AN</string>
+		<key>times</key>
+		<string>Mon 8.00am-7.30pm 
+		Tue 8.00am-7.00pm
+		Wed 8.00am-7.00pm
+		Thu 8.00am-7.30pm
+		Fri 8.00am-6.30pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>William Budd Health Centre, Knowle West Health Park, Downton Road</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.428</string>
+		<key>longitude</key>
+		<string>-2.596</string>
+		<key>name</key>
+		<string>Merrywood Practice</string>
+		<key>phone</key>
+		<string>0117 9449750</string>
+		<key>postcode</key>
+		<string>BS4 1WH</string>
+		<key>times</key>
+		<string>Mon 8.00am-12.15pm 1.15pm-6.30pm
+Tue 8.00am-12.15pm 1.15pm-6.30pm
+Wed 8.00am-12.15pm 1.15pm-6.30pm
+Thu 8.00am-12.15pm 1.15pm-6.30pm
+Fri 8.00am-12.15pm 1.15pm-6.30pm 
+Just ask for a 4YP appointment or call us</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Tramway House, 1a Church Road, Horfield</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.484960</string>
+		<key>longitude</key>
+		<string>-2.587704</string>
+		<key>name</key>
+		<string>Gloucester Road Medical Centre</string>
+		<key>phone</key>
+		<string>0117 9499924</string>
+		<key>postcode</key>
+		<string>BS7 8SA</string>
+		<key>times</key>
+		<string>Mon 8.15am-7pm
+		Tue 8.15am-7pm
+		Wed 8.15am-7pm
+		Thu 8.15am-7pm
+		Fri 8.15am-6.30pm
+		8.00pm close on alternate Tuesdays &amp; Thursdays
+		Just ask for a 4YP appointment or call us</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Lockleaze Road, Horfield</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.479119</string>
+		<key>longitude</key>
+		<string>-2.592352</string>
+		<key>name</key>
+		<string>Horfield Health Centre</string>
+		<key>phone</key>
+		<string>0117 9695391</string>
+		<key>postcode</key>
+		<string>BS7 8RR</string>
+		<key>times</key>
+		<string>Mon 8.00am-6.30pm
+		Tue 8.00am-6.30pm
+		Wed 8.00am-6.30pm
+		Thu 8.00am-6.30pm
+		Fri 8.00am-6.30pm
+		Just ask for a 4YP appointment or call us</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Ardenton Walk, Brentry</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.510279</string>
+		<key>longitude</key>
+		<string>-2.617714</string>
+		<key>name</key>
+		<string>Bradgate Surgery</string>
+		<key>phone</key>
+		<string>0117 9591920</string>
+		<key>postcode</key>
+		<string>BS10 6SP</string>
+		<key>times</key>
+		<string>Mon 8.00am-6.30pm
+		Tue 8.00am-6.30pm
+		Wed 8.00am-6.30pm
+		Thu 8.00am-6.30pm
+		Fri 8.00am-6.30pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>1 Trevelyan Walk, Henbury</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.510117</string>
+		<key>longitude</key>
+		<string>-2.627842</string>
+		<key>name</key>
+		<string>Willow Tree Surgery</string>
+		<key>phone</key>
+		<string>0117 9507750</string>
+		<key>postcode</key>
+		<string>BS10 7NY</string>
+		<key>times</key>
+		<string>Mon 8.30am-12.30pm
+		Tue 8.30am-12.30pm
+		Wed 8.30am-12.30pm
+		Thu 8.30am-12.30pm
+		Fri 8.30am-12.30pm
+		For afternoon times please ring the surgery
+		Just ask for a 4YP appointment or call us</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Hartcliffe Health Centre, Hareclive Road, Hartcliffe</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.407626</string>
+		<key>longitude</key>
+		<string>-2.601334</string>
+		<key>name</key>
+		<string>Hartwood Practice</string>
+		<key>phone</key>
+		<string>0117 3015226</string>
+		<key>postcode</key>
+		<string>BS13 0JP</string>
+		<key>times</key>
+		<string>Mon 8.30am-12.30pm 1.30pm-6.15pm
+Tue 8.30am-12.30pm 1.30pm-6.15pm
+Wed 8.30am-12.30pm 1.30pm-6.15pm
+Thu 8.30am-12.30pm 1.30pm-6.15pm
+Fri 8.30am-12.30pm 1.30pm-6.15pm
+Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Manor Road, Fishponds</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.481905</string>
+		<key>longitude</key>
+		<string>-2.528709</string>
+		<key>name</key>
+		<string>Old School Surgery</string>
+		<key>phone</key>
+		<string>0117 9589128</string>
+		<key>postcode</key>
+		<string>BS16 2JD</string>
+		<key>times</key>
+		<string>Mon 8.30am-6.30pm
+		Tue 8.30am-6.30pm
+		Wed 8.30am-6.30pm
+		Thu 8.30am-6.30pm
+		Fri 10.00am-11.30am
+		
+		Drop-in Clinic(all ages): 
+		Fri 10.00am-11.30am
+		Just ask for a 4YP appointment or call us</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Fishponds Primary Care Centre, Beechwood Road, Fishponds</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.479738</string>
+		<key>longitude</key>
+		<string>-2.526682</string>
+		<key>name</key>
+		<string>Fishponds Family Practice</string>
+		<key>phone</key>
+		<string>0117 9082365</string>
+		<key>postcode</key>
+		<string>BS16 3TD</string>
+		<key>times</key>
+		<string>Mon 8.30am-7.30pm
+		Tue 8.30am-7.30pm
+		Wed 8.30am-7.00pm
+		Thu 8.30am-7.30pm 
+		Fri 8.30am-6.30pm 
+		Sat 8.30am-10.30am
+		Just ask for a 4YP appointment or call us </string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>East Park, Eastville</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.470311</string>
+		<key>longitude</key>
+		<string>-2.560478</string>
+		<key>name</key>
+		<string>Eastville Medical Practice</string>
+		<key>phone</key>
+		<string>0117 902 6751</string>
+		<key>postcode</key>
+		<string>BS5 6YA</string>
+		<key>times</key>
+		<string>Mon 8.30am-6.30pm
+		Tue 8.30am-6.30pm
+		Wed 8.30am-6.30pm
+		Thu 8.30am-6.30pm
+		Fri 8.30am-6.30pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Charlotte Keel Health Centre, Seymour Road, Easton</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.465599</string>
+		<key>longitude</key>
+		<string>-2.571721</string>
+		<key>name</key>
+		<string>Seymour Medical Practice</string>
+		<key>phone</key>
+		<string>0117 9027155</string>
+		<key>postcode</key>
+		<string>BS5 0UA</string>
+		<key>times</key>
+		<string>Mon 8.30am-12.30pm 1.30pm-6.30pm 
+Tue 8.30am-12.30pm 1.30pm-6.30pm
+Wed 8.30am-12.30pm 1.30pm-6.30pm
+Thu 8.30am-12.30pm 1.30pm-6.30pm
+Fri 8.30am-12.30pm 1.30pm-6.30pm
+Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Whatley Road, Clifton</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.465097</string>
+		<key>longitude</key>
+		<string>-2.612382</string>
+		<key>name</key>
+		<string>Whiteladies Health Centre</string>
+		<key>phone</key>
+		<string>0117 9731201</string>
+		<key>postcode</key>
+		<string>BS8 2PU</string>
+		<key>times</key>
+		<string>Mon 7.30am-6.30pm
+		Tue 7.30am-6.30pm
+		Wed 7.30am-6.30pm
+		Thu 7.30am-6.30pm
+		Fri 7.30am-6.30pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Boots The Chemist, The Galleries</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.458</string>
+		<key>longitude</key>
+		<string>-2.5872</string>
+		<key>name</key>
+		<string>Broadmead Medical Centre</string>
+		<key>phone</key>
+		<string>0333 2005333</string>
+		<key>postcode</key>
+		<string>BS1 3EA</string>
+		<key>times</key>
+		<string>Mon 8.00am-8.00pm
+		Tue 8.00am-8.00pm
+		Wed 8.00am-8.00pm
+		Thu 8.00am-8.00pm
+		Fri 8.00am-8.00pm
+		Sat 9.00am-4.00pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Wyatts View, St Anne&apos;s</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.454702</string>
+		<key>longitude</key>
+		<string>-2.545046</string>
+		<key>name</key>
+		<string>Riverside Surgery (Brooklea Health Centre)</string>
+		<key>phone</key>
+		<string>0117 9720386</string>
+		<key>postcode</key>
+		<string>BS4 4WW</string>
+		<key>times</key>
+		<string>Mon 8.30am-6.30pm
+		Tue 8.30am-7.30pm
+		Wed 7.00am-6.30pm
+		Thu 7.00am-6.30pm
+		Fri 8.30am-6.30pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Wick Road, Brislington</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.446120</string>
+		<key>longitude</key>
+		<string>-2.547980</string>
+		<key>name</key>
+		<string>Brooklea Health Centre</string>
+		<key>phone</key>
+		<string>0117 3304300</string>
+		<key>postcode</key>
+		<string>BS4 4HU</string>
+		<key>times</key>
+		<string>Mon 8.30am-6.30pm
+		Tue 7.00am-6.30pm
+		Wed 8.30am-7.30pm
+		Thu 8.30am-6.30pm
+		Fri 8.30am-6.30pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>40 St John&apos;s Road, Bedminster</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.439796</string>
+		<key>longitude</key>
+		<string>-2.5998457</string>
+		<key>name</key>
+		<string>Malago Surgery</string>
+		<key>phone</key>
+		<string>0117 9663587</string>
+		<key>postcode</key>
+		<string>BS3 4JE</string>
+		<key>times</key>
+		<string>Mon 8.30am-12.30pm 2.00pm-6.30pm
+Tue 8.30am-12.30pm 2.00pm-6.30pm
+Wed 8.30am-12.30pm 2.00pm-6.30pm
+Thu 8.30am-12.30pm 2.00pm-6.30pm
+Fri 8.30am-12.30pm 2.00pm-6.30pm
+Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>Collins Street</string>
+		<key>city</key>
+		<string>Avonmouth</string>
+		<key>latitude</key>
+		<string>51.498515</string>
+		<key>longitude</key>
+		<string>-2.695260</string>
+		<key>name</key>
+		<string>Avonmouth Medical Centre</string>
+		<key>phone</key>
+		<string>0117 9824322</string>
+		<key>postcode</key>
+		<string>BS11 9JJ</string>
+		<key>times</key>
+		<string>Mon 8.00am - 5.30pm
+		Tue 8.00am - 5.30pm
+		Wed 8.00am - 5.30pm
+		Thu 8.00am - 5.30pm
+		Fri 8.00am - 5.00pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>1 Lewis Road, Bedminster Down</string>
+		<key>city</key>
+		<string>Bristol</string>
+		<key>latitude</key>
+		<string>51.425872</string>
+		<key>longitude</key>
+		<string>-2.613094</string>
+		<key>name</key>
+		<string>Lennard Surgery</string>
+		<key>phone</key>
+		<string>0117 9642211</string>
+		<key>postcode</key>
+		<string>BS13 7JD</string>
+		<key>times</key>
+		<string>Mon 8.30am - 6.30pm
+		Tue 8.30am - 6.30pm
+		Wed 8.30am - 6.30pm
+		Thu 8.30am - 6.30pm
+		Fri 8.30am - 6.30pm
+		Just ask for a 4YP appointment or call us
+		</string>
+	</dict>
+</array>
+</plist>
