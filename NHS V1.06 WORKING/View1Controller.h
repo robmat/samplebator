@@ -53,6 +53,7 @@ int valorB ;
 	IBOutlet UIToolbar * toolbar ;
 }
 
+-(IBAction)StopSmokingButton:(id) sender;
 -(IBAction)HelpMeButton:(id)sender;
 -(IBAction)ServiceFinderButton:(id)sender;
 -(IBAction)NHSDirectButton:(id)sender ;

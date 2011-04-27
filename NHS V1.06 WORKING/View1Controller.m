@@ -25,7 +25,9 @@
 
 @implementation View1Controller
 
+-(IBAction)StopSmokingButton:(id) sender {
 
+}
 
 -(IBAction)HelpMeButton:(id)sender{
 		
