@@ -1,16 +1,16 @@
 //
-//  SexHealthMapDetailsView.m
+//  StopSmokingDetailVC.m
 //  PushViewControllerAnimated
 //
-//  Created by Andrew  Farmer on 10/08/2010.
-//  Copyright 2010 Kioty Ltd. All rights reserved.
+//  Created by User on 4/29/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SexHealthMapDetailsView.h"
+#import "StopSmokingDetailVC.h"
 #import "PushViewControllerAnimatedAppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 
-@implementation SexHealthMapDetailsView
+@implementation StopSmokingDetailVC
 
 @synthesize openingTimes;
 
@@ -34,12 +34,12 @@
 	
 	email = @"mailto:" ;
 	
-	informacion = [[NSString alloc] init] ;
+	NSString* informacion = [[NSString alloc] init] ;
 	informacion	= [NSString stringWithFormat:@"Name of the Health Clinic: %@. \n Address: %@ %@, %@. \n Telephone number: %@",labelNombre.text, labelAddress1.text, labelAddress1b.text, labelAddress2.text, labelPhone.text ] ;
 	
 	informacion = [informacion stringByReplacingOccurrencesOfString:@"(null)" withString:@""] ;
 	
-	email = [NSString stringWithFormat: @"%@?Subject=NHS Bristol: Details of 4YP centre&body=%@", email, (@"%@", informacion)] ; 
+	email = [NSString stringWithFormat: @"%@?Subject=NHS Yorkshire and Humber: Details of centre&body=%@", email, (@"%@", informacion)] ; 
 	
 	email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]] ;
@@ -50,7 +50,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.title = @"Sexual Health" ;
+	self.title = @"Stop smoking" ;
 	
 	//STEP1. Load the information from the Array of the memory:
 	
@@ -66,29 +66,23 @@
 	
 	labelNombre.text = [array objectAtIndex:0 ] ;
 	
-	NSString * tempoString1 = [NSString alloc]  ;
-	NSString * tempoString2 = [NSString alloc]  ;
+	NSString * tempoString1 = [array objectAtIndex:4];
+	NSString * tempoString2 = [array objectAtIndex:5];
 	
-	NSString * tempoString3 = [NSString alloc]  ;
-	NSString * tempoString4 = [NSString alloc]  ;
-	//self.openingTimes = [[NSString alloc] init];
+	NSString * tempoString3 = [array objectAtIndex:6];
+	NSString * tempoString4 = [array objectAtIndex:7];
 	
-	tempoString1 = [array objectAtIndex:4 ] ;
-	tempoString2 = [array objectAtIndex:5 ] ;
-	tempoString3 = [array objectAtIndex:6 ] ;	
-	tempoString4 = [array objectAtIndex:7 ] ;	
-	
-	labelAddress1.text = [NSString stringWithFormat:@"%@", tempoString1] ;
-	
-	labelAddress1b.text = [NSString stringWithFormat:@"%@", tempoString2] ;
-	labelAddress2.text = [NSString stringWithFormat:@"%@, %@", tempoString4, tempoString3] ;
-	
-	//informacion = [[NSString alloc] init] ;
-	//informacion	= [NSString stringWithFormat:@"Name of the Emergency: %@. Ubication: %@, %@",labelNombre.text, labelAddress1.text, labelAddress2.text ] ;
-	
-	//informacion = [informacion stringByReplacingOccurrencesOfString:@"(null)" withString:@""] ;
-	
-	//NSLog(@"%@", informacion) ;
+	if (tempoString2 || ![tempoString2 isEqual:@""]) {
+		tempoString2 = [NSString stringWithFormat:@"%@,", tempoString2];
+	}
+	if (tempoString3 || ![tempoString3 isEqual:@""]) {
+		tempoString3 = [NSString stringWithFormat:@"%@,", tempoString3];
+	}
+	//if ([tempoString2 isEqual:tempoString3]) {
+		labelAddress1.text = [NSString stringWithFormat:@"%@, %@ %@", tempoString1, tempoString2, tempoString4];
+	//} else {
+	//	labelAddress1.text = [NSString stringWithFormat:@"%@, %@ %@ %@", tempoString1, tempoString2, tempoString3, tempoString4];
+	//}
 	
 	labelPhone.text = [array objectAtIndex:8] ; 
 	
@@ -97,24 +91,11 @@
 	
 }
 
-/*
- // Override to allow orientations other than the default portrait orientation.
- - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
- // Return YES for supported orientations
- return (interfaceOrientation == UIInterfaceOrientationPortrait);
- }
- */
-
 - (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
 }
 
 
@@ -128,6 +109,5 @@
 	[theAudio play];
 	
 }
-
 
 @end
