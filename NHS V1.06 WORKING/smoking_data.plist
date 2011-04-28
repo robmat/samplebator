@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist>
+  <array>
+    <dict>
+      <key>name</key>
+      <string>Horfield Leisure Centre</string>
+      <key>addressLarge</key>
+      <string>Dorian Road</string>
+      <key>city</key>
+      <string>Bristol</string>
+      <key>district</key>
+      <string />
+      <key>postcode</key>
+      <string>BS7 0XW</string>
+      <key>telephone</key>
+      <string>0117 984 1650</string>
+      <key>latitude</key>
+      <string>51.493549</string>
+      <key>longitude</key>
+      <string>-2.586586</string>
+      <key>category</key>
+      <string />
+      <key>comment</key>
+      <string>Group every Monday 5.30- 6.30pm, newcomers at 5pm</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>University Sports Centre</string>
+      <key>addressLarge</key>
+      <string>Tyndall Avenue, Clifton</string>
+      <key>city</key>
+      <string>Bristol</string>
+      <key>district</key>
+      <string />
+      <key>postcode</key>
+      <string>BS8 1TP</string>
+      <key>telephone</key>
+      <string>0117 984 1650</string>
+      <key>latitude</key>
+      <string>51.4590708</string>
+      <key>longitude</key>
+      <string>-2.6022214</string>
+      <key>category</key>
+      <string />
+      <key>comment</key>
+      <string>Group every Wednesday 6-7pm, newcomers at 5.30 pm</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Fishponds Library</string>
+      <key>addressLarge</key>
+      <string>Fishponds Road (opposite Morrisons)</string>
+      <key>city</key>
+      <string>Bristol</string>
+      <key>district</key>
+      <string />
+      <key>postcode</key>
+      <string>BS16 3UH</string>
+      <key>telephone</key>
+      <string>0117 984 1650</string>
+      <key>latitude</key>
+      <string>51.4795909</string>
+      <key>longitude</key>
+      <string>-2.5314036</string>
+      <key>category</key>
+      <string />
+      <key>comment</key>
+      <string>Group every Monday 5.30- 6.30pm, newcomers at 5pm</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Bedminster Library</string>
+      <key>addressLarge</key>
+      <string>4 St Peter's Court, Bedminster Parade</string>
+      <key>city</key>
+      <string>Bristol</string>
+      <key>district</key>
+      <string />
+      <key>postcode</key>
+      <string>BS3 4AQ</string>
+      <key>telephone</key>
+      <string>0117 984 1650</string>
+      <key>latitude</key>
+      <string>51.4444093</string>
+      <key>longitude</key>
+      <string>-2.5931154</string>
+      <key>category</key>
+      <string />
+      <key>comment</key>
+      <string>Group every Wednesday. 5.30-6.30pm, newcomers at 5pm</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>@Symes Community Building</string>
+      <key>addressLarge</key>
+      <string>Peterson Avenue, Hartcliffe</string>
+      <key>city</key>
+      <string>Bristol</string>
+      <key>district</key>
+      <string />
+      <key>postcode</key>
+      <string>BS13 0BE   </string>
+      <key>telephone</key>
+      <string>0117 984 1650</string>
+      <key>latitude</key>
+      <string>51.404634</string>
+      <key>longitude</key>
+      <string>-2.599939</string>
+      <key>category</key>
+      <string />
+      <key>comment</key>
+      <string>Group every Thurs. 5.30-6.30, newcomers at 5pm</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Boots Medical Centre</string>
+      <key>addressLarge</key>
+      <string>59 Broadmead</string>
+      <key>city</key>
+      <string>Bristol</string>
+      <key>district</key>
+      <string />
+      <key>postcode</key>
+      <string>BS1 3EA</string>
+      <key>telephone</key>
+      <string>0117 954 9828</string>
+      <key>latitude</key>
+      <string>51.4575454</string>
+      <key>longitude</key>
+      <string>-2.5896146</string>
+      <key>category</key>
+      <string />
+      <key>comment</key>
+      <string>Appointments available during opening times - 8am-8pm Monday to Friday and Saturday 9am-4pm</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Knowle Walk in Centre</string>
+      <key>addressLarge</key>
+      <string>Downton Road, Knowle</string>
+      <key>city</key>
+      <string>Bristol</string>
+      <key>district</key>
+      <string />
+      <key>postcode</key>
+      <string>BS4 1WH</string>
+      <key>telephone</key>
+      <string>0117 903 0000</string>
+      <key>latitude</key>
+      <string>51.4273013</string>
+      <key>longitude</key>
+      <string>-2.5939399</string>
+      <key>category</key>
+      <string />
+      <key>comment</key>
+      <string>Appointments available every Tuesday 9-10.45am</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Knowle West Health Park</string>
+      <key>addressLarge</key>
+      <string>Downton Road, Knowle</string>
+      <key>city</key>
+      <string>Bristol</string>
+      <key>district</key>
+      <string />
+      <key>postcode</key>
+      <string>BS4 1WH</string>
+      <key>telephone</key>
+      <string>0117 377 2555</string>
+      <key>latitude</key>
+      <string>51.4273013</string>
+      <key>longitude</key>
+      <string>-2.5939399</string>
+      <key>category</key>
+      <string />
+      <key>comment</key>
+      <string>Appointments during opening times  9am-9pm daily</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>@Symes Community Building</string>
+      <key>addressLarge</key>
+      <string>Peterson Avenue, Hartcliffe </string>
+      <key>city</key>
+      <string>Bristol</string>
+      <key>district</key>
+      <string />
+      <key>postcode</key>
+      <string>BS13 0BE </string>
+      <key>telephone</key>
+      <string>0117 984 1650</string>
+      <key>latitude</key>
+      <string>51.404634</string>
+      <key>longitude</key>
+      <string>-2.599939</string>
+      <key>category</key>
+      <string />
+      <key>comment</key>
+      <string>Appointments available every Tuesday 11am-2pm</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Gloucester House, Southmead Hospital</string>
+      <key>addressLarge</key>
+      <string>Southmead Road</string>
+      <key>city</key>
+      <string>Bristol</string>
+      <key>district</key>
+      <string />
+      <key>postcode</key>
+      <string>BS10 5NB</string>
+      <key>telephone</key>
+      <string>0117 984 1650</string>
+      <key>latitude</key>
+      <string>51.5011177</string>
+      <key>longitude</key>
+      <string>-2.5921888</string>
+      <key>category</key>
+      <string />
+      <key>comment</key>
+      <string>Appointments available every Wednesday 12.30-2pm</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>St George Health Centre - Stop Smoking in Pregnancy/Family</string>
+      <key>addressLarge</key>
+      <string>Bellevue Road, St George</string>
+      <key>city</key>
+      <string>Bristol</string>
+      <key>district</key>
+      <string />
+      <key>postcode</key>
+      <string>BS5 7PH</string>
+      <key>telephone</key>
+      <string>0117 984 1650</string>
+      <key>latitude</key>
+      <string>51.4596635</string>
+      <key>longitude</key>
+      <string>-2.528937</string>
+      <key>category</key>
+      <string />
+      <key>comment</key>
+      <string>Appointments available every Tuesday 10am-12noon</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>St Michael's Hospital - Stop Smoking in Pregnancy/Family</string>
+      <key>addressLarge</key>
+      <string>Antenatal Ward, Southwell St</string>
+      <key>city</key>
+      <string>Bristol</string>
+      <key>district</key>
+      <string />
+      <key>postcode</key>
+      <string>BS2 8EG</string>
+      <key>telephone</key>
+      <string>0117  984 1650</string>
+      <key>latitude</key>
+      <string>51.4597673</string>
+      <key>longitude</key>
+      <string>-2.5993915</string>
+      <key>category</key>
+      <string />
+      <key>comment</key>
+      <string>Appointments available every other Wednesday 1.30-4.30pm</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Amelia Nutt Clinic - Stop Smoking in Pregnancy/Family</string>
+      <key>addressLarge</key>
+      <string>The Withywood Centre, Queens Road, Withywood</string>
+      <key>city</key>
+      <string>Bristol</string>
+      <key>district</key>
+      <string />
+      <key>postcode</key>
+      <string>BS13 8QA</string>
+      <key>telephone</key>
+      <string>0117 984 1650</string>
+      <key>latitude</key>
+      <string>51.4073102</string>
+      <key>longitude</key>
+      <string>-2.6221188</string>
+      <key>category</key>
+      <string />
+      <key>comment</key>
+      <string>Appointments available every Thursday  10am- 12noon</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Hartcliffe Childrens Centre - Stop Smoking in Pregnancy/Family</string>
+      <key>addressLarge</key>
+      <string>Hareclive Road, Hartcliffe</string>
+      <key>city</key>
+      <string>Bristol</string>
+      <key>district</key>
+      <string />
+      <key>postcode</key>
+      <string>BS13 0JW</string>
+      <key>telephone</key>
+      <string>0117 984 1650</string>
+      <key>latitude</key>
+      <string>51.408096</string>
+      <key>longitude</key>
+      <string>-2.6045651</string>
+      <key>category</key>
+      <string />
+      <key>comment</key>
+      <string>Appointments available every other Wednesday 9.30-11.30am</string>
+    </dict>
+  </array>
+</plist>
+

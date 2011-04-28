@@ -20,21 +20,20 @@
 #import "UINavigationBar+CustomImage.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "audiosView.h"
-
+#import "StopSmokingMapViewController.h"
 
 
 @implementation View1Controller
 
 -(IBAction)StopSmokingButton:(id) sender {
-
+	imagenTermo.hidden = TRUE ;
+	StopSmokingMapViewController* ssvc = [[StopSmokingMapViewController alloc] initWithNibName:nil bundle:nil];
+	[[self navigationController] pushViewController:ssvc animated:YES];
+	[ssvc release];
 }
 
 -(IBAction)HelpMeButton:(id)sender{
-		
-	
-
 	imagenTermo.hidden = TRUE ;
-	
 	ALARMView * varALARMView = [[ALARMView alloc] initWithNibName:@"ALARMView" bundle:nil ] ;
 	[[self navigationController] pushViewController:varALARMView animated:YES];
 	[varALARMView release] ;

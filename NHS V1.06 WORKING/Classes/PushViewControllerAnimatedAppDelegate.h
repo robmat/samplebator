@@ -19,6 +19,7 @@
 #define kFilenameWalkin @"WalkinDetails.plist" 
 #define kFilenameHospital @"HospitalDetails.plist" 
 #define kFilenameSex @"SexualHealthDetails.plist"
+#define kFilenameSmoking @"SmokingHealthDetails.plist"
 
 /*
  extern UIWindow * window;
