@@ -37,6 +37,7 @@ function LS_header($pagetitle='') {
 		# Do not remove the following line!
 		$OUT=$OUT.'<META NAME="GENERATOR" CONTENT="LSDB System 4a">';
 
+		$OUT=$OUT.'<script language="JavaScript" src="code/js_func.js"></script>';
 		$OUT=$OUT.'<script language="JavaScript" src="code/jquery-1.2.6.js"></script>';
 		$OUT=$OUT.'<script language="JavaScript" src="code/wz_jsgraphics.js"></script>';
 		$OUT=$OUT.'<script language="JavaScript" src="code/lsdbfunc.js"></script>';
