@@ -8,15 +8,17 @@ require_once('func_lsdb.php');
 # Return full user list html
 function user_list() {
 	global $dbi;
-	$query_result = sql_query( 'SELECT u.id, u.fullname, u.uname, u.email, u.pass, u.uactive, t.typename FROM tuser u, ttypeuser t WHERE t.id = usertype_id ORDER BY u.id', $dbi );
+	$query_result = sql_query( 'SELECT u.id, u.fullname, u.uname, u.email, u.pass, u.uactive, t.typename, t.id FROM tuser u, ttypeuser t WHERE t.id = usertype_id ORDER BY u.id', $dbi );
 	
 	# Table header
 	$ret = '<table><tr><td class="thead">Act.</td><td class="thead">Id</td><td class="thead">Full name</td>';
-	$ret = $ret.'<td class="thead">Login</td><td class="thead">Pass md5</td><td class="thead">Email</td><td class="thead">User type</td></tr>';
+	$ret = $ret.'<td class="thead">Login</td><td class="thead">Email</td><td class="thead">Pass md5</td><td class="thead">User type</td><td class="thead">Del</td></tr>';
 	
-	while ( list( $id, $fullname, $uname, $email, $pass, $user_active, $typename ) = sql_fetch_row( $query_result, $dbi ) ) {
+	while ( list( $id, $fullname, $uname, $email, $pass, $user_active, $typename, $typeid ) = sql_fetch_row( $query_result, $dbi ) ) {
 		$ret = $ret.'<tr><td><img src="images/'.( $user_active ? 'greenman.png' : 'redman.png').'" /></td>';
-		$ret = $ret.'<td>'.$id.'</td><td>'.$fullname.'</td><td>'.$uname.'</td><td>'.$email.'</td><td>'.$pass.'</td><td>'.$typename.'</td></tr>';
+		$ret = $ret.'<td>'.$id.'</td><td>'.$fullname.'</td><td>'.$uname.'</td><td>'.$email.'</td><td>'.$pass.'</td><td>'.$typename.'</td>';
+		# delete btn doesn't delete sys admin users
+		$ret = $ret.'<td>'.($typeid == 6 ? '' :'<img src="images/del_icon.png" style="cursor: pointer;" onclick="deleteUser('.$id.');" />').'</td></tr>';
 	}
 	
 	return $ret.'</table>';
@@ -112,8 +114,22 @@ function user_validate_form() {
 	$ret = 'Creation successful!<br/><br/>';
 	$ret = $ret.user_list();
 	return $ret;
- }
- 
+}
+
+# Function able to delete the user, there's a check not to delete sys admin 
+function delete_user() {
+	global $dbi;
+	if ( isset( $_REQUEST['del_id'] ) ) { $del_id=strip_tags( $_REQUEST['del_id'] ); }
+	$sql = 'DELETE FROM tuser WHERE id = '.$del_id.' AND usertype_id != 6';
+	$delete_result = sql_query( $sql, $dbi );
+	if ( $delete_result ) {
+		return '[{<>}]delete_ok_token[{<>}]';
+	} else {
+		return '[{<>}]delete_failed_token[{<>}]';
+	}
+	return '';
+}
+
 # START OUTPUT
 
 LS_page_start();
@@ -134,6 +150,7 @@ if ( !isset( $usertoken ) ) {
 		case 'new_user': { echo user_form(); break;	}
 		case 'new_user_creation': { echo user_validate_form(); break;	}
 		case 'new_user_created': { echo user_created(); break;	}
+		case 'del_user': { echo delete_user(); break;	}
 	}
 	echo '</td></tr></table>'; # end table
 }
