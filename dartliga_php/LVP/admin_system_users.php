@@ -137,13 +137,13 @@ LS_page_start();
 if ( isset( $_REQUEST['op'] ) && strlen( $_REQUEST['op'] ) < 25 ) { $myop=strip_tags( $_REQUEST['op'] ); } else { $myop = "user_list"; }
 
 if ( !isset( $usertoken ) ) {
-	echo '<script> window.location.href = "/dso_user.php"';
+	echo '<script> window.location.href = "/dso_user.php" </script>';
 } else {
 	echo '<h3>System benutzer</h3><table class="box"><tr><td>'; # header and start table
 	
 	# Left nav pane echoing
 	echo '<div class="navi" style="left: 5px;">'._button( 'Benutzer NEU', '', 'admin_system_users.php?op=new_user' );
-	echo _button( 'Home', '', 'admin_main_menu.php' ).'</div>';
+	echo _button( 'Admin home', '', 'admin_main_menu.php' ).'</div>';
 
 	switch ( $myop ) {
 		case 'user_list': { echo user_list(); break; }
