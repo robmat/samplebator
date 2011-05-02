@@ -26,7 +26,7 @@ if ( !isset( $usertoken ) ) {
 	$ret = '<h3>Benutzer und berecht</h3>  <table border="0" cellpadding="15" align="center"><tr>';
 	$ret = $ret._usermenuitem('System benutzer', 'admin_system_users.php', 'System benutzer', 'people.gif');
 	$ret = $ret._usermenuitem('System benutzer typen', 'admin_system_user_types.php', 'System benutzer typen', 'people.gif');
-	$ret = $ret._usermenuitem('Liga gruppe rechte zuweisung', 'division_rights_to_users.php', 'Liga gruppe rechte zuweisung', 'optimize.gif');
+	$ret = $ret._usermenuitem('Liga gruppe rechte zuweisung', 'admin_division_rights_to_users.php', 'Liga gruppe rechte zuweisung', 'optimize.gif');
 	$ret = $ret._usermenuitem('Liga gruppe rechte typen', 'division_rights.php', 'Liga gruppe rechte typen', 'optimize.gif');
 	# $ret = $ret.'</tr></table>'
 	echo $ret;
