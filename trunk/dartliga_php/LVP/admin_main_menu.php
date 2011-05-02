@@ -21,7 +21,7 @@ function _usermenuitem($name,$target,$alt='',$pic='info.gif') {
 LS_page_start();
 
 if ( !isset( $usertoken ) ) {
-	echo '<script> window.location.href = "/dso_user.php"';
+	echo '<script> window.location.href = "/dso_user.php" </script>';
 } else {
 	$ret = '<h3>Benutzer und berecht</h3>  <table border="0" cellpadding="15" align="center"><tr>';
 	$ret = $ret._usermenuitem('System benutzer', 'admin_system_users.php', 'System benutzer', 'people.gif');
