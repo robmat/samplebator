@@ -15,16 +15,27 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		CE262A58132229B6009203ED /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE262A56132229B6009203ED /* LoginViewController.m */; };
 		CE5DB7771339328800363282 /* NotifyTemplatesDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5DB7761339328800363282 /* NotifyTemplatesDelegate.m */; };
+		CE62273113405E3C008BB0BA /* NotificationGroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE62273013405E3C008BB0BA /* NotificationGroupsTableViewController.m */; };
+		CE62273E13405ED6008BB0BA /* NotificationGroupsView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE62273C13405ED6008BB0BA /* NotificationGroupsView.m */; };
+		CE62273F13405ED6008BB0BA /* NotificationGroupsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE62273D13405ED6008BB0BA /* NotificationGroupsView.xib */; };
+		CE6557B2135CA0D200A500D2 /* green_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6557B0135CA0D200A500D2 /* green_dot.png */; };
+		CE6557B3135CA0D200A500D2 /* red_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6557B1135CA0D200A500D2 /* red_dot.png */; };
 		CE655F511332AA1E002E00E3 /* AssetITInfrastructureDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE655F501332AA1E002E00E3 /* AssetITInfrastructureDelegate.m */; };
+		CE65ECED1358E329008EBB9A /* CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65ECEC1358E329008EBB9A /* CacheManager.m */; };
+		CE65ECF01358E335008EBB9A /* Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65ECEF1358E335008EBB9A /* Cache.m */; };
+		CE65EE831340BA0500807C22 /* tick_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = CE65EE811340BA0500807C22 /* tick_gray.png */; };
+		CE65EE841340BA0500807C22 /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = CE65EE821340BA0500807C22 /* tick.png */; };
+		CE6630A31340E39900D7A7D7 /* NewNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6630A21340E39900D7A7D7 /* NewNotificationViewController.xib */; };
 		CE682E8813269AD4000C7469 /* HttpRequestWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE682E8713269AD4000C7469 /* HttpRequestWrapper.m */; };
 		CE69EBE713294FA70093593C /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE69EBE513294FA70093593C /* ItemsViewController.m */; };
+		CE6A0126134729BB004010B3 /* IPadLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6A0125134729BB004010B3 /* IPadLoginViewController.xib */; };
+		CE6A015813472D22004010B3 /* IPadMainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6A015713472D22004010B3 /* IPadMainMenuViewController.xib */; };
 		CE6AA28E132569FF002513D0 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6AA28B132569FF002513D0 /* NSDataAdditions.m */; };
 		CE6AA28F132569FF002513D0 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6AA28D132569FF002513D0 /* TBXML.m */; };
 		CE6B320A1326B36C006C7813 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6B32081326B36C006C7813 /* MainMenuViewController.m */; };
 		CE6B324F1326B971006C7813 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6B324E1326B971006C7813 /* MainMenuViewController.xib */; };
 		CE6BA41B133A889600312F04 /* ELCTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6BA41A133A889600312F04 /* ELCTextFieldCell.m */; };
 		CE6BA426133A894100312F04 /* NewNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6BA424133A894100312F04 /* NewNotificationViewController.m */; };
-		CE6BA427133A894100312F04 /* NewNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6BA425133A894100312F04 /* NewNotificationViewController.xib */; };
 		CE6BA431133A8B0A00312F04 /* NewNotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6BA430133A8B0A00312F04 /* NewNotificationTableViewController.m */; };
 		CE71ECFF1334C60A00FB555D /* ItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE71ECFE1334C60A00FB555D /* ItemsViewController.xib */; };
 		CE71ED611334D03400FB555D /* ItemsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE71ED601334D03400FB555D /* ItemsListViewController.m */; };
@@ -46,6 +57,7 @@
 		CECE5F541322D30900094BE7 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = CECE5F481322D30900094BE7 /* ASIInputStream.m */; };
 		CECE5F551322D30900094BE7 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CECE5F4A1322D30900094BE7 /* ASINetworkQueue.m */; };
 		CECE5F561322D30900094BE7 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CECE5F4D1322D30900094BE7 /* Reachability.m */; };
+		CED5A94F134B7818009AB988 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CED5A94E134B7818009AB988 /* Localizable.strings */; };
 		CEF4A49D13326CC200138D65 /* ProcessAssetsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4A49C13326CC200138D65 /* ProcessAssetsDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -64,12 +76,31 @@
 		CE262A56132229B6009203ED /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CE5DB7751339328800363282 /* NotifyTemplatesDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifyTemplatesDelegate.h; sourceTree = "<group>"; };
 		CE5DB7761339328800363282 /* NotifyTemplatesDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifyTemplatesDelegate.m; sourceTree = "<group>"; };
+		CE62272F13405E3C008BB0BA /* NotificationGroupsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationGroupsTableViewController.h; sourceTree = "<group>"; };
+		CE62273013405E3C008BB0BA /* NotificationGroupsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationGroupsTableViewController.m; sourceTree = "<group>"; };
+		CE62273B13405ED6008BB0BA /* NotificationGroupsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationGroupsView.h; sourceTree = "<group>"; };
+		CE62273C13405ED6008BB0BA /* NotificationGroupsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationGroupsView.m; sourceTree = "<group>"; };
+		CE62273D13405ED6008BB0BA /* NotificationGroupsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationGroupsView.xib; sourceTree = "<group>"; };
+		CE6557B0135CA0D200A500D2 /* green_dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_dot.png; sourceTree = "<group>"; };
+		CE6557B1135CA0D200A500D2 /* red_dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_dot.png; sourceTree = "<group>"; };
 		CE655F4F1332AA1E002E00E3 /* AssetITInfrastructureDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetITInfrastructureDelegate.h; sourceTree = "<group>"; };
 		CE655F501332AA1E002E00E3 /* AssetITInfrastructureDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetITInfrastructureDelegate.m; sourceTree = "<group>"; };
+		CE65ECEB1358E329008EBB9A /* CacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheManager.h; sourceTree = "<group>"; };
+		CE65ECEC1358E329008EBB9A /* CacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheManager.m; sourceTree = "<group>"; };
+		CE65ECEE1358E335008EBB9A /* Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cache.h; sourceTree = "<group>"; };
+		CE65ECEF1358E335008EBB9A /* Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cache.m; sourceTree = "<group>"; };
+		CE65EE811340BA0500807C22 /* tick_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tick_gray.png; sourceTree = "<group>"; };
+		CE65EE821340BA0500807C22 /* tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tick.png; sourceTree = "<group>"; };
+		CE6630A41340E3A700D7A7D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NewNotificationViewController.xib; sourceTree = "<group>"; };
+		CE6630A51340E3A900D7A7D7 /* pl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pl; path = pl.lproj/NewNotificationViewController.xib; sourceTree = "<group>"; };
 		CE682E8613269AD4000C7469 /* HttpRequestWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestWrapper.h; sourceTree = "<group>"; };
 		CE682E8713269AD4000C7469 /* HttpRequestWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestWrapper.m; sourceTree = "<group>"; };
 		CE69EBE413294FA70093593C /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
 		CE69EBE513294FA70093593C /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
+		CE6A0127134729C3004010B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IPadLoginViewController.xib; sourceTree = "<group>"; };
+		CE6A0128134729C7004010B3 /* pl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pl; path = pl.lproj/IPadLoginViewController.xib; sourceTree = "<group>"; };
+		CE6A015913472D29004010B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IPadMainMenuViewController.xib; sourceTree = "<group>"; };
+		CE6A015A13472D2D004010B3 /* pl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pl; path = pl.lproj/IPadMainMenuViewController.xib; sourceTree = "<group>"; };
 		CE6A35211332651A00B75A7D /* ClickListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClickListener.h; sourceTree = "<group>"; };
 		CE6AA28A132569FF002513D0 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = xml_dom/NSDataAdditions.h; sourceTree = "<group>"; };
 		CE6AA28B132569FF002513D0 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = xml_dom/NSDataAdditions.m; sourceTree = "<group>"; };
@@ -83,7 +114,6 @@
 		CE6BA41A133A889600312F04 /* ELCTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCTextFieldCell.m; sourceTree = "<group>"; };
 		CE6BA423133A894100312F04 /* NewNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotificationViewController.h; sourceTree = "<group>"; };
 		CE6BA424133A894100312F04 /* NewNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNotificationViewController.m; sourceTree = "<group>"; };
-		CE6BA425133A894100312F04 /* NewNotificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewNotificationViewController.xib; sourceTree = "<group>"; };
 		CE6BA42F133A8B0A00312F04 /* NewNotificationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotificationTableViewController.h; sourceTree = "<group>"; };
 		CE6BA430133A8B0A00312F04 /* NewNotificationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNotificationTableViewController.m; sourceTree = "<group>"; };
 		CE71ECFE1334C60A00FB555D /* ItemsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemsViewController.xib; sourceTree = "<group>"; };
@@ -122,6 +152,8 @@
 		CECE5F4B1322D30900094BE7 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIProgressDelegate.h; path = http_helper/ASIProgressDelegate.h; sourceTree = "<group>"; };
 		CECE5F4C1322D30900094BE7 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = http_helper/Reachability.h; sourceTree = "<group>"; };
 		CECE5F4D1322D30900094BE7 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = http_helper/Reachability.m; sourceTree = "<group>"; };
+		CED5A950134B781E009AB988 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CED5A951134B7821009AB988 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CEF4A49B13326CC200138D65 /* ProcessAssetsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessAssetsDelegate.h; sourceTree = "<group>"; };
 		CEF4A49C13326CC200138D65 /* ProcessAssetsDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessAssetsDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +181,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CE65ECEA1358E2C2008EBB9A /* Cache */,
 				CE6BA418133A886100312F04 /* ELCTextFieldCell */,
 				CE6AA288132569E4002513D0 /* XMLHelper */,
 				CECE5C1D1322C73600094BE7 /* HttpHelper */,
@@ -159,6 +192,7 @@
 				CE76685E1323A7D200B5E56C /* Dictionary.m */,
 				CE682E8613269AD4000C7469 /* HttpRequestWrapper.h */,
 				CE682E8713269AD4000C7469 /* HttpRequestWrapper.m */,
+				CED5A94E134B7818009AB988 /* Localizable.strings */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -221,6 +255,10 @@
 		CE262A0013221C5B009203ED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CE6557B0135CA0D200A500D2 /* green_dot.png */,
+				CE6557B1135CA0D200A500D2 /* red_dot.png */,
+				CE65EE811340BA0500807C22 /* tick_gray.png */,
+				CE65EE821340BA0500807C22 /* tick.png */,
 				CECE5B951322B8E300094BE7 /* logo.jpg */,
 			);
 			name = images;
@@ -232,9 +270,11 @@
 				CEF4A49913326C9800138D65 /* DetailDelegates */,
 				CE262A55132229B6009203ED /* LoginViewController.h */,
 				CE262A56132229B6009203ED /* LoginViewController.m */,
+				CE6A0125134729BB004010B3 /* IPadLoginViewController.xib */,
 				CECE5BCB1322BE8B00094BE7 /* LoginViewController.xib */,
 				CE6B32071326B36C006C7813 /* MainMenuViewController.h */,
 				CE6B32081326B36C006C7813 /* MainMenuViewController.m */,
+				CE6A015713472D22004010B3 /* IPadMainMenuViewController.xib */,
 				CE6B324E1326B971006C7813 /* MainMenuViewController.xib */,
 				CE69EBE413294FA70093593C /* ItemsViewController.h */,
 				CE69EBE513294FA70093593C /* ItemsViewController.m */,
@@ -243,11 +283,27 @@
 				CE71ED601334D03400FB555D /* ItemsListViewController.m */,
 				CE6BA423133A894100312F04 /* NewNotificationViewController.h */,
 				CE6BA424133A894100312F04 /* NewNotificationViewController.m */,
-				CE6BA425133A894100312F04 /* NewNotificationViewController.xib */,
+				CE6630A21340E39900D7A7D7 /* NewNotificationViewController.xib */,
 				CE6BA42F133A8B0A00312F04 /* NewNotificationTableViewController.h */,
 				CE6BA430133A8B0A00312F04 /* NewNotificationTableViewController.m */,
+				CE62272F13405E3C008BB0BA /* NotificationGroupsTableViewController.h */,
+				CE62273013405E3C008BB0BA /* NotificationGroupsTableViewController.m */,
+				CE62273B13405ED6008BB0BA /* NotificationGroupsView.h */,
+				CE62273C13405ED6008BB0BA /* NotificationGroupsView.m */,
+				CE62273D13405ED6008BB0BA /* NotificationGroupsView.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		CE65ECEA1358E2C2008EBB9A /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				CE65ECEB1358E329008EBB9A /* CacheManager.h */,
+				CE65ECEC1358E329008EBB9A /* CacheManager.m */,
+				CE65ECEE1358E335008EBB9A /* Cache.h */,
+				CE65ECEF1358E335008EBB9A /* Cache.m */,
+			);
+			name = Cache;
 			sourceTree = "<group>";
 		};
 		CE6AA288132569E4002513D0 /* XMLHelper */ = {
@@ -370,7 +426,15 @@
 				CECE5B961322B8E300094BE7 /* logo.jpg in Resources */,
 				CE6B324F1326B971006C7813 /* MainMenuViewController.xib in Resources */,
 				CE71ECFF1334C60A00FB555D /* ItemsViewController.xib in Resources */,
-				CE6BA427133A894100312F04 /* NewNotificationViewController.xib in Resources */,
+				CE6630A31340E39900D7A7D7 /* NewNotificationViewController.xib in Resources */,
+				CE62273F13405ED6008BB0BA /* NotificationGroupsView.xib in Resources */,
+				CE65EE831340BA0500807C22 /* tick_gray.png in Resources */,
+				CE65EE841340BA0500807C22 /* tick.png in Resources */,
+				CE6A0126134729BB004010B3 /* IPadLoginViewController.xib in Resources */,
+				CE6A015813472D22004010B3 /* IPadMainMenuViewController.xib in Resources */,
+				CED5A94F134B7818009AB988 /* Localizable.strings in Resources */,
+				CE6557B2135CA0D200A500D2 /* green_dot.png in Resources */,
+				CE6557B3135CA0D200A500D2 /* red_dot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,12 +470,43 @@
 				CE6BA41B133A889600312F04 /* ELCTextFieldCell.m in Sources */,
 				CE6BA426133A894100312F04 /* NewNotificationViewController.m in Sources */,
 				CE6BA431133A8B0A00312F04 /* NewNotificationTableViewController.m in Sources */,
+				CE62273113405E3C008BB0BA /* NotificationGroupsTableViewController.m in Sources */,
+				CE62273E13405ED6008BB0BA /* NotificationGroupsView.m in Sources */,
+				CE65ECED1358E329008EBB9A /* CacheManager.m in Sources */,
+				CE65ECF01358E335008EBB9A /* Cache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		CE6630A21340E39900D7A7D7 /* NewNotificationViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE6630A41340E3A700D7A7D7 /* en */,
+				CE6630A51340E3A900D7A7D7 /* pl */,
+			);
+			name = NewNotificationViewController.xib;
+			sourceTree = "<group>";
+		};
+		CE6A0125134729BB004010B3 /* IPadLoginViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE6A0127134729C3004010B3 /* en */,
+				CE6A0128134729C7004010B3 /* pl */,
+			);
+			name = IPadLoginViewController.xib;
+			sourceTree = "<group>";
+		};
+		CE6A015713472D22004010B3 /* IPadMainMenuViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE6A015913472D29004010B3 /* en */,
+				CE6A015A13472D2D004010B3 /* pl */,
+			);
+			name = IPadMainMenuViewController.xib;
+			sourceTree = "<group>";
+		};
 		CE6B324E1326B971006C7813 /* MainMenuViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -430,6 +525,15 @@
 			name = LoginViewController.xib;
 			sourceTree = "<group>";
 		};
+		CED5A94E134B7818009AB988 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CED5A950134B781E009AB988 /* en */,
+				CED5A951134B7821009AB988 /* pl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -444,6 +548,8 @@
 				GCC_PREFIX_HEADER = bcm_ip_Prefix.pch;
 				INFOPLIST_FILE = "bcm_ip-Info.plist";
 				PRODUCT_NAME = bcm_ip;
+				SDKROOT = iphonesimulator3.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -469,7 +575,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator4.1;
+				SDKROOT = iphonesimulator3.2;
 			};
 			name = Debug;
 		};
