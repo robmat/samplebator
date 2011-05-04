@@ -56,7 +56,7 @@
 	
 	[mapa release] ;
 	
-	self.title = @"Sexual Health" ;
+	self.title = @"Stop smoking" ;
 	
 	mapa.showsUserLocation = TRUE ;
 	
@@ -462,7 +462,6 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
-	self.title = @"4YP Bristol" ;
 	estado_siguiente = -1 ;
 	estado_anterior  = 3 ; //Voy a volver desde el mapa
 	avanzar = FALSE ;
