@@ -216,10 +216,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>CE7948F3133D0B96000FEF66</string>
+						<string>CE62E8C31369F86F0063CBEE</string>
 						<key>history</key>
 						<array>
-							<string>CE79489B133D0B04000FEF66</string>
+							<string>CE652C8C1368C35A00D49126</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -236,6 +236,46 @@
 				<false/>
 				<key>RubberWindowFrame</key>
 				<string>0 132 1024 614 0 0 1024 746 </string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
+				<string>CE62E8C41369F86F0063CBEE</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>PharmacyMAP.h</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>CE62E8C51369F86F0063CBEE</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>PharmacyMAP.h</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>CE62E8C61369F86F0063CBEE</string>
+						<key>history</key>
+						<array>
+							<string>CE62E8BE1369F7F00063CBEE</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {1021, 580}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>3 125 1021 621 0 0 1024 746 </string>
 			</dict>
 		</dict>
 	</array>
@@ -295,7 +335,7 @@
 						<dict>
 							<key>PBXSmartGroupTreeModuleColumnWidthsKey</key>
 							<array>
-								<real>340</real>
+								<real>268</real>
 							</array>
 							<key>PBXSmartGroupTreeModuleColumnsKey_v4</key>
 							<array>
@@ -316,6 +356,7 @@
 								<string>00681D321125AD4D00FF93E6</string>
 								<string>0016F23C1132BBF800EB4DA7</string>
 								<string>00681D351125AD5300FF93E6</string>
+								<string>00291FC81160CCC600B131AB</string>
 								<string>00DD3B2F112E9D4900B23D4C</string>
 								<string>001FC5CF11342F4B00C23CE7</string>
 								<string>00BD4F0B113523A600BEFC44</string>
@@ -330,13 +371,16 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>117</integer>
-									<integer>115</integer>
+									<integer>66</integer>
+									<integer>64</integer>
+									<integer>57</integer>
+									<integer>38</integer>
+									<integer>24</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 1773}, {340, 556}}</string>
+							<string>{{0, 56}, {268, 556}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -348,11 +392,11 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {357, 574}}</string>
+						<string>{{0, 0}, {285, 574}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>MainColumn</string>
-							<real>340</real>
+							<real>268</real>
 						</array>
 						<key>RubberWindowFrame</key>
 						<string>0 130 1024 615 0 0 1024 746 </string>
@@ -360,7 +404,7 @@
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
 					<key>Proportion</key>
-					<string>357pt</string>
+					<string>285pt</string>
 				</dict>
 				<dict>
 					<key>Dock</key>
@@ -371,7 +415,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PharmacyMAPDetailsView.m</string>
+								<string>PharmacyMAP.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -379,11 +423,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PharmacyMAPDetailsView.m</string>
+										<string>PharmacyMAP.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>CE7948F0133D0B96000FEF66</string>
+										<string>CE62E8C01369F86F0063CBEE</string>
 										<key>history</key>
 										<array>
 											<string>CE4374D712954B2F008066E5</string>
@@ -435,18 +479,13 @@
 											<string>CE74BA1F12DE42D400A52121</string>
 											<string>CE74BA2112DE42D400A52121</string>
 											<string>CE687FA412DE47FB0044FA95</string>
-											<string>CE687FA512DE47FB0044FA95</string>
 											<string>CE6B3F1C12DF5E5400BAA1F1</string>
 											<string>CE6B3F1D12DF5E5400BAA1F1</string>
 											<string>CE677EBC12E0A83D00ECD4F2</string>
 											<string>CE66999712EDE5BE0051D409</string>
-											<string>CE6699A112EDE6AB0051D409</string>
-											<string>CE65E00B12EF26EA00CCD79E</string>
-											<string>CE65E00C12EF26EA00CCD79E</string>
 											<string>CE66D87412F1C87A00D0418F</string>
 											<string>CE651BD812F1E6A8003077F4</string>
 											<string>CE65E15A12F3183F0011B6BF</string>
-											<string>CE65E15B12F3183F0011B6BF</string>
 											<string>CE65E18012F31A0F0011B6BF</string>
 											<string>CE65E18512F31A3C0011B6BF</string>
 											<string>CE65E19112F31C9B0011B6BF</string>
@@ -462,7 +501,12 @@
 											<string>CE6EECCE1301E02700D0DFFC</string>
 											<string>CE666EB51302ECCB00F29B0C</string>
 											<string>CE794899133D0B04000FEF66</string>
-											<string>CE79489A133D0B04000FEF66</string>
+											<string>CE8E0DB51368A483008DA41C</string>
+											<string>CE8E0DB61368A483008DA41C</string>
+											<string>CE652C881368C35A00D49126</string>
+											<string>CE652C891368C35A00D49126</string>
+											<string>CE652C8A1368C35A00D49126</string>
+											<string>CE62E8BF1369F86F0063CBEE</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -474,14 +518,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {662, 194}}</string>
+								<string>{{0, 0}, {734, 344}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 130 1024 615 0 0 1024 746 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>194pt</string>
+							<string>344pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -494,18 +538,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 199}, {662, 375}}</string>
+								<string>{{0, 349}, {734, 225}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 130 1024 615 0 0 1024 746 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>375pt</string>
+							<string>225pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>662pt</string>
+					<string>734pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -520,9 +564,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>CE7948F1133D0B96000FEF66</string>
+				<string>CE62E8C11369F86F0063CBEE</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>CE7948F2133D0B96000FEF66</string>
+				<string>CE62E8C21369F86F0063CBEE</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -742,7 +786,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>CE4374C312954356008066E5</string>
-				<string>CE7948F4133D0B96000FEF66</string>
+				<string>CE62E8C71369F86F0063CBEE</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -864,13 +908,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>CE4776A11302EEF900B442DC</string>
+				<string>CE652C6C1368B10B00D49126</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>CE4776A21302EEF900B442DC</string>
-				<string>CE4776A31302EEF900B442DC</string>
-				<string>CE4776A41302EEF900B442DC</string>
-				<string>CE4776A51302EEF900B442DC</string>
-				<string>CE4776A61302EEF900B442DC</string>
+				<string>CE652C6D1368B10B00D49126</string>
+				<string>CE652C6E1368B10B00D49126</string>
+				<string>CE652C6F1368B10B00D49126</string>
+				<string>CE652C701368B10B00D49126</string>
+				<string>CE652C711368B10B00D49126</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -897,14 +941,12 @@
 							<key>Dock</key>
 							<array>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PharmacyMAPDetailsView.m</string>
+										<string></string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -925,6 +967,8 @@
 							<string>413pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -960,8 +1004,8 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>CE794897133D0B03000FEF66</string>
-				<string>CE794898133D0B03000FEF66</string>
+				<string>CE652C7F1368B87500D49126</string>
+				<string>CE652C801368B87500D49126</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>
@@ -1024,7 +1068,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>CE4776A71302EEF900B442DC</string>
+				<string>CE652C721368B10B00D49126</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>

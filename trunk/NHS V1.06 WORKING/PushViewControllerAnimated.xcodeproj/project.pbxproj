@@ -172,6 +172,14 @@
 		8886E6791243AE86005EF957 /* burns.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8886E6781243AE86005EF957 /* burns.mp3 */; };
 		8886E67B1243AE94005EF957 /* fits.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8886E67A1243AE94005EF957 /* fits.mp3 */; };
 		8886E67D1243AEAC005EF957 /* wounds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8886E67C1243AEAC005EF957 /* wounds.mp3 */; };
+		CE652CA01368C60400D49126 /* how_to_use_this_app.png in Resources */ = {isa = PBXBuildFile; fileRef = CE652C9E1368C60400D49126 /* how_to_use_this_app.png */; };
+		CE652CA11368C60400D49126 /* stop_smoking.png in Resources */ = {isa = PBXBuildFile; fileRef = CE652C9F1368C60400D49126 /* stop_smoking.png */; };
+		CE652CAB1368C7EF00D49126 /* StopSmokingMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE652CA91368C7EF00D49126 /* StopSmokingMapViewController.m */; };
+		CE652CAC1368C7EF00D49126 /* StopSmokingMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE652CAA1368C7EF00D49126 /* StopSmokingMapViewController.xib */; };
+		CE66F3A2136A144B00D5AD94 /* smoking_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE66F3A1136A144B00D5AD94 /* smoking_data.plist */; };
+		CE66F3BE136A1A9B00D5AD94 /* stop_smoking_item.png in Resources */ = {isa = PBXBuildFile; fileRef = CE66F3BD136A1A9B00D5AD94 /* stop_smoking_item.png */; };
+		CE66F3CF136A1EF800D5AD94 /* StopSmokingDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE66F3CD136A1EF800D5AD94 /* StopSmokingDetailVC.m */; };
+		CE66F3D0136A1EF800D5AD94 /* StopSmokingDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE66F3CE136A1EF800D5AD94 /* StopSmokingDetailVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -399,6 +407,16 @@
 		8886E67A1243AE94005EF957 /* fits.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fits.mp3; sourceTree = "<group>"; };
 		8886E67C1243AEAC005EF957 /* wounds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wounds.mp3; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		CE652C9E1368C60400D49126 /* how_to_use_this_app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = how_to_use_this_app.png; sourceTree = "<group>"; };
+		CE652C9F1368C60400D49126 /* stop_smoking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop_smoking.png; sourceTree = "<group>"; };
+		CE652CA81368C7EF00D49126 /* StopSmokingMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopSmokingMapViewController.h; sourceTree = "<group>"; };
+		CE652CA91368C7EF00D49126 /* StopSmokingMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopSmokingMapViewController.m; sourceTree = "<group>"; };
+		CE652CAA1368C7EF00D49126 /* StopSmokingMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StopSmokingMapViewController.xib; sourceTree = "<group>"; };
+		CE66F3A1136A144B00D5AD94 /* smoking_data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = smoking_data.plist; sourceTree = "<group>"; };
+		CE66F3BD136A1A9B00D5AD94 /* stop_smoking_item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop_smoking_item.png; sourceTree = "<group>"; };
+		CE66F3CC136A1EF800D5AD94 /* StopSmokingDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopSmokingDetailVC.h; sourceTree = "<group>"; };
+		CE66F3CD136A1EF800D5AD94 /* StopSmokingDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopSmokingDetailVC.m; sourceTree = "<group>"; };
+		CE66F3CE136A1EF800D5AD94 /* StopSmokingDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StopSmokingDetailVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -494,6 +512,7 @@
 		003B3B5B115BCD24000BDEC9 /* bottombar */ = {
 			isa = PBXGroup;
 			children = (
+				CE66F3BD136A1A9B00D5AD94 /* stop_smoking_item.png */,
 				0075CD361212C0080036FEEE /* 4yp_icon4.png */,
 				0075CD1E1212B7950036FEEE /* 4yp_icon3.png */,
 				00C9FA42115CC24900AA8300 /* dentist menu.png */,
@@ -537,6 +556,7 @@
 		00681D351125AD5300FF93E6 /* Service Finder (View2) */ = {
 			isa = PBXGroup;
 			children = (
+				CE652CA71368C78100D49126 /* StopSmokingMAP */,
 				00B40C191211830E00365561 /* Sex Health Map */,
 				00FD25F7112B10D700945F6F /* Emergencies MAP */,
 				00D27001112C096B00DDA211 /* Walkin Centers MAP */,
@@ -869,6 +889,8 @@
 		00E72852113D3395000642E9 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				CE652C9E1368C60400D49126 /* how_to_use_this_app.png */,
+				CE652C9F1368C60400D49126 /* stop_smoking.png */,
 				88775B46122EB7D200371B15 /* clock.png */,
 				003B3BA7115BE6CD000BDEC9 /* doctorhelpsm.png */,
 				0098459511592D9F00571E27 /* reminder */,
@@ -985,6 +1007,20 @@
 				00C9FC1E115D0D7A00AA8300 /* AddressBookUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE652CA71368C78100D49126 /* StopSmokingMAP */ = {
+			isa = PBXGroup;
+			children = (
+				CE66F3A1136A144B00D5AD94 /* smoking_data.plist */,
+				CE652CA81368C7EF00D49126 /* StopSmokingMapViewController.h */,
+				CE652CA91368C7EF00D49126 /* StopSmokingMapViewController.m */,
+				CE652CAA1368C7EF00D49126 /* StopSmokingMapViewController.xib */,
+				CE66F3CC136A1EF800D5AD94 /* StopSmokingDetailVC.h */,
+				CE66F3CD136A1EF800D5AD94 /* StopSmokingDetailVC.m */,
+				CE66F3CE136A1EF800D5AD94 /* StopSmokingDetailVC.xib */,
+			);
+			name = StopSmokingMAP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1137,6 +1173,12 @@
 				8886E6791243AE86005EF957 /* burns.mp3 in Resources */,
 				8886E67B1243AE94005EF957 /* fits.mp3 in Resources */,
 				8886E67D1243AEAC005EF957 /* wounds.mp3 in Resources */,
+				CE652CA01368C60400D49126 /* how_to_use_this_app.png in Resources */,
+				CE652CA11368C60400D49126 /* stop_smoking.png in Resources */,
+				CE652CAC1368C7EF00D49126 /* StopSmokingMapViewController.xib in Resources */,
+				CE66F3A2136A144B00D5AD94 /* smoking_data.plist in Resources */,
+				CE66F3BE136A1A9B00D5AD94 /* stop_smoking_item.png in Resources */,
+				CE66F3D0136A1EF800D5AD94 /* StopSmokingDetailVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1203,6 +1245,8 @@
 				00B40C251211843B00365561 /* SexHealthMapController.m in Sources */,
 				00B40C331211876C00365561 /* SexHealthMapDetailsView.m in Sources */,
 				8865BE941230FDA0000A66C3 /* ConfirmationSexHealth.m in Sources */,
+				CE652CAB1368C7EF00D49126 /* StopSmokingMapViewController.m in Sources */,
+				CE66F3CF136A1EF800D5AD94 /* StopSmokingDetailVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
