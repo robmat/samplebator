@@ -32,7 +32,9 @@ function user_form() {
 	if ( isset( $_REQUEST['uname'] ) ) { $uname=strip_tags( $_REQUEST['uname'] ); }
 	if ( isset( $_REQUEST['pass'] ) ) { $pass=strip_tags( $_REQUEST['pass'] ); }
 	if ( isset( $_REQUEST['email'] ) ) { $email=strip_tags( $_REQUEST['email'] ); }
-	if ( isset( $_REQUEST['utype'] ) ) { $myop=strip_tags( $_REQUEST['uname'] ); }
+	if ( isset( $_REQUEST['utype'] ) ) { $utype=strip_tags( $_REQUEST['utype'] ); }
+	if ( isset( $_REQUEST['organisation'] ) ) { $organisation=strip_tags( $_REQUEST['organisation'] ); }
+	if ( isset( $_REQUEST['location'] ) ) { $location=strip_tags( $_REQUEST['location'] ); }
 	
 	$utype_query_result = sql_query( 'SELECT t.id, t.typename FROM ttypeuser t', $dbi );
 	$organ_query_result = sql_query( 'SELECT v.vid, v.vname FROM tverein v', $dbi );

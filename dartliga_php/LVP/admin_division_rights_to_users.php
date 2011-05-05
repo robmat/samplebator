@@ -31,6 +31,13 @@ function admin_liga_list() {
 
 # New admin user form
 function new_admin_liga() {
+	if ( isset( $_REQUEST['name'] ) ) { $name=strip_tags( $_REQUEST['name'] ); }
+	if ( isset( $_REQUEST['uname'] ) ) { $uname=strip_tags( $_REQUEST['uname'] ); }
+	if ( isset( $_REQUEST['liganame'] ) ) { $liganame=strip_tags( $_REQUEST['liganame'] ); }
+	if ( isset( $_REQUEST['accesstype'] ) ) { $accesstype=strip_tags( $_REQUEST['accesstype'] ); }
+	if ( isset( $_REQUEST['active'] ) ) { $active=strip_tags( $_REQUEST['active'] ); }
+	if ( isset( $_REQUEST['comment'] ) ) { $comment=strip_tags( $_REQUEST['comment'] ); }
+	
 	global $dbi;
 	$user_query_result = sql_query( 'SELECT u.id, u.uname FROM tuser u', $dbi );
 	$liga_query_result = sql_query( 'SELECT e.id, e.evname FROM tblevent e', $dbi );
@@ -56,7 +63,9 @@ function new_admin_liga() {
 		$ret = $ret.'<option '.$selected.' value="'.$id.'">'.$name.'</option>';
 	}
 	$ret = $ret.'</select></td></tr><tr><td>Active:</td><td>';
-	$ret = $ret._input( 1, 'active', $active, 2, 2 );
+	$ret = $ret.'<select id="active" name="active">';
+	$ret = $ret.'<option value="1">Yes</option>';
+	$ret = $ret.'<option value="0">No</option></select>';
 	$ret = $ret.'</td></tr><tr><td>Comment:</td><td>';
 	$ret = $ret._input( 1, 'comment', $comment, 50, 50 );
 	$ret = $ret.'</td></tr><tr><td>Create date:</td><td>';
@@ -73,8 +82,7 @@ function new_admin_liga() {
 function delete_admin_liga() {
 	global $dbi;
 	if ( isset( $_REQUEST['del_id'] ) ) { $del_id=strip_tags( $_REQUEST['del_id'] ); }
-	$sql = 'DELETE FROM tbladminliga WHERE id = '.$del_id;
-	$delete_result = sql_query( $sql, $dbi );
+	$delete_result = sql_query( 'DELETE FROM tbladminliga WHERE id = '.$del_id, $dbi );
 	if ( $delete_result ) {
 		return '[{<>}]delete_ok_token[{<>}]';
 	} else {
@@ -85,14 +93,43 @@ function delete_admin_liga() {
 
 # Creation of a new liga user right
 function new_liga_user_right_creation() {
+	global $dbi;
 
-} 
+	$ret = '<div style="color: red; padding: 5px;">';
+	if ( empty( $_REQUEST['name'] ) ) { $ret = $ret.'Name required!<br/>'; }
+	if ( empty( $_REQUEST['active'] ) ) { $ret = $ret.'Active has to have a value of 0 or 1!<br/>'; }
+	if ( $active != 0 && $active != 1 ) { $ret = $ret.'Active has to have a value of 0 or 1!<br/>'; }
+	$ret = $ret.'</div>';
+	
+	if ( strcmp( $ret, '<div style="color: red; padding: 5px;"></div>' )  == 0 ) { # valid
+		$name = $_REQUEST['name'];
+		$uname = $_REQUEST['uname'];
+		$liganame = $_REQUEST['liganame'];
+		$accesstype = $_REQUEST['accesstype'];
+		$active = $_REQUEST['active'];
+		$comment = $_REQUEST['comment'];
+		$sql = 'INSERT INTO tbladminliga (id, version, auname, access_id, aevactive, auid_id, cre_date, aevcode_id, acomment) ';
+		$sql = $sql.'VALUES (NULL, "0", "'.$name.'", "'.$accesstype.'", '.$active.', '.$uname.', "'.date("Y-m-d H:i:s").'", '.$liganame.', "'.$comment.'")';
+		$ret = $ret.$sql;
+		$insert_result = sql_query( $sql, $dbi );
+		
+		if ($insert_result == TRUE) {
+			$ret = 'Creation successful!<br/><br/>';
+			$ret = $ret.admin_liga_list();		
+		} else {
+			$ret = $ret.'<div style="color: red;">Creation of a user liga right failed for unknown reasons!</div>';		
+		}
+	} else {
+		$ret = $ret.new_admin_liga();
+	}
+	return $ret;
+}
 
 # START OUTPUT
 
 LS_page_start();
 
-if ( isset( $_REQUEST['op'] ) && strlen( $_REQUEST['op'] ) < 25 ) { $myop=strip_tags( $_REQUEST['op'] ); } else { $myop = "admin_liga_list"; }
+if ( isset( $_REQUEST['op'] ) && strlen( $_REQUEST['op'] ) < 35 ) { $myop=strip_tags( $_REQUEST['op'] ); } else { $myop = "admin_liga_list"; }
 
 if ( !isset( $usertoken ) ) {
 	echo '<script> window.location.href = "/dso_user.php" </script>';
