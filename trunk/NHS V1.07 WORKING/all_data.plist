@@ -54525,7 +54525,7 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Royal Hallamshire Hospital‎</string>
+      <string>Royal Hallamshire Hospital</string>
       <key>addressLarge</key>
       <string>Glossop Rd</string>
       <key>city</key>
@@ -54561,7 +54561,307 @@
       <key>longitude</key>
       <string>-1.445682</string>
       <key>category</key>
-      <string>ae</string>
+      <string>gp</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Hillsborough Pharmacy</string>
+      <key>addressLarge</key>
+      <string>58-60 Holme Lane</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S6 4JQ</string>
+      <key>telephone</key>
+      <string>0114 234 5390</string>
+      <key>latitude</key>
+      <string>53.402081</string>
+      <key>longitude</key>
+      <string>-1.503006</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Lloyds pharmacy</string>
+      <key>addressLarge</key>
+      <string>High Green Health Centre, Foster Way</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S35 4NF</string>
+      <key>telephone</key>
+      <string>0114 284 8219</string>
+      <key>latitude</key>
+      <string>53.474372</string>
+      <key>longitude</key>
+      <string>-1.493650</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Lloyds pharmacy</string>
+      <key>addressLarge</key>
+      <string>Duke Medical Centre, 26 Talbot Road</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S2 2TD</string>
+      <key>telephone</key>
+      <string>0114 272 7991</string>
+      <key>latitude</key>
+      <string>53.378514</string>
+      <key>longitude</key>
+      <string>-1.455854</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Lloyds pharmacy</string>
+      <key>addressLarge</key>
+      <string>Duke Medical Centre, 26 Talbot Road</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S2 2TD</string>
+      <key>telephone</key>
+      <string>0114 272 7991</string>
+      <key>latitude</key>
+      <string>53.378514</string>
+      <key>longitude</key>
+      <string>-1.455854</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Lloyds pharmacy</string>
+      <key>addressLarge</key>
+      <string>Jordanthorpe Health Centre, 1 Dyche Close</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S8 8DJ</string>
+      <key>telephone</key>
+      <string>0114 237 5618</string>
+      <key>latitude</key>
+      <string>53.323206</string>
+      <key>longitude</key>
+      <string>-1.463853</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Lloyds pharmacy</string>
+      <key>addressLarge</key>
+      <string>Wincobank Medical Centre, 205 Tyler Street</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S9 1BH</string>
+      <key>telephone</key>
+      <string>0114 242 6282</string>
+      <key>latitude</key>
+      <string>53.412595</string>
+      <key>longitude</key>
+      <string>-1.422577</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Lloyds pharmacy</string>
+      <key>addressLarge</key>
+      <string>Wincobank Medical Centre, 205 Tyler Street</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S9 1BH</string>
+      <key>telephone</key>
+      <string>0114 242 6282</string>
+      <key>latitude</key>
+      <string>53.412595</string>
+      <key>longitude</key>
+      <string>-1.422577</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Rowlands Pharmacy</string>
+      <key>addressLarge</key>
+      <string>The Old Surgery Bevan Way</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S9 1BH</string>
+      <key>telephone</key>
+      <string>0114 246 2636</string>
+      <key>latitude</key>
+      <string>53.459173</string>
+      <key>longitude</key>
+      <string>-1.479026</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Swift Chemists Ltd</string>
+      <key>addressLarge</key>
+      <string>Morrisons Supermarket, 1 Oxclose Park Road North</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S20 8GN</string>
+      <key>telephone</key>
+      <string>0114 228 0999</string>
+      <key>latitude</key>
+      <string>53.324204</string>
+      <key>longitude</key>
+      <string>-1.341738</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Tesco Pharmacy</string>
+      <key>addressLarge</key>
+      <string>Tesco Superstore, Abbeydale Drive</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S7 2QB</string>
+      <key>telephone</key>
+      <string>0114 260 7947</string>
+      <key>latitude</key>
+      <string>53.359857</string>
+      <key>longitude</key>
+      <string>-1.479797</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>The Co-operative Pharmacy</string>
+      <key>addressLarge</key>
+      <string>Birley Lane Health Centre, 120 Birley Lane</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S12 3BP</string>
+      <key>telephone</key>
+      <string>0114 253 0044</string>
+      <key>latitude</key>
+      <string>53.340298</string>
+      <key>longitude</key>
+      <string>-1.396970</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>The Co-operative Pharmacy</string>
+      <key>addressLarge</key>
+      <string>White Lane Pharmacy, 202 White Lane</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S12 3GL</string>
+      <key>telephone</key>
+      <string>0114 239 6174</string>
+      <key>latitude</key>
+      <string>53.344502</string>
+      <key>longitude</key>
+      <string>-1.426306</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Woodhouse Pharmacy</string>
+      <key>addressLarge</key>
+      <string>Woodhouse Medical Centre, 5 Skelton Lane</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S13 7LY</string>
+      <key>telephone</key>
+      <string>0114 288 0004</string>
+      <key>latitude</key>
+      <string>53.357608</string>
+      <key>longitude</key>
+      <string>-1.372025</string>
+      <key>category</key>
+      <string>pharmacy</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>The Mulberry Practice</string>
+      <key>addressLarge</key>
+      <string>1 Mulberry Street</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S1 2PJ</string>
+      <key>telephone</key>
+      <string>0114 305 4050</string>
+      <key>latitude</key>
+      <string>53.382153</string>
+      <key>longitude</key>
+      <string>-1.466614</string>
+      <key>category</key>
+      <string>gp</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>The Sloan Practice</string>
+      <key>addressLarge</key>
+      <string>2 Little London Road</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S8 0YH</string>
+      <key>telephone</key>
+      <string>0114 258 1554</string>
+      <key>latitude</key>
+      <string>53.356063</string>
+      <key>longitude</key>
+      <string>-1.480976</string>
+      <key>category</key>
+      <string>gp</string>
     </dict>
   </array>
 </plist>
