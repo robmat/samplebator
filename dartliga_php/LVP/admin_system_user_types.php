@@ -24,8 +24,8 @@ function user_types() {
 LS_page_start();
 
 # Left nav pane echoing
-echo '<div class="navi" style="left: 5px;">'._button( 'Home', '', 'admin_main_menu.php' ).'</div>';
-
+echo '<div class="navi" style="left: 5px;">'._button( 'Admin home', '', 'admin_main_menu.php' ).'</div>';
+echo '<h3>System benutzer typen</h3>'; # header and start table
 echo user_types();
 echo '</td></tr></table>'; # end table
 
