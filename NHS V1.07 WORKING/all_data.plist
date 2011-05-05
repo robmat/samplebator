@@ -43,7 +43,7 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Royal Hallamshire Hospital‎</string>
+      <string>Royal Hallamshire Hospital</string>
       <key>addressLarge</key>
       <string>Glossop Rd</string>
       <key>city</key>
@@ -103,7 +103,7 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Doncaster 8 to 8 Centre</string>
+      <string>Doncaster Walk In Centre</string>
       <key>addressLarge</key>
       <string>Devonshire House, Cavendish Court</string>
       <key>city</key>
@@ -16883,26 +16883,6 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>Firth Park Surgery</string>
-      <key>addressLarge</key>
-      <string>400 Firth Park Road</string>
-      <key>city</key>
-      <string>Sheffield</string>
-      <key>district</key>
-      <string>South Yorkshire</string>
-      <key>postcode</key>
-      <string>S5 6HH</string>
-      <key>telephone</key>
-      <string>0845 121 1899</string>
-      <key>latitude</key>
-      <string>53.4172627</string>
-      <key>longitude</key>
-      <string>-1.4458283</string>
-      <key>category</key>
-      <string>gp</string>
-    </dict>
-    <dict>
-      <key>name</key>
       <string>Bluebell Medical Centre</string>
       <key>addressLarge</key>
       <string>356 Bluebell Road</string>
@@ -20640,6 +20620,26 @@
       <string>-0.644969</string>
       <key>category</key>
       <string>gp</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Market Hill Walk In Centre</string>
+      <key>addressLarge</key>
+      <string>19 Market Hill</string>
+      <key>city</key>
+      <string>Scunthorpe</string>
+      <key>district</key>
+      <string>North Lincolnshire</string>
+      <key>postcode</key>
+      <string>DN15 6SS</string>
+      <key>telephone</key>
+      <string>01724 843095</string>
+      <key>latitude</key>
+      <string>53.592749</string>
+      <key>longitude</key>
+      <string>-0.644969</string>
+      <key>category</key>
+      <string>walkincentre</string>
     </dict>
     <dict>
       <key>name</key>
@@ -54221,9 +54221,8 @@
       <key>longitude</key>
       <string>-1.350202</string>
       <key>category</key>
-      <string>walkincentre</string>
+      <string>gp</string>
     </dict>
-	
 	<dict>
       <key>name</key>
       <string>The Roundhouse Medical Centre</string>
@@ -54242,9 +54241,8 @@
       <key>longitude</key>
       <string>-1.483201</string>
       <key>category</key>
-      <string>walkincentre</string>
+      <string>gp</string>
     </dict>
-	
     <dict>
       <key>name</key>
       <string>King Street Health Centre</string>
@@ -54282,46 +54280,6 @@
       <string>53.6865487</string>
       <key>longitude</key>
       <string>-1.4655732</string>
-      <key>category</key>
-      <string>walkincentre</string>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>Royal Hallamshire Hospital‎</string>
-      <key>addressLarge</key>
-      <string>Glossop Road</string>
-      <key>city</key>
-      <string>Sheffield</string>
-      <key>district</key>
-      <string>South Yorkshire</string>
-      <key>postcode</key>
-      <string>S10 2JF</string>
-      <key>telephone</key>
-      <string>0114 2712340</string>
-      <key>latitude</key>
-      <string>53.37728</string>
-      <key>longitude</key>
-      <string>-1.49281</string>
-      <key>category</key>
-      <string>walkincentre</string>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>Royal Hallamshire Hospital‎</string>
-      <key>addressLarge</key>
-      <string>Glossop Rd</string>
-      <key>city</key>
-      <string>Sheffield</string>
-      <key>district</key>
-      <string>Sheffield</string>
-      <key>postcode</key>
-      <string>S10 2JF</string>
-      <key>telephone</key>
-      <string>0114 271 2340</string>
-      <key>latitude</key>
-      <string>53.3785947</string>
-      <key>longitude</key>
-      <string>-1.4903213</string>
       <key>category</key>
       <string>walkincentre</string>
     </dict>
@@ -54582,6 +54540,26 @@
       <string> 53.378440</string>
       <key>longitude</key>
       <string>-1.492680</string>
+      <key>category</key>
+      <string>ae</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Ms Khan Firth Park</string>
+      <key>addressLarge</key>
+      <string>420 Firth Park Road</string>
+      <key>city</key>
+      <string>Sheffield</string>
+      <key>district</key>
+      <string>Yorkshire</string>
+      <key>postcode</key>
+      <string>S5 6HH</string>
+      <key>telephone</key>
+      <string>(0114) 242 6548</string>
+      <key>latitude</key>
+      <string>53.417451</string>
+      <key>longitude</key>
+      <string>-1.445682</string>
       <key>category</key>
       <string>ae</string>
     </dict>
