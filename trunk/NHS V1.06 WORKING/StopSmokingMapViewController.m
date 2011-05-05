@@ -90,7 +90,7 @@
 	MKCoordinateRegion region2 = { {0.0,0.0}, {0.0,0.0} };
 	region2.center.latitude = mapa.userLocation.coordinate.latitude ;
 	region2.center.longitude = mapa.userLocation.coordinate.longitude ;
-	NSString * latitudeLABEL = [[NSString alloc] initWithFormat:@"Latitude: %f", mapa.userLocation.coordinate.latitude ] ;
+	//NSString * latitudeLABEL = [[NSString alloc] initWithFormat:@"Latitude: %f", mapa.userLocation.coordinate.latitude ] ;
 	//NSString * longitudeLABEL = [[NSString alloc] initWithFormat:@"Longitude: %f", mapa.userLocation.coordinate.longitude ] ;
 	
 	float latitudeFLOAT = mapa.userLocation.coordinate.latitude ;
@@ -238,24 +238,22 @@
 	
 	
 	NSLog(@"Indice final: %i", indiceFINAL) ;
-	
+	NSLog(@"Comment: %@", [dict objectForKey:@"comment"]) ;
 	avanzar = TRUE ;
  	
 	//Step2: Con el indice, voy a extraer el resto de los datos.
 	
-	NSMutableArray * array = [[NSMutableArray alloc] initWithObjects: [dict objectForKey:@"name" ],
-							  [dict objectForKey:@"name" ], 
-							  [dict objectForKey:@"name" ],
-							  [dict objectForKey:@"name" ],
-							  [dict objectForKey:@"addressLarge"],
-							  [dict objectForKey:@"city"],
-							  [dict objectForKey:@"district"],
-							  [dict objectForKey:@"postcode"],
-							  [dict objectForKey:@"telephone"],
-							  [dict objectForKey:@"name"],
-							  [dict objectForKey:@"postcode"],
-							  [dict objectForKey:@"comment"],
-							  nil ] ;
+	NSMutableArray * array = [[NSMutableArray alloc] init];
+	[array addObject: [dict objectForKey:@"name" ]];
+	[array addObject: [dict objectForKey:@"name" ]]; 
+	[array addObject: [dict objectForKey:@"name" ]];
+	[array addObject: [dict objectForKey:@"name" ]];
+	[array addObject: [dict objectForKey:@"addressLarge"]];
+	[array addObject: [dict objectForKey:@"city"]];
+	[array addObject: [dict objectForKey:@"district"]];
+	[array addObject: [dict objectForKey:@"postcode"]];
+	[array addObject: [dict objectForKey:@"telephone"]];
+	[array addObject: [dict objectForKey:@"comment"]];
 	
 	[array writeToFile:[ self dataFilePathSex ] atomically:YES ] ;
 	[array release] ;
