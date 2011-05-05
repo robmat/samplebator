@@ -17,6 +17,7 @@
 	IBOutlet UITextView * labelManagerMail ;
 	IBOutlet UILabel * labelAddress1 ;
 	IBOutlet UILabel * labelAddress2 ;
+	IBOutlet UILabel * comment ;
 	
 	IBOutlet UITextView * labelPhone ;
 	

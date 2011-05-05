@@ -87,6 +87,7 @@
 	labelPhone.text = [array objectAtIndex:8] ; 
 	
 	self.openingTimes = [NSString stringWithString:[array objectAtIndex:9]];
+	comment.text = self.openingTimes;
 	[labelPhone release] ;
 	
 }
