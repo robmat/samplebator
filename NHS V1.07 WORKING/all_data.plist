@@ -16183,26 +16183,6 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>The Mulberry Practice</string>
-      <key>addressLarge</key>
-      <string>1 Mulberry Street</string>
-      <key>city</key>
-      <string>Sheffield</string>
-      <key>district</key>
-      <string>South Yorkshire</string>
-      <key>postcode</key>
-      <string>S1 2PJ</string>
-      <key>telephone</key>
-      <string>0114 226 1738</string>
-      <key>latitude</key>
-      <string>53.3821775</string>
-      <key>longitude</key>
-      <string>-1.4666435</string>
-      <key>category</key>
-      <string>gp</string>
-    </dict>
-    <dict>
-      <key>name</key>
       <string>Oughtibridge Surgery</string>
       <key>addressLarge</key>
       <string>Church Street</string>
