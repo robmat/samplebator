@@ -23,8 +23,8 @@ $mailhead='From: lsdb@ddsvev.de\n'.'X-Mailer: PHP\n'.'X-Priority: 1\n'.'Return-P
 /*
  * Common Globals 
  */
-$verstring='Version 4b';
-$site_header='DDSVEV - Datenzentrum - '.$verstring;
+$verstring='Version 4b rev 145';
+$site_header='Dartligaverwaltung  - '.$verstring;
 $foot_msg = '&copy; Hristovski 2003-2008 <a href="">Impressum</a>';
 
 function debug($VAR){
