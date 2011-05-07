@@ -69,15 +69,29 @@ function _usernav() {
 			break;
 	}
 	
-	if ($showRegisterModul==1){$strRet=$strRet._usermenuitem('Spieler und Vereins Meldewesen','dso_main.php?op=intro','Meldewesen','people.gif');}
-	$strRet=$strRet._usermenuitem('SSI Ranglisten Modul','ssi_main.php?op=intro','SSI System','info.gif');
-	$strRet=$strRet._usermenuitem('Liga Modul','ls_main.php','Liga System','info.gif');
-	if (sizeof($usertoken)>5){$strRet=$strRet._usermenuitem('Abmelden',$userhome.'?op=logout','Logout','exit.gif');}
-	
+	if ( $usertype > 0 ) {
+		if ($showRegisterModul==1){$strRet=$strRet._usermenuitem('Spieler und Vereins Meldewesen','dso_main.php?op=intro','Meldewesen','people.gif');}
+		$strRet=$strRet._usermenuitem('SSI Ranglisten Modul','ssi_main.php?op=intro','SSI System','info.gif');
+		$strRet=$strRet._usermenuitem('Liga Modul','ls_main.php','Liga System','info.gif');
+		if (sizeof($usertoken)>5){$strRet=$strRet._usermenuitem('Abmelden',$userhome.'?op=logout','Logout','exit.gif');}
+	} else {
+		echo user_data_form( $usertoken['id'] ).'</td>';
+	}
     $strRet=$strRet.'</tr></table>';
     return $strRet;
 }
 
+# Form for the user the be able to change his data.
+function user_data_form( $uid ) {
+	global $dbi;
+	$precord = sql_query( 'SELECT player_id FROM tuser WHERE id = '.$uid, $dbi );
+	$pid = sql_fetch_array( $precord, $dbi );
+	$precord = sql_query("select pid,pfname,plname,pgender,pbirthdate,pnationality,ptown,pplz,pstreet,ptel1,ptel2,pemail,pcomment,pupd_date,pupd_user,pactive,pfkey1,pfkey2 from tplayer where pid=".$pid['player_id'],$dbi);
+	$aP = sql_fetch_array( $precord, $dbi );
+	echo '<form action="dso_player.php?func=save&vpid='.$aP['pid'].'" method="post">';
+	echo form_Player( $aP );
+	echo '</form>';
+}
 	/**
 	 * generates menu icons in TD cells
 	 */

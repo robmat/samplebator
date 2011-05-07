@@ -239,8 +239,8 @@ function _insupdplayer($v_pid=0,$last_name='') {
 	global $dbi,$sipgoback,$usertoken;
 	dsolog(2,$usertoken['uname'],"<b>UPDATE REQUEST</b> Player: $last_name($v_pid)");
 
-	if ($usertoken['usertype_id'] < 2) die("<h3>Illegal attempt to change data ....</h3>");
-	if (sizeof($usertoken['registermap']) < 1) die("<h3>Illegal attempt to change data ....</h3>");
+	if ($usertoken['usertype_id'] < 2 && $usertoken['usertype_id'] != 0) die("<h3>Illegal attempt to change data ....</h3>");
+	if (sizeof($usertoken['registermap']) < 1 && $usertoken['usertype_id'] != 0) die("<h3>Illegal attempt to change data .......</h3>");
 #
 # sanity checks come here please ........
 #
@@ -312,7 +312,11 @@ switch($my_func) {
 
 	case "save":
 		_insupdplayer($player_id,$last_name);
-		listall($last_name);
+		if ( $usertoken['usertype_id'] != 0 ) {
+			listall($last_name);
+		} else {
+			echo 'Data edited successfuly.';
+		}
 		break;
 
 	case 'updatesip':

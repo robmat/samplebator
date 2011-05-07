@@ -39,6 +39,7 @@ function user_form() {
 	$utype_query_result = sql_query( 'SELECT t.id, t.typename FROM ttypeuser t', $dbi );
 	$organ_query_result = sql_query( 'SELECT v.vid, v.vname FROM tverein v', $dbi );
 	$locat_query_result = sql_query( 'SELECT l.id, l.lname FROM tbllocation l', $dbi );
+	$playr_query_result = sql_query( 'SELECT p.pid, p.pfname, p.plname FROM tplayer p ORDER BY p.plname', $dbi );
 	
 	$ret = '<form action="admin_system_users.php?op=new_user_creation" method="post">';
 	$ret = $ret.'<table><tr><td>Name and surname:</td><td>';
@@ -50,10 +51,16 @@ function user_form() {
 	$ret = $ret.'</td></tr><tr><td>Email:</td><td>';
 	$ret = $ret._input( 1, 'email', $email, 50, 50 );
 	$ret = $ret.'</td></tr><tr><td>User type:</td><td>';
-	$ret = $ret.'<select id="utype" name="utype">';
+	$ret = $ret.'<select id="utype" name="utype" onchange="userTypeChange(this.options[this.selectedIndex].value);">';
 	while ( list( $id, $name ) = sql_fetch_row( $utype_query_result, $dbi ) ) {
 		$selected = strcmp( $utype, $id ) == 0 ? 'selected="selected"' : '';
 		$ret = $ret.'<option '.$selected.' value="'.$id.'">'.$name.'</option>';
+	}
+	$ret = $ret.'</select>';
+	$ret = $ret.'</td></tr><tr><td id="playeridlbl">Player data connected:</td><td>';
+	$ret = $ret.'<select id="playerid" name="playerid">';
+	while ( list( $id, $fname, $lname ) = sql_fetch_row( $playr_query_result, $dbi ) ) {
+		$ret = $ret.'<option value="'.$id.'">'.$lname.' '.$fname.'</option>';
 	}
 	$ret = $ret.'</select>';
 	$ret = $ret.'</td></tr><tr><td>Verein:</td><td>';
@@ -72,7 +79,7 @@ function user_form() {
 	$ret = $ret._input(1, 'aclevel');
 	$ret = $ret.'</td></tr><tr><td></td><td>'._button('Create user');
 	$ret = $ret.'</td></tr></table>';
-	$ret = $ret.'</form>';
+	$ret = $ret.'</form><script> $("#playerid").hide(); $("#playeridlbl").hide(); </script>'; #hide player data chooser until player user type is choosen
 	return $ret;
 }
  
@@ -94,10 +101,11 @@ function user_validate_form() {
 		$utype = $_REQUEST['utype'];
 		$organisation = $_REQUEST['organisation'];
 		$location = $_REQUEST['location'];
-		$aclevel = $_REQUEST['aclevel'];		
+		$aclevel = $_REQUEST['aclevel'];
+		$playerid = $utype == 0 ? $_REQUEST['playerid'] : 0; # if user is not a player ignore his player data connection
 		
-		$sql = 'INSERT INTO tuser (id, version, fullname, uname, pass, useraclevel, usertype_id, email, verein_id, theme, uactive, failcount, location_id) VALUES ';
-		$sql = $sql.' (0, 0, "'.$name.'", "'.$uname.'", "'.$pass.'", "'.$aclevel.'", '.$utype.', "'.$email.'", '.$organisation.', "Lite", 1, 0, '.$location.') ';
+		$sql = 'INSERT INTO tuser (id, version, fullname, uname, pass, useraclevel, usertype_id, email, verein_id, theme, uactive, failcount, location_id, player_id) VALUES ';
+		$sql = $sql.' (0, 0, "'.$name.'", "'.$uname.'", "'.$pass.'", "'.$aclevel.'", '.$utype.', "'.$email.'", '.$organisation.', "Lite", 1, 0, '.$location.', '.$playerid.') ';
 		$insert_result = sql_query( $sql, $dbi );
 
 		if ($insert_result == TRUE) {

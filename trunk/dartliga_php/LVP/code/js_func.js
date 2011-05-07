@@ -40,3 +40,13 @@ function deleteAdminLiga( id ) {
 		}
 	);
 }
+// In user creation form, when user is a player, then a select linking to player table should be visible -> admin_system_users.php
+function userTypeChange( userType ) {
+	if ( userType == 0 ) {
+		$("#playerid").show();
+		$("#playeridlbl").show();
+	} else {
+		$("#playerid").hide();
+		$("#playeridlbl").hide();
+	}
+}
