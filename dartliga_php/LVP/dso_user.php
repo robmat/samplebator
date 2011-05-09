@@ -21,7 +21,7 @@ global $usertoken;
 function _usernav() {
 	global $usertoken,$userhome;
 	
-	$usertype=0;
+	$usertype=-1;
 	$userverein=0;
 	$showRegisterModul=0;
 	
@@ -38,6 +38,8 @@ function _usernav() {
 	
 	switch ($usertype){
 		case 0:
+			$strRet = user_data_form( $usertoken['id'] );
+			break;
 		case 1:
 			break;
 		case 2:
@@ -69,15 +71,13 @@ function _usernav() {
 			break;
 	}
 	
-	if ( $usertype > 0 ) {
+	if ( ( (int) $usertype ) >  0 ) {
 		if ($showRegisterModul==1){$strRet=$strRet._usermenuitem('Spieler und Vereins Meldewesen','dso_main.php?op=intro','Meldewesen','people.gif');}
 		$strRet=$strRet._usermenuitem('SSI Ranglisten Modul','ssi_main.php?op=intro','SSI System','info.gif');
 		$strRet=$strRet._usermenuitem('Liga Modul','ls_main.php','Liga System','info.gif');
-		if (sizeof($usertoken)>5){$strRet=$strRet._usermenuitem('Abmelden',$userhome.'?op=logout','Logout','exit.gif');}
-	} else {
-		echo user_data_form( $usertoken['id'] ).'</td>';
 	}
-    $strRet=$strRet.'</tr></table>';
+	if ( sizeof( $usertoken ) > 5 ) { $strRet = $strRet._usermenuitem( 'Abmelden', $userhome.'?op=logout', 'Logout', 'exit.gif' ); }
+	$strRet=$strRet.'</tr></table>';
     return $strRet;
 }
 
