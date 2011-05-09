@@ -1,0 +1,1806 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Children</key>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>Hospitals</string>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Title</key>
+					<string>Norfolk &amp; Norwich UHT</string>
+					<key>address</key>
+					<string>Colney Lane</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Norwich</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>NNUHT</string>
+					<key>phone</key>
+					<string>01603 286286</string>
+					<key>postcode</key>
+					<string>NR4 7UY</string>
+					<key>website</key>
+					<string>www.nnuh.nhs.uk</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Title</key>
+							<string> Wards, Depts and Clinics</string>
+							<key>Children</key>
+							<array>
+								<dict>
+									<key>Title</key>
+									<string>Wards</string>
+									<key>Children</key>
+									<array>
+										<dict>
+											<key>Title</key>
+											<string>Acute Medical Unit (L)</string>
+											<key>phone</key>
+											<string>01603 286266</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Acute Medical Unit (M)</string>
+											<key>phone</key>
+											<string>01603 286288</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Blakeney (Maternity)</string>
+											<key>phone</key>
+											<string>01603 287129</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Brundall (MFE/OMU)</string>
+											<key>phone</key>
+											<string>01603 289972</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Buxton (Childrens)</string>
+											<key>phone</key>
+											<string>01603 287405</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Cardio Elective Bay (cardiology)</string>
+											<key>phone</key>
+											<string>01603 286845</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Childrens Assessment Unit</string>
+											<key>phone</key>
+											<string>01603 289774</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Childrens Day Ward</string>
+											<key>phone</key>
+											<string>01603 287170</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Cley Ward (Gynae/Maternity)</string>
+											<key>phone</key>
+											<string>01603 289953</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Coltishall (Head/neck)</string>
+											<key>phone</key>
+											<string>01603 288164</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Coronary Care (CCU)</string>
+											<key>phone</key>
+											<string>01603 286364</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Cringleford (Private)</string>
+											<key>phone</key>
+											<string>01603 289955</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Critical Care (CCC)</string>
+											<key>phone</key>
+											<string>01603 286200</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Davison Unit (Day Procedures)</string>
+											<key>phone</key>
+											<string>01603 646250</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Delivery Suite</string>
+											<key>phone</key>
+											<string>01603 287328</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Denton(orthopaedics)</string>
+											<key>phone</key>
+											<string>01603 289956</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Dilham (General Surgery)</string>
+											<key>phone</key>
+											<string>01603 289957</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Docking(Surgical)</string>
+											<key>phone</key>
+											<string>01603 289961</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Dunston (Derm &amp; Neuro)</string>
+											<key>phone</key>
+											<string>01603 289959</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Earsham (orthopaedics)</string>
+											<key>phone</key>
+											<string>01603 289950</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Easton (surgical)</string>
+											<key>phone</key>
+											<string>01603 286566</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Edgefield (urology/cardio)</string>
+											<key>phone</key>
+											<string>01603 286408</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Elsing (Elderley medicine)</string>
+											<key>phone</key>
+											<string>01603 289252</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Gateley (orthopaedics)</string>
+											<key>phone</key>
+											<string>01603 289964</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>(general/thoracic surgery)</string>
+											<key>phone</key>
+											<string>01603 289965</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Guist (gen sur/gastro)</string>
+											<key>phone</key>
+											<string>01603 289966</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Gunthorpe (stroke)</string>
+											<key>phone</key>
+											<string>01603 288071</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Hethel(respiratory)</string>
+											<key>phone</key>
+											<string>01603 289968</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Heydon (Elderley medicine)</string>
+											<key>phone</key>
+											<string>01603 287562</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Holt (Elderley medicine)</string>
+											<key>phone</key>
+											<string>01603 289960</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Jack Prior Unit (renal)</string>
+											<key>phone</key>
+											<string>01603 289973</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Kilverstone (cardiology)</string>
+											<key>phone</key>
+											<string>01603 289971</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Kimberley (med/endocrine)</string>
+											<key>phone</key>
+											<string>01603 289969</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Knapton (Elderley Medicine)</string>
+											<key>phone</key>
+											<string>01603 289973</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Langley (renal)</string>
+											<key>phone</key>
+											<string>01603 289974</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Low Dependancy (Easton)</string>
+											<key>phone</key>
+											<string>01603 286566</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Mulbarton (oncology/haem)</string>
+											<key>phone</key>
+											<string>01603 289975</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Neonatal (NICU)</string>
+											<key>phone</key>
+											<string>01603 286866</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Rheumatology Day Ward</string>
+											<key>phone</key>
+											<string>01603 287818</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Same Day Admissions unit</string>
+											<key>phone</key>
+											<string>01603 289976</string>
+										</dict>
+									</array>
+								</dict>
+								<dict>
+									<key>Title</key>
+									<string>Departments</string>
+									<key>Children</key>
+									<array>
+										<dict>
+											<key>Title</key>
+											<string>Accident &amp; Emergency</string>
+											<key>phone</key>
+											<string>01603 287325</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Audiology</string>
+											<key>phone</key>
+											<string>01603 287284</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Bic C Cancer</string>
+											<key>phone</key>
+											<string>01603 286112</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Cardiology</string>
+											<key>phone</key>
+											<string>01603 286259</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string></string>
+											<key>phone</key>
+											<string></string>
+										</dict>
+										<dict/>
+										<dict/>
+										<dict/>
+									</array>
+								</dict>
+								<dict>
+									<key>Title</key>
+									<string>Clinics</string>
+									<key>Children</key>
+									<array>
+										<dict/>
+										<dict/>
+										<dict/>
+									</array>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Consultants</string>
+							<key>Children</key>
+							<array>
+								<dict>
+									<key>Title</key>
+									<string>Acute Medicine</string>
+									<key>Children</key>
+									<array>
+										<dict>
+											<key>Title</key>
+											<string>Dr Alistair Green</string>
+											<key>phone</key>
+											<string>01603 287955</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Dr Jo Southgate</string>
+											<key>phone</key>
+											<string>01603 287955</string>
+										</dict>
+									</array>
+								</dict>
+								<dict>
+									<key>Title</key>
+									<string>Cardiology</string>
+									<key>Children</key>
+									<array>
+										<dict>
+											<key>Title</key>
+											<string>Dr Simon Eccleshall</string>
+											<key>phone</key>
+											<string>01603 287885</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Dr Leisa Freeman</string>
+											<key>phone</key>
+											<string>01603 289666</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Dr Tim Gilbert</string>
+											<key>phone</key>
+											<string>01603 287517</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Dr Cairistine Grahame-Clarke</string>
+											<key>phone</key>
+											<string>01603 289679</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Prof. Roger Hall</string>
+											<key>phone</key>
+											<string>01603 287517</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Dr Liam Hughes</string>
+											<key>phone</key>
+											<string>01603 287690</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Dr Tony Page</string>
+											<key>phone</key>
+											<string>01603 287607</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Dr Alisdair Ryding</string>
+											<key>phone</key>
+											<string>01603 288875</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Dr Toomas Sarev</string>
+											<key>phone</key>
+											<string>01603 288875</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Dr Ian Williams</string>
+											<key>phone</key>
+											<string>01603 286259</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Dr Trevor Wistow</string>
+											<key>phone</key>
+											<string>01603 289676</string>
+										</dict>
+									</array>
+								</dict>
+								<dict>
+									<key>Title</key>
+									<string>Clinical Biochemistry</string>
+									<key>Children</key>
+									<array>
+										<dict>
+											<key>Title</key>
+											<string>Prof. Garry John</string>
+											<key>phone</key>
+											<string>01603 286933</string>
+										</dict>
+										<dict>
+											<key>Title</key>
+											<string>Dr Trevor Tickner</string>
+											<key>phone</key>
+											<string>01603 286927</string>
+										</dict>
+									</array>
+								</dict>
+								<dict/>
+								<dict/>
+								<dict/>
+								<dict/>
+								<dict/>
+							</array>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>GP LIne</string>
+							<key>phone</key>
+							<string>13</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>James Paget UHT</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Title</key>
+							<string>Departments</string>
+							<key>View</key>
+							<integer>14</integer>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Consultants</string>
+							<key>View</key>
+							<integer>15</integer>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Ipswich</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Title</key>
+							<string>Departments</string>
+							<key>View</key>
+							<integer>16</integer>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Consultants</string>
+							<key>View</key>
+							<integer>17</integer>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Addenbrookes</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Title</key>
+							<string>Beccles</string>
+							<key>view</key>
+							<integer>18</integer>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Patrick Stead</string>
+							<key>View</key>
+							<string>19</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Northgate</string>
+							<key>View</key>
+							<string>101</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Southwold</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Community Services</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Mental Health</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Papworth</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Title</key>
+							<string>Alexandra Road and Crestview</string>
+							<key>View</key>
+							<integer>111</integer>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Andaman</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Beccles</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Bridge Road</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Bungay</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Central</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Coastal Villages</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Cutlers Hill</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Falkland</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Family Health</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Field Lane</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Fleggburgh</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Gorleston</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Greyfriars</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>High St</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>King St</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>London Road South</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Marine Parade and Oulton</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Millwood</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Nelson</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Newtown</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Park</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Rosedale</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>South Quay</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Southwold</string>
+							<key>View</key>
+							<integer>124</integer>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Victoria road</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Westwood</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Surgeries</string>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Title</key>
+					<string>Alexandra Road and Crestview Surgeries</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Title</key>
+							<string>Alexandra Road Surgery</string>
+							<key>address</key>
+							<string>Alexandra Road</string>
+							<key>address2</key>
+							<string></string>
+							<key>city</key>
+							<string>Lowestoft</string>
+							<key>latitude</key>
+							<string></string>
+							<key>longitude</key>
+							<string></string>
+							<key>name</key>
+							<string>Alexandra Road Surgery</string>
+							<key>phone</key>
+							<string>01502 526062</string>
+							<key>postcode</key>
+							<string>NR32 1PL</string>
+							<key>website</key>
+							<string>www.alexandracrestviewsurgeries.co.uk</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Crestview Surgery</string>
+							<key>address</key>
+							<string>141 Crestview Drive</string>
+							<key>address2</key>
+							<string></string>
+							<key>city</key>
+							<string>Lowestoft</string>
+							<key>latitude</key>
+							<string></string>
+							<key>longitude</key>
+							<string></string>
+							<key>name</key>
+							<string>Crestview Surgery</string>
+							<key>phone</key>
+							<string>01502 526666</string>
+							<key>postcode</key>
+							<string>NR32 4TW</string>
+							<key>website</key>
+							<string>www.alexandracrestviewsurgeries.co.uk</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Andaman</string>
+					<key>address</key>
+					<string>303 Long Road</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Lowestoft</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Andaman Surgery</string>
+					<key>phone</key>
+					<string>01502 517346</string>
+					<key>postcode</key>
+					<string>NR33 9DF</string>
+					<key>website</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Beccles Medical Centre</string>
+					<key>address</key>
+					<string>St Mary&apos;s Road</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Beccles</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Beccles Medical Centre</string>
+					<key>phone</key>
+					<string>01502 712662</string>
+					<key>postcode</key>
+					<string>NR34 9NQ</string>
+					<key>website</key>
+					<string>www.becclesmedical.co.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Bridge Road Surgery</string>
+					<key>address</key>
+					<string>1a Bridge Road</string>
+					<key>address2</key>
+					<string>Oulton Broad</string>
+					<key>city</key>
+					<string>Lowestoft</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Bridge Road Surgery</string>
+					<key>phone</key>
+					<string>01502 565936</string>
+					<key>postcode</key>
+					<string>NR32 3LJ</string>
+					<key>website</key>
+					<string>www.bridgeroadsurgery.nhs.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Bungay Medical Centre</string>
+					<key>address</key>
+					<string>28 St John&apos;s Road</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Bungay</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Bungay Medical Centre</string>
+					<key>phone</key>
+					<string>01986 892055</string>
+					<key>postcode</key>
+					<string>NR34 1DL</string>
+					<key>website</key>
+					<string>www.bungaymedical.co.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Central Surgery</string>
+					<key>address</key>
+					<string>Sussex Road</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Gorleston</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Central Surgery</string>
+					<key>phone</key>
+					<string>01493 414141</string>
+					<key>postcode</key>
+					<string>NR31 6QB</string>
+					<key>website</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Coastal Villages Practices</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Title</key>
+							<string>Ormesby Surgery</string>
+							<key>address</key>
+							<string>Pippin Close</string>
+							<key>address2</key>
+							<string>Ormesby St Margaret</string>
+							<key>city</key>
+							<string>Gt Yarmouth</string>
+							<key>latitude</key>
+							<string></string>
+							<key>longitude</key>
+							<string></string>
+							<key>name</key>
+							<string>Ormesby Surgery</string>
+							<key>phone</key>
+							<string>01493 730205</string>
+							<key>postcode</key>
+							<string>NR29 3RW</string>
+							<key>website</key>
+							<string>www.coastaldoctors.co.uk</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Hemsby Medical Centre</string>
+							<key>address</key>
+							<string>1 Kings Court</string>
+							<key>address2</key>
+							<string>Hemsby</string>
+							<key>city</key>
+							<string>Gt Yarmouth</string>
+							<key>latitude</key>
+							<string></string>
+							<key>longitude</key>
+							<string></string>
+							<key>name</key>
+							<string>Hemsby Medical Centre</string>
+							<key>phone</key>
+							<string>01493 748833</string>
+							<key>postcode</key>
+							<string>NR29 4EW</string>
+							<key>website</key>
+							<string>www.coastaldoctors.co.uk</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>North Caister Medical Centre</string>
+							<key>address</key>
+							<string>Branford Road</string>
+							<key>address2</key>
+							<string>Caister</string>
+							<key>city</key>
+							<string>Gt Yarmouth</string>
+							<key>latitude</key>
+							<string></string>
+							<key>longitude</key>
+							<string></string>
+							<key>name</key>
+							<string>North Caister Medical Centre</string>
+							<key>phone</key>
+							<string>01493 720618</string>
+							<key>postcode</key>
+							<string>NR30 5NE</string>
+							<key>website</key>
+							<string>www.coastaldoctors.co.uk</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Martham Medical Centre</string>
+							<key>address</key>
+							<string>Hemsby Road</string>
+							<key>address2</key>
+							<string>Martham</string>
+							<key>city</key>
+							<string>Gt Yarmouth</string>
+							<key>latitude</key>
+							<string></string>
+							<key>longitude</key>
+							<string></string>
+							<key>name</key>
+							<string>Martham Medical Centre</string>
+							<key>phone</key>
+							<string>01493 748833</string>
+							<key>postcode</key>
+							<string>NR29 4QG</string>
+							<key>website</key>
+							<string>www.coastaldoctors.co.uk</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Cutlers Hill Surgery</string>
+					<key>address</key>
+					<string>Bungay Road</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Halesworth</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Cutlers Hill Medical Centre</string>
+					<key>phone</key>
+					<string>01986 874618</string>
+					<key>postcode</key>
+					<string>IP19 8SG</string>
+					<key>website</key>
+					<string>www.cutlershillsurgery.co.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Falkland Surgery</string>
+					<key>address</key>
+					<string>Falklands Way</string>
+					<key>address2</key>
+					<string>Bradwell</string>
+					<key>city</key>
+					<string>Gt Yarmouth</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Falkland Surgery</string>
+					<key>phone</key>
+					<string>01493 442233</string>
+					<key>postcode</key>
+					<string>NR31 8RW</string>
+					<key>website</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Family Health Centre</string>
+					<key>address</key>
+					<string>1 East Anglian Way</string>
+					<key>address2</key>
+					<string>Gorleston</string>
+					<key>city</key>
+					<string>Gt Yarmouth</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Family Health Centre</string>
+					<key>phone</key>
+					<string>08444 778929</string>
+					<key>postcode</key>
+					<string>NR31 6TY</string>
+					<key>website</key>
+					<string>www.familyhealthcarecentre-gorleston.nhs.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Field Lane Surgery</string>
+					<key>address</key>
+					<string>Field Lane</string>
+					<key>address2</key>
+					<string>Kessingland</string>
+					<key>city</key>
+					<string>Lowestoft</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Field Lane Surgery</string>
+					<key>phone</key>
+					<string>01502 740203</string>
+					<key>postcode</key>
+					<string>NR33 7QA</string>
+					<key>website</key>
+					<string>www.drdraneandpartners.co.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Fleggburgh Surgery</string>
+					<key>address</key>
+					<string>Mill Lane</string>
+					<key>address2</key>
+					<string>Fleggburgh</string>
+					<key>city</key>
+					<string>Gt Yarmouth</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Fleggburgh Surgery</string>
+					<key>phone</key>
+					<string>01493 369232</string>
+					<key>postcode</key>
+					<string>NR29 3AW</string>
+					<key>website</key>
+					<string>www.fleggburghsurgery.co.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Gorleston Medical Centre/Hopton Surgery</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Title</key>
+							<string>Gorleston Medical Centre</string>
+							<key>address</key>
+							<string>Stuart Close</string>
+							<key>address2</key>
+							<string>Gorleston</string>
+							<key>city</key>
+							<string>Gt Yarmouth</string>
+							<key>latitude</key>
+							<string></string>
+							<key>longitude</key>
+							<string></string>
+							<key>name</key>
+							<string>Gorleston Medical Centre</string>
+							<key>phone</key>
+							<string>01493 650490</string>
+							<key>postcode</key>
+							<string>NR31 7BE</string>
+							<key>website</key>
+							<string>www.gorlestonandhoptonsurgery.co.uk</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Hopton Surgery</string>
+							<key>address</key>
+							<string>Station Road</string>
+							<key>address2</key>
+							<string>Hopton</string>
+							<key>city</key>
+							<string>Gt Yarmouth</string>
+							<key>latitude</key>
+							<string></string>
+							<key>longitude</key>
+							<string></string>
+							<key>name</key>
+							<string>Hemsby Medical Centre</string>
+							<key>phone</key>
+							<string>01502 732246</string>
+							<key>postcode</key>
+							<string>NR31 9BE</string>
+							<key>website</key>
+							<string>www.gorlestonandhoptonsurgery.co.uk</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Greyfriars Health Centre</string>
+					<key>address</key>
+					<string>5 Greyfriars way</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Gt Yarmouth</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Greyfriars Health Centre</string>
+					<key>phone</key>
+					<string>01493 335340</string>
+					<key>postcode</key>
+					<string>NR30 2QE</string>
+					<key>website</key>
+					<string>http://www.mallinghealth.co.uk/mhgreyfriars</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>High Street Surgery</string>
+					<key>address</key>
+					<string>High Street</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Lowestoft</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>High Street Surgery</string>
+					<key>phone</key>
+					<string>01502 589151</string>
+					<key>postcode</key>
+					<string>NR32 1JE</string>
+					<key>website</key>
+					<string>www.highstreetsurgerylowestoft.co.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>King Street Surgery</string>
+					<key>address</key>
+					<string>55 King Street</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Great Yarmouth</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>King Street Surgery</string>
+					<key>phone</key>
+					<string>01493 855589</string>
+					<key>postcode</key>
+					<string>NR30 2PW</string>
+					<key>website</key>
+					<string>www.kingstreetsurgery-gy.nhs.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>London Road South Surgery</string>
+					<key>address</key>
+					<string>366 London Road South</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Lowestoft</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>London Road South Surgery</string>
+					<key>phone</key>
+					<string>01502 573333</string>
+					<key>postcode</key>
+					<string>NR33 0BQ</string>
+					<key>website</key>
+					<string>http://www.londonroadsouthsurgery.co.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Marine Parade Surgery/Oulton Medical Centre</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Title</key>
+							<string>Marine parade Surgery</string>
+							<key>address</key>
+							<string>1 Marine Parade</string>
+							<key>address2</key>
+							<string></string>
+							<key>city</key>
+							<string>Lowestoft</string>
+							<key>latitude</key>
+							<string></string>
+							<key>longitude</key>
+							<string></string>
+							<key>name</key>
+							<string>Marine Parade Surgery</string>
+							<key>phone</key>
+							<string>01502 574072</string>
+							<key>postcode</key>
+							<string>NR33 0QL</string>
+							<key>website</key>
+							<string>www.marineparadeandoultonsurgery.co.uk</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Oulton Medical Centre</string>
+							<key>address</key>
+							<string>Meadow Road</string>
+							<key>address2</key>
+							<string>Oulton</string>
+							<key>city</key>
+							<string>Lowestoft</string>
+							<key>latitude</key>
+							<string></string>
+							<key>longitude</key>
+							<string></string>
+							<key>name</key>
+							<string>Oulton Medical Centre</string>
+							<key>phone</key>
+							<string>01502 501535</string>
+							<key>postcode</key>
+							<string>NR32 3AZ</string>
+							<key>website</key>
+							<string>www.marineparadeandoultonsurgery.co.uk</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Millwood Surgery</string>
+					<key>address</key>
+					<string>Mill Lane</string>
+					<key>address2</key>
+					<string>Bradwell</string>
+					<key>city</key>
+					<string>Gt Yarmouth</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Millwood Surgery</string>
+					<key>phone</key>
+					<string>01493 661549</string>
+					<key>postcode</key>
+					<string>NR31 8HS</string>
+					<key>website</key>
+					<string>www.millwoodsurgery.co.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Nelson Medical Practice</string>
+					<key>address</key>
+					<string>Pasteur Road</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Gt Yarmouth</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Nelson Medical Practice</string>
+					<key>phone</key>
+					<string>01493 419600</string>
+					<key>postcode</key>
+					<string>NR31 0DW</string>
+					<key>website</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Newtown Surgery and Caister Health Centre</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Title</key>
+							<string>Newtown Surgery</string>
+							<key>address</key>
+							<string>147 Lawn Avenue</string>
+							<key>address2</key>
+							<string></string>
+							<key>city</key>
+							<string>Gt Yarmouth</string>
+							<key>latitude</key>
+							<string></string>
+							<key>longitude</key>
+							<string></string>
+							<key>name</key>
+							<string>Newtown Surgery</string>
+							<key>phone</key>
+							<string>08444 997070</string>
+							<key>postcode</key>
+							<string>NR30 1AP</string>
+							<key>website</key>
+							<string></string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Caister Health Centre</string>
+							<key>address</key>
+							<string>West Road</string>
+							<key>address2</key>
+							<string>Caister</string>
+							<key>city</key>
+							<string>Gt Yarmouth</string>
+							<key>latitude</key>
+							<string></string>
+							<key>longitude</key>
+							<string></string>
+							<key>name</key>
+							<string>Caister Health Centre</string>
+							<key>phone</key>
+							<string>08444 996969</string>
+							<key>postcode</key>
+							<string>NR30 5AQ</string>
+							<key>website</key>
+							<string></string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Park Surgery</string>
+					<key>address</key>
+					<string>4 Alexandra Road</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Gt Yarmouth</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Park Surgery</string>
+					<key>phone</key>
+					<string>01493 855672</string>
+					<key>postcode</key>
+					<string>NR30 2HW</string>
+					<key>website</key>
+					<string>www.parksurgerygreatyarmouth.nhs.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Rosedale Surgery</string>
+					<key>address</key>
+					<string>Ashburnham Way</string>
+					<key>address2</key>
+					<string>Carlton Colville</string>
+					<key>city</key>
+					<string>Lowestoft</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Rosedale Surgery</string>
+					<key>phone</key>
+					<string>01502 505100</string>
+					<key>postcode</key>
+					<string>NR33 8LG</string>
+					<key>website</key>
+					<string>www.rosedalesurgery.co.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>South Quay Surgery</string>
+					<key>address</key>
+					<string>35-36 South Quay</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Gt Yarmouth</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>South Quay Surgery</string>
+					<key>phone</key>
+					<string>01493 843196</string>
+					<key>postcode</key>
+					<string>NR30 2RG</string>
+					<key>website</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Southwold Surgery</string>
+					<key>address</key>
+					<string>York Road</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Southwold</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Southwold Surgery</string>
+					<key>phone</key>
+					<string>01502 722326</string>
+					<key>postcode</key>
+					<string>IP18 6AN</string>
+					<key>website</key>
+					<string>www.southwoldsurgery.co.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Victoria Road Surgery</string>
+					<key>address</key>
+					<string>82 Victoria Road</string>
+					<key>address2</key>
+					<string>Oulton Broard</string>
+					<key>city</key>
+					<string>Lowestoft</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Victoria Road Surgery</string>
+					<key>phone</key>
+					<string>01502 572369</string>
+					<key>postcode</key>
+					<string>NR33 9LU</string>
+					<key>website</key>
+					<string>www.victoriaroadsurgery.nhs.uk</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Westwood Surgery</string>
+					<key>address</key>
+					<string>47 Westwood Avenue</string>
+					<key>address2</key>
+					<string></string>
+					<key>city</key>
+					<string>Lowestoft</string>
+					<key>latitude</key>
+					<string></string>
+					<key>longitude</key>
+					<string></string>
+					<key>name</key>
+					<string>Westwood Surgery</string>
+					<key>phone</key>
+					<string>01502 588854</string>
+					<key>postcode</key>
+					<string>NR33 9RW</string>
+					<key>website</key>
+					<string></string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Cardiology/Stroke</string>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Title</key>
+					<string>Consultants</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Atrial Fibrillation</string>
+					<key>View</key>
+					<integer>22</integer>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Heart Failure</string>
+					<key>View</key>
+					<integer>23</integer>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Hypertension</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Diabetes</string>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Title</key>
+					<string>Consultants</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Desmond</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Title</key>
+							<string>Item 1</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Item 2</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Diabetes Manager</string>
+					<key>Children</key>
+					<array>
+						<dict>
+							<key>Title</key>
+							<string>Item 1</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Item 2</string>
+						</dict>
+						<dict>
+							<key>Title</key>
+							<string>Item 3</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>New Diabetic Agent</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Gastroenterology</string>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Title</key>
+					<string>Dyspepsia Pathway</string>
+					<key>View</key>
+					<integer>31</integer>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Irritable Bowel</string>
+					<key>View</key>
+					<integer>32</integer>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Rectal Bleeding</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Urology</string>
+			<key>Children</key>
+			<array>
+				<dict>
+					<key>Title</key>
+					<string>LUTS</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Prostate Carcinoma</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Testicular lumps</string>
+				</dict>
+				<dict>
+					<key>Title</key>
+					<string>Hydrocoeles</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Trauma and orthopaedics</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Ophthalmology</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Dermatology</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>ENT</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Cancer &amp; TWW</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Haematology</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Mental Health </string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Gynae/Obstetrics/fertility services</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Child protection</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Palliative Care</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Respiratory</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Prescribing</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>OOH and Ambulance</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Rheumatology</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Parkinson&apos;s, MS and MND</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Case Management</string>
+		</dict>
+	</array>
+</dict>
+</plist>
