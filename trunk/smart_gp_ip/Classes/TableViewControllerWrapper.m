@@ -11,7 +11,7 @@
 
 @implementation TableViewControllerWrapper
 
-@synthesize tableView, tableVC;
+@synthesize tableView, tableVC, dataArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -19,6 +19,8 @@
 	tableVC.tableView = tableView;
 	[tableVC viewDidLoad];
 	self.title = @"Table View";
+	tableVC.dataArray = dataArray;
+	tableVC.navController = self.navigationController;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,7 +33,7 @@
 
 - (void)dealloc {
 	[tableVC release];
-	[tableView dealloc];
+	[tableView release];
     [super dealloc];
 }
 

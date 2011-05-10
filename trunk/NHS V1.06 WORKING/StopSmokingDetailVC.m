@@ -39,7 +39,7 @@
 	
 	informacion = [informacion stringByReplacingOccurrencesOfString:@"(null)" withString:@""] ;
 	
-	email = [NSString stringWithFormat: @"%@?Subject=NHS Yorkshire and Humber: Details of centre&body=%@", email, (@"%@", informacion)] ; 
+	email = [NSString stringWithFormat: @"%@?Subject=NHS Bristol: Details of centre&body=%@", email, (@"%@", informacion)] ; 
 	
 	email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]] ;

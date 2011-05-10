@@ -13,14 +13,11 @@
 
 @synthesize window;
 
-
-#pragma mark -
-#pragma mark Application lifecycle
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 	navCtrl = [[UINavigationController alloc] init];
 	window.rootViewController = navCtrl;
 	TableViewControllerWrapper* tvcw = [[TableViewControllerWrapper alloc] initWithNibName:nil bundle:nil];
+	tvcw.dataArray = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"smart_gp_data" ofType:@"plist"]] objectForKey:@"Children"];
 	[navCtrl pushViewController:tvcw animated:NO];
 	[tvcw release];
     [window makeKeyAndVisible];
@@ -30,17 +27,12 @@
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application {
 }
-
 - (void)applicationWillEnterForeground:(UIApplication *)application {
 }
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 }
 - (void)applicationWillTerminate:(UIApplication *)application {
 }
-
-#pragma mark -
-#pragma mark Memory management
-
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
 }
 - (void)dealloc {
