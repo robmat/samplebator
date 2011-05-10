@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface TableViewController : UITableViewController {
-
+	NSArray* dataArray;
+	UINavigationController* navController;
 }
+
+@property (nonatomic, retain) NSArray* dataArray;
+@property (nonatomic, retain) UINavigationController* navController;
 
 @end
