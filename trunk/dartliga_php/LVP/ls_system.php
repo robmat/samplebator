@@ -68,7 +68,7 @@ function _schedule($eventid) {
 				// admin view
 				echo '<tr bgcolor="white"><td><div id="trm'.$mid.'" name="trm'.$mid.'"><table><tr>' ;
 			}
-			echo '<td width="80px">'.$mdate.'</td><td width="140px">'.$mlocation.'</td><td width="120px">'.$tname.'</td>';
+			echo '<td width="100px">'._editable_date( $mdate, $mid ).'</td><td width="140px">'.$mlocation.'</td><td width="120px">'.$tname.'</td>';
 			if ($LS_LEVEL>1){
 					// admin controls
 					echo '<td>'._input(0,'mkey'.$mid,$mkey)._input(1,'sh'.$mid,$mvsets,3,2).'</td>';
@@ -111,7 +111,15 @@ function _schedule($eventid) {
 	CloseTable();
 	echo '</div>'; #close maincontent-DIV
 }
-
+# Return an editable date
+function _editable_date( $mdate, $mid ) {
+	$date_arr = split('-', $mdate);
+	$ret = $mdate.'<img height="15" style="padding-left: 3px; position: relative; top: 3px;" src="images/edit24.png" onclick="editMatchDateShowControls(\'editMatchDateControls'.$mid.'\');" />';
+	$ret = $ret.'<div id="editMatchDateControls'.$mid.'">'._input( 1, 'ditMatchDateControlsYear'.$mid, $date_arr[0], 4, 4 ).' - ';
+	$ret = $ret._input( 1, 'ditMatchDateControlsMonth'.$mid, $date_arr[1], 2, 2 ).' - ';
+	$ret = $ret._input( 1, 'ditMatchDateControlsDay'.$mid, $date_arr[2], 2, 2 ).'</div>'; 
+	return $ret.'<script> $("#editMatchDateControls'.$mid.'").hide(); </script>';
+}
 
 function _roundhead($mround,$colspan){
 	// helper for the list displays
