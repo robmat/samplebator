@@ -50,3 +50,7 @@ function userTypeChange( userType ) {
 		$("#playeridlbl").hide();
 	}
 }
+//Show controlls used to edit date of a given match
+function editMatchDateShowControls( divId ) {
+	$('#' + divId).show();
+}
