@@ -111,13 +111,24 @@ function _schedule($eventid) {
 	CloseTable();
 	echo '</div>'; #close maincontent-DIV
 }
+# Edit date for given match
+function _edit_match_date( $match_id, $match_date ) {
+	global $dbi;
+	$update_result = sql_query( 'UPDATE tblmatch SET mdate = "'.$match_date.'" WHERE mid = '.$match_id, $dbi );
+	if ( $update_result ) {
+		return '[{<>}]ok_token[{<>}]';
+	} else {
+		return '[{<>}]failed_token[{<>}]';
+	}
+}
 # Return an editable date
 function _editable_date( $mdate, $mid ) {
-	$date_arr = split('-', $mdate);
-	$ret = $mdate.'<img height="15" style="padding-left: 3px; position: relative; top: 3px;" src="images/edit24.png" onclick="editMatchDateShowControls(\'editMatchDateControls'.$mid.'\');" />';
-	$ret = $ret.'<div id="editMatchDateControls'.$mid.'">'._input( 1, 'ditMatchDateControlsYear'.$mid, $date_arr[0], 4, 4 ).' - ';
-	$ret = $ret._input( 1, 'ditMatchDateControlsMonth'.$mid, $date_arr[1], 2, 2 ).' - ';
-	$ret = $ret._input( 1, 'ditMatchDateControlsDay'.$mid, $date_arr[2], 2, 2 ).'</div>'; 
+	$date_arr = explode('-', $mdate);
+	$ret = '<span id="matchDateSpan'.$mid.'">'.$mdate.'</span><img height="15" style="padding-left: 3px; position: relative; top: 3px;" src="images/edit24.png" onclick="editMatchDateShowControls(\'editMatchDateControls'.$mid.'\');" />';
+	$ret = $ret.'<div id="editMatchDateControls'.$mid.'">'._input( 1, 'editMatchDateControlsYear'.$mid, $date_arr[0], 4, 4 ).' - ';
+	$ret = $ret._input( 1, 'editMatchDateControlsMonth'.$mid, $date_arr[1], 2, 2 ).' - ';
+	$ret = $ret._input( 1, 'editMatchDateControlsDay'.$mid, $date_arr[2], 2, 2 ).'<br/>';
+	$ret = $ret._button( 'Commit change', 'editMatchDateCommitChange('.$mid.');' ).'</div>'; 
 	return $ret.'<script> $("#editMatchDateControls'.$mid.'").hide(); </script>';
 }
 
@@ -640,7 +651,8 @@ if (isset($_REQUEST['ateam'])&& is_numeric($_REQUEST['ateam'])) {$a_team=strip_t
 if (isset($_REQUEST['rnum'])&& is_numeric($_REQUEST['rnum'])) {$r_num=strip_tags($_REQUEST['rnum']);}else{$r_num=1;};
 if (isset($_REQUEST['vdate'])) {$v_date=strip_tags($_REQUEST['vdate']);}else{$v_date='1901-01-01';};
 if (isset($_REQUEST['mlocation'])) {$m_loc=$_REQUEST['mlocation'];}else{$m_loc=null;};
-
+if (isset($_REQUEST['matchId'])&& $_REQUEST['matchId']<>"undefined") {$match_id=strip_tags($_REQUEST['matchId']);}else{$match_id='NULL';};
+if (isset($_REQUEST['matchDate'])&& $_REQUEST['matchDate']<>"undefined") {$match_date=strip_tags($_REQUEST['matchDate']);}else{$match_date='NULL';};
 
 switch($myfunc) {
 
@@ -712,6 +724,11 @@ switch($myfunc) {
 		// called from the matchsheet
 		_savewomatch($match_key,$event_id,$wo_team,$win_team);
 		_schedule($event_id);
+		break;
+		
+	case "editdate":
+		// called from the js_func.js
+		echo _edit_match_date( $match_id, $match_date );
 		break;
 }
 

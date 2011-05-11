@@ -50,7 +50,36 @@ function userTypeChange( userType ) {
 		$("#playeridlbl").hide();
 	}
 }
-//Show controlls used to edit date of a given match
+// Show controlls used to edit date of a given match
 function editMatchDateShowControls( divId ) {
-	$('#' + divId).show();
+	$( '#' + divId ).show();
+	var trElement = document.getElementById( divId ).parentNode;
+	trElement.style.width = '180';
+}
+// Commit date for give match
+function editMatchDateCommitChange( matchId ) {
+	var day = document.getElementById( 'editMatchDateControlsDay' + matchId ).value;
+	var mon = document.getElementById( 'editMatchDateControlsMonth' + matchId ).value;
+	var yer = document.getElementById( 'editMatchDateControlsYear' + matchId ).value;
+	if ( day && mon && yer ) {
+		var dateStr = yer + '-' + mon + '-' + day;
+		$.ajax(
+		{
+			type: 	"POST",
+			url: 	"ls_system.php",
+			data: 	"func=editdate&matchId=" + matchId + "&matchDate=" + dateStr,
+			success: function( msg ) {
+				if ( msg.indexOf( '[{<>}]ok_token[{<>}]' ) != -1 ) {
+					document.getElementById( 'matchDateSpan' + matchId ).innerHTML = dateStr;
+					$( '#editMatchDateControls' + matchId ).hide();
+					var trElement = document.getElementById( 'editMatchDateControls' + matchId ).parentNode;
+					trElement.style.width = '100';
+				}
+				if ( msg.indexOf( '[{<>}]failed_token[{<>}]' ) != -1 ) {
+					alert('Edit failed. Try again.');
+				}
+			}
+		}
+	);
+	}	
 }
