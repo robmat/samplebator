@@ -83,3 +83,20 @@ function editMatchDateCommitChange( matchId ) {
 	);
 	}	
 }
+// Reset user login fail count to 0
+function resetUserLoginFailcount( uid ) {
+	$.ajax({
+		type: 	"POST",
+		url: 	"admin_system_users.php",
+		data: 	"op=reset_user_failcount&user_id=" + uid,
+		success: function( msg ) {
+			if ( msg.indexOf( '[{<>}]ok_token[{<>}]' ) != -1 ) {
+				alert('Reset OK. User can login again.');
+				window.location.href = 'admin_system_users.php';
+			}
+			if ( msg.indexOf( '[{<>}]failed_token[{<>}]' ) != -1 ) {
+				alert('Reset failed. Try again.');
+			}
+		}
+	});
+}
