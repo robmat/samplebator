@@ -8,17 +8,20 @@ require_once('func_lsdb.php');
 # Return full user list html
 function user_list() {
 	global $dbi;
-	$query_result = sql_query( 'SELECT u.id, u.fullname, u.uname, u.email, u.pass, u.uactive, t.typename, t.id FROM tuser u, ttypeuser t WHERE t.id = usertype_id ORDER BY u.id', $dbi );
+	$query_result = sql_query( 'SELECT u.id, u.fullname, u.uname, u.email, u.pass, u.uactive, t.typename, t.id, u.failcount FROM tuser u, ttypeuser t WHERE t.id = usertype_id ORDER BY u.id', $dbi );
 	
 	# Table header
 	$ret = '<table><tr><td class="thead">Act.</td><td class="thead">Id</td><td class="thead">Full name</td>';
-	$ret = $ret.'<td class="thead">Login</td><td class="thead">Email</td><td class="thead">Pass md5</td><td class="thead">User type</td><td class="thead">Del</td></tr>';
+	$ret = $ret.'<td class="thead">Login</td><td class="thead">Email</td><td class="thead">Pass md5</td><td class="thead">User type</td><td class="thead">Del</td>';
+	$ret = $ret.'<td class="thead">Login fail count</td></tr>';
 	
-	while ( list( $id, $fullname, $uname, $email, $pass, $user_active, $typename, $typeid ) = sql_fetch_row( $query_result, $dbi ) ) {
+	while ( list( $id, $fullname, $uname, $email, $pass, $user_active, $typename, $typeid, $failcount ) = sql_fetch_row( $query_result, $dbi ) ) {
 		$ret = $ret.'<tr><td><img src="images/'.( $user_active ? 'greenman.png' : 'redman.png').'" /></td>';
 		$ret = $ret.'<td>'.$id.'</td><td>'.$fullname.'</td><td>'.$uname.'</td><td>'.$email.'</td><td>'.$pass.'</td><td>'.$typename.'</td>';
 		# delete btn doesn't delete sys admin users
-		$ret = $ret.'<td>'.($typeid == 6 ? '' :'<img src="images/del_icon.png" style="cursor: pointer;" onclick="deleteUser('.$id.');" />').'</td></tr>';
+		$ret = $ret.'<td>'.($typeid == 6 ? '' :'<img src="images/del_icon.png" style="cursor: pointer;" onclick="deleteUser('.$id.');" />').'</td>';
+		$ret = $ret.'<td align="center">'.$failcount;
+		$ret = $ret.'<img src="images/unlock.png" onclick="resetUserLoginFailcount('.$id.');" style="cursor: pointer; padding-left: 3px; width: 15px; position: relative; top: 3px;" /></td></tr>';
 	}
 	
 	return $ret.'</table>';
@@ -140,6 +143,17 @@ function delete_user() {
 	return '';
 }
 
+# Function will reset failcount for user with given id
+function reset_user_failcount( $uid ) {
+	global $dbi;
+	$reset_result = sql_query( 'UPDATE tuser SET failcount = 0 WHERE id = '.$uid, $dbi );
+	if ( $reset_result ) {
+		return '[{<>}]ok_token[{<>}]';
+	} else {
+		return '[{<>}]failed_token[{<>}]';
+	}
+}
+
 # START OUTPUT
 
 LS_page_start();
@@ -158,9 +172,10 @@ if ( !isset( $usertoken ) ) {
 	switch ( $myop ) {
 		case 'user_list': { echo user_list(); break; }
 		case 'new_user': { echo user_form(); break;	}
-		case 'new_user_creation': { echo user_validate_form(); break;	}
-		case 'new_user_created': { echo user_created(); break;	}
-		case 'del_user': { echo delete_user(); break;	}
+		case 'new_user_creation': { echo user_validate_form(); break; }
+		case 'new_user_created': { echo user_created(); break; }
+		case 'del_user': { echo delete_user(); break; }
+		case 'reset_user_failcount': { echo reset_user_failcount( $_REQUEST['user_id'] ); break; }
 	}
 	echo '</td></tr></table>'; # end table
 }
