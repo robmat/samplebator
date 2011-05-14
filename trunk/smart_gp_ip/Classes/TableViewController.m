@@ -8,6 +8,7 @@
 
 #import "TableViewController.h"
 #import "TableViewControllerWrapper.h"
+#import "PathwayCell.h"
 
 @implementation TableViewController
 
@@ -24,13 +25,22 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary* dataDict = [dataArray objectAtIndex: indexPath.row];
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"PathwayCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    PathwayCell *cell = (PathwayCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+		
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"PathwayCell" owner:self options:nil];
+        
+        for (id currentObject in topLevelObjects){
+            if ([currentObject isKindOfClass:[UITableViewCell class]]){
+                cell =  (PathwayCell *) currentObject;
+                break;
+            }
+        }
     }
-	cell.textLabel.text = [dataDict objectForKey:@"Title"];
+
+	cell.label.text = [dataDict objectForKey:@"Title"];
 	
 	NSString* address = [dataDict objectForKey:@"address"] == nil ? @"" : [dataDict objectForKey:@"address"];
 	NSString* address2 = [dataDict objectForKey:@"address2"] == nil ? @"" : [dataDict objectForKey:@"address2"];
@@ -38,7 +48,7 @@
 	NSString* phone = [dataDict objectForKey:@"phone"] == nil ? @"" : [dataDict objectForKey:@"phone"];
 	NSString* postcode = [dataDict objectForKey:@"postcode"] == nil ? @"" : [dataDict objectForKey:@"postcode"];
 	NSString* addressStr = [NSString stringWithFormat:@"%@ %@ %@ %@ %@", address, address2, postcode, city, phone];
-	cell.detailTextLabel.text = addressStr;
+	cell.detailLabel.text = addressStr;
 	NSArray* arr = [dataDict objectForKey:@"Children"];
 	if (arr != nil && [arr isKindOfClass:[NSArray class]] && [arr count] > 1) {
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -58,7 +68,9 @@
 		[tableVCWrapper release];
 	}
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 64.0;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
