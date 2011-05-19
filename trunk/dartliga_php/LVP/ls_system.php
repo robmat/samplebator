@@ -57,22 +57,24 @@ function _schedule($eventid) {
 	
 	OpenTable();
 	while(list($mid,$mkey,$mround,$mdate,$mlocation,$mstatus,$mthome,$mvlegs,$mvsets,$tid,$tname)=sql_fetch_row($precord,$dbi)){
+		$jumptarget='ls_system.php?func=showmatch&vmkey='.$mkey.'&eventid='.$eventid;
 		if ( $lastround<>$mround ) echo _roundhead($mround,10);
 		if ($lastmid<>$mid) {
 			#// Home TEAM
 			if ($LS_LEVEL<2){
 				// user view
-				$jumptarget='ls_system.php?func=showmatch&vmkey='.$mkey.'&eventid='.$eventid;
-				echo '<tr class="clickcell" onclick=\'document.location="'.$jumptarget.'"\' onMouseOver="mover(this)" onMouseOut="mout(this)">';
+				echo '<tr class="clickcell" onMouseOver="mover(this)" onMouseOut="mout(this)">';
 			} else {
 				// admin view
 				echo '<tr bgcolor="white"><td><div id="trm'.$mid.'" name="trm'.$mid.'"><table><tr>' ;
 			}
-			echo '<td width="100px">'._editable_date( $mdate, $mid ).'</td><td width="140px">'.$mlocation.'</td><td width="120px">'.$tname.'</td>';
+			echo '<td width="100px">';
+			echo _editable_date( $mdate, $mid ).'</td><td width="140px" onclick=\'document.location="'.$jumptarget.'"\'>'.$mlocation.'</td>';
+			echo '<td width="120px" onclick=\'document.location="'.$jumptarget.'"\'>'.$tname.'</td>';
 			if ($LS_LEVEL>1){
 					// admin controls
-					echo '<td>'._input(0,'mkey'.$mid,$mkey)._input(1,'sh'.$mid,$mvsets,3,2).'</td>';
-					echo '<td>'._input(1,'lh'.$mid,$mvlegs,3,2).'</td>';
+					echo '<td onclick=\'document.location="'.$jumptarget.'"\'>'._input(0,'mkey'.$mid,$mkey)._input(1,'sh'.$mid,$mvsets,3,2).'</td>';
+					echo '<td onclick=\'document.location="'.$jumptarget.'"\'>'._input(1,'lh'.$mid,$mvlegs,3,2).'</td>';
 			} else {
 					echo '<td>'._input(2,'',$mvsets,2).'</td>';
 					echo '<td>'._input(2,'',$mvlegs,3).'</td>';
@@ -82,13 +84,13 @@ function _schedule($eventid) {
 			# // AWAY TEAM
 			if ($LS_LEVEL>1){
 				// admin controls
-				echo '<td>'._input(1,'sa'.$mid,$mvsets,3,2).'</td>';
-				echo '<td>'._input(1,'la'.$mid,$mvlegs,3,2).'</td>';
+				echo '<td onclick=\'document.location="'.$jumptarget.'"\'>'._input(1,'sa'.$mid,$mvsets,3,2).'</td>';
+				echo '<td onclick=\'document.location="'.$jumptarget.'"\'>'._input(1,'la'.$mid,$mvlegs,3,2).'</td>';
 			} else {
 				echo '<td>'._input(2,'',$mvsets,2).'</td>';
 				echo '<td>'._input(2,'',$mvlegs,3).'</td>';
 			}
-			echo '<td width=120px>'.$tname.'</td>';
+			echo '<td width=120px onclick=\'document.location="'.$jumptarget.'"\'>'.$tname.'</td>';
 			echo '<td>';
 			echo matchStatusToImage($mstatus);
 			echo '</td>';
