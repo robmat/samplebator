@@ -8,20 +8,22 @@ require_once('func_lsdb.php');
 # Return full user list html
 function user_list() {
 	global $dbi;
-	$query_result = sql_query( 'SELECT u.id, u.fullname, u.uname, u.email, u.pass, u.uactive, t.typename, t.id, u.failcount FROM tuser u, ttypeuser t WHERE t.id = usertype_id ORDER BY u.id', $dbi );
+	$query_result = sql_query( 'SELECT u.id, u.fullname, u.uname, u.email, u.pass, u.uactive, t.typename, t.id, u.failcount FROM tuser u, ttypeuser t WHERE t.id = usertype_id ORDER BY u.fullname', $dbi );
 	
 	# Table header
 	$ret = '<table><tr><td class="thead">Act.</td><td class="thead">Id</td><td class="thead">Full name</td>';
 	$ret = $ret.'<td class="thead">Login</td><td class="thead">Email</td><td class="thead">Pass md5</td><td class="thead">User type</td><td class="thead">Del</td>';
-	$ret = $ret.'<td class="thead">Login fail count</td></tr>';
+	$ret = $ret.'<td class="thead">Login fail count</td><td class="thead">Edit</td></tr>';
 	
 	while ( list( $id, $fullname, $uname, $email, $pass, $user_active, $typename, $typeid, $failcount ) = sql_fetch_row( $query_result, $dbi ) ) {
 		$ret = $ret.'<tr><td><img src="images/'.( $user_active ? 'greenman.png' : 'redman.png').'" /></td>';
 		$ret = $ret.'<td>'.$id.'</td><td>'.$fullname.'</td><td>'.$uname.'</td><td>'.$email.'</td><td>'.$pass.'</td><td>'.$typename.'</td>';
 		# delete btn doesn't delete sys admin users
-		$ret = $ret.'<td>'.($typeid == 6 ? '' :'<img src="images/del_icon.png" style="cursor: pointer;" onclick="deleteUser('.$id.');" />').'</td>';
+		$ret = $ret.'<td><img src="images/del_icon.png" style="cursor: pointer;" onclick="deleteUser('.$id.');" /></td>';
 		$ret = $ret.'<td align="center">'.$failcount;
-		$ret = $ret.'<img src="images/unlock.png" onclick="resetUserLoginFailcount('.$id.');" style="cursor: pointer; padding-left: 3px; width: 15px; position: relative; top: 3px;" /></td></tr>';
+		$ret = $ret.'<img src="images/unlock.png" onclick="resetUserLoginFailcount('.$id.');" style="cursor: pointer; padding-left: 3px; width: 15px; position: relative; top: 3px;" /></td>';
+		$location_path = 'admin_system_users.php?op=new_user&uid='.$id;
+		$ret = $ret.'<td><img src="images/edit24.png" style="cursor: pointer;" onclick="window.location.href = \''.$location_path.'\'" /></td></tr>';
 	}
 	
 	return $ret.'</table>';
@@ -38,19 +40,29 @@ function user_form() {
 	if ( isset( $_REQUEST['utype'] ) ) { $utype=strip_tags( $_REQUEST['utype'] ); }
 	if ( isset( $_REQUEST['organisation'] ) ) { $organisation=strip_tags( $_REQUEST['organisation'] ); }
 	if ( isset( $_REQUEST['location'] ) ) { $location=strip_tags( $_REQUEST['location'] ); }
+	if ( isset( $_REQUEST['uactive'] ) ) { $uactive=strip_tags( $_REQUEST['uactive'] ); }
 	
-	$utype_query_result = sql_query( 'SELECT t.id, t.typename FROM ttypeuser t', $dbi );
-	$organ_query_result = sql_query( 'SELECT v.vid, v.vname FROM tverein v', $dbi );
-	$locat_query_result = sql_query( 'SELECT l.id, l.lname FROM tbllocation l', $dbi );
+	$name = '';	$uname = ''; $pass = ''; $useraclevel = ''; $utype = ''; $email = ''; $organisation = ''; $theme = ''; $uactive = ''; $failcount = ''; $location_id = ''; $player_id = '';
+	
+	if ( isset( $_REQUEST['uid'] ) && !empty( $_REQUEST['uid'] ) ) { 
+		$uid = $_REQUEST['uid'];
+		$user_result = sql_query( 'SELECT fullname,	uname, pass, useraclevel, usertype_id, email, verein_id, theme, uactive, failcount,	location_id, player_id FROM tuser WHERE id = '.$uid, $dbi );
+		list( $name, $uname, $pass, $useraclevel, $utype, $email, $organisation, $theme, $uactive, $failcount, $location_id, $player_id ) = sql_fetch_row( $user_result, $dbi );
+		$uid = '&uid='.$uid;
+	}
+
+	$utype_query_result = sql_query( 'SELECT t.id, t.typename FROM ttypeuser t ORDER BY id', $dbi );
+	$organ_query_result = sql_query( 'SELECT v.vid, v.vname FROM tverein v ORDER BY vname', $dbi );
+	$locat_query_result = sql_query( 'SELECT l.id, l.lname FROM tbllocation l ORDER BY lname', $dbi );
 	$playr_query_result = sql_query( 'SELECT p.pid, p.pfname, p.plname FROM tplayer p ORDER BY p.plname', $dbi );
 	
-	$ret = '<form action="admin_system_users.php?op=new_user_creation" method="post">';
+	$ret = '<form action="admin_system_users.php?op=new_user_creation'.$uid.'" method="post">';
 	$ret = $ret.'<table><tr><td>Name and surname:</td><td>';
 	$ret = $ret._input( 1, 'name', $name, 50, 50 );
 	$ret = $ret.'</td></tr><tr><td>User name:</td><td>';
 	$ret = $ret._input( 1, 'uname', $uname, 50, 50 );
 	$ret = $ret.'</td></tr><tr><td>Password:</td><td>';
-	$ret = $ret._input( 1, 'pass', $pass, 50, 50 );
+	$ret = $ret.$pass;//_input( 1, 'pass', $pass, 50, 50 );
 	$ret = $ret.'</td></tr><tr><td>Email:</td><td>';
 	$ret = $ret._input( 1, 'email', $email, 50, 50 );
 	$ret = $ret.'</td></tr><tr><td>User type:</td><td>';
@@ -63,24 +75,30 @@ function user_form() {
 	$ret = $ret.'</td></tr><tr><td id="playeridlbl">Player data connected:</td><td>';
 	$ret = $ret.'<select id="playerid" name="playerid">';
 	while ( list( $id, $fname, $lname ) = sql_fetch_row( $playr_query_result, $dbi ) ) {
-		$ret = $ret.'<option value="'.$id.'">'.$lname.' '.$fname.'</option>';
+		$selected = strcmp( $player_id, $id ) == 0 ? 'selected="selected"' : '';
+		$ret = $ret.'<option '.$selected.' value="'.$id.'">'.$lname.' '.$fname.'</option>';
 	}
 	$ret = $ret.'</select>';
 	$ret = $ret.'</td></tr><tr><td>Verein:</td><td>';
 	$ret = $ret.'<select id="organisation" name="organisation">';
 	while ( list( $id, $name ) = sql_fetch_row( $organ_query_result, $dbi ) ) {
-		$ret = $ret.'<option value="'.$id.'">'.$name.'</option>';
+		$selected = strcmp( $organisation, $id ) == 0 ? 'selected="selected"' : '';
+		$ret = $ret.'<option '.$selected.' value="'.$id.'">'.$name.'</option>';
 	}
 	$ret = $ret.'</select>';
 	$ret = $ret.'</td></tr><tr><td>Location:</td><td>';
 	$ret = $ret.'<select id="location" name="location">';
 	while ( list( $id, $name ) = sql_fetch_row( $locat_query_result, $dbi ) ) {
-		$ret = $ret.'<option value="'.$id.'">'.$name.'</option>';
+		$selected = strcmp( $location_id, $id ) == 0 ? 'selected="selected"' : '';
+		$ret = $ret.'<option '.$selected.' value="'.$id.'">'.$name.'</option>';
 	}
 	$ret = $ret.'</select>';
-	$ret = $ret.'</td></tr><tr><td>AC level:</td><td>';
-	$ret = $ret._input(1, 'aclevel');
-	$ret = $ret.'</td></tr><tr><td></td><td>'._button('Create user');
+	$ret = $ret.'</td></tr>';
+	$ret = $ret.'<tr><td>Active:</td><td><select id="uactive" name="uactive">';
+	$ret = $ret.'<option value="1" '.( $uactive == '1' ? 'selected="selected"' : '' ).'>Active</option>';
+	$ret = $ret.'<option value="0" '.( $uactive == '0' ? 'selected="selected"' : '' ).'>Inactive</option>';
+	$ret = $ret.'</select></td></tr>';
+	$ret = $ret.'<tr><td></td><td>'._button( !empty( $_REQUEST['uid'] ) ? 'Update user' : 'Create user' );
 	$ret = $ret.'</td></tr></table>';
 	$ret = $ret.'</form><script> $("#playerid").hide(); $("#playeridlbl").hide(); </script>'; #hide player data chooser until player user type is choosen
 	return $ret;
@@ -93,7 +111,7 @@ function user_validate_form() {
 	$ret = '<div style="color: red; padding: 5px;">';
 	if ( empty( $_REQUEST['name'] ) ) { $ret = $ret.'Name required!<br/>'; }
 	if ( empty( $_REQUEST['uname'] ) ) { $ret = $ret.'User name required!<br/>'; }
-	if ( empty( $_REQUEST['pass'] ) ) { $ret = $ret.'Password required!<br/>'; }
+	if ( empty( $_REQUEST['pass'] ) && !( isset( $_REQUEST['uid'] ) && !empty( $_REQUEST['uid'] ) ) ) { $ret = $ret.'Password required!<br/>'; }
 	$ret = $ret.'</div>';
 	
 	if ( strcmp( $ret, '<div style="color: red; padding: 5px;"></div>' )  == 0 ) { # valid
@@ -106,15 +124,22 @@ function user_validate_form() {
 		$location = $_REQUEST['location'];
 		$aclevel = $_REQUEST['aclevel'];
 		$playerid = $utype == 0 ? $_REQUEST['playerid'] : 0; # if user is not a player ignore his player data connection
+		$uactive = $_REQUEST['uactive'];
 		
 		$sql = 'INSERT INTO tuser (id, version, fullname, uname, pass, useraclevel, usertype_id, email, verein_id, theme, uactive, failcount, location_id, player_id) VALUES ';
-		$sql = $sql.' (0, 0, "'.$name.'", "'.$uname.'", "'.$pass.'", "'.$aclevel.'", '.$utype.', "'.$email.'", '.$organisation.', "Lite", 1, 0, '.$location.', '.$playerid.') ';
-		$insert_result = sql_query( $sql, $dbi );
+		$sql = $sql.' (0, 0, "'.$name.'", "'.$uname.'", "'.$pass.'", "'.$aclevel.'", '.$utype.', "'.$email.'", '.$organisation.', "Lite", '.$uactive.', 0, '.$location.', '.$playerid.') ';
+		
+		if ( isset( $_REQUEST['uid'] ) && !empty( $_REQUEST['uid'] ) ) {
+			$sql = 'UPDATE tuser SET fullname = "'.$name.'", uname = "'.$uname.'", usertype_id = '.$utype.', email = "'.$email.'", verein_id = '.$organisation;
+			$sql = $sql.', uactive = '.$uactive.', location_id = '.$location.', player_id = '.$playerid.' WHERE id = '.$_REQUEST['uid'];
+		}
+		
+		$insert_update_result = sql_query( $sql, $dbi );
 
-		if ($insert_result == TRUE) {
+		if ($insert_update_result == TRUE) {
 			$ret = $ret.'<script> window.location.href = "admin_system_users.php?op=new_user_created" </script>';		
 		} else {
-			$ret = $ret.'<div style="color: red;">Creation of a user failed for unknown reasons!</div>';		
+			$ret = $ret.'<div style="color: red;">Creation/update of a user failed for unknown reasons!</div>';		
 		}
 	} else {
 		$ret = $ret.user_form();
@@ -124,7 +149,7 @@ function user_validate_form() {
  
  # After succesful user creation show summary. 
  function user_created() {
-	$ret = 'Creation successful!<br/><br/>';
+	$ret = 'Creation/update successful!<br/><br/>';
 	$ret = $ret.user_list();
 	return $ret;
 }
