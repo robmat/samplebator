@@ -62,7 +62,7 @@ function user_form() {
 	$ret = $ret.'</td></tr><tr><td>User name:</td><td>';
 	$ret = $ret._input( 1, 'uname', $uname, 50, 50 );
 	$ret = $ret.'</td></tr><tr><td>Password:</td><td>';
-	$ret = $ret.$pass;//_input( 1, 'pass', $pass, 50, 50 );
+	$ret = $ret.'<input type="text" size="50" id="pass" name="pass" value="'.$pass.'" '.( empty( $uid ) ? '' : 'disabled' ).' />';
 	$ret = $ret.'</td></tr><tr><td>Email:</td><td>';
 	$ret = $ret._input( 1, 'email', $email, 50, 50 );
 	$ret = $ret.'</td></tr><tr><td>User type:</td><td>';
