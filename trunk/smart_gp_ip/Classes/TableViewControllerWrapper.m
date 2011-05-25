@@ -17,8 +17,8 @@
     [super viewDidLoad];
 	tableVC = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
 	tableVC.tableView = tableView;
+	tableView.backgroundColor = [UIColor clearColor];
 	[tableVC viewDidLoad];
-	self.title = @"Table View";
 	tableVC.dataArray = dataArray;
 	tableVC.navController = self.navigationController;
 }
