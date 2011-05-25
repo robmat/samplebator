@@ -47,7 +47,8 @@
 	NSString* city = [dataDict objectForKey:@"city"] == nil ? @"" : [dataDict objectForKey:@"city"];
 	NSString* phone = [dataDict objectForKey:@"phone"] == nil ? @"" : [dataDict objectForKey:@"phone"];
 	NSString* postcode = [dataDict objectForKey:@"postcode"] == nil ? @"" : [dataDict objectForKey:@"postcode"];
-	NSString* addressStr = [NSString stringWithFormat:@"%@ %@ %@ %@ %@", address, address2, postcode, city, phone];
+	NSString* website = [dataDict objectForKey:@"website"] == nil ? @"" : [dataDict objectForKey:@"website"];
+	NSString* addressStr = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@", address, address2, postcode, city, phone, website];
 	cell.detailLabel.text = addressStr;
 	NSArray* arr = [dataDict objectForKey:@"Children"];
 	if (arr != nil && [arr isKindOfClass:[NSArray class]] && [arr count] > 1) {
@@ -64,6 +65,7 @@
 	if (arr != nil && [arr isKindOfClass:[NSArray class]] && [arr count] > 1) {
 		TableViewControllerWrapper* tableVCWrapper = [[TableViewControllerWrapper alloc] initWithNibName:nil bundle:nil];
 		tableVCWrapper.dataArray = arr;
+		tableVCWrapper.title = [dataDict objectForKey:@"Title"];
 		[self.navController pushViewController:tableVCWrapper animated:YES];
 		[tableVCWrapper release];
 	}

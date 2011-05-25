@@ -8,6 +8,7 @@
 
 #import "smart_gp_ipAppDelegate.h"
 #import "TableViewControllerWrapper.h"
+#import "SplashScreenViewController.h"
 
 @implementation smart_gp_ipAppDelegate
 
@@ -16,10 +17,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 	navCtrl = [[UINavigationController alloc] init];
 	window.rootViewController = navCtrl;
-	TableViewControllerWrapper* tvcw = [[TableViewControllerWrapper alloc] initWithNibName:nil bundle:nil];
-	tvcw.dataArray = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"smart_gp_data" ofType:@"plist"]] objectForKey:@"Children"];
-	[navCtrl pushViewController:tvcw animated:NO];
-	[tvcw release];
+	SplashScreenViewController* svc = [[SplashScreenViewController alloc] initWithNibName:nil bundle:nil];
+	[navCtrl pushViewController:svc animated:NO];
+	[svc release];
     [window makeKeyAndVisible];
     return YES;
 }

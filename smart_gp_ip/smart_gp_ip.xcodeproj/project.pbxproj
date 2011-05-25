@@ -13,9 +13,20 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		CE6C5052138D83C50084AB8D /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C5050138D83C50084AB8D /* SplashScreenViewController.m */; };
+		CE6C5053138D83C50084AB8D /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6C5051138D83C50084AB8D /* SplashScreenViewController.xib */; };
+		CE6C5059138D87D40084AB8D /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C5057138D87D40084AB8D /* MainMenuViewController.m */; };
+		CE6C505A138D87D40084AB8D /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6C5058138D87D40084AB8D /* MainMenuViewController.xib */; };
 		CE6CF694137E83D800BB69CB /* PathwayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6CF693137E83D800BB69CB /* PathwayCell.m */; };
 		CE6CF696137E83F000BB69CB /* PathwayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6CF695137E83F000BB69CB /* PathwayCell.xib */; };
 		CE6CF69C137E858200BB69CB /* cell_back.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6CF69B137E858200BB69CB /* cell_back.png */; };
+		CE6E708813893282005B9C8B /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6E708113893282005B9C8B /* app_icon.png */; };
+		CE6E708913893282005B9C8B /* dyspepsia_path.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6E708213893282005B9C8B /* dyspepsia_path.png */; };
+		CE6E708A13893282005B9C8B /* gastroenterology_path.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6E708313893282005B9C8B /* gastroenterology_path.png */; };
+		CE6E708B13893282005B9C8B /* local_health_serv_path.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6E708413893282005B9C8B /* local_health_serv_path.png */; };
+		CE6E708C13893282005B9C8B /* remind_me_path.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6E708513893282005B9C8B /* remind_me_path.png */; };
+		CE6E708D13893282005B9C8B /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6E708613893282005B9C8B /* splash_screen.png */; };
+		CE6E708E13893282005B9C8B /* training_log_path.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6E708713893282005B9C8B /* training_log_path.png */; };
 		CE71309A13784DDF00B95FA0 /* smart_gp_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE71309913784DDF00B95FA0 /* smart_gp_data.plist */; };
 		CE7130A113784FBE00B95FA0 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7130A013784FBE00B95FA0 /* TableViewController.m */; };
 		CE7130A51378504C00B95FA0 /* TableViewControllerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7130A31378504C00B95FA0 /* TableViewControllerWrapper.m */; };
@@ -33,10 +44,23 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* smart_gp_ip_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smart_gp_ip_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* smart_gp_ip-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "smart_gp_ip-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		CE6C504F138D83C50084AB8D /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
+		CE6C5050138D83C50084AB8D /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
+		CE6C5051138D83C50084AB8D /* SplashScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
+		CE6C5056138D87D40084AB8D /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		CE6C5057138D87D40084AB8D /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		CE6C5058138D87D40084AB8D /* MainMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
 		CE6CF692137E83D800BB69CB /* PathwayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathwayCell.h; sourceTree = "<group>"; };
 		CE6CF693137E83D800BB69CB /* PathwayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathwayCell.m; sourceTree = "<group>"; };
 		CE6CF695137E83F000BB69CB /* PathwayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PathwayCell.xib; sourceTree = "<group>"; };
 		CE6CF69B137E858200BB69CB /* cell_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cell_back.png; path = images/cell_back.png; sourceTree = "<group>"; };
+		CE6E708113893282005B9C8B /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon.png; path = images/app_icon.png; sourceTree = "<group>"; };
+		CE6E708213893282005B9C8B /* dyspepsia_path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dyspepsia_path.png; path = images/dyspepsia_path.png; sourceTree = "<group>"; };
+		CE6E708313893282005B9C8B /* gastroenterology_path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gastroenterology_path.png; path = images/gastroenterology_path.png; sourceTree = "<group>"; };
+		CE6E708413893282005B9C8B /* local_health_serv_path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = local_health_serv_path.png; path = images/local_health_serv_path.png; sourceTree = "<group>"; };
+		CE6E708513893282005B9C8B /* remind_me_path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = remind_me_path.png; path = images/remind_me_path.png; sourceTree = "<group>"; };
+		CE6E708613893282005B9C8B /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = images/splash_screen.png; sourceTree = "<group>"; };
+		CE6E708713893282005B9C8B /* training_log_path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = training_log_path.png; path = images/training_log_path.png; sourceTree = "<group>"; };
 		CE71309913784DDF00B95FA0 /* smart_gp_data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = smart_gp_data.plist; sourceTree = "<group>"; };
 		CE71309F13784FBE00B95FA0 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		CE7130A013784FBE00B95FA0 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
@@ -72,6 +96,12 @@
 				CE6CF692137E83D800BB69CB /* PathwayCell.h */,
 				CE6CF693137E83D800BB69CB /* PathwayCell.m */,
 				CE6CF695137E83F000BB69CB /* PathwayCell.xib */,
+				CE6C504F138D83C50084AB8D /* SplashScreenViewController.h */,
+				CE6C5050138D83C50084AB8D /* SplashScreenViewController.m */,
+				CE6C5051138D83C50084AB8D /* SplashScreenViewController.xib */,
+				CE6C5056138D87D40084AB8D /* MainMenuViewController.h */,
+				CE6C5057138D87D40084AB8D /* MainMenuViewController.m */,
+				CE6C5058138D87D40084AB8D /* MainMenuViewController.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -129,6 +159,13 @@
 		CE6CF69A137E857100BB69CB /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CE6E708113893282005B9C8B /* app_icon.png */,
+				CE6E708213893282005B9C8B /* dyspepsia_path.png */,
+				CE6E708313893282005B9C8B /* gastroenterology_path.png */,
+				CE6E708413893282005B9C8B /* local_health_serv_path.png */,
+				CE6E708513893282005B9C8B /* remind_me_path.png */,
+				CE6E708613893282005B9C8B /* splash_screen.png */,
+				CE6E708713893282005B9C8B /* training_log_path.png */,
 				CE6CF69B137E858200BB69CB /* cell_back.png */,
 			);
 			name = images;
@@ -188,6 +225,15 @@
 				CE7130A61378504C00B95FA0 /* TableViewControllerWrapper.xib in Resources */,
 				CE6CF696137E83F000BB69CB /* PathwayCell.xib in Resources */,
 				CE6CF69C137E858200BB69CB /* cell_back.png in Resources */,
+				CE6E708813893282005B9C8B /* app_icon.png in Resources */,
+				CE6E708913893282005B9C8B /* dyspepsia_path.png in Resources */,
+				CE6E708A13893282005B9C8B /* gastroenterology_path.png in Resources */,
+				CE6E708B13893282005B9C8B /* local_health_serv_path.png in Resources */,
+				CE6E708C13893282005B9C8B /* remind_me_path.png in Resources */,
+				CE6E708D13893282005B9C8B /* splash_screen.png in Resources */,
+				CE6E708E13893282005B9C8B /* training_log_path.png in Resources */,
+				CE6C5053138D83C50084AB8D /* SplashScreenViewController.xib in Resources */,
+				CE6C505A138D87D40084AB8D /* MainMenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +249,8 @@
 				CE7130A113784FBE00B95FA0 /* TableViewController.m in Sources */,
 				CE7130A51378504C00B95FA0 /* TableViewControllerWrapper.m in Sources */,
 				CE6CF694137E83D800BB69CB /* PathwayCell.m in Sources */,
+				CE6C5052138D83C50084AB8D /* SplashScreenViewController.m in Sources */,
+				CE6C5059138D87D40084AB8D /* MainMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
