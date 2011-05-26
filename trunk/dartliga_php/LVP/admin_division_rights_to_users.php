@@ -10,7 +10,7 @@ global $usertoken;
 # List all admin liga users
 function admin_liga_list() {
 	global $dbi;
-	$sql =  'SELECT a.id, t.uname, e.evname, c.acdesc, a.aevactive, a.acomment '.
+	$sql =  'SELECT a.id, t.uname, e.evname, e.evyear, c.acdesc, a.aevactive, a.acomment '.
 			'FROM tbladminliga a, tblevent e, tligaaccesscode c, tuser t '.
 			'WHERE a.aevcode_id = e.id AND t.id = a.auid_id '.
 			'AND a.access_id = c.access_id '.
@@ -21,8 +21,8 @@ function admin_liga_list() {
 	$ret = '<table><tr><td class="thead">Id</td><td class="thead">Admin user name</td><td class="thead">Liga name</td><td class="thead">Access</td>';
 	$ret = $ret.'<td class="thead">Active</td><td class="thead">Comment</td><td class="thead">Del.</td><td class="thead">Edit</td></tr>';
 	
-	while ( list( $id, $auname, $evname, $acdesc, $aevactive, $acomment ) = sql_fetch_row( $query_result, $dbi ) ) {
-		$ret = $ret.'<tr><td>'.$id.'</td><td>'.$auname.'</td><td>'.$evname.'</td><td>'.$acdesc.'</td><td>'.$aevactive.'</td><td>'.$acomment.'</td>';
+	while ( list( $id, $auname, $evname, $evyear, $acdesc, $aevactive, $acomment ) = sql_fetch_row( $query_result, $dbi ) ) {
+		$ret = $ret.'<tr><td>'.$id.'</td><td>'.$auname.'</td><td>'.$evname.' '.$evyear.'</td><td>'.$acdesc.'</td><td>'.$aevactive.'</td><td>'.$acomment.'</td>';
 		$ret = $ret.'<td><img src="images/del_icon.png" style="cursor: pointer;" onclick="deleteAdminLiga('.$id.');" /></td>';
 		$location_path = 'admin_division_rights_to_users.php?op=new_admin_liga&aid='.$id;
 		$ret = $ret.'<td><img src="images/edit24.png" style="cursor: pointer;" onclick="window.location.href = \''.$location_path.'\'" /></td></tr>';
