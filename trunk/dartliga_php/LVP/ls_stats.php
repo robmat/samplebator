@@ -226,7 +226,7 @@ function _showlegstatDetails($eventid,$pid,$mode=2){
 	echo _MakeStatPageHeader($eventid,0);
 	echo '<h3>Graphische Darstellung - '.$head.'</h3>';
 	echo '<script language="JavaScript" src="code/legdatagraph.js"></script>';
-	echo '<div id="JG" style="position:relative;height:300px;width:700px"></div>';	
+	echo '<div id="JG" style="position:relative;height:500px;width:700px"></div>';	
 	
 	echo '<h3>Detailierte Auflistung - '.$head.'</h3>';
 	echo '<table width="100%">'.ArrayToTableHead($aTH).$ROWS.'</table>';
