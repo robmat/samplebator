@@ -115,7 +115,7 @@ function _schedule($eventid) {
 }
 # Edit date for given match
 function _edit_match_date( $match_id, $match_date ) {
-	global $dbi;
+	global $dbi, $LS_LEVEL;
 	$update_result = sql_query( 'UPDATE tblmatch SET mdate = "'.$match_date.'" WHERE mid = '.$match_id, $dbi );
 	if ( $update_result ) {
 		return '[{<>}]ok_token[{<>}]';
@@ -126,7 +126,10 @@ function _edit_match_date( $match_id, $match_date ) {
 # Return an editable date
 function _editable_date( $mdate, $mid ) {
 	$date_arr = explode('-', $mdate);
-	$ret = '<span id="matchDateSpan'.$mid.'">'.$mdate.'</span><img height="15" style="padding-left: 3px; position: relative; top: 3px;" src="images/edit24.png" onclick="editMatchDateShowControls(\'editMatchDateControls'.$mid.'\');" />';
+	$ret = '<span id="matchDateSpan'.$mid.'">'.$mdate.'</span>';
+	if ( $LS_LEVEL > 1 ) { //more then teamcaptain
+		$ret = $ret.'<img height="15" style="padding-left: 3px; position: relative; top: 3px;" src="images/edit24.png" onclick="editMatchDateShowControls(\'editMatchDateControls'.$mid.'\');" />';
+	}
 	$ret = $ret.'<div id="editMatchDateControls'.$mid.'">'._input( 1, 'editMatchDateControlsYear'.$mid, $date_arr[0], 4, 4 ).' - ';
 	$ret = $ret._input( 1, 'editMatchDateControlsMonth'.$mid, $date_arr[1], 2, 2 ).' - ';
 	$ret = $ret._input( 1, 'editMatchDateControlsDay'.$mid, $date_arr[2], 2, 2 ).'<br/>';

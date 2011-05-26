@@ -35,7 +35,7 @@
 	if ($ext=='yes'){
 		// L.id,L.lname,L.lcity,L.lplz,L.laddress,L.lphone,L.lactive,L.lcoordinates,E.id,E.evname,T.id,T.tname
 		foreach($RS as $r){
-			$OUT=$OUT.'<tr><td>'.$r[11].'</td><td>'.$r[1].'</td><td>'.$r[4].'</td><td>'.$r[3].'</td><td>'.$r[5].'</td><td>';
+			$OUT=$OUT.'<tr><td>'.$r[11].'</td><td>'.$r[1].'</td><td>'.$r[4].'</td><td>'.$r[2].'<br/>'.$r[3].'</td><td>'.$r[5].'</td><td>';
 			if (strlen($r[7])>5) $OUT=$OUT.'<button onclick=\'showmap('.$r[0].')\'>Map</button>';
 			//if (strlen($r[7])>5) $OUT=$OUT._button('Map','showmap('.$r[0].')');
 			$OUT=$OUT.'</td></tr>'; 
