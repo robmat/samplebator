@@ -49,7 +49,7 @@
 	NSString* postcode = [dataDict objectForKey:@"postcode"] == nil ? @"" : [dataDict objectForKey:@"postcode"];
 	NSString* website = [dataDict objectForKey:@"website"] == nil ? @"" : [dataDict objectForKey:@"website"];
 	NSString* addressStr = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@", address, address2, postcode, city, phone, website];
-	cell.detailLabel.text = addressStr;
+	cell.detailLabel.text = [addressStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	NSArray* arr = [dataDict objectForKey:@"Children"];
 	if (arr != nil && [arr isKindOfClass:[NSArray class]] && [arr count] > 1) {
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
