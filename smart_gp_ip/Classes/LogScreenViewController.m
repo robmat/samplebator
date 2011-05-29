@@ -18,17 +18,42 @@
                         error:(NSError*)error {
 	if (result == MFMailComposeResultSent) {
 		NSLog(@"It's away!");
+	} else {
+		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Failure." 
+														message:@"Sending the mail failed for unknown reason, try again later." 
+													   delegate:nil 
+											  cancelButtonTitle:@"Ok" 
+											  otherButtonTitles:nil];
+		[alert show];
+		[alert release];
 	}
 	[self dismissModalViewControllerAnimated:YES];
 	[self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction) sendAction: (id) sender {
+	NSString* path = [self getFilePath];
+	NSArray* arrayOfLogs = [NSArray arrayWithContentsOfFile:path];
+	NSString* body = [NSString stringWithString:@""];
+	body = [self prepareBody: body withItems: arrayOfLogs];
 	MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
 	controller.mailComposeDelegate = self;
-	[controller setSubject:@"My Subject"];
-	[controller setMessageBody:@"Hello there." isHTML:NO]; 
+	[controller setSubject:@"My Log"];
+	[controller setMessageBody:body isHTML:NO]; 
 	if (controller) [self presentModalViewController:controller animated:YES];
 	[controller release];
+}
+- (NSString*) prepareBody: (NSString*) body withItems: (NSArray*) items {
+	for (NSDictionary* dict in items) {
+		for (NSString* key in [dict keyEnumerator]) {
+			NSString* value = [dict objectForKey:key];
+			body = [body stringByAppendingString:key];
+			body = [body stringByAppendingString:@": "];
+			body = [body stringByAppendingString:value];
+			body = [body stringByAppendingString:@"\n"];
+		}
+		body = [body stringByAppendingString:@"\n"];
+	}
+	return body;
 }
 - (NSString*) getFilePath {
 	NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) ;

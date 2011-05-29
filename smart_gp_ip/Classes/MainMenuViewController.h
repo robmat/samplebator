@@ -14,5 +14,7 @@
 }
 
 - (IBAction) localHealthServAction: (id) sender;
+- (IBAction) logScreenAction: (id) sender;
+- (IBAction) remindersScreenAction: (id) sender;
 
 @end

@@ -30,5 +30,7 @@
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up;
 - (IBAction) saveAction: (id) sender;
 - (IBAction) sendAction: (id) sender;
+- (NSString*) getFilePath;
+- (NSString*) prepareBody: (NSString*) body withItems: (NSArray*) items;
 
 @end
