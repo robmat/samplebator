@@ -15,5 +15,7 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
+- (void) handleNotification: (UILocalNotification*) ln;
+
 @end
 

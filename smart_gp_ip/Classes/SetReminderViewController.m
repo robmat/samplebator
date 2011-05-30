@@ -13,6 +13,16 @@
 
 @synthesize textView, submitLabelText, datePicker, submitLabel;
 
+- (IBAction) setReminder {
+	UILocalNotification* ln = [[UILocalNotification alloc] init];
+	ln.fireDate = datePicker.date;
+	ln.alertBody = [[submitLabelText stringByAppendingString:@" "] stringByAppendingString:textView.text];
+	ln.alertAction = @"Ok";
+	ln.soundName = UILocalNotificationDefaultSoundName;
+	[[UIApplication sharedApplication] scheduleLocalNotification:ln];
+	[ln release];
+	[self.navigationController popViewControllerAnimated:YES];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 	submitLabel.text = submitLabelText;

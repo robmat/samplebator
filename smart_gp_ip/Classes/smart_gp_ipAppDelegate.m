@@ -21,7 +21,21 @@
 	[navCtrl pushViewController:svc animated:NO];
 	[svc release];
     [window makeKeyAndVisible];
-    return YES;
+	UILocalNotification* ln = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+	if (ln) {
+		[self handleNotification:ln];
+	}
+	return YES;
+}
+- (void) handleNotification: (UILocalNotification*) ln {
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Reminder" message:ln.alertBody delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+}
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+	if (notification) {
+		[self handleNotification:notification];
+	}
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
 }
