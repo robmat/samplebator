@@ -17,7 +17,13 @@
           didFinishWithResult:(MFMailComposeResult)result 
                         error:(NSError*)error {
 	if (result == MFMailComposeResultSent) {
-		NSLog(@"It's away!");
+		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Mail sent." 
+														message:@"Sending the mail succeeded." 
+													   delegate:nil 
+											  cancelButtonTitle:@"Ok" 
+											  otherButtonTitles:nil];
+		[alert show];
+		[alert release];
 	} else {
 		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Failure." 
 														message:@"Sending the mail failed for unknown reason, try again later." 
@@ -28,7 +34,7 @@
 		[alert release];
 	}
 	[self dismissModalViewControllerAnimated:YES];
-	[self.navigationController popViewControllerAnimated:YES];
+	//[self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction) sendAction: (id) sender {
 	NSString* path = [self getFilePath];
@@ -92,6 +98,7 @@
 	logTitle.delegate = self;
 	description.delegate = self;
 	lessonsLearnt.delegate = self;
+	self.title = @"New log";
     [super viewDidLoad];
 }
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
@@ -139,11 +146,11 @@
     [UIView commitAnimations];
 }
 - (void) viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    //[self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
 }
 - (void) viewWillDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    //[self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
 }
 - (void)didReceiveMemoryWarning {

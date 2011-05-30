@@ -276,6 +276,7 @@
 								<string>0016F23C1132BBF800EB4DA7</string>
 								<string>00681D351125AD5300FF93E6</string>
 								<string>00BAF02A1149029F00519A04</string>
+								<string>00A35A77116100A2003E79CC</string>
 								<string>00291FC81160CCC600B131AB</string>
 								<string>00DD3B2F112E9D4900B23D4C</string>
 								<string>001FC5CF11342F4B00C23CE7</string>
@@ -291,12 +292,16 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>147</integer>
-									<integer>146</integer>
+									<integer>80</integer>
+									<integer>74</integer>
+									<integer>57</integer>
+									<integer>38</integer>
+									<integer>24</integer>
+									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 2079}, {268, 556}}</string>
+							<string>{{0, 939}, {268, 556}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -343,7 +348,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>CE9995151379BECE00B3C29F</string>
+										<string>CE68D7A913941B04005CC7F7</string>
 										<key>history</key>
 										<array>
 											<string>CE4374D712954B2F008066E5</string>
@@ -422,7 +427,7 @@
 											<string>CE69F12D13744A4D00D32DAF</string>
 											<string>CE4E33D91374513900F6E7AF</string>
 											<string>CE4E33E01374539100F6E7AF</string>
-											<string>CE99950A1379BECE00B3C29F</string>
+											<string>CE9995151379BECE00B3C29F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -434,14 +439,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {734, 289}}</string>
+								<string>{{0, 0}, {734, 279}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 130 1024 615 0 0 1024 746 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>289pt</string>
+							<string>279pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -454,14 +459,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 294}, {734, 280}}</string>
+								<string>{{0, 284}, {734, 290}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 130 1024 615 0 0 1024 746 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>280pt</string>
+							<string>290pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -480,9 +485,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>CE99950C1379BECE00B3C29F</string>
+				<string>CE68D7A513941ACA005CC7F7</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>CE99950D1379BECE00B3C29F</string>
+				<string>CE68D7A613941ACA005CC7F7</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -620,9 +625,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>CE4374C312954356008066E5</string>
-		<string>/Users/User/Desktop/svn (trunk)/NHS V1.07 WORKING/PushViewControllerAnimated.xcodeproj</string>
+		<string>/Users/User/Desktop/trunk/NHS V1.07 WORKING/PushViewControllerAnimated.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 130 1024 615 0 0 1024 746 </string>
@@ -702,7 +706,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>CE4374C312954356008066E5</string>
-				<string>CE99950E1379BECE00B3C29F</string>
+				<string>CE68D7A713941ACA005CC7F7</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

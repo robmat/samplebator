@@ -11,10 +11,25 @@
 	[srvc release];
 }
 - (IBAction) phoneCallAction: (id) sender {
+	SetReminderViewController* srvc = [[SetReminderViewController alloc] initWithNibName:nil bundle:nil];
+	srvc.title = @"Phone call reminder"; 
+	srvc.submitLabelText = [NSString stringWithString: @"PHONE CALL"];
+	[self.navigationController pushViewController:srvc animated:YES];
+	[srvc release];
 }
 - (IBAction) checkPatientAction: (id) sender {
+	SetReminderViewController* srvc = [[SetReminderViewController alloc] initWithNibName:nil bundle:nil];
+	srvc.title = @"Check patient reminder"; 
+	srvc.submitLabelText = [NSString stringWithString: @"CHECK PATIENT"];
+	[self.navigationController pushViewController:srvc animated:YES];
+	[srvc release];
 }
 - (IBAction) checkResultsAction: (id) sender {
+	SetReminderViewController* srvc = [[SetReminderViewController alloc] initWithNibName:nil bundle:nil];
+	srvc.title = @"Check result reminder"; 
+	srvc.submitLabelText = [NSString stringWithString: @"CHECK RESULT"];
+	[self.navigationController pushViewController:srvc animated:YES];
+	[srvc release];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -14,6 +14,7 @@
 @property (nonatomic, retain) UIDatePicker* datePicker;
 @property (nonatomic, retain) UILabel* submitLabel;
 
+- (IBAction) setReminder;
 - (void) animateTextField: (UITextView*) textField up: (BOOL) up;
 
 @end

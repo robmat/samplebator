@@ -24,6 +24,8 @@
 		CE6760291392508200944CD4 /* SetReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6760271392508200944CD4 /* SetReminderViewController.xib */; };
 		CE67602B1392543400944CD4 /* set_reminder_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = CE67602A1392543400944CD4 /* set_reminder_screen.png */; };
 		CE67CF5D138EEB7A00A9DFA6 /* EGOTextFieldAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67CF5C138EEB7A00A9DFA6 /* EGOTextFieldAlertView.m */; };
+		CE68D772139414A6005CC7F7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE68D770139414A6005CC7F7 /* WebViewController.m */; };
+		CE68D773139414A6005CC7F7 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE68D771139414A6005CC7F7 /* WebViewController.xib */; };
 		CE6C5052138D83C50084AB8D /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C5050138D83C50084AB8D /* SplashScreenViewController.m */; };
 		CE6C5053138D83C50084AB8D /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6C5051138D83C50084AB8D /* SplashScreenViewController.xib */; };
 		CE6C5059138D87D40084AB8D /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C5057138D87D40084AB8D /* MainMenuViewController.m */; };
@@ -70,6 +72,9 @@
 		CE67602A1392543400944CD4 /* set_reminder_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = set_reminder_screen.png; path = images/set_reminder_screen.png; sourceTree = "<group>"; };
 		CE67CF5B138EEB7A00A9DFA6 /* EGOTextFieldAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOTextFieldAlertView.h; sourceTree = "<group>"; };
 		CE67CF5C138EEB7A00A9DFA6 /* EGOTextFieldAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOTextFieldAlertView.m; sourceTree = "<group>"; };
+		CE68D76F139414A6005CC7F7 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		CE68D770139414A6005CC7F7 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		CE68D771139414A6005CC7F7 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		CE6C504F138D83C50084AB8D /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
 		CE6C5050138D83C50084AB8D /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
 		CE6C5051138D83C50084AB8D /* SplashScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
@@ -140,6 +145,9 @@
 				CE6760251392508200944CD4 /* SetReminderViewController.h */,
 				CE6760261392508200944CD4 /* SetReminderViewController.m */,
 				CE6760271392508200944CD4 /* SetReminderViewController.xib */,
+				CE68D76F139414A6005CC7F7 /* WebViewController.h */,
+				CE68D770139414A6005CC7F7 /* WebViewController.m */,
+				CE68D771139414A6005CC7F7 /* WebViewController.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -282,6 +290,7 @@
 				CE67601A13924CF000944CD4 /* remind_main_menu.png in Resources */,
 				CE6760291392508200944CD4 /* SetReminderViewController.xib in Resources */,
 				CE67602B1392543400944CD4 /* set_reminder_screen.png in Resources */,
+				CE68D773139414A6005CC7F7 /* WebViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +312,7 @@
 				CE67CF5D138EEB7A00A9DFA6 /* EGOTextFieldAlertView.m in Sources */,
 				CE67601713924C9E00944CD4 /* RemindersMainMenuViewController.m in Sources */,
 				CE6760281392508200944CD4 /* SetReminderViewController.m in Sources */,
+				CE68D772139414A6005CC7F7 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

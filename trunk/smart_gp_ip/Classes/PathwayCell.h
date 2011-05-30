@@ -11,10 +11,10 @@
 
 @interface PathwayCell : UITableViewCell {
 	IBOutlet UILabel* label;
-	IBOutlet UILabel* detailLabel;
+	IBOutlet UITextView* detailLabel;
 }
 
 @property (nonatomic, retain) UILabel* label;
-@property (nonatomic, retain) UILabel* detailLabel;
+@property (nonatomic, retain) UITextView* detailLabel;
 
 @end
