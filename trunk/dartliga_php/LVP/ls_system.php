@@ -125,6 +125,7 @@ function _edit_match_date( $match_id, $match_date ) {
 }
 # Return an editable date
 function _editable_date( $mdate, $mid ) {
+	global $LS_LEVEL;
 	$date_arr = explode('-', $mdate);
 	$ret = '<span id="matchDateSpan'.$mid.'">'.$mdate.'</span>';
 	if ( $LS_LEVEL > 1 ) { //more then teamcaptain
