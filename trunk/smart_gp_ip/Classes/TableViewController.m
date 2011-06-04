@@ -41,20 +41,33 @@
     }
 
 	cell.label.text = [dataDict objectForKey:@"Title"];
+	cell.phoneBtn.titleLabel.text = @"";
+	cell.urlBtn.titleLabel.text = @"";
 	
 	NSString* address = [dataDict objectForKey:@"address"] == nil ? @"" : [dataDict objectForKey:@"address"];
 	NSString* address2 = [dataDict objectForKey:@"address2"] == nil ? @"" : [dataDict objectForKey:@"address2"];
 	NSString* city = [dataDict objectForKey:@"city"] == nil ? @"" : [dataDict objectForKey:@"city"];
-	NSString* phone = [dataDict objectForKey:@"phone"] == nil ? @"" : [dataDict objectForKey:@"phone"];
 	NSString* postcode = [dataDict objectForKey:@"postcode"] == nil ? @"" : [dataDict objectForKey:@"postcode"];
+	NSString* phone = [dataDict objectForKey:@"phone"] == nil ? @"" : [dataDict objectForKey:@"phone"];
 	NSString* website = [dataDict objectForKey:@"website"] == nil ? @"" : [dataDict objectForKey:@"website"];
-	NSString* addressStr = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@", address, address2, city, postcode, phone, website];
+	NSString* addressStr = [NSString stringWithFormat:@"%@ %@ %@ %@", address, address2, city, postcode];
 	cell.detailLabel.text = [addressStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	
+	if (website != nil && ![website isEqualToString:@""]) {
+		cell.urlBtn.titleLabel.text = website;
+	} else {
+	
+	}
+	if (phone != nil && ![phone isEqualToString:@""]) {
+		cell.phoneBtn.titleLabel.text = phone;
+	} else {
+		
+	}
 	if ([cell.detailLabel.text isEqualToString:@""]) {
 		cell.detailLabel.hidden = YES;
-	}
-	
-	
+	} else {
+		
+	}	
 	
 	NSArray* arr = [dataDict objectForKey:@"Children"];
 	if (arr != nil && [arr isKindOfClass:[NSArray class]] && [arr count] > 1) {
@@ -77,7 +90,7 @@
 	}
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 64.0;
+	return 88.0;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
