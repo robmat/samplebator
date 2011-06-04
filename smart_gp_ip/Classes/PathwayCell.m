@@ -11,7 +11,7 @@
 
 @implementation PathwayCell
 
-@synthesize label, detailLabel;
+@synthesize label, detailLabel, phoneBtn, urlBtn;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
@@ -24,6 +24,9 @@
 }
 - (void)dealloc {
 	[label release];
+	[detailLabel release];
+	[phoneBtn release];
+	[urlBtn release];
     [super dealloc];
 }
 

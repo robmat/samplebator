@@ -18,14 +18,14 @@
 - (IBAction) localHealthServAction: (id) sender {
 	TableViewControllerWrapper* tvcw = [[TableViewControllerWrapper alloc] initWithNibName:nil bundle:nil];
 	tvcw.dataArray = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"smart_gp_data" ofType:@"plist"]] objectForKey:@"Children"];
-	tvcw.title = @"Data View";
+	tvcw.title = @"Smart GP";
 	[self.navigationController pushViewController:tvcw animated:YES];
 	[tvcw release];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.navigationItem.hidesBackButton = YES;
-    self.title = @"Main menu";
+    self.title = @"Smart GP";
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
