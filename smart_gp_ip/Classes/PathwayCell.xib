@@ -102,7 +102,6 @@
 									<double key="NSSize">13</double>
 									<int key="NSfFlags">16</int>
 								</object>
-								<string key="IBUINormalTitle">qwfqwfqwf</string>
 								<reference key="IBUIHighlightedTitleColor" ref="441434975"/>
 								<reference key="IBUINormalTitleColor" ref="441434975"/>
 								<object class="NSColor" key="IBUINormalTitleShadowColor">
@@ -119,7 +118,6 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<reference key="IBUIFont" ref="262217965"/>
-								<string key="IBUINormalTitle">qwfwqfqwf</string>
 								<reference key="IBUIHighlightedTitleColor" ref="441434975"/>
 								<reference key="IBUINormalTitleColor" ref="441434975"/>
 								<object class="NSColor" key="IBUINormalTitleShadowColor" id="191155370">
@@ -130,14 +128,14 @@
 							<object class="IBUILabel" id="380181438">
 								<reference key="NSNextResponder" ref="613025570"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{20, 21}, {514, 28}}</string>
+								<string key="NSFrame">{{20, 21}, {280, 28}}</string>
 								<reference key="NSSuperview" ref="613025570"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">wefewfwefwefwef qw fwqef qw fq fqwf qw fqwf qwf qwf qwf qwf qwf qwf qwf qw fwq wq</string>
+								<string key="IBUIText"/>
 								<object class="NSFont" key="IBUIFont">
 									<string key="NSName">Helvetica</string>
 									<double key="NSSize">14</double>
@@ -154,6 +152,7 @@
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">13</float>
 								<int key="IBUINumberOfLines">2</int>
+								<int key="IBUILineBreakMode">0</int>
 							</object>
 						</object>
 						<string key="NSFrameSize">{320, 88}</string>
@@ -211,6 +210,24 @@
 						<reference key="destination" ref="674327933"/>
 					</object>
 					<int key="connectionID">23</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">phoneAction:</string>
+						<reference key="source" ref="736500016"/>
+						<reference key="destination" ref="182389011"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">24</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">urlAction:</string>
+						<reference key="source" ref="674327933"/>
+						<reference key="destination" ref="182389011"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">25</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -304,7 +321,7 @@
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>PathwayCell</string>
-					<string>{{331, 282}, {320, 88}}</string>
+					<string>{{346, 257}, {320, 88}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
@@ -332,7 +349,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">23</int>
+			<int key="maxID">25</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -340,6 +357,38 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">PathwayCell</string>
 					<string key="superclassName">UITableViewCell</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>phoneAction:</string>
+							<string>urlAction:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>phoneAction:</string>
+							<string>urlAction:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">phoneAction:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">urlAction:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
