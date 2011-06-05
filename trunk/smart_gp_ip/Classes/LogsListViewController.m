@@ -99,7 +99,10 @@
 - (void)dealloc {
     [super dealloc];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	[self.tableView reloadData];
+}
 
 @end
 

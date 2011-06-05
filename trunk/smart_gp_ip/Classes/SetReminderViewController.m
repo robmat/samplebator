@@ -1,17 +1,8 @@
-//
-//  SetReminderViewController.m
-//  smart_gp_ip
-//
-//  Created by User on 5/29/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #import "SetReminderViewController.h"
-
 
 @implementation SetReminderViewController
 
-@synthesize textView, submitLabelText, datePicker, submitLabel;
+@synthesize textView, submitLabelText, datePicker, submitLabel, locNot, actionStr;
 
 - (IBAction) setReminder {
 	UILocalNotification* ln = [[UILocalNotification alloc] init];
@@ -21,17 +12,18 @@
 	ln.soundName = UILocalNotificationDefaultSoundName;
 	[[UIApplication sharedApplication] scheduleLocalNotification:ln];
 	[ln release];
+	if (locNot != nil) {
+		[[UIApplication sharedApplication] cancelLocalNotification:locNot];
+	}
 	[self.navigationController popViewControllerAnimated:YES];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-	submitLabel.text = submitLabelText;
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-- (void)viewDidUnload {
-    [super viewDidUnload];
+	self.submitLabel.text = submitLabelText;
+	self.textView.text = actionStr;
+	if ([submitLabel.text rangeOfString:@"CHECK"].location != NSNotFound) {
+		[textView setKeyboardType:UIKeyboardTypeNumberPad];
+	}
 }
 - (BOOL)textView:(UITextView *)textVie shouldChangeTextInRange:(NSRange)range 
  replacementText:(NSString *)text {
@@ -51,12 +43,10 @@
 		[self animateTextField: textField up: NO];
 	}
 }
-
 - (void) animateTextField: (UITextView*) textField up: (BOOL) up {
     const int movementDistance = 185; // tweak as needed
     const float movementDuration = 0.3f; // tweak as needed
     int movement = (up ? -movementDistance : movementDistance);
-	
     [UIView beginAnimations: @"anim" context: nil];
     [UIView setAnimationBeginsFromCurrentState: YES];
     [UIView setAnimationDuration: movementDuration];
@@ -67,7 +57,9 @@
 	[textView release];
 	[submitLabelText release];
 	[datePicker release];
+	[locNot release];
+	[actionStr release];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
-
 @end

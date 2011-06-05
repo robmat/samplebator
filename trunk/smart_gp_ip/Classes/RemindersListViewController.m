@@ -32,7 +32,16 @@
 	[frmt setDateFormat:@"dd-MM-yyyy"];
 	cell.detailLbl.text = [frmt stringFromDate:not.fireDate];
 	cell.locNot = not;
+	cell.navController = self.navigationController;
+	cell.tvc = self;
     return cell;
+}
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	[self.tableView reloadData];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 64.0;
 }
 - (void)dealloc {
     [super dealloc];
