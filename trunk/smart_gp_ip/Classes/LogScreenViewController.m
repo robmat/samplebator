@@ -99,7 +99,124 @@
 	description.delegate = self;
 	lessonsLearnt.delegate = self;
 	self.title = @"New log";
-    [super viewDidLoad];
+	//set up date picking
+    datePickerView = [[UIDatePicker alloc] init];
+    [datePickerView sizeToFit];
+    datePickerView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+	date.inputView = datePickerView;
+	UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
+    keyboardDoneButtonView.barStyle = UIBarStyleBlack;
+    keyboardDoneButtonView.translucent = YES;
+    keyboardDoneButtonView.tintColor = nil;
+    [keyboardDoneButtonView sizeToFit];
+    UIBarButtonItem* doneButton = [[[UIBarButtonItem alloc] initWithTitle:@"Done"
+																	style:UIBarButtonItemStyleBordered target:self
+																   action:@selector(doneClickedDate:)] autorelease];
+    [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:doneButton, nil]];
+	date.inputAccessoryView = keyboardDoneButtonView;
+    [keyboardDoneButtonView release];
+	
+	// set up time spent picker
+	timespentView = [[UIPickerView alloc] init]; 
+	timespentView.delegate = self;
+    [timespentView sizeToFit];
+    timespentView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    timespentView.showsSelectionIndicator = YES;
+	
+	timeSpent.inputView = timespentView; 
+    UIToolbar* keyboardDoneButtonView2 = [[UIToolbar alloc] init];
+    keyboardDoneButtonView2.barStyle = UIBarStyleBlack;
+    keyboardDoneButtonView2.translucent = YES;
+    keyboardDoneButtonView2.tintColor = nil;
+    [keyboardDoneButtonView2 sizeToFit];
+    UIBarButtonItem* doneButton2 = [[[UIBarButtonItem alloc] initWithTitle:@"Done"
+																	 style:UIBarButtonItemStyleBordered target:self
+																    action:@selector(doneClickedTime:)] autorelease];
+    [keyboardDoneButtonView2 setItems:[NSArray arrayWithObjects:doneButton2, nil]];
+	timeSpent.inputAccessoryView = keyboardDoneButtonView2;
+
+	// set up time spent picker
+	activityPickerView = [[UIPickerView alloc] init]; 
+	activityPickerView.delegate = self;
+    [activityPickerView sizeToFit];
+    activityPickerView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    activityPickerView.showsSelectionIndicator = YES;
+	
+	activityType.inputView = activityPickerView; 
+    UIToolbar* keyboardDoneButtonView3 = [[UIToolbar alloc] init];
+    keyboardDoneButtonView3.barStyle = UIBarStyleBlack;
+    keyboardDoneButtonView3.translucent = YES;
+    keyboardDoneButtonView3.tintColor = nil;
+    [keyboardDoneButtonView3 sizeToFit];
+    UIBarButtonItem* doneButton3 = [[[UIBarButtonItem alloc] initWithTitle:@"Done"
+																	 style:UIBarButtonItemStyleBordered target:self
+																    action:@selector(doneClickedActivity:)] autorelease];
+    [keyboardDoneButtonView3 setItems:[NSArray arrayWithObjects:doneButton3, nil]];
+	activityType.inputAccessoryView = keyboardDoneButtonView3;
+	
+	[super viewDidLoad];
+}
+- (void) doneClickedActivity: (id) sender {
+	[activityPickerView resignFirstResponder];
+	activityType.text = [self pickerView:activityPickerView titleForRow:activityRowSelection forComponent:0];
+	[logTitle becomeFirstResponder];
+}
+- (void) doneClickedTime: (id) sender {
+	[timeSpent resignFirstResponder];
+	timeSpent.text = [self pickerView:timespentView titleForRow:timeSpentRowSelection forComponent:0];
+	[activityType becomeFirstResponder];
+}
+- (void) doneClickedDate: (id) sender {
+	[date resignFirstResponder];
+	NSDate* datePicked = datePickerView.date;
+	NSDateFormatter* frmt = [[NSDateFormatter alloc] init];
+	[frmt setDateFormat:@"dd-MM-yyyy"];
+	NSString* dateStr = [frmt stringFromDate:datePicked];
+	date.text = dateStr;
+	[frmt release];
+	[timeSpent becomeFirstResponder];
+}
+-  (void) pickerView:(UIPickerView*) pickerView didSelectRow:(NSInteger) row inComponent:(NSInteger) component {
+	if (pickerView == timespentView) timeSpentRowSelection = row;
+	if (pickerView == activityPickerView) activityRowSelection = row;
+}
+- (NSString*) pickerView:(UIPickerView*) pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+	if (pickerView == timespentView) {
+		switch (row) {
+			case 0: return [NSString stringWithString: @"1h"];
+			case 1: return [NSString stringWithString: @"2h"];
+			case 2: return [NSString stringWithString: @"3h"];
+			case 3: return [NSString stringWithString: @"4h"];
+			case 4: return [NSString stringWithString: @"5h"];
+			case 5: return [NSString stringWithString: @"6h"];
+			case 6: return [NSString stringWithString: @"7h"];
+			case 7: return [NSString stringWithString: @"8h"];
+		}
+	}
+	if (pickerView == activityPickerView) {
+		switch (row) {
+			case 0: return [NSString stringWithString: @"READING"];
+			case 1: return [NSString stringWithString: @"LECTURE/MEETING"];
+			case 2: return [NSString stringWithString: @"WEB BASED"];
+			case 3: return [NSString stringWithString: @"PUNS/DENS"];
+			case 4: return [NSString stringWithString: @"SIG EVENT"];
+			case 5: return [NSString stringWithString: @"AUDIT"];
+			case 6: return [NSString stringWithString: @"OTHER"];
+		}
+	}
+	return @"";
+}
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+	return 1;
+}
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+	if (pickerView == timespentView) {
+		return 8;
+	}
+	if (pickerView == activityPickerView) {
+		return 7;
+	}
+	return 0;
 }
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
 	if (textField == date) {
@@ -145,14 +262,6 @@
     self.view.frame = CGRectOffset(self.view.frame, 0, movement);
     [UIView commitAnimations];
 }
-- (void) viewWillAppear:(BOOL)animated {
-    //[self.navigationController setNavigationBarHidden:YES animated:animated];
-    [super viewWillAppear:animated];
-}
-- (void) viewWillDisappear:(BOOL)animated {
-    //[self.navigationController setNavigationBarHidden:NO animated:animated];
-    [super viewWillDisappear:animated];
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -160,6 +269,15 @@
     [super viewDidUnload];
 }
 - (void)dealloc {
+	[date release];
+	[timeSpent release];
+	[activityType release];
+	[logTitle release];
+	[description release];
+	[lessonsLearnt release];
+	[datePickerView release];
+	[timespentView release];
+	[activityPickerView release];
     [super dealloc];
 }
 @end

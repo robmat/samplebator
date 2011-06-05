@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
-@interface LogScreenViewController : UIViewController <UITextFieldDelegate, MFMailComposeViewControllerDelegate> {
+@interface LogScreenViewController : UIViewController <UITextFieldDelegate, MFMailComposeViewControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
 
 	IBOutlet UITextField* date;
 	IBOutlet UITextField* timeSpent;
@@ -17,7 +17,11 @@
 	IBOutlet UITextField* logTitle;
 	IBOutlet UITextField* description;
 	IBOutlet UITextField* lessonsLearnt;
-	
+	UIDatePicker* datePickerView;
+	UIPickerView* timespentView;
+	NSInteger timeSpentRowSelection;
+	UIPickerView* activityPickerView;
+	NSInteger activityRowSelection;
 }
 
 @property (nonatomic, retain) UITextField* date;
