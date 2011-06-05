@@ -17,13 +17,13 @@
 		CE6580F4138ECB2A00DE1F01 /* LogScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6580F2138ECB2A00DE1F01 /* LogScreenViewController.xib */; };
 		CE6580F6138ECB8900DE1F01 /* log_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6580F5138ECB8900DE1F01 /* log_screen.png */; };
 		CE65B575138EF3AB00702EC5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE65B574138EF3AB00702EC5 /* MessageUI.framework */; };
+		CE6708D1139C0F0B00BEECB0 /* RemindersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6708D0139C0F0B00BEECB0 /* RemindersListViewController.m */; };
 		CE67601713924C9E00944CD4 /* RemindersMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67601513924C9E00944CD4 /* RemindersMainMenuViewController.m */; };
 		CE67601813924C9E00944CD4 /* RemindersMainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE67601613924C9E00944CD4 /* RemindersMainMenuViewController.xib */; };
 		CE67601A13924CF000944CD4 /* remind_main_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CE67601913924CF000944CD4 /* remind_main_menu.png */; };
 		CE6760281392508200944CD4 /* SetReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6760261392508200944CD4 /* SetReminderViewController.m */; };
 		CE6760291392508200944CD4 /* SetReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6760271392508200944CD4 /* SetReminderViewController.xib */; };
 		CE67602B1392543400944CD4 /* set_reminder_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = CE67602A1392543400944CD4 /* set_reminder_screen.png */; };
-		CE67CF5D138EEB7A00A9DFA6 /* EGOTextFieldAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67CF5C138EEB7A00A9DFA6 /* EGOTextFieldAlertView.m */; };
 		CE68D772139414A6005CC7F7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE68D770139414A6005CC7F7 /* WebViewController.m */; };
 		CE68D773139414A6005CC7F7 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE68D771139414A6005CC7F7 /* WebViewController.xib */; };
 		CE6C5052138D83C50084AB8D /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C5050138D83C50084AB8D /* SplashScreenViewController.m */; };
@@ -40,6 +40,10 @@
 		CE6E708C13893282005B9C8B /* remind_me_path.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6E708513893282005B9C8B /* remind_me_path.png */; };
 		CE6E708D13893282005B9C8B /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6E708613893282005B9C8B /* splash_screen.png */; };
 		CE6E708E13893282005B9C8B /* training_log_path.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6E708713893282005B9C8B /* training_log_path.png */; };
+		CE701797139BCC3700A7710E /* LogsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE701796139BCC3700A7710E /* LogsListViewController.m */; };
+		CE70179B139BCCFD00A7710E /* LogListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE701799139BCCFD00A7710E /* LogListCell.m */; };
+		CE70179C139BCCFD00A7710E /* LogListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE70179A139BCCFD00A7710E /* LogListCell.xib */; };
+		CE7017A1139BCF8B00A7710E /* dotted_line.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7017A0139BCF8B00A7710E /* dotted_line.png */; };
 		CE71309A13784DDF00B95FA0 /* smart_gp_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE71309913784DDF00B95FA0 /* smart_gp_data.plist */; };
 		CE7130A113784FBE00B95FA0 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7130A013784FBE00B95FA0 /* TableViewController.m */; };
 		CE7130A51378504C00B95FA0 /* TableViewControllerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7130A31378504C00B95FA0 /* TableViewControllerWrapper.m */; };
@@ -62,6 +66,8 @@
 		CE6580F2138ECB2A00DE1F01 /* LogScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogScreenViewController.xib; sourceTree = "<group>"; };
 		CE6580F5138ECB8900DE1F01 /* log_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = log_screen.png; path = images/log_screen.png; sourceTree = "<group>"; };
 		CE65B574138EF3AB00702EC5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		CE6708CF139C0F0B00BEECB0 /* RemindersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemindersListViewController.h; sourceTree = "<group>"; };
+		CE6708D0139C0F0B00BEECB0 /* RemindersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemindersListViewController.m; sourceTree = "<group>"; };
 		CE67601413924C9E00944CD4 /* RemindersMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemindersMainMenuViewController.h; sourceTree = "<group>"; };
 		CE67601513924C9E00944CD4 /* RemindersMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemindersMainMenuViewController.m; sourceTree = "<group>"; };
 		CE67601613924C9E00944CD4 /* RemindersMainMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindersMainMenuViewController.xib; sourceTree = "<group>"; };
@@ -70,8 +76,6 @@
 		CE6760261392508200944CD4 /* SetReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetReminderViewController.m; sourceTree = "<group>"; };
 		CE6760271392508200944CD4 /* SetReminderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetReminderViewController.xib; sourceTree = "<group>"; };
 		CE67602A1392543400944CD4 /* set_reminder_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = set_reminder_screen.png; path = images/set_reminder_screen.png; sourceTree = "<group>"; };
-		CE67CF5B138EEB7A00A9DFA6 /* EGOTextFieldAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOTextFieldAlertView.h; sourceTree = "<group>"; };
-		CE67CF5C138EEB7A00A9DFA6 /* EGOTextFieldAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOTextFieldAlertView.m; sourceTree = "<group>"; };
 		CE68D76F139414A6005CC7F7 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		CE68D770139414A6005CC7F7 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		CE68D771139414A6005CC7F7 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
@@ -92,6 +96,12 @@
 		CE6E708513893282005B9C8B /* remind_me_path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = remind_me_path.png; path = images/remind_me_path.png; sourceTree = "<group>"; };
 		CE6E708613893282005B9C8B /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = images/splash_screen.png; sourceTree = "<group>"; };
 		CE6E708713893282005B9C8B /* training_log_path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = training_log_path.png; path = images/training_log_path.png; sourceTree = "<group>"; };
+		CE701795139BCC3700A7710E /* LogsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogsListViewController.h; sourceTree = "<group>"; };
+		CE701796139BCC3700A7710E /* LogsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogsListViewController.m; sourceTree = "<group>"; };
+		CE701798139BCCFD00A7710E /* LogListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogListCell.h; sourceTree = "<group>"; };
+		CE701799139BCCFD00A7710E /* LogListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogListCell.m; sourceTree = "<group>"; };
+		CE70179A139BCCFD00A7710E /* LogListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogListCell.xib; sourceTree = "<group>"; };
+		CE7017A0139BCF8B00A7710E /* dotted_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dotted_line.png; path = images/dotted_line.png; sourceTree = "<group>"; };
 		CE71309913784DDF00B95FA0 /* smart_gp_data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = smart_gp_data.plist; sourceTree = "<group>"; };
 		CE71309F13784FBE00B95FA0 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		CE7130A013784FBE00B95FA0 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
@@ -137,11 +147,16 @@
 				CE6580F0138ECB2A00DE1F01 /* LogScreenViewController.h */,
 				CE6580F1138ECB2A00DE1F01 /* LogScreenViewController.m */,
 				CE6580F2138ECB2A00DE1F01 /* LogScreenViewController.xib */,
-				CE67CF5B138EEB7A00A9DFA6 /* EGOTextFieldAlertView.h */,
-				CE67CF5C138EEB7A00A9DFA6 /* EGOTextFieldAlertView.m */,
+				CE701795139BCC3700A7710E /* LogsListViewController.h */,
+				CE701796139BCC3700A7710E /* LogsListViewController.m */,
+				CE701798139BCCFD00A7710E /* LogListCell.h */,
+				CE701799139BCCFD00A7710E /* LogListCell.m */,
+				CE70179A139BCCFD00A7710E /* LogListCell.xib */,
 				CE67601413924C9E00944CD4 /* RemindersMainMenuViewController.h */,
 				CE67601513924C9E00944CD4 /* RemindersMainMenuViewController.m */,
 				CE67601613924C9E00944CD4 /* RemindersMainMenuViewController.xib */,
+				CE6708CF139C0F0B00BEECB0 /* RemindersListViewController.h */,
+				CE6708D0139C0F0B00BEECB0 /* RemindersListViewController.m */,
 				CE6760251392508200944CD4 /* SetReminderViewController.h */,
 				CE6760261392508200944CD4 /* SetReminderViewController.m */,
 				CE6760271392508200944CD4 /* SetReminderViewController.xib */,
@@ -206,6 +221,7 @@
 		CE6CF69A137E857100BB69CB /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CE7017A0139BCF8B00A7710E /* dotted_line.png */,
 				CE67602A1392543400944CD4 /* set_reminder_screen.png */,
 				CE67601913924CF000944CD4 /* remind_main_menu.png */,
 				CE6580F5138ECB8900DE1F01 /* log_screen.png */,
@@ -291,6 +307,8 @@
 				CE6760291392508200944CD4 /* SetReminderViewController.xib in Resources */,
 				CE67602B1392543400944CD4 /* set_reminder_screen.png in Resources */,
 				CE68D773139414A6005CC7F7 /* WebViewController.xib in Resources */,
+				CE70179C139BCCFD00A7710E /* LogListCell.xib in Resources */,
+				CE7017A1139BCF8B00A7710E /* dotted_line.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,10 +327,12 @@
 				CE6C5052138D83C50084AB8D /* SplashScreenViewController.m in Sources */,
 				CE6C5059138D87D40084AB8D /* MainMenuViewController.m in Sources */,
 				CE6580F3138ECB2A00DE1F01 /* LogScreenViewController.m in Sources */,
-				CE67CF5D138EEB7A00A9DFA6 /* EGOTextFieldAlertView.m in Sources */,
 				CE67601713924C9E00944CD4 /* RemindersMainMenuViewController.m in Sources */,
 				CE6760281392508200944CD4 /* SetReminderViewController.m in Sources */,
 				CE68D772139414A6005CC7F7 /* WebViewController.m in Sources */,
+				CE701797139BCC3700A7710E /* LogsListViewController.m in Sources */,
+				CE70179B139BCCFD00A7710E /* LogListCell.m in Sources */,
+				CE6708D1139C0F0B00BEECB0 /* RemindersListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

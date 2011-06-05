@@ -1,15 +1,7 @@
-//
-//  LogScreenViewController.h
-//  smart_gp_ip
-//
-//  Created by User on 5/26/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
-@interface LogScreenViewController : UIViewController <UITextFieldDelegate, MFMailComposeViewControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
+@interface LogScreenViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
 
 	IBOutlet UITextField* date;
 	IBOutlet UITextField* timeSpent;
@@ -22,6 +14,7 @@
 	NSInteger timeSpentRowSelection;
 	UIPickerView* activityPickerView;
 	NSInteger activityRowSelection;
+	NSDictionary* log;
 }
 
 @property (nonatomic, retain) UITextField* date;
@@ -30,11 +23,12 @@
 @property (nonatomic, retain) UITextField* logTitle;
 @property (nonatomic, retain) UITextField* description;
 @property (nonatomic, retain) UITextField* lessonsLearnt;
+@property (nonatomic, retain) NSDictionary* log;
 
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up;
 - (IBAction) saveAction: (id) sender;
-- (IBAction) sendAction: (id) sender;
-- (NSString*) getFilePath;
-- (NSString*) prepareBody: (NSString*) body withItems: (NSArray*) items;
+- (IBAction) viewLogsAction: (id) sender;
++ (NSString*) getFilePath;
+
 
 @end
