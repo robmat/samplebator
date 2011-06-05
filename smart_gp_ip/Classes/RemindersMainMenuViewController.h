@@ -17,5 +17,5 @@
 - (IBAction) phoneCallAction: (id) sender;
 - (IBAction) checkPatientAction: (id) sender;
 - (IBAction) checkResultsAction: (id) sender;
-
+- (IBAction) viewRemindersAction: (id) sender;
 @end

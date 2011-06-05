@@ -29,9 +29,7 @@
     
     PathwayCell *cell = nil;//(PathwayCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-		
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"PathwayCell" owner:self options:nil];
-        
         for (id currentObject in topLevelObjects){
             if ([currentObject isKindOfClass:[UITableViewCell class]]){
                 cell =  (PathwayCell *) currentObject;

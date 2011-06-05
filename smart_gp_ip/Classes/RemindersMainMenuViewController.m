@@ -1,5 +1,6 @@
 #import "RemindersMainMenuViewController.h"
 #import "SetReminderViewController.h"
+#import "RemindersListViewController.h"
 
 @implementation RemindersMainMenuViewController
 
@@ -30,6 +31,11 @@
 	srvc.submitLabelText = [NSString stringWithString: @"CHECK RESULT"];
 	[self.navigationController pushViewController:srvc animated:YES];
 	[srvc release];
+}
+- (IBAction) viewRemindersAction: (id) sender {
+	RemindersListViewController* rlvc = [[RemindersListViewController alloc] initWithNibName:nil bundle:nil];
+	[self.navigationController pushViewController:rlvc animated:YES];
+	[rlvc release];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
