@@ -5,6 +5,7 @@
 	IBOutlet UILabel* detailLabel;
 	IBOutlet UIButton* phoneBtn;
 	IBOutlet UIButton* urlBtn;
+	IBOutlet UIImageView* background;
 	UINavigationController* navController;
 }
 
@@ -13,6 +14,7 @@
 @property (nonatomic, retain) UIButton* phoneBtn;
 @property (nonatomic, retain) UIButton* urlBtn;
 @property (nonatomic, retain) UINavigationController* navController;
+@property (nonatomic, retain) UIImageView* background;
 
 - (IBAction) urlAction: (id) sender;
 - (IBAction) phoneAction: (id) sender;

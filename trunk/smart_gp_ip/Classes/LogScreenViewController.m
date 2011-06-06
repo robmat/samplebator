@@ -1,5 +1,6 @@
 #import "LogScreenViewController.h"
 #import "LogsListViewController.h"
+#import "EGOTextFieldAlertView.h"
 
 @implementation LogScreenViewController
 
@@ -232,11 +233,11 @@
     self.view.frame = CGRectOffset(self.view.frame, 0, movement);
     [UIView commitAnimations];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (IBAction) lessonsLearntAction: (id) sender {
+	
 }
-- (void)viewDidUnload {
-    [super viewDidUnload];
+- (IBAction) descrptionAction: (id) sender {
+
 }
 - (void)dealloc {
 	[date release];

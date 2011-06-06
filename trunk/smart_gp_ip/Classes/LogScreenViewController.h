@@ -29,6 +29,7 @@
 - (IBAction) saveAction: (id) sender;
 - (IBAction) viewLogsAction: (id) sender;
 + (NSString*) getFilePath;
-
+- (IBAction) lessonsLearntAction: (id) sender;
+- (IBAction) descrptionAction: (id) sender;
 
 @end

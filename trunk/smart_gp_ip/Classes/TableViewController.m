@@ -80,6 +80,12 @@
 		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
 	cell.navController = self.navController;
+	if ([cell.label.text isEqualToString:@"QUICK PAGES"]) {
+		cell.background.image = [UIImage imageNamed:@"cell_back_violet.png"];
+	}
+	if ([cell.label.text isEqualToString:@"Links"]) {
+		cell.background.image = [UIImage imageNamed:@"cell_back_brown.png"];
+	}	
 	return cell;
 }
 - (void) moveDownView: (UIView*) view byPixels: (NSNumber*) pixels {
