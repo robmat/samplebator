@@ -91,10 +91,10 @@
 	cell.detailLbl.text = [log objectForKey:@"Date"];
 	cell.log = log;
 	cell.navController = self.navigationController;
+	cell.tvc = self;
 	return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 - (void)dealloc {
     [super dealloc];

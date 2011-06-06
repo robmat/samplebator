@@ -1,6 +1,7 @@
 #import "LogScreenViewController.h"
 #import "LogsListViewController.h"
 #import "EGOTextFieldAlertView.h"
+#import "TextInputViewController.h"
 
 @implementation LogScreenViewController
 
@@ -47,7 +48,7 @@
 		[arrayOfLogs writeToFile:path atomically:YES];
 		arrayOfLogs = [NSMutableArray arrayWithContentsOfFile:path];
 		if (arrayOfLogs) {
-			UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Log created." message:@"Log creation succesful." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+			UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Log operation." message:@"Log operation succesful." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 			[alert show];
 			[alert release];
 		}
@@ -128,14 +129,14 @@
 	activityType.inputAccessoryView = keyboardDoneButtonView3;
 }
 - (void) doneClickedActivity: (id) sender {
-	[activityPickerView resignFirstResponder];
+	[activityType resignFirstResponder];
 	activityType.text = [self pickerView:activityPickerView titleForRow:activityRowSelection forComponent:0];
-	[logTitle becomeFirstResponder];
+	//[logTitle becomeFirstResponder];
 }
 - (void) doneClickedTime: (id) sender {
 	[timeSpent resignFirstResponder];
 	timeSpent.text = [self pickerView:timespentView titleForRow:timeSpentRowSelection forComponent:0];
-	[activityType becomeFirstResponder];
+	//[activityType becomeFirstResponder];
 }
 - (void) doneClickedDate: (id) sender {
 	[date resignFirstResponder];
@@ -145,7 +146,7 @@
 	NSString* dateStr = [frmt stringFromDate:datePicked];
 	date.text = dateStr;
 	[frmt release];
-	[timeSpent becomeFirstResponder];
+	//[timeSpent becomeFirstResponder];
 }
 -  (void) pickerView:(UIPickerView*) pickerView didSelectRow:(NSInteger) row inComponent:(NSInteger) component {
 	if (pickerView == timespentView) timeSpentRowSelection = row;
@@ -190,19 +191,18 @@
 	return 0;
 }
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
-	if (textField == date) {
+	[textField resignFirstResponder];
+	/*if (textField == date) {
 		[timeSpent becomeFirstResponder];
 	} else if (textField == timeSpent) {
 		[activityType becomeFirstResponder];
 	} else if (textField == activityType) {
 		[logTitle becomeFirstResponder];
 	} else if (textField == logTitle) {
-		[description becomeFirstResponder];
+		[self descrptionAction:nil];
 	} else if (textField == description) {
-		[lessonsLearnt becomeFirstResponder];
-	} else if (textField == lessonsLearnt) {
-		[lessonsLearnt resignFirstResponder];
-	}
+		[self lessonsLearntAction:nil];
+	} */
 	return YES;
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -234,10 +234,20 @@
     [UIView commitAnimations];
 }
 - (IBAction) lessonsLearntAction: (id) sender {
-	
+	TextInputViewController* tivc = [[TextInputViewController alloc] initWithNibName:nil bundle:nil];
+	tivc.title = @"Lessons learnt";
+	tivc.targetTextView = lessonsLearnt;
+	[self.navigationController pushViewController:tivc animated:YES];
+	tivc.textView.text = lessonsLearnt.text;
+	[tivc release];
 }
 - (IBAction) descrptionAction: (id) sender {
-
+	TextInputViewController* tivc = [[TextInputViewController alloc] initWithNibName:nil bundle:nil];
+	tivc.title = @"Description";
+	tivc.targetTextView = description;
+	[self.navigationController pushViewController:tivc animated:YES];
+	tivc.textView.text = description.text;
+	[tivc release];
 }
 - (void)dealloc {
 	[date release];

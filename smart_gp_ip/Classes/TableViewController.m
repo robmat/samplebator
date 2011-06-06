@@ -1,14 +1,7 @@
-//
-//  TableViewController.m
-//  smart_gp_ip
-//
-//  Created by User on 5/9/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #import "TableViewController.h"
 #import "TableViewControllerWrapper.h"
 #import "PathwayCell.h"
+#import "DisclaimerPageViewController.h"
 
 @implementation TableViewController
 
@@ -99,6 +92,12 @@
 	btn.frame = CGRectMake(btn.frame.origin.x, btn.frame.origin.y, width + 10, btn.frame.size.height);
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	PathwayCell* cell = (PathwayCell*) [self.tableView cellForRowAtIndexPath:indexPath];
+	if ([cell.label.text isEqualToString:@"Smart GP Disclaimer"]) {
+		DisclaimerPageViewController* cpvc = [[DisclaimerPageViewController alloc] initWithNibName:nil bundle:nil];
+		[self.navController pushViewController:cpvc animated:YES];
+		[cpvc release];
+	}
 	NSDictionary* dataDict = [dataArray objectAtIndex: indexPath.row];
 	NSArray* arr = [dataDict objectForKey:@"Children"];
 	if (arr != nil && [arr isKindOfClass:[NSArray class]] && [arr count] > 1) {

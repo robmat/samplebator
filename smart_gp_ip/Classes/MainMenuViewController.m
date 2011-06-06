@@ -2,6 +2,7 @@
 #import "TableViewControllerWrapper.h"
 #import "LogScreenViewController.h"
 #import "RemindersMainMenuViewController.h"
+#import "WebViewController.h"
 
 @implementation MainMenuViewController
 
@@ -21,6 +22,15 @@
 	tvcw.title = @"Smart GP";
 	[self.navigationController pushViewController:tvcw animated:YES];
 	[tvcw release];
+}
+- (IBAction) newsAction: (id) sender {
+	WebViewController* wvc = [[WebViewController alloc] initWithNibName:nil bundle:nil];
+	wvc.url = @"http://www.healtheastcic.co.uk/News.aspx";
+	[self.navigationController pushViewController:wvc animated:YES];
+	[wvc release];
+}
+- (IBAction) contactAction: (id) sender {
+
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
