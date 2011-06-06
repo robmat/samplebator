@@ -33,7 +33,10 @@
 	[wvc release];
 }
 - (IBAction) phoneAction: (id) sender {
-	NSString* telNo = [NSString stringWithFormat:@"%@%@", @"tel:", ((UIButton*) sender).titleLabel.text];
+	NSMutableString* telNo = [NSMutableString stringWithFormat:@"%@%@", @"tel://", ((UIButton*) sender).titleLabel.text];
+	while ([telNo rangeOfString:@" "].location != NSNotFound) {
+		[telNo replaceCharactersInRange:[telNo rangeOfString:@" "] withString:@""];
+	}
 	NSURL *phoneNumberURL = [NSURL URLWithString:telNo];
 	[[UIApplication sharedApplication] openURL:phoneNumberURL];
 }
