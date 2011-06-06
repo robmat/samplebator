@@ -17,6 +17,12 @@
 		CE6580F4138ECB2A00DE1F01 /* LogScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6580F2138ECB2A00DE1F01 /* LogScreenViewController.xib */; };
 		CE6580F6138ECB8900DE1F01 /* log_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6580F5138ECB8900DE1F01 /* log_screen.png */; };
 		CE65B575138EF3AB00702EC5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE65B574138EF3AB00702EC5 /* MessageUI.framework */; };
+		CE660CDE139D2A07007BC01A /* cell_back_violet.png in Resources */ = {isa = PBXBuildFile; fileRef = CE660CDA139D2A07007BC01A /* cell_back_violet.png */; };
+		CE660CDF139D2A07007BC01A /* contact_page.png in Resources */ = {isa = PBXBuildFile; fileRef = CE660CDB139D2A07007BC01A /* contact_page.png */; };
+		CE660CE0139D2A07007BC01A /* del_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = CE660CDC139D2A07007BC01A /* del_btn.png */; };
+		CE660CE1139D2A07007BC01A /* edit_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = CE660CDD139D2A07007BC01A /* edit_btn.png */; };
+		CE660CE7139D2C44007BC01A /* cell_back_brown.png in Resources */ = {isa = PBXBuildFile; fileRef = CE660CE6139D2C44007BC01A /* cell_back_brown.png */; };
+		CE660CEC139D2E97007BC01A /* EGOTextFieldAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE660CEB139D2E97007BC01A /* EGOTextFieldAlertView.m */; };
 		CE66CD57139C2AFA00F07C48 /* DoneDown.png in Resources */ = {isa = PBXBuildFile; fileRef = CE66CD53139C2AFA00F07C48 /* DoneDown.png */; };
 		CE66CD58139C2AFA00F07C48 /* DoneDown3.png in Resources */ = {isa = PBXBuildFile; fileRef = CE66CD54139C2AFA00F07C48 /* DoneDown3.png */; };
 		CE66CD59139C2AFA00F07C48 /* DoneUp.png in Resources */ = {isa = PBXBuildFile; fileRef = CE66CD55139C2AFA00F07C48 /* DoneUp.png */; };
@@ -70,6 +76,13 @@
 		CE6580F2138ECB2A00DE1F01 /* LogScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogScreenViewController.xib; sourceTree = "<group>"; };
 		CE6580F5138ECB8900DE1F01 /* log_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = log_screen.png; path = images/log_screen.png; sourceTree = "<group>"; };
 		CE65B574138EF3AB00702EC5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		CE660CDA139D2A07007BC01A /* cell_back_violet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cell_back_violet.png; path = images/cell_back_violet.png; sourceTree = "<group>"; };
+		CE660CDB139D2A07007BC01A /* contact_page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contact_page.png; path = images/contact_page.png; sourceTree = "<group>"; };
+		CE660CDC139D2A07007BC01A /* del_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = del_btn.png; path = images/del_btn.png; sourceTree = "<group>"; };
+		CE660CDD139D2A07007BC01A /* edit_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edit_btn.png; path = images/edit_btn.png; sourceTree = "<group>"; };
+		CE660CE6139D2C44007BC01A /* cell_back_brown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cell_back_brown.png; path = images/cell_back_brown.png; sourceTree = "<group>"; };
+		CE660CEA139D2E97007BC01A /* EGOTextFieldAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOTextFieldAlertView.h; sourceTree = "<group>"; };
+		CE660CEB139D2E97007BC01A /* EGOTextFieldAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOTextFieldAlertView.m; sourceTree = "<group>"; };
 		CE66CD53139C2AFA00F07C48 /* DoneDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoneDown.png; path = images/DoneDown.png; sourceTree = "<group>"; };
 		CE66CD54139C2AFA00F07C48 /* DoneDown3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoneDown3.png; path = images/DoneDown3.png; sourceTree = "<group>"; };
 		CE66CD55139C2AFA00F07C48 /* DoneUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoneUp.png; path = images/DoneUp.png; sourceTree = "<group>"; };
@@ -171,6 +184,8 @@
 				CE68D76F139414A6005CC7F7 /* WebViewController.h */,
 				CE68D770139414A6005CC7F7 /* WebViewController.m */,
 				CE68D771139414A6005CC7F7 /* WebViewController.xib */,
+				CE660CEA139D2E97007BC01A /* EGOTextFieldAlertView.h */,
+				CE660CEB139D2E97007BC01A /* EGOTextFieldAlertView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -229,6 +244,11 @@
 		CE6CF69A137E857100BB69CB /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CE660CE6139D2C44007BC01A /* cell_back_brown.png */,
+				CE660CDA139D2A07007BC01A /* cell_back_violet.png */,
+				CE660CDB139D2A07007BC01A /* contact_page.png */,
+				CE660CDC139D2A07007BC01A /* del_btn.png */,
+				CE660CDD139D2A07007BC01A /* edit_btn.png */,
 				CE66CD53139C2AFA00F07C48 /* DoneDown.png */,
 				CE66CD54139C2AFA00F07C48 /* DoneDown3.png */,
 				CE66CD55139C2AFA00F07C48 /* DoneUp.png */,
@@ -325,6 +345,11 @@
 				CE66CD58139C2AFA00F07C48 /* DoneDown3.png in Resources */,
 				CE66CD59139C2AFA00F07C48 /* DoneUp.png in Resources */,
 				CE66CD5A139C2AFA00F07C48 /* DoneUp3.png in Resources */,
+				CE660CDE139D2A07007BC01A /* cell_back_violet.png in Resources */,
+				CE660CDF139D2A07007BC01A /* contact_page.png in Resources */,
+				CE660CE0139D2A07007BC01A /* del_btn.png in Resources */,
+				CE660CE1139D2A07007BC01A /* edit_btn.png in Resources */,
+				CE660CE7139D2C44007BC01A /* cell_back_brown.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +374,7 @@
 				CE701797139BCC3700A7710E /* LogsListViewController.m in Sources */,
 				CE70179B139BCCFD00A7710E /* LogListCell.m in Sources */,
 				CE6708D1139C0F0B00BEECB0 /* RemindersListViewController.m in Sources */,
+				CE660CEC139D2E97007BC01A /* EGOTextFieldAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
