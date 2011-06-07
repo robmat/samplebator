@@ -33,14 +33,17 @@
 																		lessonsLearnt.text, @"Lesson learnt",
 																		[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]], @"Id", nil];
 		if (log != nil) {
+			NSUInteger index = -1;
 			for (NSDictionary* logDict in arrayOfLogs) {
 				NSNumber* time1 = [log objectForKey:@"Id"];
 				NSNumber* time2 = [logDict objectForKey:@"Id"];
 				if ([time1 isEqualToNumber:time2]) {
-					NSUInteger index = [arrayOfLogs indexOfObject:logDict];
-					[arrayOfLogs removeObjectAtIndex:index];
-					[arrayOfLogs insertObject:dict atIndex:index];
+					index = [arrayOfLogs indexOfObject:logDict];
 				}
+			}
+			if (index != -1) {
+				[arrayOfLogs removeObjectAtIndex:index];
+				[arrayOfLogs insertObject:dict atIndex:index];
 			}
 		} else {
 			[arrayOfLogs addObject:dict];
@@ -48,7 +51,8 @@
 		[arrayOfLogs writeToFile:path atomically:YES];
 		arrayOfLogs = [NSMutableArray arrayWithContentsOfFile:path];
 		if (arrayOfLogs) {
-			UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Log operation." message:@"Log operation succesful." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+			NSString* msg = log != nil ? @"Your log has been edited." : @"Your log has been saved.";
+			UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Log." message:msg delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 			[alert show];
 			[alert release];
 		}
@@ -131,12 +135,10 @@
 - (void) doneClickedActivity: (id) sender {
 	[activityType resignFirstResponder];
 	activityType.text = [self pickerView:activityPickerView titleForRow:activityRowSelection forComponent:0];
-	//[logTitle becomeFirstResponder];
 }
 - (void) doneClickedTime: (id) sender {
 	[timeSpent resignFirstResponder];
 	timeSpent.text = [self pickerView:timespentView titleForRow:timeSpentRowSelection forComponent:0];
-	//[activityType becomeFirstResponder];
 }
 - (void) doneClickedDate: (id) sender {
 	[date resignFirstResponder];
@@ -146,7 +148,6 @@
 	NSString* dateStr = [frmt stringFromDate:datePicked];
 	date.text = dateStr;
 	[frmt release];
-	//[timeSpent becomeFirstResponder];
 }
 -  (void) pickerView:(UIPickerView*) pickerView didSelectRow:(NSInteger) row inComponent:(NSInteger) component {
 	if (pickerView == timespentView) timeSpentRowSelection = row;
@@ -192,17 +193,6 @@
 }
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
 	[textField resignFirstResponder];
-	/*if (textField == date) {
-		[timeSpent becomeFirstResponder];
-	} else if (textField == timeSpent) {
-		[activityType becomeFirstResponder];
-	} else if (textField == activityType) {
-		[logTitle becomeFirstResponder];
-	} else if (textField == logTitle) {
-		[self descrptionAction:nil];
-	} else if (textField == description) {
-		[self lessonsLearntAction:nil];
-	} */
 	return YES;
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -226,7 +216,6 @@
     const int movementDistance = 90; // tweak as needed
     const float movementDuration = 0.3f; // tweak as needed
     int movement = (up ? -movementDistance : movementDistance);
-	
     [UIView beginAnimations: @"anim" context: nil];
     [UIView setAnimationBeginsFromCurrentState: YES];
     [UIView setAnimationDuration: movementDuration];
