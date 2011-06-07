@@ -97,16 +97,16 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<object class="NSFont" key="IBUIFont" id="262217965">
-									<string key="NSName">Helvetica</string>
+								<object class="NSFont" key="IBUIFont" id="383193632">
+									<string key="NSName">Helvetica-Oblique</string>
 									<double key="NSSize">13</double>
 									<int key="NSfFlags">16</int>
 								</object>
 								<reference key="IBUIHighlightedTitleColor" ref="441434975"/>
 								<reference key="IBUINormalTitleColor" ref="441434975"/>
-								<object class="NSColor" key="IBUINormalTitleShadowColor">
+								<object class="NSColor" key="IBUINormalTitleShadowColor" id="191155370">
 									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MC41AA</bytes>
+									<bytes key="NSWhite">MCAwAA</bytes>
 								</object>
 							</object>
 							<object class="IBUIButton" id="674327933">
@@ -114,16 +114,14 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{20, 66}, {278, 18}}</string>
 								<reference key="NSSuperview" ref="613025570"/>
+								<reference key="IBUIBackgroundColor" ref="191155370"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<reference key="IBUIFont" ref="262217965"/>
+								<reference key="IBUIFont" ref="383193632"/>
 								<reference key="IBUIHighlightedTitleColor" ref="441434975"/>
 								<reference key="IBUINormalTitleColor" ref="441434975"/>
-								<object class="NSColor" key="IBUINormalTitleShadowColor" id="191155370">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MCAwAA</bytes>
-								</object>
+								<reference key="IBUINormalTitleShadowColor" ref="191155370"/>
 							</object>
 							<object class="IBUILabel" id="380181438">
 								<reference key="NSNextResponder" ref="613025570"/>
@@ -303,8 +301,10 @@
 				<object class="NSArray" key="dict.sortedKeys">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>-2.CustomClassName</string>
+					<string>14.CustomClassName</string>
 					<string>14.IBPluginDependency</string>
 					<string>14.IBViewBoundsToFrameTransform</string>
+					<string>19.CustomClassName</string>
 					<string>19.IBPluginDependency</string>
 					<string>19.IBViewBoundsToFrameTransform</string>
 					<string>20.IBPluginDependency</string>
@@ -319,10 +319,12 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>UIResponder</string>
+					<string>UIUnderlinedButton</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">P4AAAL+AAABBoAAAwowAAA</bytes>
 					</object>
+					<string>UIUnderlinedButton</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">P4AAAL+AAABBoAAAwoQAAA</bytes>
@@ -453,6 +455,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/PathwayCell.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UIUnderlinedButton</string>
+					<string key="superclassName">UIButton</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">Classes/UIUnderlinedButton.h</string>
 					</object>
 				</object>
 			</object>

@@ -34,6 +34,7 @@
 		CE6760281392508200944CD4 /* SetReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6760261392508200944CD4 /* SetReminderViewController.m */; };
 		CE6760291392508200944CD4 /* SetReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6760271392508200944CD4 /* SetReminderViewController.xib */; };
 		CE67602B1392543400944CD4 /* set_reminder_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = CE67602A1392543400944CD4 /* set_reminder_screen.png */; };
+		CE67E170139E761100EB3D6A /* UIUnderlinedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67E16F139E761100EB3D6A /* UIUnderlinedButton.m */; };
 		CE68D772139414A6005CC7F7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE68D770139414A6005CC7F7 /* WebViewController.m */; };
 		CE68D773139414A6005CC7F7 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE68D771139414A6005CC7F7 /* WebViewController.xib */; };
 		CE69A694139D438100946DAB /* TextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE69A692139D438100946DAB /* TextInputViewController.m */; };
@@ -101,6 +102,8 @@
 		CE6760261392508200944CD4 /* SetReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetReminderViewController.m; sourceTree = "<group>"; };
 		CE6760271392508200944CD4 /* SetReminderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetReminderViewController.xib; sourceTree = "<group>"; };
 		CE67602A1392543400944CD4 /* set_reminder_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = set_reminder_screen.png; path = images/set_reminder_screen.png; sourceTree = "<group>"; };
+		CE67E16E139E761100EB3D6A /* UIUnderlinedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUnderlinedButton.h; sourceTree = "<group>"; };
+		CE67E16F139E761100EB3D6A /* UIUnderlinedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUnderlinedButton.m; sourceTree = "<group>"; };
 		CE68D76F139414A6005CC7F7 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		CE68D770139414A6005CC7F7 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		CE68D771139414A6005CC7F7 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
@@ -161,6 +164,9 @@
 			children = (
 				1D3623240D0F684500981E51 /* smart_gp_ipAppDelegate.h */,
 				1D3623250D0F684500981E51 /* smart_gp_ipAppDelegate.m */,
+				CE6C504F138D83C50084AB8D /* SplashScreenViewController.h */,
+				CE6C5050138D83C50084AB8D /* SplashScreenViewController.m */,
+				CE6C5051138D83C50084AB8D /* SplashScreenViewController.xib */,
 				CE71309F13784FBE00B95FA0 /* TableViewController.h */,
 				CE7130A013784FBE00B95FA0 /* TableViewController.m */,
 				CE7130A21378504C00B95FA0 /* TableViewControllerWrapper.h */,
@@ -169,9 +175,6 @@
 				CE6CF692137E83D800BB69CB /* PathwayCell.h */,
 				CE6CF693137E83D800BB69CB /* PathwayCell.m */,
 				CE6CF695137E83F000BB69CB /* PathwayCell.xib */,
-				CE6C504F138D83C50084AB8D /* SplashScreenViewController.h */,
-				CE6C5050138D83C50084AB8D /* SplashScreenViewController.m */,
-				CE6C5051138D83C50084AB8D /* SplashScreenViewController.xib */,
 				CE6C5056138D87D40084AB8D /* MainMenuViewController.h */,
 				CE6C5057138D87D40084AB8D /* MainMenuViewController.m */,
 				CE6C5058138D87D40084AB8D /* MainMenuViewController.xib */,
@@ -202,6 +205,8 @@
 				CE69A728139D4FEC00946DAB /* DisclaimerPageViewController.h */,
 				CE69A729139D4FEC00946DAB /* DisclaimerPageViewController.m */,
 				CE69A72A139D4FEC00946DAB /* DisclaimerPageViewController.xib */,
+				CE67E16E139E761100EB3D6A /* UIUnderlinedButton.h */,
+				CE67E16F139E761100EB3D6A /* UIUnderlinedButton.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 				CE660CEC139D2E97007BC01A /* EGOTextFieldAlertView.m in Sources */,
 				CE69A694139D438100946DAB /* TextInputViewController.m in Sources */,
 				CE69A72B139D4FEC00946DAB /* DisclaimerPageViewController.m in Sources */,
+				CE67E170139E761100EB3D6A /* UIUnderlinedButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

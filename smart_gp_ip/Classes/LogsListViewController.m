@@ -67,7 +67,7 @@
     return 1;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 64.0;
+	return 83.0;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSArray* logs = [NSArray arrayWithContentsOfFile:[LogScreenViewController getFilePath]];

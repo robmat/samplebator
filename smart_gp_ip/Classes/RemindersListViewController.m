@@ -41,7 +41,7 @@
 	[self.tableView reloadData];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 64.0;
+	return 83.0;
 }
 - (void)dealloc {
     [super dealloc];
