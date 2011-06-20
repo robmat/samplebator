@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
+#import "CommonViewControllerBase.h"
 
-@interface TextInputViewController : UIViewController {
+@interface TextInputViewController : CommonViewControllerBase {
 	
 	IBOutlet UITextView* textView;
 	IBOutlet UITextField* targetTextView;

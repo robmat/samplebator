@@ -1,15 +1,7 @@
-//
-//  RemindersMainMenuViewController.h
-//  smart_gp_ip
-//
-//  Created by User on 5/29/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
+#import "CommonViewControllerBase.h"
 #import <UIKit/UIKit.h>
 
-
-@interface RemindersMainMenuViewController : UIViewController {
+@interface RemindersMainMenuViewController : CommonViewControllerBase {
 	
 }
 

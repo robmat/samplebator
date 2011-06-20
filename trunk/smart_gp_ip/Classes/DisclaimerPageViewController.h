@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
+#import "CommonViewControllerBase.h"
 
-@interface DisclaimerPageViewController : UIViewController {
+@interface DisclaimerPageViewController : CommonViewControllerBase {
 
 }
 
