@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
+#import "CommonViewControllerBase.h"
 
-
-@interface SetReminderViewController : UIViewController <UITextViewDelegate> {
+@interface SetReminderViewController : CommonViewControllerBase <UITextViewDelegate> {
 
 	IBOutlet UITextView* textView;
 	NSString* submitLabelText;

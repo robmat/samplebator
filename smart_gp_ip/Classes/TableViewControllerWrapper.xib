@@ -50,7 +50,7 @@
 							<object class="IBUITableView" id="944584850">
 								<reference key="NSNextResponder" ref="275300249"/>
 								<int key="NSvFlags">274</int>
-								<string key="NSFrameSize">{320, 460}</string>
+								<string key="NSFrameSize">{320, 416}</string>
 								<reference key="NSSuperview" ref="275300249"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
@@ -66,7 +66,7 @@
 								<float key="IBUISectionFooterHeight">22</float>
 							</object>
 						</object>
-						<string key="NSFrameSize">{320, 460}</string>
+						<string key="NSFrameSize">{320, 416}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="649876887">
 							<int key="NSColorSpace">3</int>
@@ -83,10 +83,13 @@
 						<reference key="IBUITableHeaderView" ref="944584850"/>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 460}</string>
+				<string key="NSFrameSize">{320, 416}</string>
 				<reference key="NSSuperview"/>
 				<reference key="IBUIBackgroundColor" ref="649876887"/>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+				<object class="IBUISimulatedNavigationBarMetrics" key="IBUISimulatedTopBarMetrics">
+					<bool key="IBUIPrompted">NO</bool>
+				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 		</object>
@@ -172,7 +175,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>TableViewControllerWrapper</string>
 					<string>UIResponder</string>
-					<string>{{355, 128}, {320, 480}}</string>
+					<string>{{349, 91}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">

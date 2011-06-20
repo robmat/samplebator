@@ -1,7 +1,8 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
+#import "CommonViewControllerBase.h"
 
-@interface LogScreenViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
+@interface LogScreenViewController : CommonViewControllerBase <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
 
 	IBOutlet UITextField* date;
 	IBOutlet UITextField* timeSpent;

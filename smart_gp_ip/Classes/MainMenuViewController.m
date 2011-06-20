@@ -3,6 +3,7 @@
 #import "LogScreenViewController.h"
 #import "RemindersMainMenuViewController.h"
 #import "WebViewController.h"
+#import "ContactViewController.h"
 
 @implementation MainMenuViewController
 
@@ -26,11 +27,14 @@
 - (IBAction) newsAction: (id) sender {
 	WebViewController* wvc = [[WebViewController alloc] initWithNibName:nil bundle:nil];
 	wvc.url = @"http://www.healtheastcic.co.uk/News.aspx";
+	wvc.title = @"News";
 	[self.navigationController pushViewController:wvc animated:YES];
 	[wvc release];
 }
 - (IBAction) contactAction: (id) sender {
-
+	ContactViewController* cvc = [[ContactViewController alloc] initWithNibName:nil bundle:nil];
+	[self.navigationController pushViewController:cvc animated:YES];
+	[cvc release];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

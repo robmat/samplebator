@@ -29,6 +29,7 @@
 		urlStr = [NSString stringWithFormat:@"%@%@", @"http://", urlStr];
 	}
 	wvc.url = urlStr;
+	wvc.title = label.text;
 	[self.navController pushViewController:wvc animated:YES];
 	[wvc release];
 }

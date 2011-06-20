@@ -2,6 +2,7 @@
 #import "LogListCell.h"
 #import "LogScreenViewController.h"
 #import <MessageUI/MessageUI.h>
+#import "ExcelSheetGenerator.h"
 
 @implementation LogsListViewController
 
@@ -45,7 +46,8 @@
 	controller.mailComposeDelegate = self;
 	[controller setSubject:@"My Log"];
 	[controller setMessageBody:body isHTML:NO]; 
-	if (controller) [self presentModalViewController:controller animated:YES];
+	[controller addAttachmentData:[[ExcelSheetGenerator generateExcelXMLFromItems:arrayOfLogs] dataUsingEncoding:NSUTF8StringEncoding] mimeType:@"text/xml" fileName:@"logs.xml"];
+	[self presentModalViewController:controller animated:YES];
 	[controller release];
 }
 - (NSString*) prepareBody: (NSString*) body withItems: (NSArray*) items {
