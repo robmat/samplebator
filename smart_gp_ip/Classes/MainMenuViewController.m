@@ -26,7 +26,7 @@
 }
 - (IBAction) newsAction: (id) sender {
 	WebViewController* wvc = [[WebViewController alloc] initWithNibName:nil bundle:nil];
-	wvc.url = @"http://www.healtheastcic.co.uk/News.aspx";
+	wvc.url = @"http://www.healtheastcic.co.uk/RSS/MembersLatestNews.rss";
 	wvc.title = @"News";
 	[self.navigationController pushViewController:wvc animated:YES];
 	[wvc release];

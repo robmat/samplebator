@@ -16,6 +16,12 @@
 		[[UIApplication sharedApplication] cancelLocalNotification:locNot];
 	}
 	[self.navigationController popViewControllerAnimated:YES];
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Reminder" 
+													message:@"Your reminder has been saved." 
+												   delegate:nil cancelButtonTitle:@"Ok" 
+										  otherButtonTitles:nil];
+	[alert show];
+	[alert release];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

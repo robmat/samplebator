@@ -54,13 +54,15 @@
 			[[UIApplication sharedApplication] cancelLocalNotification:locNot];
 		} else {
 			NSMutableArray* logs = [NSMutableArray arrayWithContentsOfFile:[LogScreenViewController getFilePath]];
+			NSDictionary* logToRemove = nil;
 			for (NSDictionary* logDict in logs) {
 				NSNumber* time1 = [logDict objectForKey:@"Id"];
 				NSNumber* time2 = [log objectForKey:@"Id"];
 				if ([time1 isEqualToNumber:time2]) {
-					[logs removeObject:logDict];
+					logToRemove = logDict; 
 				}
 			}
+			[logs removeObject:logToRemove];
 			[logs writeToFile:[LogScreenViewController getFilePath] atomically:YES];
 		}
 		[tvc.tableView reloadData];

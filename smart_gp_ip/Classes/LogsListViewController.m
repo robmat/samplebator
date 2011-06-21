@@ -18,6 +18,10 @@
 - (void)mailComposeController:(MFMailComposeViewController*)controller  
           didFinishWithResult:(MFMailComposeResult)result 
                         error:(NSError*)error {
+	if (result == MFMailComposeResultCancelled) {
+		[self dismissModalViewControllerAnimated:YES];
+		return;
+	}
 	if (result == MFMailComposeResultSent) {
 		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Mail sent." 
 														message:@"Sending the mail succeeded." 
@@ -51,8 +55,9 @@
 	[controller release];
 }
 - (NSString*) prepareBody: (NSString*) body withItems: (NSArray*) items {
+	NSArray* keys = [NSArray arrayWithObjects:@"Date", @"Time spent", @"Title", @"Activity type", @"Lesson learnt", @"Description", nil];
 	for (NSDictionary* dict in items) {
-		for (NSString* key in [dict keyEnumerator]) {
+		for (NSString* key in keys) {
 			if (![key isEqualToString:@"Id"]) {
 				NSString* value = [dict objectForKey:key];
 				body = [body stringByAppendingString:key];
