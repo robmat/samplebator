@@ -24,6 +24,7 @@
 	if ([submitLabel.text rangeOfString:@"CHECK"].location != NSNotFound) {
 		[textView setKeyboardType:UIKeyboardTypeNumberPad];
 	}
+	self.datePicker.date = [NSDate date];
 }
 - (BOOL)textView:(UITextView *)textVie shouldChangeTextInRange:(NSRange)range 
  replacementText:(NSString *)text {
