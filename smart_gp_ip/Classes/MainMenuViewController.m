@@ -39,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.navigationItem.hidesBackButton = YES;
-    self.title = @"Smart GP";
+    self.title = @"Smart GP for HealthEast";
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
