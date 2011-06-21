@@ -29,7 +29,7 @@
 																		timeSpent.text, @"Time spent",
 																		activityType.text, @"Activity type",
 																		logTitle.text, @"Title",
-																		description.text, @"Descritpion",
+																		description.text, @"Description",
 																		lessonsLearnt.text, @"Lesson learnt",
 																		[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]], @"Id", nil];
 		if (log != nil) {
@@ -156,14 +156,22 @@
 - (NSString*) pickerView:(UIPickerView*) pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
 	if (pickerView == timespentView) {
 		switch (row) {
-			case 0: return [NSString stringWithString: @"1h"];
-			case 1: return [NSString stringWithString: @"2h"];
-			case 2: return [NSString stringWithString: @"3h"];
-			case 3: return [NSString stringWithString: @"4h"];
-			case 4: return [NSString stringWithString: @"5h"];
-			case 5: return [NSString stringWithString: @"6h"];
-			case 6: return [NSString stringWithString: @"7h"];
-			case 7: return [NSString stringWithString: @"8h"];
+			case 0: return [NSString stringWithString: @"30min"];
+			case 1: return [NSString stringWithString: @"1h"];
+			case 2: return [NSString stringWithString: @"1h 30min"];
+			case 3: return [NSString stringWithString: @"2h"];
+			case 4: return [NSString stringWithString: @"2h 30min"];
+			case 5: return [NSString stringWithString: @"3h"];
+			case 6: return [NSString stringWithString: @"3h 30min"];
+			case 7: return [NSString stringWithString: @"4h"];
+			case 8: return [NSString stringWithString: @"4h 30min"];
+			case 9: return [NSString stringWithString: @"5h"];
+			case 10: return [NSString stringWithString: @"5h 30min"];
+			case 11: return [NSString stringWithString: @"6h"];
+			case 12: return [NSString stringWithString: @"6h 30min"];
+			case 13: return [NSString stringWithString: @"7h"];
+			case 14: return [NSString stringWithString: @"7h 30min"];
+			case 15: return [NSString stringWithString: @"8h"];
 		}
 	}
 	if (pickerView == activityPickerView) {
@@ -184,7 +192,7 @@
 }
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
 	if (pickerView == timespentView) {
-		return 8;
+		return 16;
 	}
 	if (pickerView == activityPickerView) {
 		return 7;
