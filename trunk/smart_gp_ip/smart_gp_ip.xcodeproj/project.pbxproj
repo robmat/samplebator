@@ -75,6 +75,16 @@
 		CE7130A113784FBE00B95FA0 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7130A013784FBE00B95FA0 /* TableViewController.m */; };
 		CE7130A51378504C00B95FA0 /* TableViewControllerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7130A31378504C00B95FA0 /* TableViewControllerWrapper.m */; };
 		CE7130A61378504C00B95FA0 /* TableViewControllerWrapper.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7130A41378504C00B95FA0 /* TableViewControllerWrapper.xib */; };
+		CEBAF98C13B1CBDE005B5A77 /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF97713B1CBDE005B5A77 /* DetailTableViewController.m */; };
+		CEBAF98D13B1CBDE005B5A77 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF97A13B1CBDE005B5A77 /* GTMNSString+HTML.m */; };
+		CEBAF98E13B1CBDE005B5A77 /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF97C13B1CBDE005B5A77 /* MWFeedInfo.m */; };
+		CEBAF98F13B1CBDE005B5A77 /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF97E13B1CBDE005B5A77 /* MWFeedItem.m */; };
+		CEBAF99013B1CBDE005B5A77 /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF98113B1CBDE005B5A77 /* MWFeedParser.m */; };
+		CEBAF99113B1CBDE005B5A77 /* MWFeedParserAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF98313B1CBDE005B5A77 /* MWFeedParserAppDelegate.m */; };
+		CEBAF99213B1CBDE005B5A77 /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF98513B1CBDE005B5A77 /* NSDate+InternetDateTime.m */; };
+		CEBAF99313B1CBDE005B5A77 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF98713B1CBDE005B5A77 /* NSString+HTML.m */; };
+		CEBAF99413B1CBDE005B5A77 /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF98913B1CBDE005B5A77 /* NSString+XMLEntities.m */; };
+		CEBAF99513B1CBDE005B5A77 /* RSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF98B13B1CBDE005B5A77 /* RSSViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -169,6 +179,28 @@
 		CE7130A21378504C00B95FA0 /* TableViewControllerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewControllerWrapper.h; sourceTree = "<group>"; };
 		CE7130A31378504C00B95FA0 /* TableViewControllerWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewControllerWrapper.m; sourceTree = "<group>"; };
 		CE7130A41378504C00B95FA0 /* TableViewControllerWrapper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewControllerWrapper.xib; sourceTree = "<group>"; };
+		CEBAF97613B1CBDE005B5A77 /* DetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailTableViewController.h; path = RSSParser/DetailTableViewController.h; sourceTree = "<group>"; };
+		CEBAF97713B1CBDE005B5A77 /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailTableViewController.m; path = RSSParser/DetailTableViewController.m; sourceTree = "<group>"; };
+		CEBAF97813B1CBDE005B5A77 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = RSSParser/GTMDefines.h; sourceTree = "<group>"; };
+		CEBAF97913B1CBDE005B5A77 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "RSSParser/GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		CEBAF97A13B1CBDE005B5A77 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "RSSParser/GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		CEBAF97B13B1CBDE005B5A77 /* MWFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedInfo.h; path = RSSParser/MWFeedInfo.h; sourceTree = "<group>"; };
+		CEBAF97C13B1CBDE005B5A77 /* MWFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFeedInfo.m; path = RSSParser/MWFeedInfo.m; sourceTree = "<group>"; };
+		CEBAF97D13B1CBDE005B5A77 /* MWFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedItem.h; path = RSSParser/MWFeedItem.h; sourceTree = "<group>"; };
+		CEBAF97E13B1CBDE005B5A77 /* MWFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFeedItem.m; path = RSSParser/MWFeedItem.m; sourceTree = "<group>"; };
+		CEBAF97F13B1CBDE005B5A77 /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedParser_Private.h; path = RSSParser/MWFeedParser_Private.h; sourceTree = "<group>"; };
+		CEBAF98013B1CBDE005B5A77 /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedParser.h; path = RSSParser/MWFeedParser.h; sourceTree = "<group>"; };
+		CEBAF98113B1CBDE005B5A77 /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFeedParser.m; path = RSSParser/MWFeedParser.m; sourceTree = "<group>"; };
+		CEBAF98213B1CBDE005B5A77 /* MWFeedParserAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedParserAppDelegate.h; path = RSSParser/MWFeedParserAppDelegate.h; sourceTree = "<group>"; };
+		CEBAF98313B1CBDE005B5A77 /* MWFeedParserAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFeedParserAppDelegate.m; path = RSSParser/MWFeedParserAppDelegate.m; sourceTree = "<group>"; };
+		CEBAF98413B1CBDE005B5A77 /* NSDate+InternetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+InternetDateTime.h"; path = "RSSParser/NSDate+InternetDateTime.h"; sourceTree = "<group>"; };
+		CEBAF98513B1CBDE005B5A77 /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+InternetDateTime.m"; path = "RSSParser/NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
+		CEBAF98613B1CBDE005B5A77 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HTML.h"; path = "RSSParser/NSString+HTML.h"; sourceTree = "<group>"; };
+		CEBAF98713B1CBDE005B5A77 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTML.m"; path = "RSSParser/NSString+HTML.m"; sourceTree = "<group>"; };
+		CEBAF98813B1CBDE005B5A77 /* NSString+XMLEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+XMLEntities.h"; path = "RSSParser/NSString+XMLEntities.h"; sourceTree = "<group>"; };
+		CEBAF98913B1CBDE005B5A77 /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+XMLEntities.m"; path = "RSSParser/NSString+XMLEntities.m"; sourceTree = "<group>"; };
+		CEBAF98A13B1CBDE005B5A77 /* RSSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSSViewController.h; path = RSSParser/RSSViewController.h; sourceTree = "<group>"; };
+		CEBAF98B13B1CBDE005B5A77 /* RSSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSSViewController.m; path = RSSParser/RSSViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +221,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CEBAF97413B1CBC2005B5A77 /* RSSParser */,
 				1D3623240D0F684500981E51 /* smart_gp_ipAppDelegate.h */,
 				1D3623250D0F684500981E51 /* smart_gp_ipAppDelegate.m */,
 				CE6C504F138D83C50084AB8D /* SplashScreenViewController.h */,
@@ -332,6 +365,35 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		CEBAF97413B1CBC2005B5A77 /* RSSParser */ = {
+			isa = PBXGroup;
+			children = (
+				CEBAF97613B1CBDE005B5A77 /* DetailTableViewController.h */,
+				CEBAF97713B1CBDE005B5A77 /* DetailTableViewController.m */,
+				CEBAF97813B1CBDE005B5A77 /* GTMDefines.h */,
+				CEBAF97913B1CBDE005B5A77 /* GTMNSString+HTML.h */,
+				CEBAF97A13B1CBDE005B5A77 /* GTMNSString+HTML.m */,
+				CEBAF97B13B1CBDE005B5A77 /* MWFeedInfo.h */,
+				CEBAF97C13B1CBDE005B5A77 /* MWFeedInfo.m */,
+				CEBAF97D13B1CBDE005B5A77 /* MWFeedItem.h */,
+				CEBAF97E13B1CBDE005B5A77 /* MWFeedItem.m */,
+				CEBAF97F13B1CBDE005B5A77 /* MWFeedParser_Private.h */,
+				CEBAF98013B1CBDE005B5A77 /* MWFeedParser.h */,
+				CEBAF98113B1CBDE005B5A77 /* MWFeedParser.m */,
+				CEBAF98213B1CBDE005B5A77 /* MWFeedParserAppDelegate.h */,
+				CEBAF98313B1CBDE005B5A77 /* MWFeedParserAppDelegate.m */,
+				CEBAF98413B1CBDE005B5A77 /* NSDate+InternetDateTime.h */,
+				CEBAF98513B1CBDE005B5A77 /* NSDate+InternetDateTime.m */,
+				CEBAF98613B1CBDE005B5A77 /* NSString+HTML.h */,
+				CEBAF98713B1CBDE005B5A77 /* NSString+HTML.m */,
+				CEBAF98813B1CBDE005B5A77 /* NSString+XMLEntities.h */,
+				CEBAF98913B1CBDE005B5A77 /* NSString+XMLEntities.m */,
+				CEBAF98A13B1CBDE005B5A77 /* RSSViewController.h */,
+				CEBAF98B13B1CBDE005B5A77 /* RSSViewController.m */,
+			);
+			name = RSSParser;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -455,6 +517,16 @@
 				CE6EB467139E9B5600F83B87 /* ContactViewController.m in Sources */,
 				CE6EB4AA139EA88B00F83B87 /* ExcelSheetGenerator.m in Sources */,
 				CE6D1D4313AFBC9700EBF7C7 /* CommonViewControllerBase.m in Sources */,
+				CEBAF98C13B1CBDE005B5A77 /* DetailTableViewController.m in Sources */,
+				CEBAF98D13B1CBDE005B5A77 /* GTMNSString+HTML.m in Sources */,
+				CEBAF98E13B1CBDE005B5A77 /* MWFeedInfo.m in Sources */,
+				CEBAF98F13B1CBDE005B5A77 /* MWFeedItem.m in Sources */,
+				CEBAF99013B1CBDE005B5A77 /* MWFeedParser.m in Sources */,
+				CEBAF99113B1CBDE005B5A77 /* MWFeedParserAppDelegate.m in Sources */,
+				CEBAF99213B1CBDE005B5A77 /* NSDate+InternetDateTime.m in Sources */,
+				CEBAF99313B1CBDE005B5A77 /* NSString+HTML.m in Sources */,
+				CEBAF99413B1CBDE005B5A77 /* NSString+XMLEntities.m in Sources */,
+				CEBAF99513B1CBDE005B5A77 /* RSSViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
