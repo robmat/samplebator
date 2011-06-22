@@ -4,6 +4,7 @@
 #import "RemindersMainMenuViewController.h"
 #import "WebViewController.h"
 #import "ContactViewController.h"
+#import "RSSViewController.h"
 
 @implementation MainMenuViewController
 
@@ -25,11 +26,16 @@
 	[tvcw release];
 }
 - (IBAction) newsAction: (id) sender {
+	/*
 	WebViewController* wvc = [[WebViewController alloc] initWithNibName:nil bundle:nil];
 	wvc.url = @"http://www.healtheastcic.co.uk/RSS/MembersLatestNews.rss";
 	wvc.title = @"News";
 	[self.navigationController pushViewController:wvc animated:YES];
 	[wvc release];
+	 */
+	RSSViewController* rssVC = [[RSSViewController alloc] initWithNibName:nil bundle:nil];
+	[self.navigationController pushViewController:rssVC animated:YES];
+	[rssVC release];
 }
 - (IBAction) contactAction: (id) sender {
 	ContactViewController* cvc = [[ContactViewController alloc] initWithNibName:nil bundle:nil];
