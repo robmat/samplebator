@@ -11,7 +11,6 @@
 @property (nonatomic, retain) NSArray* dataArray;
 @property (nonatomic, retain) UINavigationController* navController;
 
-- (void) moveDownView: (UIView*) view byPixels: (NSNumber*) pixels;
 - (void) clipButtonToItsTitleWidth: (UIButton*) btn;
 
 @end

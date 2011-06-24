@@ -28,6 +28,8 @@
 		CE66CD59139C2AFA00F07C48 /* DoneUp.png in Resources */ = {isa = PBXBuildFile; fileRef = CE66CD55139C2AFA00F07C48 /* DoneUp.png */; };
 		CE66CD5A139C2AFA00F07C48 /* DoneUp3.png in Resources */ = {isa = PBXBuildFile; fileRef = CE66CD56139C2AFA00F07C48 /* DoneUp3.png */; };
 		CE6708D1139C0F0B00BEECB0 /* RemindersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6708D0139C0F0B00BEECB0 /* RemindersListViewController.m */; };
+		CE6730FD13B4B76A009C0BD2 /* phone_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6730FB13B4B76A009C0BD2 /* phone_btn.png */; };
+		CE6730FE13B4B76A009C0BD2 /* website_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6730FC13B4B76A009C0BD2 /* website_btn.png */; };
 		CE67601713924C9E00944CD4 /* RemindersMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67601513924C9E00944CD4 /* RemindersMainMenuViewController.m */; };
 		CE67601813924C9E00944CD4 /* RemindersMainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE67601613924C9E00944CD4 /* RemindersMainMenuViewController.xib */; };
 		CE67601A13924CF000944CD4 /* remind_main_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CE67601913924CF000944CD4 /* remind_main_menu.png */; };
@@ -37,6 +39,8 @@
 		CE67E170139E761100EB3D6A /* UIUnderlinedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67E16F139E761100EB3D6A /* UIUnderlinedButton.m */; };
 		CE68D772139414A6005CC7F7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE68D770139414A6005CC7F7 /* WebViewController.m */; };
 		CE68D773139414A6005CC7F7 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE68D771139414A6005CC7F7 /* WebViewController.xib */; };
+		CE69282B13B4AF3D005D1AF6 /* ItemDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE69282913B4AF3D005D1AF6 /* ItemDetailsViewController.m */; };
+		CE69282C13B4AF3D005D1AF6 /* ItemDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE69282A13B4AF3D005D1AF6 /* ItemDetailsViewController.xib */; };
 		CE69A694139D438100946DAB /* TextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE69A692139D438100946DAB /* TextInputViewController.m */; };
 		CE69A695139D438100946DAB /* TextInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE69A693139D438100946DAB /* TextInputViewController.xib */; };
 		CE69A72B139D4FEC00946DAB /* DisclaimerPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE69A729139D4FEC00946DAB /* DisclaimerPageViewController.m */; };
@@ -80,7 +84,6 @@
 		CEBAF98E13B1CBDE005B5A77 /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF97C13B1CBDE005B5A77 /* MWFeedInfo.m */; };
 		CEBAF98F13B1CBDE005B5A77 /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF97E13B1CBDE005B5A77 /* MWFeedItem.m */; };
 		CEBAF99013B1CBDE005B5A77 /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF98113B1CBDE005B5A77 /* MWFeedParser.m */; };
-		CEBAF99113B1CBDE005B5A77 /* MWFeedParserAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF98313B1CBDE005B5A77 /* MWFeedParserAppDelegate.m */; };
 		CEBAF99213B1CBDE005B5A77 /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF98513B1CBDE005B5A77 /* NSDate+InternetDateTime.m */; };
 		CEBAF99313B1CBDE005B5A77 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF98713B1CBDE005B5A77 /* NSString+HTML.m */; };
 		CEBAF99413B1CBDE005B5A77 /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAF98913B1CBDE005B5A77 /* NSString+XMLEntities.m */; };
@@ -116,6 +119,8 @@
 		CE66CD56139C2AFA00F07C48 /* DoneUp3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoneUp3.png; path = images/DoneUp3.png; sourceTree = "<group>"; };
 		CE6708CF139C0F0B00BEECB0 /* RemindersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemindersListViewController.h; sourceTree = "<group>"; };
 		CE6708D0139C0F0B00BEECB0 /* RemindersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemindersListViewController.m; sourceTree = "<group>"; };
+		CE6730FB13B4B76A009C0BD2 /* phone_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = phone_btn.png; path = images/phone_btn.png; sourceTree = "<group>"; };
+		CE6730FC13B4B76A009C0BD2 /* website_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = website_btn.png; path = images/website_btn.png; sourceTree = "<group>"; };
 		CE67601413924C9E00944CD4 /* RemindersMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemindersMainMenuViewController.h; sourceTree = "<group>"; };
 		CE67601513924C9E00944CD4 /* RemindersMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemindersMainMenuViewController.m; sourceTree = "<group>"; };
 		CE67601613924C9E00944CD4 /* RemindersMainMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindersMainMenuViewController.xib; sourceTree = "<group>"; };
@@ -129,6 +134,9 @@
 		CE68D76F139414A6005CC7F7 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		CE68D770139414A6005CC7F7 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		CE68D771139414A6005CC7F7 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		CE69282813B4AF3D005D1AF6 /* ItemDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailsViewController.h; sourceTree = "<group>"; };
+		CE69282913B4AF3D005D1AF6 /* ItemDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailsViewController.m; sourceTree = "<group>"; };
+		CE69282A13B4AF3D005D1AF6 /* ItemDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailsViewController.xib; sourceTree = "<group>"; };
 		CE69A691139D438100946DAB /* TextInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextInputViewController.h; sourceTree = "<group>"; };
 		CE69A692139D438100946DAB /* TextInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextInputViewController.m; sourceTree = "<group>"; };
 		CE69A693139D438100946DAB /* TextInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextInputViewController.xib; sourceTree = "<group>"; };
@@ -191,8 +199,6 @@
 		CEBAF97F13B1CBDE005B5A77 /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedParser_Private.h; path = RSSParser/MWFeedParser_Private.h; sourceTree = "<group>"; };
 		CEBAF98013B1CBDE005B5A77 /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedParser.h; path = RSSParser/MWFeedParser.h; sourceTree = "<group>"; };
 		CEBAF98113B1CBDE005B5A77 /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFeedParser.m; path = RSSParser/MWFeedParser.m; sourceTree = "<group>"; };
-		CEBAF98213B1CBDE005B5A77 /* MWFeedParserAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedParserAppDelegate.h; path = RSSParser/MWFeedParserAppDelegate.h; sourceTree = "<group>"; };
-		CEBAF98313B1CBDE005B5A77 /* MWFeedParserAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFeedParserAppDelegate.m; path = RSSParser/MWFeedParserAppDelegate.m; sourceTree = "<group>"; };
 		CEBAF98413B1CBDE005B5A77 /* NSDate+InternetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+InternetDateTime.h"; path = "RSSParser/NSDate+InternetDateTime.h"; sourceTree = "<group>"; };
 		CEBAF98513B1CBDE005B5A77 /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+InternetDateTime.m"; path = "RSSParser/NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
 		CEBAF98613B1CBDE005B5A77 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HTML.h"; path = "RSSParser/NSString+HTML.h"; sourceTree = "<group>"; };
@@ -224,6 +230,9 @@
 				CEBAF97413B1CBC2005B5A77 /* RSSParser */,
 				1D3623240D0F684500981E51 /* smart_gp_ipAppDelegate.h */,
 				1D3623250D0F684500981E51 /* smart_gp_ipAppDelegate.m */,
+				CE6C5056138D87D40084AB8D /* MainMenuViewController.h */,
+				CE6C5057138D87D40084AB8D /* MainMenuViewController.m */,
+				CE6C5058138D87D40084AB8D /* MainMenuViewController.xib */,
 				CE6C504F138D83C50084AB8D /* SplashScreenViewController.h */,
 				CE6C5050138D83C50084AB8D /* SplashScreenViewController.m */,
 				CE6C5051138D83C50084AB8D /* SplashScreenViewController.xib */,
@@ -235,9 +244,9 @@
 				CE6CF692137E83D800BB69CB /* PathwayCell.h */,
 				CE6CF693137E83D800BB69CB /* PathwayCell.m */,
 				CE6CF695137E83F000BB69CB /* PathwayCell.xib */,
-				CE6C5056138D87D40084AB8D /* MainMenuViewController.h */,
-				CE6C5057138D87D40084AB8D /* MainMenuViewController.m */,
-				CE6C5058138D87D40084AB8D /* MainMenuViewController.xib */,
+				CE69282813B4AF3D005D1AF6 /* ItemDetailsViewController.h */,
+				CE69282913B4AF3D005D1AF6 /* ItemDetailsViewController.m */,
+				CE69282A13B4AF3D005D1AF6 /* ItemDetailsViewController.xib */,
 				CE6580F0138ECB2A00DE1F01 /* LogScreenViewController.h */,
 				CE6580F1138ECB2A00DE1F01 /* LogScreenViewController.m */,
 				CE6580F2138ECB2A00DE1F01 /* LogScreenViewController.xib */,
@@ -333,6 +342,8 @@
 		CE6CF69A137E857100BB69CB /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CE6730FB13B4B76A009C0BD2 /* phone_btn.png */,
+				CE6730FC13B4B76A009C0BD2 /* website_btn.png */,
 				CE6FA17C13AFCA0B005E8DFF /* home_btn.png */,
 				CE6D1D2A13AFB91900EBF7C7 /* term1anim.png */,
 				CE6D1D2B13AFB91900EBF7C7 /* term2anim.png */,
@@ -380,8 +391,6 @@
 				CEBAF97F13B1CBDE005B5A77 /* MWFeedParser_Private.h */,
 				CEBAF98013B1CBDE005B5A77 /* MWFeedParser.h */,
 				CEBAF98113B1CBDE005B5A77 /* MWFeedParser.m */,
-				CEBAF98213B1CBDE005B5A77 /* MWFeedParserAppDelegate.h */,
-				CEBAF98313B1CBDE005B5A77 /* MWFeedParserAppDelegate.m */,
 				CEBAF98413B1CBDE005B5A77 /* NSDate+InternetDateTime.h */,
 				CEBAF98513B1CBDE005B5A77 /* NSDate+InternetDateTime.m */,
 				CEBAF98613B1CBDE005B5A77 /* NSString+HTML.h */,
@@ -486,6 +495,9 @@
 				CE6D1D3413AFB91900EBF7C7 /* term5anim.png in Resources */,
 				CE6D1D3513AFB91900EBF7C7 /* term6anim.png in Resources */,
 				CE6FA17D13AFCA0B005E8DFF /* home_btn.png in Resources */,
+				CE69282C13B4AF3D005D1AF6 /* ItemDetailsViewController.xib in Resources */,
+				CE6730FD13B4B76A009C0BD2 /* phone_btn.png in Resources */,
+				CE6730FE13B4B76A009C0BD2 /* website_btn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,11 +534,11 @@
 				CEBAF98E13B1CBDE005B5A77 /* MWFeedInfo.m in Sources */,
 				CEBAF98F13B1CBDE005B5A77 /* MWFeedItem.m in Sources */,
 				CEBAF99013B1CBDE005B5A77 /* MWFeedParser.m in Sources */,
-				CEBAF99113B1CBDE005B5A77 /* MWFeedParserAppDelegate.m in Sources */,
 				CEBAF99213B1CBDE005B5A77 /* NSDate+InternetDateTime.m in Sources */,
 				CEBAF99313B1CBDE005B5A77 /* NSString+HTML.m in Sources */,
 				CEBAF99413B1CBDE005B5A77 /* NSString+XMLEntities.m in Sources */,
 				CEBAF99513B1CBDE005B5A77 /* RSSViewController.m in Sources */,
+				CE69282B13B4AF3D005D1AF6 /* ItemDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
