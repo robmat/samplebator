@@ -213,7 +213,7 @@
 	return YES;
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-	if ((textField == date || textField == timeSpent || textField == activityType) && screenMoved) {
+	if ((textField == date || textField == timeSpent || textField == activityType) || screenMoved) {
 		return;
 	}
     if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
@@ -222,11 +222,12 @@
 	}	
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    if ((textField == date || textField == timeSpent || textField == activityType) && !screenMoved) {
+    if ((textField == date || textField == timeSpent || textField == activityType) || !screenMoved) {
 		return;
 	}
 	if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
 		[self animateTextField: textField up: NO];
+		screenMoved = NO;
 	}
 }
 

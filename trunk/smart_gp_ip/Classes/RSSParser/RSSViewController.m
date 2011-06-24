@@ -95,17 +95,22 @@
     }
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	MWFeedItem *item = [itemsToDisplay objectAtIndex:indexPath.row];
+	NSMutableDictionary* dataDict = [NSMutableDictionary dictionaryWithCapacity:2];
 	if (item) {
 		NSString *itemTitle = item.title ? [item.title stringByConvertingHTMLToPlainText] : @"[No Title]";
 		NSString *itemSummary = item.summary ? [item.summary stringByConvertingHTMLToPlainText] : @"[No Summary]";
-		cell.label.text = itemTitle;
+		[dataDict setObject:itemTitle forKey:@"Title"];
 		NSMutableString *subtitle = [NSMutableString string];
 		if (item.date) [subtitle appendFormat:@"%@: ", [formatter stringFromDate:item.date]];
 		[subtitle appendString:itemSummary];
-		cell.detailLabel.text = subtitle;
-		[self moveDownView:cell.label byPixels:[NSNumber numberWithInt:20]];
-		[self moveDownView:cell.detailLabel byPixels:[NSNumber numberWithInt:20]];
+		[dataDict setObject:subtitle forKey:@"Text"];
+		[self moveDownView:cell.label byPixels:[NSNumber numberWithInt:10]];
+		[self moveDownView:cell.detailLabel byPixels:[NSNumber numberWithInt:10]];
+		[self moveLeftView:cell.label byPixels:[NSNumber numberWithInt:20]];
+		[self moveLeftView:cell.detailLabel byPixels:[NSNumber numberWithInt:20]];
 	}
+	cell.data = dataDict;
+	[cell initializeCell];
     return cell;
 }
 
@@ -122,6 +127,11 @@
 - (void) moveDownView: (UIView*) view byPixels: (NSNumber*) pixels {
 	CGRect frame = view.frame;
 	frame = CGRectMake(frame.origin.x, frame.origin.y + [pixels floatValue], frame.size.width, frame.size.height);
+	view.frame = frame;
+}
+- (void) moveLeftView: (UIView*) view byPixels: (NSNumber*) pixels {
+	CGRect frame = view.frame;
+	frame = CGRectMake(frame.origin.x - [pixels floatValue], frame.origin.y, frame.size.width + [pixels floatValue], frame.size.height);
 	view.frame = frame;
 }
 - (void)dealloc {
