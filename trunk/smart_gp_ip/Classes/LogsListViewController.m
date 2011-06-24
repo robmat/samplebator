@@ -1,3 +1,6 @@
+
+//Copyright Applicable Ltd 2011
+
 #import "LogsListViewController.h"
 #import "LogListCell.h"
 #import "LogScreenViewController.h"

@@ -1,3 +1,6 @@
+
+//Copyright Applicable Ltd 2011
+
 #import "TableViewControllerWrapper.h"
 #import "TableVieController.h"
 

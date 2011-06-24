@@ -1,3 +1,6 @@
+
+//Copyright Applicable Ltd 2011
+
 #import "MainMenuViewController.h"
 #import "TableViewControllerWrapper.h"
 #import "LogScreenViewController.h"

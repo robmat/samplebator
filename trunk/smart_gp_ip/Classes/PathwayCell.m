@@ -1,10 +1,5 @@
-//
-//  PathwayCell.m
-//  smart_gp_ip
-//
-//  Created by User on 5/14/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
+
+//Copyright Applicable Ltd 2011
 
 #import "PathwayCell.h"
 #import "WebViewController.h"

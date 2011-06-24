@@ -1,3 +1,6 @@
+
+//Copyright Applicable Ltd 2011
+
 #import "LogScreenViewController.h"
 #import "LogsListViewController.h"
 #import "EGOTextFieldAlertView.h"

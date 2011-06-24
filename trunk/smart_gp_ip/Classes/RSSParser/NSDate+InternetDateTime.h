@@ -1,10 +1,5 @@
-//
-//  NSDate+InternetDateTime.h
-//  MWFeedParser
-//
-//  Created by Michael Waterfall on 07/10/2010.
-//  Copyright 2010 Michael Waterfall. All rights reserved.
-//
+
+//Copyright Applicable Ltd 2011
 
 #import <Foundation/Foundation.h>
 
