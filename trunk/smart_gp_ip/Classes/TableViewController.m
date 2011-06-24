@@ -34,40 +34,8 @@
         }
     }
 
-	cell.label.text = [dataDict objectForKey:@"Title"];
-	cell.phoneBtn.titleLabel.text = @"";
-	cell.urlBtn.titleLabel.text = @"";
-	
-	NSString* address = [dataDict objectForKey:@"address"] == nil ? @"" : [dataDict objectForKey:@"address"];
-	NSString* address2 = [dataDict objectForKey:@"address2"] == nil ? @"" : [dataDict objectForKey:@"address2"];
-	NSString* city = [dataDict objectForKey:@"city"] == nil ? @"" : [dataDict objectForKey:@"city"];
-	NSString* postcode = [dataDict objectForKey:@"postcode"] == nil ? @"" : [dataDict objectForKey:@"postcode"];
-	NSString* phone = [dataDict objectForKey:@"phone"] == nil ? @"" : [dataDict objectForKey:@"phone"];
-	NSString* website = [dataDict objectForKey:@"website"] == nil ? @"" : [dataDict objectForKey:@"website"];
-	NSString* addressStr = [NSString stringWithFormat:@"%@ %@ %@ %@", address, address2, city, postcode];
-	addressStr = [addressStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-	
-	int moveFactor = 11;
-	if (website != nil && ![website isEqualToString:@""]) {
-		[cell.urlBtn setTitle:website forState: UIControlStateNormal];
-		[self clipButtonToItsTitleWidth:cell.urlBtn];	
-	} else {
-		[self moveDownView:cell.label byPixels:[NSNumber numberWithInt:moveFactor]];
-		[self moveDownView:cell.detailLabel byPixels:[NSNumber numberWithInt:moveFactor]];
-		[self moveDownView:cell.phoneBtn byPixels:[NSNumber numberWithInt:moveFactor]];
-	}
-	if (phone != nil && ![phone isEqualToString:@""]) {
-		[cell.phoneBtn setTitle:phone forState: UIControlStateNormal];
-		[self clipButtonToItsTitleWidth:cell.phoneBtn];	
-	} else {
-		[self moveDownView:cell.label byPixels:[NSNumber numberWithInt:moveFactor]];
-		[self moveDownView:cell.detailLabel byPixels:[NSNumber numberWithInt:moveFactor]];
-	}
-	if (addressStr != nil && ![addressStr isEqualToString:@""]) {
-		cell.detailLabel.text = addressStr;
-	} else {
-		[self moveDownView:cell.label byPixels:[NSNumber numberWithInt:moveFactor]];
-	}	
+	cell.data = dataDict;
+	[cell initializeCell];
 	
 	NSArray* arr = [dataDict objectForKey:@"Children"];
 	if (arr != nil && [arr isKindOfClass:[NSArray class]] && [arr count] > 1) {
@@ -84,11 +52,7 @@
 	}	
 	return cell;
 }
-- (void) moveDownView: (UIView*) view byPixels: (NSNumber*) pixels {
-	CGRect frame = view.frame;
-	frame = CGRectMake(frame.origin.x, frame.origin.y + [pixels floatValue], frame.size.width, frame.size.height);
-	view.frame = frame;
-}
+
 - (void) clipButtonToItsTitleWidth: (UIButton*) btn {
 	UILabel* lbl = btn.titleLabel;
 	float width = [lbl.text sizeWithFont:lbl.font].width;
