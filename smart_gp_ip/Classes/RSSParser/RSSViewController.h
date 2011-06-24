@@ -20,5 +20,6 @@
 @property (nonatomic, retain) NSArray *itemsToDisplay;
 
 - (void) moveDownView: (UIView*) view byPixels: (NSNumber*) pixels;
+- (void) moveLeftView: (UIView*) view byPixels: (NSNumber*) pixels;
 
 @end
