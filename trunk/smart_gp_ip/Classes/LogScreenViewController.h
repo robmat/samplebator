@@ -16,6 +16,7 @@
 	UIPickerView* activityPickerView;
 	NSInteger activityRowSelection;
 	NSDictionary* log;
+	BOOL screenMoved;
 }
 
 @property (nonatomic, retain) UITextField* date;
