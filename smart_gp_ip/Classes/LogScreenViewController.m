@@ -62,6 +62,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.title = @"New log";
+	screenMoved = NO;
 	if (log != nil) {
 		date.text = [log objectForKey:@"Date"];
 		timeSpent.text = [log objectForKey:@"Time spent"];
@@ -131,6 +132,11 @@
 																    action:@selector(doneClickedActivity:)] autorelease];
     [keyboardDoneButtonView3 setItems:[NSArray arrayWithObjects:doneButton3, nil]];
 	activityType.inputAccessoryView = keyboardDoneButtonView3;
+}
+- (void)viewDidAppear:(BOOL)animated {
+	if (screenMoved) {
+		[self animateTextField:nil up:YES];
+	}
 }
 - (void) doneClickedActivity: (id) sender {
 	[activityType resignFirstResponder];
@@ -204,15 +210,16 @@
 	return YES;
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-	if (textField == date || textField == timeSpent || textField == activityType) {
+	if ((textField == date || textField == timeSpent || textField == activityType) && screenMoved) {
 		return;
 	}
     if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
 		[self animateTextField: textField up: YES];
+		screenMoved = YES;
 	}	
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    if (textField == date || textField == timeSpent || textField == activityType) {
+    if ((textField == date || textField == timeSpent || textField == activityType) && !screenMoved) {
 		return;
 	}
 	if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
