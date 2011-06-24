@@ -1,3 +1,6 @@
+
+//Copyright Applicable Ltd 2011
+
 #import "UIUnderlinedButton.h"
 
 @implementation UIUnderlinedButton

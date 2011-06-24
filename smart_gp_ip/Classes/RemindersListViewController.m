@@ -1,3 +1,6 @@
+
+//Copyright Applicable Ltd 2011
+
 #import "RemindersListViewController.h"
 #import "LogListCell.h"
 

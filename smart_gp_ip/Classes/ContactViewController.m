@@ -1,3 +1,6 @@
+
+//Copyright Applicable Ltd 2011
+
 #import "ContactViewController.h"
 #import "WebViewController.h"
 #import <MessageUI/MessageUI.h>

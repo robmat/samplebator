@@ -1,3 +1,6 @@
+
+//Copyright Applicable Ltd 2011
+
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import "CommonViewControllerBase.h"

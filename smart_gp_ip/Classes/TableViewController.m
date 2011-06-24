@@ -1,3 +1,6 @@
+
+//Copyright Applicable Ltd 2011
+
 #import "TableViewController.h"
 #import "TableViewControllerWrapper.h"
 #import "PathwayCell.h"

@@ -1,3 +1,6 @@
+
+//Copyright Applicable Ltd 2011
+
 #import "RemindersMainMenuViewController.h"
 #import "SetReminderViewController.h"
 #import "RemindersListViewController.h"
