@@ -28,6 +28,10 @@ if ( !isset( $usertoken ) ) {
 	$ret = $ret._usermenuitem('System benutzer typen', 'admin_system_user_types.php', 'System benutzer typen', 'people.gif');
 	$ret = $ret._usermenuitem('Liga gruppe rechte zuweisung', 'admin_division_rights_to_users.php', 'Liga gruppe rechte zuweisung', 'optimize.gif');
 	$ret = $ret._usermenuitem('Liga gruppe rechte typen', 'admin_division_rights.php', 'Liga gruppe rechte typen', 'optimize.gif');
+	$ret = $ret.'</tr><tr>.';
+	$ret = $ret._usermenuitem('Bereiche landesvarbände', 'admin_system_user_types.php', 'System benutzer typen', 'people.gif');
+	$ret = $ret._usermenuitem('Meldewesen rechte', 'admin_verband_rights.php', 'Liga gruppe rechte zuweisung', 'optimize.gif');
+	$ret = $ret._usermenuitem('Meldewesen rechte zuweisung', 'admin_division_rights.php', 'Liga gruppe rechte typen', 'optimize.gif');
 	# $ret = $ret.'</tr></table>'
 	echo $ret;
 }
