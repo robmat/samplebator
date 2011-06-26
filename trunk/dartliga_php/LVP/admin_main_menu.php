@@ -18,7 +18,7 @@ function _usermenuitem($name,$target,$alt='',$pic='info.gif') {
 
 # START OUTPUT
 
-LS_page_start();
+LS_page_start('empty');
 
 if ( !isset( $usertoken ) ) {
 	echo '<script> window.location.href = "/dso_user.php" </script>';
