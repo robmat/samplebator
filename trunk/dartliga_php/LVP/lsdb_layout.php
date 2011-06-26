@@ -64,7 +64,7 @@ function LS_footer(){
  *
  * @param string $module_name (ls,dso,empty,ssi,wf,stats)
  */
-function LS_page_start($module_name,$pagetitle=''){
+function LS_page_start($module_name='empty',$pagetitle=''){
 
 	global $event_id,$site_logo,$site_header;
 	
