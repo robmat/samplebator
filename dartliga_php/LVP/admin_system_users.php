@@ -18,7 +18,6 @@ function user_list() {
 	while ( list( $id, $fullname, $uname, $email, $pass, $user_active, $typename, $typeid, $failcount ) = sql_fetch_row( $query_result, $dbi ) ) {
 		$ret = $ret.'<tr><td><img src="images/'.( $user_active ? 'greenman.png' : 'redman.png').'" /></td>';
 		$ret = $ret.'<td>'.$id.'</td><td>'.$fullname.'</td><td>'.$uname.'</td><td>'.$email.'</td><td>'.$pass.'</td><td>'.$typename.'</td>';
-		# delete btn doesn't delete sys admin users
 		$ret = $ret.'<td><img src="images/del_icon.png" style="cursor: pointer;" onclick="deleteUser('.$id.');" /></td>';
 		$ret = $ret.'<td align="center">'.$failcount;
 		$ret = $ret.'<img src="images/unlock.png" onclick="resetUserLoginFailcount('.$id.');" style="cursor: pointer; padding-left: 3px; width: 15px; position: relative; top: 3px;" /></td>';
@@ -158,10 +157,14 @@ function user_validate_form() {
 function delete_user() {
 	global $dbi;
 	if ( isset( $_REQUEST['del_id'] ) ) { $del_id=strip_tags( $_REQUEST['del_id'] ); }
-	$sql = 'DELETE FROM tuser WHERE id = '.$del_id.' AND usertype_id != 6';
-	$delete_result = sql_query( $sql, $dbi );
+	$delete_result = sql_query( 'DELETE FROM tuser WHERE id = '.$del_id, $dbi );
 	if ( $delete_result ) {
-		return '[{<>}]delete_ok_token[{<>}]';
+		$delete_result = sql_query( 'DELETE FROM tbladminliga WHERE auid_id = '.$del_id, $dbi );
+		if ( $delete_result ) {
+			return '[{<>}]delete_ok_token[{<>}]';
+		} else {
+			return '[{<>}]delete_failed_token[{<>}]';
+		}
 	} else {
 		return '[{<>}]delete_failed_token[{<>}]';
 	}
