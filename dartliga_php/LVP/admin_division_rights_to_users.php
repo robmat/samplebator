@@ -137,7 +137,7 @@ function new_liga_user_right_creation() {
 
 # START OUTPUT
 
-LS_page_start();
+LS_page_start('empty');
 
 if ( isset( $_REQUEST['op'] ) && strlen( $_REQUEST['op'] ) < 35 ) { $myop=strip_tags( $_REQUEST['op'] ); } else { $myop = "admin_liga_list"; }
 

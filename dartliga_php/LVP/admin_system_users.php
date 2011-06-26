@@ -181,7 +181,7 @@ function reset_user_failcount( $uid ) {
 
 # START OUTPUT
 
-LS_page_start();
+LS_page_start('empty');
 
 if ( isset( $_REQUEST['op'] ) && strlen( $_REQUEST['op'] ) < 25 ) { $myop=strip_tags( $_REQUEST['op'] ); } else { $myop = "user_list"; }
 

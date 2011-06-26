@@ -21,7 +21,7 @@ function user_types() {
 
 # START OUTPUT
 
-LS_page_start();
+LS_page_start('empty');
 
 # Left nav pane echoing
 echo '<div class="navi" style="left: 5px;">'._button( 'Admin home', '', 'admin_main_menu.php' ).'</div>';
