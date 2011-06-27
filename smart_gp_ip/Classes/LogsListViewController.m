@@ -61,13 +61,11 @@
 	NSArray* keys = [NSArray arrayWithObjects:@"Date", @"Time spent", @"Title", @"Activity type", @"Lesson learnt", @"Description", nil];
 	for (NSDictionary* dict in items) {
 		for (NSString* key in keys) {
-			if (![key isEqualToString:@"Id"]) {
-				NSString* value = [dict objectForKey:key];
-				body = [body stringByAppendingString:key];
-				body = [body stringByAppendingString:@": "];
-				body = [body stringByAppendingString:value];
-				body = [body stringByAppendingString:@"\n"];
-			}
+			NSString* value = [dict objectForKey:key];
+			body = [body stringByAppendingString:key];
+			body = [body stringByAppendingString:@": "];
+			body = [body stringByAppendingString:value];
+			body = [body stringByAppendingString:@"\n"];
 		}
 		body = [body stringByAppendingString:@"\n"];
 	}

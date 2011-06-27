@@ -13,6 +13,8 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		CE184E0E13B8E36C00871AF6 /* DoneDown.png in Resources */ = {isa = PBXBuildFile; fileRef = CE184E0C13B8E36C00871AF6 /* DoneDown.png */; };
+		CE184E0F13B8E36C00871AF6 /* DoneUp.png in Resources */ = {isa = PBXBuildFile; fileRef = CE184E0D13B8E36C00871AF6 /* DoneUp.png */; };
 		CE6580F3138ECB2A00DE1F01 /* LogScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6580F1138ECB2A00DE1F01 /* LogScreenViewController.m */; };
 		CE6580F4138ECB2A00DE1F01 /* LogScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6580F2138ECB2A00DE1F01 /* LogScreenViewController.xib */; };
 		CE6580F6138ECB8900DE1F01 /* log_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6580F5138ECB8900DE1F01 /* log_screen.png */; };
@@ -23,10 +25,6 @@
 		CE660CE1139D2A07007BC01A /* edit_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = CE660CDD139D2A07007BC01A /* edit_btn.png */; };
 		CE660CE7139D2C44007BC01A /* cell_back_brown.png in Resources */ = {isa = PBXBuildFile; fileRef = CE660CE6139D2C44007BC01A /* cell_back_brown.png */; };
 		CE660CEC139D2E97007BC01A /* EGOTextFieldAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE660CEB139D2E97007BC01A /* EGOTextFieldAlertView.m */; };
-		CE66CD57139C2AFA00F07C48 /* DoneDown.png in Resources */ = {isa = PBXBuildFile; fileRef = CE66CD53139C2AFA00F07C48 /* DoneDown.png */; };
-		CE66CD58139C2AFA00F07C48 /* DoneDown3.png in Resources */ = {isa = PBXBuildFile; fileRef = CE66CD54139C2AFA00F07C48 /* DoneDown3.png */; };
-		CE66CD59139C2AFA00F07C48 /* DoneUp.png in Resources */ = {isa = PBXBuildFile; fileRef = CE66CD55139C2AFA00F07C48 /* DoneUp.png */; };
-		CE66CD5A139C2AFA00F07C48 /* DoneUp3.png in Resources */ = {isa = PBXBuildFile; fileRef = CE66CD56139C2AFA00F07C48 /* DoneUp3.png */; };
 		CE6708D1139C0F0B00BEECB0 /* RemindersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6708D0139C0F0B00BEECB0 /* RemindersListViewController.m */; };
 		CE6730FD13B4B76A009C0BD2 /* phone_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6730FB13B4B76A009C0BD2 /* phone_btn.png */; };
 		CE6730FE13B4B76A009C0BD2 /* website_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6730FC13B4B76A009C0BD2 /* website_btn.png */; };
@@ -101,6 +99,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* smart_gp_ip_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smart_gp_ip_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* smart_gp_ip-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "smart_gp_ip-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		CE184E0C13B8E36C00871AF6 /* DoneDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoneDown.png; path = images/DoneDown.png; sourceTree = "<group>"; };
+		CE184E0D13B8E36C00871AF6 /* DoneUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoneUp.png; path = images/DoneUp.png; sourceTree = "<group>"; };
 		CE6580F0138ECB2A00DE1F01 /* LogScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogScreenViewController.h; sourceTree = "<group>"; };
 		CE6580F1138ECB2A00DE1F01 /* LogScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogScreenViewController.m; sourceTree = "<group>"; };
 		CE6580F2138ECB2A00DE1F01 /* LogScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogScreenViewController.xib; sourceTree = "<group>"; };
@@ -113,10 +113,6 @@
 		CE660CE6139D2C44007BC01A /* cell_back_brown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cell_back_brown.png; path = images/cell_back_brown.png; sourceTree = "<group>"; };
 		CE660CEA139D2E97007BC01A /* EGOTextFieldAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOTextFieldAlertView.h; sourceTree = "<group>"; };
 		CE660CEB139D2E97007BC01A /* EGOTextFieldAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOTextFieldAlertView.m; sourceTree = "<group>"; };
-		CE66CD53139C2AFA00F07C48 /* DoneDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoneDown.png; path = images/DoneDown.png; sourceTree = "<group>"; };
-		CE66CD54139C2AFA00F07C48 /* DoneDown3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoneDown3.png; path = images/DoneDown3.png; sourceTree = "<group>"; };
-		CE66CD55139C2AFA00F07C48 /* DoneUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoneUp.png; path = images/DoneUp.png; sourceTree = "<group>"; };
-		CE66CD56139C2AFA00F07C48 /* DoneUp3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoneUp3.png; path = images/DoneUp3.png; sourceTree = "<group>"; };
 		CE6708CF139C0F0B00BEECB0 /* RemindersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemindersListViewController.h; sourceTree = "<group>"; };
 		CE6708D0139C0F0B00BEECB0 /* RemindersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemindersListViewController.m; sourceTree = "<group>"; };
 		CE6730FB13B4B76A009C0BD2 /* phone_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = phone_btn.png; path = images/phone_btn.png; sourceTree = "<group>"; };
@@ -342,6 +338,8 @@
 		CE6CF69A137E857100BB69CB /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CE184E0C13B8E36C00871AF6 /* DoneDown.png */,
+				CE184E0D13B8E36C00871AF6 /* DoneUp.png */,
 				CE6730FB13B4B76A009C0BD2 /* phone_btn.png */,
 				CE6730FC13B4B76A009C0BD2 /* website_btn.png */,
 				CE6FA17C13AFCA0B005E8DFF /* home_btn.png */,
@@ -356,10 +354,6 @@
 				CE660CDB139D2A07007BC01A /* contact_page.png */,
 				CE660CDC139D2A07007BC01A /* del_btn.png */,
 				CE660CDD139D2A07007BC01A /* edit_btn.png */,
-				CE66CD53139C2AFA00F07C48 /* DoneDown.png */,
-				CE66CD54139C2AFA00F07C48 /* DoneDown3.png */,
-				CE66CD55139C2AFA00F07C48 /* DoneUp.png */,
-				CE66CD56139C2AFA00F07C48 /* DoneUp3.png */,
 				CE7017A0139BCF8B00A7710E /* dotted_line.png */,
 				CE67602A1392543400944CD4 /* set_reminder_screen.png */,
 				CE67601913924CF000944CD4 /* remind_main_menu.png */,
@@ -475,10 +469,6 @@
 				CE68D773139414A6005CC7F7 /* WebViewController.xib in Resources */,
 				CE70179C139BCCFD00A7710E /* LogListCell.xib in Resources */,
 				CE7017A1139BCF8B00A7710E /* dotted_line.png in Resources */,
-				CE66CD57139C2AFA00F07C48 /* DoneDown.png in Resources */,
-				CE66CD58139C2AFA00F07C48 /* DoneDown3.png in Resources */,
-				CE66CD59139C2AFA00F07C48 /* DoneUp.png in Resources */,
-				CE66CD5A139C2AFA00F07C48 /* DoneUp3.png in Resources */,
 				CE660CDE139D2A07007BC01A /* cell_back_violet.png in Resources */,
 				CE660CDF139D2A07007BC01A /* contact_page.png in Resources */,
 				CE660CE0139D2A07007BC01A /* del_btn.png in Resources */,
@@ -498,6 +488,8 @@
 				CE69282C13B4AF3D005D1AF6 /* ItemDetailsViewController.xib in Resources */,
 				CE6730FD13B4B76A009C0BD2 /* phone_btn.png in Resources */,
 				CE6730FE13B4B76A009C0BD2 /* website_btn.png in Resources */,
+				CE184E0E13B8E36C00871AF6 /* DoneDown.png in Resources */,
+				CE184E0F13B8E36C00871AF6 /* DoneUp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

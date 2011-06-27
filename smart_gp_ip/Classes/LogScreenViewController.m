@@ -71,7 +71,7 @@
 		timeSpent.text = [log objectForKey:@"Time spent"];
 		activityType.text = [log objectForKey:@"Activity type"];
 		logTitle.text = [log objectForKey:@"Title"];
-		description.text = [log objectForKey:@"Descritpion"];
+		description.text = [log objectForKey:@"Description"];
 		lessonsLearnt.text = [log objectForKey:@"Lesson learnt"];
 		self.title = @"Edit log";
 	}

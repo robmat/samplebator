@@ -6648,7 +6648,7 @@
 							<key>longitude</key>
 							<string></string>
 							<key>name</key>
-							<string></string>
+							<string>Addenbrookes</string>
 							<key>Text</key>
 							<string>Main Details</string>
 							<key>phone</key>
@@ -6660,6 +6660,7 @@
 							<key>View</key>
 							<integer>1</integer>
 						</dict>
+						<dict/>
 					</array>
 					<key>Title</key>
 					<string>Cambridge University Hospitals NHS Foundation Trust</string>
@@ -6691,6 +6692,7 @@
 							<key>View</key>
 							<integer>1</integer>
 						</dict>
+						<dict/>
 					</array>
 					<key>Title</key>
 					<string>Papworth Hospital</string>

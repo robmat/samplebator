@@ -32,8 +32,50 @@
 	self.textView.text = actionStr;
 	if ([submitLabel.text rangeOfString:@"CHECK"].location != NSNotFound) {
 		[textView setKeyboardType:UIKeyboardTypeNumberPad];
+		[[NSNotificationCenter defaultCenter] addObserver:self 
+												 selector:@selector(keyboardDidShow:) 
+													 name:UIKeyboardDidShowNotification 
+												   object:nil];
 	}
 	self.datePicker.date = [NSDate date];
+}
+- (void)viewDidUnload {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+- (void)keyboardDidShow:(NSNotification *)note {  
+	[self performSelector:@selector(addHideKeyboardButtonToKeyboard) withObject:nil afterDelay:0]; 
+}
+- (void)addHideKeyboardButtonToKeyboard {
+	UIWindow *keyboardWindow = nil;
+	for (UIWindow *testWindow in [[UIApplication sharedApplication] windows]) {
+		if (![[testWindow class] isEqual:[UIWindow class]]) {
+			keyboardWindow = testWindow;
+			break;
+		}
+	}
+	if (!keyboardWindow) return;
+	UIView *foundKeyboard = nil;
+	for (UIView *possibleKeyboard in [keyboardWindow subviews]) {
+		if ([[possibleKeyboard description] hasPrefix:@"<UIPeripheralHostView"]) {
+			possibleKeyboard = [[possibleKeyboard subviews] objectAtIndex:0];
+		}                                                                                
+		if ([[possibleKeyboard description] hasPrefix:@"<UIKeyboard"]) {
+			foundKeyboard = possibleKeyboard;
+			break;
+		}
+	}
+	if (foundKeyboard) {
+		UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		doneButton.frame = CGRectMake(0, 163, 106, 53);
+		doneButton.adjustsImageWhenHighlighted = NO;
+		[doneButton setImage:[UIImage imageNamed:@"DoneUp.png"] forState:UIControlStateNormal];
+		[doneButton setImage:[UIImage imageNamed:@"DoneDown.png"] forState:UIControlStateHighlighted];
+		[doneButton addTarget:self action:@selector(doneButton:) forControlEvents:UIControlEventTouchUpInside];
+		[foundKeyboard addSubview:doneButton];
+	}
+}
+-(void)doneButton: (id) sender {
+	[textView resignFirstResponder];
 }
 - (BOOL)textView:(UITextView *)textVie shouldChangeTextInRange:(NSRange)range 
  replacementText:(NSString *)text {
