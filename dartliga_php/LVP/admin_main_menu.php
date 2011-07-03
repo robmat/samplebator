@@ -29,9 +29,9 @@ if ( !isset( $usertoken ) ) {
 	$ret = $ret._usermenuitem('Liga gruppe rechte zuweisung', 'admin_division_rights_to_users.php', 'Liga gruppe rechte zuweisung', 'optimize.gif');
 	$ret = $ret._usermenuitem('Liga gruppe rechte typen', 'admin_division_rights.php', 'Liga gruppe rechte typen', 'optimize.gif');
 	$ret = $ret.'</tr><tr>.';
-	$ret = $ret._usermenuitem('Bereiche landesvarbände', 'admin_verband_management.php', 'System benutzer typen', 'optimize.gif');
-	$ret = $ret._usermenuitem('Meldewesen rechte', 'admin_verband_rights.php', 'Liga gruppe rechte zuweisung', 'optimize.gif');
-	$ret = $ret._usermenuitem('Meldewesen rechte zuweisung', 'admin_division_rights.php', 'Liga gruppe rechte typen', 'optimize.gif');
+	$ret = $ret._usermenuitem('Bereiche landesvarbände', 'admin_verband_management.php', 'Bereichte / Landesverbandung', 'optimize.gif');
+	$ret = $ret._usermenuitem('Meldewesen rechte', 'admin_verband_rights.php', 'Verbande rechte', 'optimize.gif');
+	$ret = $ret._usermenuitem('Meldewesen rechte zuweisung', 'admin_verband_rights_to_users.php', 'Verbande rechte zuweisung', 'optimize.gif');
 	# $ret = $ret.'</tr></table>'
 	echo $ret;
 }
