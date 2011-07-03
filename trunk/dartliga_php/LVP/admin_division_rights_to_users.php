@@ -117,7 +117,7 @@ function new_liga_user_right_creation() {
 		$sql = 'INSERT INTO tbladminliga (id, version, auname, access_id, aevactive, auid_id, cre_date, aevcode_id, acomment) ';
 		$sql = $sql.'VALUES (NULL, "0", "'.$name.'", "'.$accesstype.'", '.$active.', '.$uname.', "'.date("Y-m-d H:i:s").'", '.$liganame.', "'.$comment.'")';
 		
-		if ( empty( $aid ) ) {
+		if ( !empty( $aid ) ) {
 			$sql = 'UPDATE tbladminliga SET auid_id = '.$uname.', access_id = '.$accesstype.', aevactive = '.$active.', aevcode_id = '.$liganame.', acomment = '.$comment.' WHERE id = '.$aid;
 		}
 		
