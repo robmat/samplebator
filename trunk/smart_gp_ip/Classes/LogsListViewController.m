@@ -49,13 +49,15 @@
 	NSArray* arrayOfLogs = [NSArray arrayWithContentsOfFile:path];
 	NSString* body = [NSString stringWithString:@""];
 	body = [self prepareBody: body withItems: arrayOfLogs];
-	MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
-	controller.mailComposeDelegate = self;
-	[controller setSubject:@"My Log"];
-	[controller setMessageBody:body isHTML:NO]; 
-	[controller addAttachmentData:[[ExcelSheetGenerator generateExcelXMLFromItems:arrayOfLogs] dataUsingEncoding:NSUTF8StringEncoding] mimeType:@"text/xml" fileName:@"logs.xml"];
-	[self presentModalViewController:controller animated:YES];
-	[controller release];
+	if ([MFMailComposeViewController canSendMail])	{
+		MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+		controller.mailComposeDelegate = self;
+		[controller setSubject:@"My Log"];
+		[controller setMessageBody:body isHTML:NO]; 
+		[controller addAttachmentData:[[ExcelSheetGenerator generateExcelXMLFromItems:arrayOfLogs] dataUsingEncoding:NSUTF8StringEncoding] mimeType:@"text/xml" fileName:@"logs.xml"];
+		[self presentModalViewController:controller animated:YES];
+		[controller release];
+	}
 }
 - (NSString*) prepareBody: (NSString*) body withItems: (NSArray*) items {
 	NSArray* keys = [NSArray arrayWithObjects:@"Date", @"Time spent", @"Title", @"Activity type", @"Lesson learnt", @"Description", nil];

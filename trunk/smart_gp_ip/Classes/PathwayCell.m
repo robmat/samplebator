@@ -53,7 +53,7 @@
 	[wvc release];
 }
 - (IBAction) phoneAction: (id) sender {
-	NSMutableString* telNo = [NSMutableString stringWithFormat:@"%@%@", @"tel://", [data objectForKey:@"phone"]];
+	NSMutableString* telNo = [NSMutableString stringWithFormat:@"%@%@", @"telprompt:", [data objectForKey:@"phone"]];
 	while ([telNo rangeOfString:@" "].location != NSNotFound) {
 		[telNo replaceCharactersInRange:[telNo rangeOfString:@" "] withString:@""];
 	}
