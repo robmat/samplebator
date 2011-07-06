@@ -57,6 +57,14 @@
 		[controller addAttachmentData:[[ExcelSheetGenerator generateExcelXMLFromItems:arrayOfLogs] dataUsingEncoding:NSUTF8StringEncoding] mimeType:@"text/xml" fileName:@"logs.xml"];
 		[self presentModalViewController:controller animated:YES];
 		[controller release];
+	} else {
+		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Failure." 
+														message:@"Can't send mail, probably no email account is set up." 
+													   delegate:nil 
+											  cancelButtonTitle:@"Ok" 
+											  otherButtonTitles:nil];
+		[alert show];
+		[alert release];
 	}
 }
 - (NSString*) prepareBody: (NSString*) body withItems: (NSArray*) items {
