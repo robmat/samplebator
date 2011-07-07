@@ -49,8 +49,9 @@
 	NSArray* arrayOfLogs = [NSArray arrayWithContentsOfFile:path];
 	NSString* body = [NSString stringWithString:@""];
 	body = [self prepareBody: body withItems: arrayOfLogs];
-	if ([MFMailComposeViewController canSendMail])	{
-		MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+	
+	MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+	if ([MFMailComposeViewController canSendMail] && controller != nil)	{
 		controller.mailComposeDelegate = self;
 		[controller setSubject:@"My Log"];
 		[controller setMessageBody:body isHTML:NO]; 
