@@ -15,10 +15,20 @@
 }
 - (IBAction) mailAction: (id) sender {
 	MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
-	controller.mailComposeDelegate = self;
-	[controller setToRecipients:[NSArray arrayWithObjects:@"admin@smart-gp.co.uk", nil]];
-	[self presentModalViewController:controller animated:YES];
-	[controller release];
+	if ([MFMailComposeViewController canSendMail] && controller != nil)	{
+		controller.mailComposeDelegate = self;
+		[controller setToRecipients:[NSArray arrayWithObjects:@"admin@smart-gp.co.uk", nil]];
+		[self presentModalViewController:controller animated:YES];
+		[controller release];
+	} else {
+		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Failure." 
+														message:@"Can't send mail, probably no email account is set up." 
+													   delegate:nil 
+											  cancelButtonTitle:@"Ok" 
+											  otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+	}
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
