@@ -67,6 +67,7 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<bool key="IBUIEditable">NO</bool>
 						<string key="IBUIText">SmartGP, Applickable Limited, its Directors, Employees, Servants and Agents hereby disclaim any and all liability for any losses or damages that a User or Licensee may incur through the use of SmartGP.  All Users or Licensees use SmartGP strictly on the basis that they have made their own inquiries or investigations of the information contained herein and such use is on the basis of acceptance of this Disclaimer.</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
