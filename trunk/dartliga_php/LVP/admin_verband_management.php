@@ -99,7 +99,9 @@ LS_page_start('empty');
 
 if ( isset( $_REQUEST['op'] ) && strlen( $_REQUEST['op'] ) < 25 ) { $myop=strip_tags( $_REQUEST['op'] ); } else { $myop = "verband_list"; }
 
-if ( !isset( $usertoken ) ) {
+$user_access_level = (int) $usertoken["usertype_id"];
+
+if ( !isset( $user_access_level ) && $user_access_level > 4 ) { //more then LigaVerwaltung
 	echo '<script> window.location.href = "/dso_user.php" </script>';
 } else {
 	echo '<h3>Bereiche landesvarbände</h3><table class="box"><tr><td>'; # header and start table
