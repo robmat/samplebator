@@ -50,7 +50,7 @@ function user_form() {
 		$uid = '&uid='.$uid;
 	}
 
-	$utype_query_result = sql_query( 'SELECT t.id, t.typename FROM ttypeuser t ORDER BY id', $dbi );
+	$utype_query_result = sql_query( 'SELECT t.id, t.typename FROM ttypeuser t WHERE t.id <= '.$usertoken["usertype_id"].' ORDER BY id', $dbi );
 	$organ_query_result = sql_query( 'SELECT v.vid, v.vname FROM tverein v ORDER BY vname', $dbi );
 	$locat_query_result = sql_query( 'SELECT l.id, l.lname FROM tbllocation l ORDER BY lname', $dbi );
 	$playr_query_result = sql_query( 'SELECT p.pid, p.pfname, p.plname FROM tplayer p ORDER BY p.plname', $dbi );
