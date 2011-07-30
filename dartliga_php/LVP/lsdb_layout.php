@@ -38,10 +38,14 @@ function LS_header($pagetitle='') {
 		$OUT=$OUT.'<META NAME="GENERATOR" CONTENT="LSDB System 4a">';
 
 		$OUT=$OUT.'<script language="JavaScript" src="code/js_func.js"></script>';
-		$OUT=$OUT.'<script language="JavaScript" src="code/jquery-1.2.6.js"></script>';
+		$OUT=$OUT.'<script language="JavaScript" src="code/jqGrid-4.1.2/css/jquery-1.5.2.min.js"></script>';
 		$OUT=$OUT.'<script language="JavaScript" src="code/wz_jsgraphics.js"></script>';
 		$OUT=$OUT.'<script language="JavaScript" src="code/lsdbfunc.js"></script>';
+		$OUT=$OUT.'<script language="JavaScript" src="code/jqGrid-4.1.2/css/jquery.jqGrid.min.js"></script>';
+		$OUT=$OUT.'<script language="JavaScript" src="code/jqGrid-4.1.2/css/i18n/grid.locale-de.js"></script>';
 		$OUT=$OUT.'<LINK REL="StyleSheet" HREF="theme/Lite/style.css" TYPE="text/css">';
+		$OUT=$OUT.'<LINK REL="StyleSheet" HREF="css/jquery-ui-1.8.14.custom.css" TYPE="text/css">';
+		$OUT=$OUT.'<LINK REL="StyleSheet" HREF="code/jqGrid-4.1.2/css/ui.jqgrid.css" TYPE="text/css">';
 		$OUT=$OUT.'</head>';
 		#debug($GLOBALS);
     }
