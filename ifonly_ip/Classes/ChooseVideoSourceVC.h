@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
+#import "VCBase.h"
 
-@interface ChooseVideoSourceVC : UIViewController {
+@interface ChooseVideoSourceVC : VCBase <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
 
 }
 
