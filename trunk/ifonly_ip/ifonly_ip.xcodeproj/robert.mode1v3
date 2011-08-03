@@ -328,7 +328,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>E1D1FF7C13E86B6700504806</string>
+										<string>E1155BB213E9A5590053D45D</string>
 										<key>history</key>
 										<array>
 											<string>E16D506C13E84F370022BE07</string>
@@ -345,7 +345,7 @@
 											<string>E1D1FF7813E86B6700504806</string>
 											<string>E1D1FF7913E86B6700504806</string>
 											<string>E1D1FF7A13E86B6700504806</string>
-											<string>E1D1FF7B13E86B6700504806</string>
+											<string>E1D1FF7C13E86B6700504806</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -357,14 +357,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1072, 402}}</string>
+								<string>{{0, 0}, {1072, 395}}</string>
 								<key>RubberWindowFrame</key>
 								<string>25 905 1280 646 0 800 1366 768 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>402pt</string>
+							<string>395pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -377,14 +377,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 407}, {1072, 198}}</string>
+								<string>{{0, 400}, {1072, 205}}</string>
 								<key>RubberWindowFrame</key>
 								<string>25 905 1280 646 0 800 1366 768 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>198pt</string>
+							<string>205pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -403,9 +403,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>E1D1FF4613E8597700504806</string>
+				<string>E1155BB313E9A5590053D45D</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>E1D1FF4713E8597700504806</string>
+				<string>E1155BB413E9A5590053D45D</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -543,10 +543,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>E1D1FF5013E8597700504806</string>
-		<string>E1D1FF5213E8597700504806</string>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>E15544D413E1C5FF00C93C7A</string>
 		<string>/Users/robert/Desktop/samplebator/ifonly_ip/ifonly_ip.xcodeproj</string>
 	</array>
@@ -628,7 +624,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>E15544D413E1C5FF00C93C7A</string>
-				<string>E1D1FF4813E8597700504806</string>
+				<string>E1155BB513E9A5590053D45D</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
