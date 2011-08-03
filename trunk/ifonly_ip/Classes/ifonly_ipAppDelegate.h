@@ -6,5 +6,7 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
++ (NSString*)getTempMovieInfoPath;
+
 @end
 
