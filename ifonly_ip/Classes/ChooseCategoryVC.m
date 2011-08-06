@@ -2,6 +2,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "ifonly_ipAppDelegate.h"
 #import "MainMenuVC.h"
+#import "UploadVideoMenuVC.h"
 
 @implementation ChooseCategoryVC
 
@@ -15,7 +16,6 @@
 	avplayer = [AVPlayer playerWithURL:url];
 	[playerView setPlayer:avplayer];
 	playerView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:100];
-	[avplayer play];
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(playerItemDidReachEnd:)
 												 name:AVPlayerItemDidPlayToEndTimeNotification
@@ -46,6 +46,9 @@
 	NSMutableDictionary* infoDict = [NSMutableDictionary dictionaryWithContentsOfFile:path];
 	[infoDict setObject:self.category forKey:@"category"];
 	[infoDict writeToFile:path atomically:YES];
+	UploadVideoMenuVC* uvvc = [[UploadVideoMenuVC alloc] initWithNibName:nil bundle:nil];
+	[self.navigationController pushViewController:uvvc animated:YES];
+	[uvvc release];
 }
 - (IBAction) cancelAction: (id) sender {
 	MainMenuVC* mmvc = [[MainMenuVC alloc] init];
@@ -64,7 +67,14 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
 	return 5;
 }
-
+- (void)viewDidAppear: (BOOL) animated {
+	[super viewDidAppear:animated];
+	[avplayer play];
+}
+- (void)viewDidDisappear: (BOOL) animated {
+	[super viewDidDisappear:animated];
+	[avplayer pause];
+}
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:AVPlayerItemDidPlayToEndTimeNotification];
 	[category release];
