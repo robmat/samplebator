@@ -1,5 +1,6 @@
 #import "ChooseVideoSourceVC.h"
 #import "ifonly_ipAppDelegate.h"
+#import "ChooseCategoryVC.h"
 
 @implementation ChooseVideoSourceVC
 
@@ -46,8 +47,13 @@
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 	NSString* tempFileConf = [ifonly_ipAppDelegate getTempMovieInfoPath];
-	[info writeToFile:tempFileConf atomically:YES];
+	NSString* fileUrl = [[info objectForKey:UIImagePickerControllerMediaURL] description];
+	NSDictionary* dictTemp = [NSDictionary dictionaryWithObject:fileUrl forKey:@"url"];
+	[dictTemp writeToFile:tempFileConf atomically:YES];
 	[self.navigationController dismissModalViewControllerAnimated:YES];
+	ChooseCategoryVC* ccvc = [[ChooseCategoryVC alloc] initWithNibName:nil bundle:nil];
+	[self.navigationController pushViewController:ccvc animated:YES];
+	[ccvc release];
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
 	[self.navigationController dismissModalViewControllerAnimated:YES];
