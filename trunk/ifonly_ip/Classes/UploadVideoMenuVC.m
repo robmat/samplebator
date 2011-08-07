@@ -1,10 +1,12 @@
 #import "UploadVideoMenuVC.h"
 #import "ifonly_ipAppDelegate.h"
 #import "TextInputViewController.h"
+#import "GData.h"
+#import "GDataEntryYouTubeUpload.h"
 
 @implementation UploadVideoMenuVC
 
-@synthesize avplayer, playerView;
+@synthesize avplayer, playerView, ytService, educationCategory;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -21,6 +23,47 @@
 	avplayer.actionAtItemEnd = AVPlayerActionAtItemEndNone;
 	noteText = [[UITextField alloc] initWithFrame:CGRectZero];
 	tagsText = [[UITextField alloc] initWithFrame:CGRectZero];
+	self.ytService = [[GDataServiceGoogleYouTube alloc] init];
+	[self.ytService setUserCredentialsWithUsername:@"robbator" password:@"robmat666"];
+	[self.ytService setUserAgent:@"ifonly-1.0"];
+	[self fetchStandardCategories];
+}
+- (void)fetchStandardCategories {
+	NSURL *categoriesURL = [NSURL URLWithString:kGDataSchemeYouTubeCategory];
+	GTMHTTPFetcher *fetcher = [GTMHTTPFetcher fetcherWithURL:categoriesURL];
+	[fetcher setComment:@"YouTube categories"];
+	[fetcher beginFetchWithDelegate:self
+				  didFinishSelector:@selector(categoryFetcher:finishedWithData:error:)];
+}
+- (void)categoryFetcher:(GTMHTTPFetcher *)fetcher finishedWithData:(NSData *)data error:(NSError *)error {
+	if (error) {
+		NSLog(@"categoryFetcher:%@ failedWithError:%@", fetcher, error);
+		return;
+	}
+	NSString *const path = @"app:categories/atom:category[yt:assignable]";
+	NSXMLDocument *xmlDoc = [[[NSXMLDocument alloc] initWithData:data
+														 options:0
+														   error:&error] autorelease];
+	if (xmlDoc == nil) {
+		NSLog(@"category fetch could not parse XML: %@", error);
+	} else {
+		NSArray *nodes = [xmlDoc nodesForXPath:path
+										 error:&error];
+		unsigned int numberOfNodes = [nodes count];
+		if (numberOfNodes == 0) {
+			NSLog(@"category fetch could not find nodes: %@", error);
+		} else {
+			for (int idx = 0; idx < numberOfNodes; idx++) {
+				NSXMLElement *category = [nodes objectAtIndex:idx];
+				NSString *term = [[category attributeForName:@"term"] stringValue];
+				NSString *label = [[category attributeForName:@"label"] stringValue];
+				if (label == nil) label = term;
+				if ([label rangeOfString:@"Edu"].location != NSNotFound) {
+					self.educationCategory = term;
+				}
+			}
+		}
+	}
 }
 - (IBAction) aboutAction: (id) sender {
 
@@ -50,7 +93,78 @@
 	[tivc release];
 }
 - (IBAction) submittAction: (id) sender {
+	NSString *devKey = @"AI39si4lg-ILxiM9eXyJJfrXSRdJivhhOCE-vm2RtBDyvDFK-D6f1Vpa8e7_M214VLAqibnGZPtpQzEYOYdYR-co1mxWMeFyew";
+	
+	NSDictionary* tempFileInfo = [NSDictionary dictionaryWithContentsOfFile:[ifonly_ipAppDelegate getTempMovieInfoPath]];
+	
+	GDataServiceGoogleYouTube *service = self.ytService;
+	[service setYouTubeDeveloperKey:devKey];
+	
+	NSURL *url = [GDataServiceGoogleYouTube youTubeUploadURLForUserID:kGDataServiceDefaultUser];
+	
+	// load the file data
+	NSString *path = [tempFileInfo objectForKey:@"url"];
+	path = [path stringByReplacingCharactersInRange:[path rangeOfString:@"file://localhost/private"] withString:@""];
+	NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
+	NSString *filename = [path lastPathComponent];
+	
+	// gather all the metadata needed for the mediaGroup
+	NSString *titleStr = [NSString stringWithFormat:@"[%@] - sample movie upload", [tempFileInfo objectForKey:@"category"]];
+	GDataMediaTitle *title = [GDataMediaTitle textConstructWithString:titleStr];
+	
+	NSString *categoryStr = [NSString stringWithString: educationCategory];
+	GDataMediaCategory *category = [GDataMediaCategory mediaCategoryWithString:categoryStr];
+	[category setScheme:kGDataSchemeYouTubeCategory];
+	
+	NSString *descStr = noteText.text;
+	GDataMediaDescription *desc = [GDataMediaDescription textConstructWithString:descStr];
+	
+	NSString *keywordsStr = tagsText.text;
+	GDataMediaKeywords *keywords = [GDataMediaKeywords keywordsWithString:keywordsStr];
+	
+	BOOL isPrivate = NO;
+	
+	GDataYouTubeMediaGroup *mediaGroup = [GDataYouTubeMediaGroup mediaGroup];
+	[mediaGroup setMediaTitle:title];
+	[mediaGroup setMediaDescription:desc];
+	[mediaGroup addMediaCategory:category];
+	[mediaGroup setMediaKeywords:keywords];
+	[mediaGroup setIsPrivate:isPrivate];
+	
+	NSString *mimeType = [GDataUtilities MIMETypeForFileAtPath:path
+											   defaultMIMEType:@"video/quicktime"];
+	//NSLog(@"%@ %@", path, [ifonly_ipAppDelegate getTempMovieInfoPath]);
+	// create the upload entry with the mediaGroup and the file
+	GDataEntryYouTubeUpload *entry;
+	entry = [GDataEntryYouTubeUpload uploadEntryWithMediaGroup:mediaGroup
+													fileHandle:fileHandle
+													  MIMEType:mimeType
+														  slug:filename];
+	
+	SEL progressSel = @selector(ticket:hasDeliveredByteCount:ofTotalByteCount:);
+	[service setServiceUploadProgressSelector:progressSel];
+	
+	// YouTube's upload URL is not yet https; we need to explicitly set the
+	// authorizer to allow authorizing an http URL
+	[[service authorizer] setShouldAuthorizeAllRequests:YES];
+	
+	GDataServiceTicket *ticket;
+	ticket = [service fetchEntryByInsertingEntry:entry
+									  forFeedURL:url
+										delegate:self
+							   didFinishSelector:@selector(uploadTicket:finishedWithEntry:error:)];
+}
+// progress callback
+- (void)ticket:(GDataServiceTicket *)ticket hasDeliveredByteCount:(unsigned long long)numberOfBytesRead
+												 ofTotalByteCount:(unsigned long long)dataLength {
+	NSLog(@"Upload: %qx/%qx", numberOfBytesRead, dataLength);
+}
 
+// upload callback
+- (void)uploadTicket:(GDataServiceTicket *)ticket
+   finishedWithEntry:(GDataEntryYouTubeVideo *)videoEntry
+               error:(NSError *)error {
+	NSLog(@"Upload finished: %@", [videoEntry title]);
 }
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
 	[[notification object] seekToTime:kCMTimeZero];
@@ -64,8 +178,10 @@
 	[avplayer pause];
 }
 - (void)dealloc {
+	[ytService release];
 	[noteText release];
 	[tagsText release];
+	[educationCategory release];
     [super dealloc];
 }
 
