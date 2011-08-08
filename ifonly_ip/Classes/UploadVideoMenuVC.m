@@ -6,7 +6,7 @@
 
 @implementation UploadVideoMenuVC
 
-@synthesize avplayer, playerView, ytService, educationCategory;
+@synthesize avplayer, playerView, ytService, educationCategory, progressView;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -44,6 +44,7 @@
 	NSXMLDocument *xmlDoc = [[[NSXMLDocument alloc] initWithData:data
 														 options:0
 														   error:&error] autorelease];
+	NSMutableArray* categories = [NSMutableArray arrayWithCapacity:100];
 	if (xmlDoc == nil) {
 		NSLog(@"category fetch could not parse XML: %@", error);
 	} else {
@@ -58,10 +59,14 @@
 				NSString *term = [[category attributeForName:@"term"] stringValue];
 				NSString *label = [[category attributeForName:@"label"] stringValue];
 				if (label == nil) label = term;
-				if ([label rangeOfString:@"Edu"].location != NSNotFound) {
-					self.educationCategory = term;
-				}
+				[categories addObject:term];
 			}
+		}
+	}
+	self.educationCategory = [NSString stringWithString: [categories objectAtIndex:0]];
+	for (NSString* catStr in categories) {
+		if ([catStr rangeOfString:@"Edu"].location != NSNotFound) {
+			self.educationCategory = [NSString stringWithString: catStr];
 		}
 	}
 }
@@ -109,7 +114,7 @@
 	NSString *filename = [path lastPathComponent];
 	
 	// gather all the metadata needed for the mediaGroup
-	NSString *titleStr = [NSString stringWithFormat:@"[%@] - sample movie upload", [tempFileInfo objectForKey:@"category"]];
+	NSString *titleStr = [NSString stringWithFormat:@"[%@] - ifonly movie upload", [tempFileInfo objectForKey:@"category"]];
 	GDataMediaTitle *title = [GDataMediaTitle textConstructWithString:titleStr];
 	
 	NSString *categoryStr = [NSString stringWithString: educationCategory];
@@ -146,7 +151,7 @@
 	
 	// YouTube's upload URL is not yet https; we need to explicitly set the
 	// authorizer to allow authorizing an http URL
-	[[service authorizer] setShouldAuthorizeAllRequests:YES];
+	//[[service authorizer] setShouldAuthorizeAllRequests:YES];
 	
 	GDataServiceTicket *ticket;
 	ticket = [service fetchEntryByInsertingEntry:entry
@@ -157,14 +162,30 @@
 // progress callback
 - (void)ticket:(GDataServiceTicket *)ticket hasDeliveredByteCount:(unsigned long long)numberOfBytesRead
 												 ofTotalByteCount:(unsigned long long)dataLength {
-	NSLog(@"Upload: %qx/%qx", numberOfBytesRead, dataLength);
+	//NSLog(@"Upload: %i/%i, fraction: %f", numberOfBytesRead, dataLength, (float) numberOfBytesRead / dataLength);
+	self.progressView.hidden = NO;
+	self.progressView.progress = (float) numberOfBytesRead / dataLength;
 }
 
 // upload callback
 - (void)uploadTicket:(GDataServiceTicket *)ticket
    finishedWithEntry:(GDataEntryYouTubeVideo *)videoEntry
                error:(NSError *)error {
-	NSLog(@"Upload finished: %@", [videoEntry title]);
+	//NSLog(@"Upload finished: %@", [videoEntry title]);
+	self.progressView.hidden = YES;
+	if (error == nil) {
+		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Upload complete" 
+														message:@"Your upload has been completed succesfully." 
+													   delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+	} else {
+		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Upload error" 
+														message:[error localizedDescription] 
+													   delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+	}	
 }
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
 	[[notification object] seekToTime:kCMTimeZero];
@@ -178,6 +199,7 @@
 	[avplayer pause];
 }
 - (void)dealloc {
+	[progressView release];
 	[ytService release];
 	[noteText release];
 	[tagsText release];
