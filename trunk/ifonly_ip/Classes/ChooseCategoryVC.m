@@ -21,7 +21,7 @@
 												 name:AVPlayerItemDidPlayToEndTimeNotification
 											   object:avplayer.currentItem];
 	avplayer.actionAtItemEnd = AVPlayerActionAtItemEndNone;
-	
+	self.category = @"Household Products";
 }
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
 	[[notification object] seekToTime:kCMTimeZero];
