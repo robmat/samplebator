@@ -2,7 +2,7 @@
 //Copyright Applicable Ltd 2011
 
 #import "TableViewControllerWrapper.h"
-#import "TableVieController.h"
+#import "TableViewController.h"
 
 @implementation TableViewControllerWrapper
 

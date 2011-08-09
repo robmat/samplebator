@@ -1,8 +1,9 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "AVPlayerView.h"
+#import "VCBase.h"
 
-@interface ChooseCategoryVC : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
+@interface ChooseCategoryVC : VCBase <UIPickerViewDataSource, UIPickerViewDelegate> {
 	AVPlayer *avplayer;
 	IBOutlet AVPlayerView *playerView;
 	IBOutlet UIPickerView* categoryPicker;

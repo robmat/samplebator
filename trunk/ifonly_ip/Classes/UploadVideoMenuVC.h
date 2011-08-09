@@ -1,8 +1,9 @@
 #import <UIKit/UIKit.h>
 #import "AVPlayerView.h"
 #import "GData.h"
+#import "VCBase.h"
 
-@interface UploadVideoMenuVC : UIViewController {
+@interface UploadVideoMenuVC : VCBase {
 	AVPlayer *avplayer;
 	IBOutlet AVPlayerView *playerView;
 	UITextField* tagsText;

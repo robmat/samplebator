@@ -3,6 +3,8 @@
 #import "TextInputViewController.h"
 #import "GData.h"
 #import "GDataEntryYouTubeUpload.h"
+#import "TeasecVC.h"
+#import "MainMenuVC.h"
 
 @implementation UploadVideoMenuVC
 
@@ -23,9 +25,7 @@
 	avplayer.actionAtItemEnd = AVPlayerActionAtItemEndNone;
 	noteText = [[UITextField alloc] initWithFrame:CGRectZero];
 	tagsText = [[UITextField alloc] initWithFrame:CGRectZero];
-	self.ytService = [[GDataServiceGoogleYouTube alloc] init];
-	[self.ytService setUserCredentialsWithUsername:@"robbator" password:@"robmat666"];
-	[self.ytService setUserAgent:@"ifonly-1.0"];
+	self.ytService = [ifonly_ipAppDelegate getYTService];
 	[self fetchStandardCategories];
 }
 - (void)fetchStandardCategories {
@@ -71,7 +71,9 @@
 	}
 }
 - (IBAction) aboutAction: (id) sender {
-
+	TeasecVC* tvc = [[TeasecVC alloc] initWithNibName:nil bundle:nil];
+	[self.navigationController pushViewController:tvc animated:YES];
+	[tvc release];
 }
 - (IBAction) addNoteAction: (id) sender {
 	TextInputViewController* tivc = [[TextInputViewController alloc] initWithNibName:nil bundle:nil];
@@ -179,6 +181,9 @@
 													   delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 		[alert show];
 		[alert release];
+		MainMenuVC* mmvc = [[MainMenuVC alloc] initWithNibName:nil bundle:nil];
+		[self.navigationController pushViewController:mmvc animated:YES];
+		[mmvc release];
 	} else {
 		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Upload error" 
 														message:[error localizedDescription] 

@@ -1,5 +1,6 @@
 #import "SplashScreenVC.h"
 #import "TeasecVC.h"
+#import "MainMenuVC.h"
 
 @implementation SplashScreenVC
 
@@ -10,9 +11,9 @@
 }
 
 - (void)timerAction {
-	TeasecVC* teaserVC = [[TeasecVC alloc] init];
-	[self.navigationController pushViewController:teaserVC animated:YES];
-	[teaserVC release];
+	MainMenuVC* mmvc = [[MainMenuVC alloc] init];
+	[self.navigationController pushViewController:mmvc animated:YES];
+	[mmvc release];
 }	
 
 - (void)didReceiveMemoryWarning {
