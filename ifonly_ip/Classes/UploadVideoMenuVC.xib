@@ -210,8 +210,8 @@
 							</object>
 							<object class="IBUIProgressView" id="798298829">
 								<reference key="NSNextResponder" ref="614547402"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{8, 172.5}, {306, 8}}</string>
+								<int key="NSvFlags">-2147483356</int>
+								<string key="NSFrame">{{8, 367.5}, {306, 8}}</string>
 								<reference key="NSSuperview" ref="614547402"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>

@@ -23,6 +23,12 @@
 	NSString *documentsDirectoryPath = [paths objectAtIndex:0];
 	return [documentsDirectoryPath stringByAppendingPathComponent:@"tempFileInfo.plist"];
 }
++ (GDataServiceGoogleYouTube*) getYTService {
+	GDataServiceGoogleYouTube* ytService = [[[GDataServiceGoogleYouTube alloc] init] autorelease];
+	[ytService setUserCredentialsWithUsername:@"robbator" password:@"robmat666"];
+	[ytService setUserAgent:@"ifonly-1.0"];
+	return ytService;
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application {

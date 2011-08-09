@@ -10,9 +10,7 @@
 }
 
 - (void)timerAction {
-	MainMenuVC* mmvc = [[MainMenuVC alloc] init];
-	[self.navigationController pushViewController:mmvc animated:YES];
-	[mmvc release];
+	
 }	
 
 - (void)dealloc {
