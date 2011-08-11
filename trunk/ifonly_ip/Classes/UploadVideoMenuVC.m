@@ -116,7 +116,7 @@
 	NSString *filename = [path lastPathComponent];
 	
 	// gather all the metadata needed for the mediaGroup
-	NSString *titleStr = [NSString stringWithFormat:@"[%@] - ifonly movie upload", [tempFileInfo objectForKey:@"category"]];
+	NSString *titleStr = [NSString stringWithFormat:@"[%@] - %@", [tempFileInfo objectForKey:@"category"], noteText.text];
 	GDataMediaTitle *title = [GDataMediaTitle textConstructWithString:titleStr];
 	
 	NSString *categoryStr = [NSString stringWithString: educationCategory];
