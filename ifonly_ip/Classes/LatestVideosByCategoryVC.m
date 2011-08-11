@@ -10,7 +10,9 @@
     [super viewDidLoad];
 	self.title = category;
 	self.ytService = [ifonly_ipAppDelegate getYTService];
-	NSURL* url = [NSURL URLWithString:@"http://gdata.youtube.com/feeds/api/users/robmat666/uploads"];
+	NSString* accountName = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"account" ofType:@"plist"]] objectForKey:@"ytAccountName"];
+	NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://gdata.youtube.com/feeds/api/users/%@/uploads", accountName]];
+	NSLog(@"%@", [url description]);
 	[ytService fetchFeedWithURL:url
 					   delegate:self
 			  didFinishSelector:@selector(entryListFetchTicket:finishedWithFeed:error:)];

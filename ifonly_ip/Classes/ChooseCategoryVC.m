@@ -43,6 +43,9 @@
 	}
 	return @"";
 }
+- (void)viewDidUnload {
+	[[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:AVPlayerItemDidPlayToEndTimeNotification];
+}
 - (IBAction) okAction: (id) sender {
 	NSString* path = [ifonly_ipAppDelegate getTempMovieInfoPath];
 	NSMutableDictionary* infoDict = [NSMutableDictionary dictionaryWithContentsOfFile:path];
@@ -78,7 +81,6 @@
 	[avplayer pause];
 }
 - (void)dealloc {
-	[[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:AVPlayerItemDidPlayToEndTimeNotification];
 	[category release];
 	[avplayer release];
 	[playerView release];
