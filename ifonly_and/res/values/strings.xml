@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, SplashActivity!</string>
     <string name="app_name">IfOnly</string>
+    <string name="main_menu_make_vid_btn_lbl">Make a 1 minute film to show your issues.</string>
+    <string name="main_menu_view_vids_lbl">View library of other films or issues.</string>
+    <string name="main_menu_household_lbl">Household</string>
+    <string name="main_menu_garden_lbl">Garden Tools</string>
+    <string name="main_menu_electrical_lbl">Electrical Goods</string>
+    <string name="main_menu_tools_lbl">Tools/Machinery</string>
+    <string name="main_menu_personal_lbl">Personal Products</string>
+    <string name="main_menu_misc_lbl">Miscelaneous</string>
+    <string name="back_lbl">Back</string>
+    <string name="choose_vid_title_lbl">Your Video</string>
+    <string name="choose_vid_add_vid_lbl">Choose Your Video</string>
+    <string name="choose_vid_camera_lbl">Camera</string>
+    <string name="choose_vid_cancel_lbl">Cancel</string>
+    <string name="choose_vid_library_lbl">Library</string>
 </resources>
