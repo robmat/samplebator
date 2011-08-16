@@ -1,4 +1,12 @@
-{
-	ytAccountName = robmat666;
-	ytAccountPass = robmat;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ytAccountName</key>
+	<string>IfOnlyApp</string>
+	<key>ytAccountPass</key>
+	<string>ifonlyapp</string>
+	<key>ytDevKey</key>
+	<string>AI39si5uYGgtDeDiJre8HsZi7Sr6yaEyU1u4tiy5WTUe8rHl1d-7Ad5rreZKak-h6SPeXVNk3tavHBv8r-tTiCH8veJJ3_pf1Q</string>
+</dict>
+</plist>

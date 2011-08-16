@@ -8,14 +8,14 @@
 
 @implementation UploadVideoMenuVC
 
-@synthesize avplayer, playerView, ytService, educationCategory, progressView;
+@synthesize avplayer, playerView, ytService, educationCategory, progressView, submitBtn;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	NSDictionary* tempFileInfo = [NSDictionary dictionaryWithContentsOfFile:[ifonly_ipAppDelegate getTempMovieInfoPath]];
 	NSString* path = [tempFileInfo objectForKey:@"url"];
 	NSURL* url = [NSURL URLWithString: path];
-	avplayer = [AVPlayer playerWithURL:url];
+	self.avplayer = [AVPlayer playerWithURL:url];
 	[playerView setPlayer:avplayer];
 	playerView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:100];
 	[[NSNotificationCenter defaultCenter] addObserver:self
@@ -27,6 +27,22 @@
 	tagsText = [[UITextField alloc] initWithFrame:CGRectZero];
 	self.ytService = [ifonly_ipAppDelegate getYTService];
 	[self fetchStandardCategories];
+	
+	UIButton* playBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	playBtn.frame = CGRectMake(244, 4, 72, 37);
+	[playBtn setTitle:@"Play" forState:UIControlStateNormal];
+	[playBtn addTarget:self action:@selector(playPauseAction:) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:playBtn];
+}
+- (void)playPauseAction: (id) sender {
+	UIButton* btn = (UIButton*) sender;
+	if ([btn.titleLabel.text isEqual:@"Play"]) {
+		[avplayer play];
+		[btn setTitle:@"Pause" forState:UIControlStateNormal];
+	} else {
+		[avplayer pause];
+		[btn setTitle:@"Play" forState:UIControlStateNormal];
+	}
 }
 - (void)fetchStandardCategories {
 	NSURL *categoriesURL = [NSURL URLWithString:kGDataSchemeYouTubeCategory];
@@ -100,12 +116,11 @@
 	[tivc release];
 }
 - (IBAction) submittAction: (id) sender {
-	NSString *devKey = @"AI39si4lg-ILxiM9eXyJJfrXSRdJivhhOCE-vm2RtBDyvDFK-D6f1Vpa8e7_M214VLAqibnGZPtpQzEYOYdYR-co1mxWMeFyew";
-	
+	self.submitBtn.enabled = NO;
+	[self playPlak];
 	NSDictionary* tempFileInfo = [NSDictionary dictionaryWithContentsOfFile:[ifonly_ipAppDelegate getTempMovieInfoPath]];
 	
 	GDataServiceGoogleYouTube *service = self.ytService;
-	[service setYouTubeDeveloperKey:devKey];
 	
 	NSURL *url = [GDataServiceGoogleYouTube youTubeUploadURLForUserID:kGDataServiceDefaultUser];
 	
@@ -116,14 +131,15 @@
 	NSString *filename = [path lastPathComponent];
 	
 	// gather all the metadata needed for the mediaGroup
-	NSString *titleStr = [NSString stringWithFormat:@"[%@] - %@", [tempFileInfo objectForKey:@"category"], noteText.text];
+	NSString* noteStr = noteText.text == nil ? @"" : noteText.text;
+	NSString *titleStr = [NSString stringWithFormat:@"[%@] - %@", [tempFileInfo objectForKey:@"category"], noteStr];
 	GDataMediaTitle *title = [GDataMediaTitle textConstructWithString:titleStr];
 	
 	NSString *categoryStr = [NSString stringWithString: educationCategory];
 	GDataMediaCategory *category = [GDataMediaCategory mediaCategoryWithString:categoryStr];
 	[category setScheme:kGDataSchemeYouTubeCategory];
 	
-	NSString *descStr = noteText.text;
+	NSString *descStr = noteStr;
 	GDataMediaDescription *desc = [GDataMediaDescription textConstructWithString:descStr];
 	
 	NSString *keywordsStr = tagsText.text;
@@ -190,6 +206,8 @@
 													   delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 		[alert show];
 		[alert release];
+		NSLog(@"%@", [error description]);
+		self.submitBtn.enabled = YES;
 	}	
 }
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
@@ -197,13 +215,14 @@
 }
 - (void)viewDidAppear: (BOOL) animated {
 	[super viewDidAppear:animated];
-	[avplayer play];
+	//[avplayer play];
 }
 - (void)viewDidDisappear: (BOOL) animated {
 	[super viewDidDisappear:animated];
 	[avplayer pause];
 }
 - (void)dealloc {
+	[submitBtn release];
 	[progressView release];
 	[ytService release];
 	[noteText release];

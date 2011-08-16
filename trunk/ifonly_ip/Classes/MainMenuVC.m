@@ -6,6 +6,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	backBtn.hidden = YES;
 }
 
 - (IBAction) recordMovieAction: (id) sender {
