@@ -10,6 +10,7 @@
 	textView.delegate = self;
 	editCount = 0;
 	delTextAtFirstEdit = YES;
+	backBtn.hidden = YES;
 }
 - (void)textViewDidChange:(UITextView *)textView_ {
 	editCount++;

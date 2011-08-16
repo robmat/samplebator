@@ -11,6 +11,7 @@
 	GDataServiceGoogleYouTube* ytService;
 	NSString* educationCategory;
 	IBOutlet UIProgressView* progressView;
+	IBOutlet UIButton* submitBtn;
 }
 
 @property (nonatomic, retain) AVPlayer *avplayer;
@@ -18,6 +19,7 @@
 @property (nonatomic, retain) GDataServiceGoogleYouTube* ytService;
 @property (nonatomic, retain) NSString* educationCategory;
 @property (nonatomic, retain) IBOutlet UIProgressView* progressView;
+@property (nonatomic, retain) IBOutlet UIButton* submitBtn;
 
 - (IBAction) aboutAction: (id) sender;
 - (IBAction) addNoteAction: (id) sender;

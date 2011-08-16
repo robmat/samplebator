@@ -24,9 +24,16 @@
 	return [documentsDirectoryPath stringByAppendingPathComponent:@"tempFileInfo.plist"];
 }
 + (GDataServiceGoogleYouTube*) getYTService {
+	NSDictionary* accountDict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"account" ofType:@"plist"]];
+	NSString* uName = [accountDict objectForKey:@"ytAccountName"];
+	NSString* uPass = [accountDict objectForKey:@"ytAccountPass"];
+	NSString* devKey = [accountDict objectForKey:@"ytDevKey"];
 	GDataServiceGoogleYouTube* ytService = [[[GDataServiceGoogleYouTube alloc] init] autorelease];
-	[ytService setUserCredentialsWithUsername:@"robbator" password:@"robmat666"];
+	[ytService setUserCredentialsWithUsername:uName password:uPass];
 	[ytService setUserAgent:@"ifonly-1.0"];
+	[ytService setYouTubeDeveloperKey:devKey];
+	NSLog(@"Created YT service: %@", [ytService description]);
+	NSLog(@"Account dictionary: %@", [accountDict description]);
 	return ytService;
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -39,10 +46,6 @@
 }
 - (void)applicationWillTerminate:(UIApplication *)application {
 }
-
-#pragma mark -
-#pragma mark Memory management
-
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
 }
 - (void)dealloc {

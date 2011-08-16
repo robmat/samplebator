@@ -6,14 +6,14 @@
 
 @implementation ChooseCategoryVC
 
-@synthesize avplayer, playerView, categoryPicker, category;
+@synthesize avplayer, playerView, categoryPicker, category, backgroundImage;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	NSDictionary* tempFileInfo = [NSDictionary dictionaryWithContentsOfFile:[ifonly_ipAppDelegate getTempMovieInfoPath]];
 	NSString* path = [tempFileInfo objectForKey:@"url"];
 	NSURL* url = [NSURL URLWithString: path];
-	avplayer = [AVPlayer playerWithURL:url];
+	self.avplayer = [AVPlayer playerWithURL:url];
 	[playerView setPlayer:avplayer];
 	playerView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:100];
 	[[NSNotificationCenter defaultCenter] addObserver:self
@@ -22,6 +22,26 @@
 											   object:avplayer.currentItem];
 	avplayer.actionAtItemEnd = AVPlayerActionAtItemEndNone;
 	self.category = @"Household Products";
+	
+	UIButton* playBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	playBtn.frame = CGRectMake(244, 4, 72, 37);
+	[playBtn setTitle:@"Play" forState:UIControlStateNormal];
+	[playBtn addTarget:self action:@selector(playPauseAction:) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:playBtn];
+}
+- (void)playPauseAction: (id) sender {
+	UIButton* btn = (UIButton*) sender;
+	if ([btn.titleLabel.text isEqual:@"Play"]) {
+		[avplayer play];
+		[btn setTitle:@"Pause" forState:UIControlStateNormal];
+		[self animateView:backgroundImage up:NO distance:320];
+		[self animateView:categoryPicker up:NO distance:320];
+	} else {
+		[avplayer pause];
+		[btn setTitle:@"Play" forState:UIControlStateNormal];
+		[self animateView:backgroundImage up:YES distance:320];
+		[self animateView:categoryPicker up:YES distance:320];
+	}
 }
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
 	[[notification object] seekToTime:kCMTimeZero];
@@ -70,17 +90,18 @@
 	return 1;
 }
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-	return 5;
+	return 6;
 }
 - (void)viewDidAppear: (BOOL) animated {
 	[super viewDidAppear:animated];
-	[avplayer play];
+	//[avplayer play];
 }
 - (void)viewDidDisappear: (BOOL) animated {
 	[super viewDidDisappear:animated];
 	[avplayer pause];
 }
 - (void)dealloc {
+	[backgroundImage release];
 	[category release];
 	[avplayer release];
 	[playerView release];
