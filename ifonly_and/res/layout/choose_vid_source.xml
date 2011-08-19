@@ -53,7 +53,8 @@
 				android:textStyle="bold"
 				android:layout_marginBottom="34dip"
 				android:text="@string/choose_vid_library_lbl" />
-			<TextView 
+			<TextView
+				android:id="@+id/choose_vid_cancel_id"
 				android:layout_width="fill_parent"
 				android:gravity="center"
 				android:layout_height="wrap_content" 

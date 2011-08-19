@@ -15,4 +15,14 @@
     <string name="choose_vid_camera_lbl">Camera</string>
     <string name="choose_vid_cancel_lbl">Cancel</string>
     <string name="choose_vid_library_lbl">Library</string>
+    <string name="cancelled">Cancelled!</string>
+    <string name="choose_category_dialog_title_lbl">Pick a category</string>
+   	<string name="upload_vid_add_note">Add note</string>
+   	<string name="upload_vid_add_tags">Add tags</string>
+   	<string name="upload_vid_add_tags_tooltip">
+   		Add keywords like the manufacturer, model, and product type e.g. can opener. Separate each keyword with a comma.
+   	</string>
+   	<string name="upload_vid_progress_dialog_title">Uploading. Please wait...</string>
+   	<string name="upload_vid_successful">Video upload successful.</string>
+   	<string name="upload_vid_error">Video upload error.</string>
 </resources>
