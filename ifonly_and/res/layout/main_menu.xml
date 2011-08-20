@@ -11,30 +11,30 @@
 		android:weightSum="10">
 		<ImageView 
 			android:layout_width="fill_parent"
-			android:layout_height="0dip" 
+			android:layout_height="0dp" 
 			android:src="@drawable/top_bar"
 			android:layout_weight="1" 
-			android:padding="0dip"
-			android:layout_margin="0dip"/>
+			android:padding="0dp"
+			android:layout_margin="0dp"/>
 		<TextView 
 			android:layout_width="fill_parent"
-			android:layout_height="0dip" 
+			android:layout_height="0dp" 
 			android:textColor="@color/white"
-			android:textSize="18dip"
+			android:textSize="18dp"
 			android:gravity="left|center_vertical"
 			android:typeface="sans" 
 			android:textStyle="bold"
-			android:paddingLeft="75dip"
-			android:paddingRight="20dip"
+			android:paddingLeft="75dp"
+			android:paddingRight="20dp"
 			android:id="@+id/main_menu_make_vid_btn_id"
 			android:text="@string/main_menu_make_vid_btn_lbl" 
 			android:background="@drawable/main_menu_make_vid_btn"
 			android:layout_weight="2" />
 		<TextView 
 			android:layout_width="fill_parent"
-			android:layout_height="0dip" 
+			android:layout_height="0dp" 
 			android:textColor="@color/black"
-			android:textSize="16dip"
+			android:textSize="16dp"
 			android:gravity="center"
 			android:typeface="sans" 
 			android:textStyle="bold"
@@ -45,13 +45,13 @@
 				<LinearLayout 
 					android:orientation="horizontal"
 					android:layout_width="fill_parent" 
-					android:layout_height="0dip"
+					android:layout_height="0dp"
 					android:layout_weight="1.8"
 					android:weightSum="798">
 					<TextView 
-						android:layout_width="0dip"
+						android:layout_width="0dp"
 						android:textColor="@color/black"
-						android:textSize="12dip"
+						android:textSize="12dp"
 						android:gravity="bottom|center_horizontal"
 						android:typeface="sans" 
 						android:textStyle="bold"
@@ -61,9 +61,9 @@
 						android:background="@drawable/main_menu_household_btn"
 						android:layout_weight="213" />
 					<TextView 
-						android:layout_width="0dip"
+						android:layout_width="0dp"
 						android:textColor="@color/black"
-						android:textSize="12dip"
+						android:textSize="12dp"
 						android:gravity="bottom|center_horizontal"
 						android:typeface="sans" 
 						android:textStyle="bold"
@@ -73,9 +73,9 @@
 						android:background="@drawable/main_menu_garden_tools_btn"
 						android:layout_weight="274" />
 					<TextView 
-						android:layout_width="0dip"
+						android:layout_width="0dp"
 						android:textColor="@color/black"
-						android:textSize="12dip"
+						android:textSize="12dp"
 						android:gravity="bottom|center_horizontal"
 						android:typeface="sans" 
 						android:textStyle="bold"
@@ -88,13 +88,13 @@
 				<LinearLayout 
 					android:orientation="horizontal"
 					android:layout_width="fill_parent" 
-					android:layout_height="0dip"
+					android:layout_height="0dp"
 					android:layout_weight="1.8"
 					android:weightSum="801">
 					<TextView 
-						android:layout_width="0dip"
+						android:layout_width="0dp"
 						android:textColor="@color/black"
-						android:textSize="12dip"
+						android:textSize="12dp"
 						android:gravity="bottom|center_horizontal"
 						android:typeface="sans" 
 						android:textStyle="bold"
@@ -104,9 +104,9 @@
 						android:background="@drawable/main_menu_tools_btn"
 						android:layout_weight="264" />
 					<TextView 
-						android:layout_width="0dip"
+						android:layout_width="0dp"
 						android:textColor="@color/black"
-						android:textSize="12dip"
+						android:textSize="12dp"
 						android:gravity="bottom|center_horizontal"
 						android:typeface="sans" 
 						android:textStyle="bold"
@@ -116,9 +116,9 @@
 						android:background="@drawable/main_menu_personal_prod_btn"
 						android:layout_weight="292" />
 					<TextView 
-						android:layout_width="0dip"
+						android:layout_width="0dp"
 						android:textColor="@color/black"
-						android:textSize="12dip"
+						android:textSize="12dp"
 						android:gravity="bottom|center_horizontal"
 						android:typeface="sans" 
 						android:textStyle="bold"
@@ -130,10 +130,10 @@
 				</LinearLayout>
 			<ImageView 
 				android:layout_width="fill_parent"
-				android:layout_height="0dip" 
+				android:layout_height="0dp" 
 				android:src="@drawable/main_menu_botton_bar"
 				android:layout_weight="2.4" 
-				android:padding="0dip"
-				android:layout_margin="0dip"/>	
+				android:padding="0dp"
+				android:layout_margin="0dp"/>	
 	</LinearLayout>
 </FrameLayout>
