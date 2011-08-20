@@ -43,6 +43,7 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.upload_vid);
+		setTopBarTitle(getString(R.string.upload_vid_top_bar_title));
 		backButtonListenerSetup();
 		VideoView vv = (VideoView) findViewById(R.id.preview_vid_view);
 		mediaController = new MediaController(this, false);

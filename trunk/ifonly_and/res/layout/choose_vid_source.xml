@@ -26,10 +26,10 @@
 				android:gravity="center"
 				android:layout_height="wrap_content" 
 				android:textColor="@color/white"
-				android:textSize="24dip"
+				android:textSize="24dp"
 				android:typeface="sans" 
 				android:textStyle="bold"
-				android:layout_marginBottom="28dip"
+				android:layout_marginBottom="28dp"
 				android:text="@string/choose_vid_add_vid_lbl" />
 			<TextView 
 				android:id="@+id/choose_vid_camera_id"
@@ -37,10 +37,10 @@
 				android:gravity="center"
 				android:layout_height="wrap_content" 
 				android:textColor="@color/white"
-				android:textSize="24dip"
+				android:textSize="24dp"
 				android:typeface="sans" 
 				android:textStyle="bold"
-				android:layout_marginBottom="16dip"
+				android:layout_marginBottom="16dp"
 				android:text="@string/choose_vid_camera_lbl" />
 			<TextView 
 				android:id="@+id/choose_vid_library_id"
@@ -48,10 +48,10 @@
 				android:gravity="center"
 				android:layout_height="wrap_content" 
 				android:textColor="@color/white"
-				android:textSize="24dip"
+				android:textSize="24dp"
 				android:typeface="sans" 
 				android:textStyle="bold"
-				android:layout_marginBottom="34dip"
+				android:layout_marginBottom="34dp"
 				android:text="@string/choose_vid_library_lbl" />
 			<TextView
 				android:id="@+id/choose_vid_cancel_id"
@@ -59,10 +59,10 @@
 				android:gravity="center"
 				android:layout_height="wrap_content" 
 				android:textColor="@color/white"
-				android:textSize="24dip"
+				android:textSize="24dp"
 				android:typeface="sans" 
 				android:textStyle="bold"
-				android:layout_marginBottom="14dip"
+				android:layout_marginBottom="14dp"
 				android:text="@string/choose_vid_cancel_lbl" />
 		</LinearLayout>
 	</RelativeLayout>

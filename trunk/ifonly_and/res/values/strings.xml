@@ -4,7 +4,8 @@
     <string name="main_menu_make_vid_btn_lbl">Make a 1 minute film to show your issues.</string>
     <string name="main_menu_view_vids_lbl">View library of other films or issues.</string>
     <string name="main_menu_household_lbl">Household</string>
-    <string name="main_menu_garden_lbl">Garden Tools</string>
+    <string name="main_menu_household_products_lbl">Household Products</string>
+    <string name="main_menu_garden_lbl">Garden Products</string>
     <string name="main_menu_electrical_lbl">Electrical Goods</string>
     <string name="main_menu_tools_lbl">Tools/Machinery</string>
     <string name="main_menu_personal_lbl">Personal Products</string>
@@ -17,6 +18,7 @@
     <string name="choose_vid_library_lbl">Library</string>
     <string name="cancelled">Cancelled!</string>
     <string name="choose_category_dialog_title_lbl">Pick a category</string>
+    <string name="upload_vid_top_bar_title">Upload video</string>
    	<string name="upload_vid_add_note">Add note</string>
    	<string name="upload_vid_add_tags">Add tags</string>
    	<string name="upload_vid_add_tags_tooltip">
@@ -25,4 +27,10 @@
    	<string name="upload_vid_progress_dialog_title">Uploading. Please wait...</string>
    	<string name="upload_vid_successful">Video upload successful.</string>
    	<string name="upload_vid_error">Video upload error.</string>
+   	<string name="video_list_seconds">%1$d seconds</string>
+   	<string name="video_list_progress_dialog_title">Please wait...</string>
+   	<string name="video_list_order_by">Order by</string>
+   	<string name="video_list_order_by_date">Order by newest</string>
+   	<string name="video_list_order_by_views">Order by most viewed</string>
+   	<string name="video_list_search">Search</string>
 </resources>

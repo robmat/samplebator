@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class Utils {
 		public String getStr(Context context) {
 			switch (this) {
 			case HOUSEHOLD:
-				return context.getString(R.string.main_menu_household_lbl);
+				return context.getString(R.string.main_menu_household_products_lbl);
 			case GARDEN_TOOLS:
 				return context.getString(R.string.main_menu_garden_lbl);
 			case ELECTRICAL_GOODS:
@@ -80,6 +81,23 @@ public class Utils {
 				strArr.add(cat.getStr(context));
 			}
 			return strArr.toArray(new String[strArr.size()]);
+		}
+		public int getImageResId() {
+			switch (this) {
+			case HOUSEHOLD:
+				return R.drawable.household;
+			case GARDEN_TOOLS:
+				return R.drawable.garden;
+			case ELECTRICAL_GOODS:
+				return R.drawable.electrical;
+			case TOOLS_MACHINERY:
+				return R.drawable.tools;
+			case PERSONAL_PRODUCTS:
+				return R.drawable.personal_products;
+			case MISC:
+				return R.drawable.misc;
+			}
+			return R.drawable.misc;
 		}
 	};
 
@@ -127,10 +145,11 @@ public class Utils {
 		DefaultHttpClient client = Utils.getClient();
 		try {
 			String urlStr = YoutubeService.YOUTUBE_FEEDS_URL.replace(YoutubeService.USER_TOKEN, "IfOnlyApp");
-			urlStr += "?max-results=50";
+			urlStr += "?max-results=50&start-index=1&v=2";
 			urlStr += "&orderby=" + orderBy;
-			urlStr += "&q=" + query;
+			urlStr += "&q=" + URLEncoder.encode(query.trim());
 			HttpResponse response = client.execute(new HttpGet(urlStr));
+			Log.d("Utils", "URL: " + urlStr);
 			String responseStr = Utils.getResponseBody(response);
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = factory.newDocumentBuilder();
