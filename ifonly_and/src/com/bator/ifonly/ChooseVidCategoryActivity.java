@@ -53,6 +53,7 @@ public class ChooseVidCategoryActivity extends ActivityBase {
 			builder.setItems(Utils.VID_CATEGORY.getStrArr(this), new DialogInterface.OnClickListener() {
 			    public void onClick(DialogInterface dialog, int item) {
 			    	try {
+			    		playPlak();
 						String category = Utils.VID_CATEGORY.getStrArr(ChooseVidCategoryActivity.this)[item];
 						URL url = new URL(getIntent().getData().toString() + "?category=" + category);
 						Intent i = new Intent(Utils.UPLOAD_VIDEO_ACTION, Uri.parse(url.toString()));

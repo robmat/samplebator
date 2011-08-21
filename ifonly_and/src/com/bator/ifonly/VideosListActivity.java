@@ -21,6 +21,9 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -36,6 +39,7 @@ public class VideosListActivity extends ActivityBase implements Callback {
 	public static final SimpleDateFormat parseDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSS'Z'");
 	public static final SimpleDateFormat displayDateFormat = new SimpleDateFormat("MMMM dd, yyyy");
 	public static final int VIDEO_LIST_SUCCESS = 1;
+	public static final int VIDEO_LIST_ERROR = 2;
 	private Document document;
 	private Handler handler = new Handler(this);
 	private ListView listView;
@@ -55,7 +59,7 @@ public class VideosListActivity extends ActivityBase implements Callback {
 		listView.setAdapter(new ArrayAdapter<Video>(this, R.layout.video_list, videosList) {
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
-				View itemView = getLayoutInflater().inflate(R.layout.vide_list_item, null);
+				final View itemView = getLayoutInflater().inflate(R.layout.vide_list_item, null);
 				TextView titleView = (TextView) itemView.findViewById(R.id.video_list_title);
 				titleView.setText(videosList.get(position).title);
 				TextView dateView = (TextView) itemView.findViewById(R.id.video_list_date);
@@ -64,6 +68,22 @@ public class VideosListActivity extends ActivityBase implements Callback {
 				durationView.setText(getString(R.string.video_list_seconds, videosList.get(position).duration));
 				ImageView categoryImage = (ImageView) itemView.findViewById(R.id.video_list_category_image);
 				categoryImage.setImageResource(vidCategory.getImageResId());
+				ScaleAnimation sa = new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+				sa.setDuration(500);
+				sa.setStartTime(1000 * position);
+				sa.setInterpolator(new AccelerateInterpolator());
+				itemView.startAnimation(sa);
+				itemView.setVisibility(View.INVISIBLE);
+				sa.setAnimationListener(new Animation.AnimationListener() {
+					@Override
+					public void onAnimationStart(Animation animation) {
+						itemView.setVisibility(View.VISIBLE);
+					}
+					@Override
+					public void onAnimationRepeat(Animation animation) {}
+					@Override
+					public void onAnimationEnd(Animation animation) {}
+				});
 				return itemView;
 			}
 		});
@@ -82,6 +102,7 @@ public class VideosListActivity extends ActivityBase implements Callback {
 				builder.setSingleChoiceItems(options, orderByStr.equals("published") ? 0 : 1, new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
+						playPlak();
 						orderByStr = which == 0 ? "published" : "viewCount";
 						dialog.dismiss();
 						fetchData();
@@ -95,6 +116,7 @@ public class VideosListActivity extends ActivityBase implements Callback {
 		findViewById(R.id.video_list_search_btn_id).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				playPlak();
 				showDialog(-1);
 			}
 		});
@@ -106,12 +128,14 @@ public class VideosListActivity extends ActivityBase implements Callback {
 		alert.setView(input);
 		alert.setPositiveButton(getString(R.string.video_list_search), new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int whichButton) {
+				playPlak();
 				queryString = input.getText().toString().trim();
 				fetchData();
 			}
 		});
 		alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int whichButton) {
+				playPlak();
 				dialog.cancel();
 			}
 		});
@@ -128,6 +152,10 @@ public class VideosListActivity extends ActivityBase implements Callback {
 					handler.sendEmptyMessage(VIDEO_LIST_SUCCESS);
 				} catch (Exception e) {
 					Log.e("VideosListActivity", "onCreate", e);
+					Message m = new Message();
+					m.what = VIDEO_LIST_ERROR;
+					m.obj = e.getClass().toString() + ": " + e.getMessage();
+					handler.sendMessage(m);
 				}
 			}
 		}).start();
@@ -137,6 +165,19 @@ public class VideosListActivity extends ActivityBase implements Callback {
 		if (msg.what == VIDEO_LIST_SUCCESS) {
 			dialog.dismiss();
 			parseVideoFeed();
+		}
+		if (msg.what == VIDEO_LIST_ERROR) {
+			dialog.dismiss();
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle(R.string.video_list_error);
+			builder.setMessage(msg.obj.toString());
+			builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					playPlak();
+					dialog.dismiss();
+				}
+			});
 		}
 		return false;
 	}
@@ -165,7 +206,7 @@ public class VideosListActivity extends ActivityBase implements Callback {
 						NodeList mediaContentChildren = entryChild.getChildNodes();
 						for (int k = 0; k < mediaContentChildren.getLength(); k++) {
 							Node mediaContentChild = mediaContentChildren.item(k);
-							if ("media:content".equals(mediaContentChild.getNodeName()) && videoObj.url == null) {
+							if ("media:content".equals(mediaContentChild.getNodeName()) /*&& videoObj.url == null*/) {
 								videoObj.url = mediaContentChild.getAttributes().getNamedItem("url").getNodeValue();
 							}
 						}

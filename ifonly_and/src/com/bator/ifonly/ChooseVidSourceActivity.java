@@ -26,6 +26,7 @@ public class ChooseVidSourceActivity extends ActivityBase {
 		findViewById(R.id.choose_vid_camera_id).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				playPlak();
 				String state = android.os.Environment.getExternalStorageState();
 				if (!state.equals(android.os.Environment.MEDIA_MOUNTED)) {
 					Toast.makeText(ChooseVidSourceActivity.this, "SD Card is not mounted. It is " + state + ".", Toast.LENGTH_LONG).show();
@@ -44,6 +45,7 @@ public class ChooseVidSourceActivity extends ActivityBase {
 		findViewById(R.id.choose_vid_library_id).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				playPlak();
 				Intent i = new Intent(Intent.ACTION_GET_CONTENT);
 				i.setType("video/*");
 				startActivityForResult(i, ACTIVITY_SELECT_IMAGE);
@@ -52,6 +54,7 @@ public class ChooseVidSourceActivity extends ActivityBase {
 		findViewById(R.id.choose_vid_cancel_id).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				playPlak();
 				finish();
 			}
 		});

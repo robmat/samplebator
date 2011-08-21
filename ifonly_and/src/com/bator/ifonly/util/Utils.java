@@ -12,12 +12,14 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.FactoryConfigurationError;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.http.HeaderElement;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpVersion;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.conn.scheme.PlainSocketFactory;
 import org.apache.http.conn.scheme.Scheme;
@@ -30,8 +32,8 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ParseException;
@@ -39,6 +41,7 @@ import android.net.Uri;
 import android.util.Log;
 import android.view.View;
 
+import com.bator.ifonly.ActivityBase;
 import com.bator.ifonly.R;
 
 public class Utils {
@@ -103,16 +106,17 @@ public class Utils {
 
 	public static class LaunchActivityListener implements View.OnClickListener {
 		private String action;
-		private Activity activity;
+		private ActivityBase activity;
 		private Uri data;
 
-		public LaunchActivityListener(String action, Activity activity, Uri data) {
+		public LaunchActivityListener(String action, ActivityBase activity, Uri data) {
 			this.action = action;
 			this.activity = activity;
 			this.data = data;
 		}
 
 		public void onClick(View v) {
+			activity.playPlak();
 			if (data != null) {
 				activity.startActivity(new Intent(action, data));
 			} else {
@@ -141,24 +145,19 @@ public class Utils {
 		ret = new DefaultHttpClient(manager, params);
 		return ret;
 	}
-	public static Document getVideosDOM(String orderBy, String query) throws FactoryConfigurationError {
+	public static Document getVideosDOM(String orderBy, String query) throws FactoryConfigurationError, ClientProtocolException, IOException, ParserConfigurationException, SAXException {
 		DefaultHttpClient client = Utils.getClient();
-		try {
-			String urlStr = YoutubeService.YOUTUBE_FEEDS_URL.replace(YoutubeService.USER_TOKEN, "IfOnlyApp");
-			urlStr += "?max-results=50&start-index=1&v=2";
-			urlStr += "&orderby=" + orderBy;
-			urlStr += "&q=" + URLEncoder.encode(query.trim());
-			HttpResponse response = client.execute(new HttpGet(urlStr));
-			Log.d("Utils", "URL: " + urlStr);
-			String responseStr = Utils.getResponseBody(response);
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder docBuilder = factory.newDocumentBuilder();
-			Document doc = docBuilder.parse(new ByteArrayInputStream(responseStr.getBytes()));
-			return doc;
-		} catch (Exception e) {
-			Log.e("Utils", "getVideosDOM", e);
-		}
-		return null;
+		String urlStr = YoutubeService.YOUTUBE_FEEDS_URL.replace(YoutubeService.USER_TOKEN, "IfOnlyApp");
+		urlStr += "?max-results=50&start-index=1&v=2";
+		urlStr += "&orderby=" + orderBy;
+		urlStr += "&q=" + URLEncoder.encode(query.trim());
+		HttpResponse response = client.execute(new HttpGet(urlStr));
+		Log.d("Utils", "URL: " + urlStr);
+		String responseStr = Utils.getResponseBody(response);
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder docBuilder = factory.newDocumentBuilder();
+		Document doc = docBuilder.parse(new ByteArrayInputStream(responseStr.getBytes()));
+		return doc;
 	}
 	public static String getResponseBody(HttpResponse response) {
 		String response_text = null;

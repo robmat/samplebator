@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -15,9 +16,6 @@ import android.os.Handler.Callback;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
 import android.widget.EditText;
 import android.widget.MediaController;
 import android.widget.VideoView;
@@ -35,9 +33,8 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 	private MediaController mediaController;
 	private String tagsStr = "";
 	private String notesStr = "";
-	private Handler handler = null;
-
-	// private ProgressDialog progressDialog;
+	private Handler handler = new Handler(this);
+	private Dialog dialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,15 +53,10 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 	}
 
 	private void setUpListeners() {
-		handler = new Handler() {
-			@Override
-			public void handleMessage(Message msg) {
-				UploadVideoActivity.this.handleMessage(msg);
-			}
-		};
 		findViewById(R.id.upload_vid_about_id).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				playPlak();
 				Intent intent = new Intent(UploadVideoActivity.this, SplashActivity.class);
 				intent.setData(Uri.parse("fake://foo.bar"));
 				startActivity(intent);
@@ -73,35 +65,28 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 		findViewById(R.id.upload_vid_add_note_id).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				playPlak();
 				showDialog(TEXT_INPUT_DIALOG_NOTES);
 			}
 		});
 		findViewById(R.id.upload_vid_add_tags_id).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				playPlak();
 				showDialog(TEXT_INPUT_DIALOG_TAGS);
 			}
 		});
 		findViewById(R.id.upload_vid_submit_id).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startAnimatingIndicator();
+				playPlak();
 				handler.sendEmptyMessage(UPLOAD_VIDEO_MSG_WHAT);
 			}
 		});
 	}
 
-	public void startAnimatingIndicator() {
-		RotateAnimation rotation = new RotateAnimation(0f, 360f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-		rotation.setDuration(1200);
-		rotation.setInterpolator(new LinearInterpolator());
-		rotation.setRepeatMode(Animation.RESTART);
-		rotation.setRepeatCount(Animation.INFINITE);
-		findViewById(R.id.upload_progress).setVisibility(View.VISIBLE);
-		findViewById(R.id.upload_progress).startAnimation(rotation);
-	}
-
 	private void uploadVideo() {
+		dialog = ProgressDialog.show(UploadVideoActivity.this, "", getString(R.string.video_list_progress_dialog_title), true, false);
 		Runnable r = new Runnable() {
 			public void run() {
 				Uri uri = getIntent().getData();
@@ -140,6 +125,7 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 		alert.setView(input);
 		alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int whichButton) {
+				playPlak();
 				String value = input.getText().toString().trim();
 				switch (id) {
 				case TEXT_INPUT_DIALOG_NOTES:
@@ -153,6 +139,7 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 		});
 		alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int whichButton) {
+				playPlak();
 				dialog.cancel();
 			}
 		});
@@ -170,7 +157,9 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 
 	@Override
 	public boolean handleMessage(Message msg) {
-		findViewById(R.id.upload_progress).setVisibility(View.INVISIBLE);
+		if (dialog != null) {
+			dialog.dismiss();
+		}
 		if (msg.what == UPLOAD_VIDEO_MSG_WHAT) {
 			uploadVideo();
 		}
@@ -178,6 +167,7 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setMessage(getString(R.string.upload_vid_successful)).setCancelable(false).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int id) {
+					playPlak();
 					startActivity(new Intent("ifonly.mainmenu"));
 				}
 			});
@@ -189,6 +179,7 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setMessage((String) msg.obj).setTitle(R.string.upload_vid_error).setCancelable(false).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int id) {
+					playPlak();
 					dialog.dismiss();
 				}
 			});
