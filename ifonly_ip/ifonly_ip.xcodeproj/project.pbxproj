@@ -46,6 +46,7 @@
 		E18F127E13F683B600F1325E /* account.plist in Resources */ = {isa = PBXBuildFile; fileRef = E18F127D13F683B600F1325E /* account.plist */; };
 		E18F128713F6853000F1325E /* nav_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F128613F6853000F1325E /* nav_bar.png */; };
 		E18F12A413F68B1800F1325E /* clear_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = E18F12A313F68B1800F1325E /* clear_bar.png */; };
+		E1CD27631404100D004D1AF5 /* wsdl.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1CD27621404100D004D1AF5 /* wsdl.txt */; };
 		E1D1FF5413E8598500504806 /* main_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D1FF5313E8598500504806 /* main_menu.png */; };
 		E1D1FF6A13E8680900504806 /* ChooseVideoSourceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D1FF6813E8680900504806 /* ChooseVideoSourceVC.m */; };
 		E1D1FF6B13E8680900504806 /* ChooseVideoSourceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D1FF6913E8680900504806 /* ChooseVideoSourceVC.xib */; };
@@ -472,6 +473,7 @@
 		E18F127D13F683B600F1325E /* account.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = account.plist; sourceTree = "<group>"; };
 		E18F128613F6853000F1325E /* nav_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nav_bar.png; path = res/img/nav_bar.png; sourceTree = "<group>"; };
 		E18F12A313F68B1800F1325E /* clear_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clear_bar.png; path = res/img/clear_bar.png; sourceTree = "<group>"; };
+		E1CD27621404100D004D1AF5 /* wsdl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wsdl.txt; sourceTree = "<group>"; };
 		E1D1FF5313E8598500504806 /* main_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = main_menu.png; path = res/img/main_menu.png; sourceTree = "<group>"; };
 		E1D1FF6713E8680900504806 /* ChooseVideoSourceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseVideoSourceVC.h; sourceTree = "<group>"; };
 		E1D1FF6813E8680900504806 /* ChooseVideoSourceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseVideoSourceVC.m; sourceTree = "<group>"; };
@@ -574,6 +576,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				E1CD27621404100D004D1AF5 /* wsdl.txt */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -1112,6 +1115,7 @@
 				E18F127E13F683B600F1325E /* account.plist in Resources */,
 				E18F128713F6853000F1325E /* nav_bar.png in Resources */,
 				E18F12A413F68B1800F1325E /* clear_bar.png in Resources */,
+				E1CD27631404100D004D1AF5 /* wsdl.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
