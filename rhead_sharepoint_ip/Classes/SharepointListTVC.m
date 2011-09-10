@@ -38,7 +38,7 @@
 	[[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
 	NSString* key = [keysArr objectAtIndex:indexPath.row];
 	WebViewVC* wvvc = [[WebViewVC alloc] initWithNibName:nil bundle:nil];
-	wvvc.url = [NSURL URLWithString:key];
+	wvvc.url = key;
 	[self.navCntrl pushViewController:wvvc animated:YES];
 	[wvvc release];
 }

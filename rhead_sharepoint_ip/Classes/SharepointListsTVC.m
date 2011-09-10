@@ -97,7 +97,9 @@
 	for (CXMLElement* listNode in listsNodes) {
 		CXMLNode* titleAttr = [listNode attributeForName:@"ows_Title"];
 		CXMLNode* nameAttr = [listNode attributeForName:@"ows_EncodedAbsUrl"];
-		[listDict setObject:[titleAttr stringValue] forKey:[nameAttr stringValue]];
+		if (nameAttr != nil && titleAttr != nil) {
+			[listDict setObject:[titleAttr stringValue] forKey:[nameAttr stringValue]];
+		}
 	}
 	SharepointListVC* slvc = [[SharepointListVC alloc] initWithNibName:nil bundle:nil];
 	slvc.listsData = listDict;

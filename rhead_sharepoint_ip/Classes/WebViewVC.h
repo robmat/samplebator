@@ -3,10 +3,10 @@
 
 @interface WebViewVC : VCBase {
 	IBOutlet UIWebView* webView;
-	NSURL* url;
+	NSString* url;
 }
 
 @property (nonatomic, retain) IBOutlet UIWebView* webView;
-@property (nonatomic, retain) NSURL* url;
+@property (nonatomic, retain) NSString* url;
 
 @end
