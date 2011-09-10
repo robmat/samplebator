@@ -33,7 +33,7 @@
 		E184AD23140D3FCA004EBF5A /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E184AD1A140D3FCA004EBF5A /* CXMLNode_PrivateExtensions.m */; };
 		E184AD24140D3FCA004EBF5A /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E184AD1C140D3FCA004EBF5A /* CXMLNode_XPathExtensions.m */; };
 		E184AD25140D3FCA004EBF5A /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E184AD1E140D3FCA004EBF5A /* CXMLNode.m */; };
-		E184AD33140D401B004EBF5A /* SaopRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E184AD32140D401B004EBF5A /* SaopRequest.m */; };
+		E184AD33140D401B004EBF5A /* SoapRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E184AD32140D401B004EBF5A /* SoapRequest.m */; };
 		E184AD4B140D4604004EBF5A /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E184AD4A140D4604004EBF5A /* splash.png */; };
 		E184AD4E140D466B004EBF5A /* VCBase.m in Sources */ = {isa = PBXBuildFile; fileRef = E184AD4D140D466B004EBF5A /* VCBase.m */; };
 		E184AD51140D46B6004EBF5A /* plak.wav in Resources */ = {isa = PBXBuildFile; fileRef = E184AD50140D46B6004EBF5A /* plak.wav */; };
@@ -43,6 +43,28 @@
 		E184AD5C140D47AB004EBF5A /* MainMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E184AD5A140D47AB004EBF5A /* MainMenuVC.xib */; };
 		E184AD60140D47E8004EBF5A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E184AD5F140D47E8004EBF5A /* AVFoundation.framework */; };
 		E184ADA1140D4949004EBF5A /* splash2.png in Resources */ = {isa = PBXBuildFile; fileRef = E184ADA0140D4949004EBF5A /* splash2.png */; };
+		E1904B19141AA3D700E48312 /* SharepointListsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1904B17141AA3D700E48312 /* SharepointListsVC.m */; };
+		E1904B1A141AA3D700E48312 /* SharepointListsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1904B18141AA3D700E48312 /* SharepointListsVC.xib */; };
+		E1904B2E141AA76300E48312 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = E1904B25141AA76300E48312 /* calendar.png */; };
+		E1904B2F141AA76300E48312 /* presentations.png in Resources */ = {isa = PBXBuildFile; fileRef = E1904B26141AA76300E48312 /* presentations.png */; };
+		E1904B30141AA76300E48312 /* progress_photos.png in Resources */ = {isa = PBXBuildFile; fileRef = E1904B27141AA76300E48312 /* progress_photos.png */; };
+		E1904B31141AA76300E48312 /* project_documents.png in Resources */ = {isa = PBXBuildFile; fileRef = E1904B28141AA76300E48312 /* project_documents.png */; };
+		E1904B32141AA76300E48312 /* project_reports.png in Resources */ = {isa = PBXBuildFile; fileRef = E1904B29141AA76300E48312 /* project_reports.png */; };
+		E1904B33141AA76300E48312 /* shared_documents.png in Resources */ = {isa = PBXBuildFile; fileRef = E1904B2A141AA76300E48312 /* shared_documents.png */; };
+		E1904B34141AA76300E48312 /* site_photos.png in Resources */ = {isa = PBXBuildFile; fileRef = E1904B2B141AA76300E48312 /* site_photos.png */; };
+		E1904B35141AA76300E48312 /* tasks.png in Resources */ = {isa = PBXBuildFile; fileRef = E1904B2C141AA76300E48312 /* tasks.png */; };
+		E1904B36141AA76300E48312 /* team_discusion.png in Resources */ = {isa = PBXBuildFile; fileRef = E1904B2D141AA76300E48312 /* team_discusion.png */; };
+		E1904B3A141AA9A000E48312 /* botton_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = E1904B38141AA9A000E48312 /* botton_bar.png */; };
+		E1904B3B141AA9A000E48312 /* top_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = E1904B39141AA9A000E48312 /* top_bar.png */; };
+		E1904B45141AAABA00E48312 /* SharepointListsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1904B44141AAABA00E48312 /* SharepointListsTVC.m */; };
+		E1987969141B5712004B4889 /* GetList.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1987968141B5712004B4889 /* GetList.txt */; };
+		E19879AE141B60E8004B4889 /* GetListAndView.txt in Resources */ = {isa = PBXBuildFile; fileRef = E19879AD141B60E8004B4889 /* GetListAndView.txt */; };
+		E19879C1141B664B004B4889 /* GetListItems.txt in Resources */ = {isa = PBXBuildFile; fileRef = E19879C0141B664B004B4889 /* GetListItems.txt */; };
+		E19879EE141B7E7C004B4889 /* WebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E19879EC141B7E7C004B4889 /* WebViewVC.m */; };
+		E19879EF141B7E7C004B4889 /* WebViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19879ED141B7E7C004B4889 /* WebViewVC.xib */; };
+		E1987A15141B878B004B4889 /* SharepointListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1987A13141B878B004B4889 /* SharepointListVC.m */; };
+		E1987A16141B878B004B4889 /* SharepointListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1987A14141B878B004B4889 /* SharepointListVC.xib */; };
+		E1987A1F141B8804004B4889 /* SharepointListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1987A1E141B8804004B4889 /* SharepointListTVC.m */; };
 		E1F9935F1417F54B00149C20 /* main_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F9935E1417F54B00149C20 /* main_menu.png */; };
 		E1F993771417F81D00149C20 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F993751417F81D00149C20 /* LoginVC.m */; };
 		E1F993781417F81D00149C20 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F993761417F81D00149C20 /* LoginVC.xib */; };
@@ -101,8 +123,8 @@
 		E184AD1D140D3FCA004EBF5A /* CXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLNode.h; path = Classes/TouchXML/CXMLNode.h; sourceTree = "<group>"; };
 		E184AD1E140D3FCA004EBF5A /* CXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLNode.m; path = Classes/TouchXML/CXMLNode.m; sourceTree = "<group>"; };
 		E184AD1F140D3FCA004EBF5A /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchXML.h; path = Classes/TouchXML/TouchXML.h; sourceTree = "<group>"; };
-		E184AD31140D401B004EBF5A /* SaopRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaopRequest.h; sourceTree = "<group>"; };
-		E184AD32140D401B004EBF5A /* SaopRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaopRequest.m; sourceTree = "<group>"; };
+		E184AD31140D401B004EBF5A /* SoapRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoapRequest.h; sourceTree = "<group>"; };
+		E184AD32140D401B004EBF5A /* SoapRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoapRequest.m; sourceTree = "<group>"; };
 		E184AD4A140D4604004EBF5A /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.png; path = img/splash.png; sourceTree = "<group>"; };
 		E184AD4C140D466B004EBF5A /* VCBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCBase.h; sourceTree = "<group>"; };
 		E184AD4D140D466B004EBF5A /* VCBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCBase.m; sourceTree = "<group>"; };
@@ -115,6 +137,33 @@
 		E184AD5A140D47AB004EBF5A /* MainMenuVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenuVC.xib; sourceTree = "<group>"; };
 		E184AD5F140D47E8004EBF5A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E184ADA0140D4949004EBF5A /* splash2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash2.png; path = img/splash2.png; sourceTree = "<group>"; };
+		E1904B16141AA3D700E48312 /* SharepointListsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharepointListsVC.h; sourceTree = "<group>"; };
+		E1904B17141AA3D700E48312 /* SharepointListsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharepointListsVC.m; sourceTree = "<group>"; };
+		E1904B18141AA3D700E48312 /* SharepointListsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharepointListsVC.xib; sourceTree = "<group>"; };
+		E1904B25141AA76300E48312 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = img/calendar.png; sourceTree = "<group>"; };
+		E1904B26141AA76300E48312 /* presentations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = presentations.png; path = img/presentations.png; sourceTree = "<group>"; };
+		E1904B27141AA76300E48312 /* progress_photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = progress_photos.png; path = img/progress_photos.png; sourceTree = "<group>"; };
+		E1904B28141AA76300E48312 /* project_documents.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = project_documents.png; path = img/project_documents.png; sourceTree = "<group>"; };
+		E1904B29141AA76300E48312 /* project_reports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = project_reports.png; path = img/project_reports.png; sourceTree = "<group>"; };
+		E1904B2A141AA76300E48312 /* shared_documents.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shared_documents.png; path = img/shared_documents.png; sourceTree = "<group>"; };
+		E1904B2B141AA76300E48312 /* site_photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = site_photos.png; path = img/site_photos.png; sourceTree = "<group>"; };
+		E1904B2C141AA76300E48312 /* tasks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tasks.png; path = img/tasks.png; sourceTree = "<group>"; };
+		E1904B2D141AA76300E48312 /* team_discusion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = team_discusion.png; path = img/team_discusion.png; sourceTree = "<group>"; };
+		E1904B38141AA9A000E48312 /* botton_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = botton_bar.png; path = img/botton_bar.png; sourceTree = "<group>"; };
+		E1904B39141AA9A000E48312 /* top_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = top_bar.png; path = img/top_bar.png; sourceTree = "<group>"; };
+		E1904B43141AAABA00E48312 /* SharepointListsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharepointListsTVC.h; sourceTree = "<group>"; };
+		E1904B44141AAABA00E48312 /* SharepointListsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharepointListsTVC.m; sourceTree = "<group>"; };
+		E1987968141B5712004B4889 /* GetList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GetList.txt; path = soap_requests/GetList.txt; sourceTree = "<group>"; };
+		E19879AD141B60E8004B4889 /* GetListAndView.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GetListAndView.txt; path = soap_requests/GetListAndView.txt; sourceTree = "<group>"; };
+		E19879C0141B664B004B4889 /* GetListItems.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GetListItems.txt; path = soap_requests/GetListItems.txt; sourceTree = "<group>"; };
+		E19879EB141B7E7C004B4889 /* WebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewVC.h; sourceTree = "<group>"; };
+		E19879EC141B7E7C004B4889 /* WebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewVC.m; sourceTree = "<group>"; };
+		E19879ED141B7E7C004B4889 /* WebViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewVC.xib; sourceTree = "<group>"; };
+		E1987A12141B878B004B4889 /* SharepointListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharepointListVC.h; sourceTree = "<group>"; };
+		E1987A13141B878B004B4889 /* SharepointListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharepointListVC.m; sourceTree = "<group>"; };
+		E1987A14141B878B004B4889 /* SharepointListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharepointListVC.xib; sourceTree = "<group>"; };
+		E1987A1D141B8804004B4889 /* SharepointListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharepointListTVC.h; sourceTree = "<group>"; };
+		E1987A1E141B8804004B4889 /* SharepointListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharepointListTVC.m; sourceTree = "<group>"; };
 		E1F9935E1417F54B00149C20 /* main_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = main_menu.png; path = img/main_menu.png; sourceTree = "<group>"; };
 		E1F993741417F81D00149C20 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		E1F993751417F81D00149C20 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
@@ -152,8 +201,8 @@
 				1D3623250D0F684500981E51 /* rhead_sharepoint_ipAppDelegate.m */,
 				E184AD4C140D466B004EBF5A /* VCBase.h */,
 				E184AD4D140D466B004EBF5A /* VCBase.m */,
-				E184AD31140D401B004EBF5A /* SaopRequest.h */,
-				E184AD32140D401B004EBF5A /* SaopRequest.m */,
+				E184AD31140D401B004EBF5A /* SoapRequest.h */,
+				E184AD32140D401B004EBF5A /* SoapRequest.m */,
 				E184AD52140D4717004EBF5A /* SplashVC.h */,
 				E184AD53140D4717004EBF5A /* SplashVC.m */,
 				E184AD54140D4717004EBF5A /* SplashVC.xib */,
@@ -163,6 +212,19 @@
 				E1F993741417F81D00149C20 /* LoginVC.h */,
 				E1F993751417F81D00149C20 /* LoginVC.m */,
 				E1F993761417F81D00149C20 /* LoginVC.xib */,
+				E1904B16141AA3D700E48312 /* SharepointListsVC.h */,
+				E1904B17141AA3D700E48312 /* SharepointListsVC.m */,
+				E1904B18141AA3D700E48312 /* SharepointListsVC.xib */,
+				E1904B43141AAABA00E48312 /* SharepointListsTVC.h */,
+				E1904B44141AAABA00E48312 /* SharepointListsTVC.m */,
+				E1987A12141B878B004B4889 /* SharepointListVC.h */,
+				E1987A13141B878B004B4889 /* SharepointListVC.m */,
+				E1987A14141B878B004B4889 /* SharepointListVC.xib */,
+				E1987A1D141B8804004B4889 /* SharepointListTVC.h */,
+				E1987A1E141B8804004B4889 /* SharepointListTVC.m */,
+				E19879EB141B7E7C004B4889 /* WebViewVC.h */,
+				E19879EC141B7E7C004B4889 /* WebViewVC.m */,
+				E19879ED141B7E7C004B4889 /* WebViewVC.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -278,6 +340,17 @@
 		E184AD49140D45F5004EBF5A /* img */ = {
 			isa = PBXGroup;
 			children = (
+				E1904B38141AA9A000E48312 /* botton_bar.png */,
+				E1904B39141AA9A000E48312 /* top_bar.png */,
+				E1904B25141AA76300E48312 /* calendar.png */,
+				E1904B26141AA76300E48312 /* presentations.png */,
+				E1904B27141AA76300E48312 /* progress_photos.png */,
+				E1904B28141AA76300E48312 /* project_documents.png */,
+				E1904B29141AA76300E48312 /* project_reports.png */,
+				E1904B2A141AA76300E48312 /* shared_documents.png */,
+				E1904B2B141AA76300E48312 /* site_photos.png */,
+				E1904B2C141AA76300E48312 /* tasks.png */,
+				E1904B2D141AA76300E48312 /* team_discusion.png */,
 				E1F9937A1417F86200149C20 /* login_screen.png */,
 				E1F9935E1417F54B00149C20 /* main_menu.png */,
 				E184ADA0140D4949004EBF5A /* splash2.png */,
@@ -297,6 +370,9 @@
 		E1F993B5141800A700149C20 /* soap_requests */ = {
 			isa = PBXGroup;
 			children = (
+				E19879C0141B664B004B4889 /* GetListItems.txt */,
+				E19879AD141B60E8004B4889 /* GetListAndView.txt */,
+				E1987968141B5712004B4889 /* GetList.txt */,
 				E1F993B3141800A200149C20 /* GetListCollection.txt */,
 			);
 			name = soap_requests;
@@ -361,6 +437,23 @@
 				E1F993781417F81D00149C20 /* LoginVC.xib in Resources */,
 				E1F9937B1417F86200149C20 /* login_screen.png in Resources */,
 				E1F993B4141800A200149C20 /* GetListCollection.txt in Resources */,
+				E1904B1A141AA3D700E48312 /* SharepointListsVC.xib in Resources */,
+				E1904B2E141AA76300E48312 /* calendar.png in Resources */,
+				E1904B2F141AA76300E48312 /* presentations.png in Resources */,
+				E1904B30141AA76300E48312 /* progress_photos.png in Resources */,
+				E1904B31141AA76300E48312 /* project_documents.png in Resources */,
+				E1904B32141AA76300E48312 /* project_reports.png in Resources */,
+				E1904B33141AA76300E48312 /* shared_documents.png in Resources */,
+				E1904B34141AA76300E48312 /* site_photos.png in Resources */,
+				E1904B35141AA76300E48312 /* tasks.png in Resources */,
+				E1904B36141AA76300E48312 /* team_discusion.png in Resources */,
+				E1904B3A141AA9A000E48312 /* botton_bar.png in Resources */,
+				E1904B3B141AA9A000E48312 /* top_bar.png in Resources */,
+				E1987969141B5712004B4889 /* GetList.txt in Resources */,
+				E19879AE141B60E8004B4889 /* GetListAndView.txt in Resources */,
+				E19879C1141B664B004B4889 /* GetListItems.txt in Resources */,
+				E19879EF141B7E7C004B4889 /* WebViewVC.xib in Resources */,
+				E1987A16141B878B004B4889 /* SharepointListVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,11 +481,16 @@
 				E184AD23140D3FCA004EBF5A /* CXMLNode_PrivateExtensions.m in Sources */,
 				E184AD24140D3FCA004EBF5A /* CXMLNode_XPathExtensions.m in Sources */,
 				E184AD25140D3FCA004EBF5A /* CXMLNode.m in Sources */,
-				E184AD33140D401B004EBF5A /* SaopRequest.m in Sources */,
+				E184AD33140D401B004EBF5A /* SoapRequest.m in Sources */,
 				E184AD4E140D466B004EBF5A /* VCBase.m in Sources */,
 				E184AD55140D4717004EBF5A /* SplashVC.m in Sources */,
 				E184AD5B140D47AB004EBF5A /* MainMenuVC.m in Sources */,
 				E1F993771417F81D00149C20 /* LoginVC.m in Sources */,
+				E1904B19141AA3D700E48312 /* SharepointListsVC.m in Sources */,
+				E1904B45141AAABA00E48312 /* SharepointListsTVC.m in Sources */,
+				E19879EE141B7E7C004B4889 /* WebViewVC.m in Sources */,
+				E1987A15141B878B004B4889 /* SharepointListVC.m in Sources */,
+				E1987A1F141B8804004B4889 /* SharepointListTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

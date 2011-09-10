@@ -9,7 +9,7 @@
 @end
 
 
-@interface SaopRequest : NSObject <ASIHTTPRequestDelegate> {
+@interface SoapRequest : NSObject <ASIHTTPRequestDelegate> {
 	ASIHTTPRequest *request;
 	NSURL* url;
 	NSString* username;
@@ -29,7 +29,7 @@
 @property (nonatomic, retain) NSString* envelope;
 @property (nonatomic, retain) NSString* action;
 
-- (SaopRequest*) initWithUrl: (NSURL*) url username: (NSString*) username password: (NSString*) password domain: (NSString*) domain delegate: (id) delegate envelope: (NSString*) envelope_ action: (NSString*) action;
+- (SoapRequest*) initWithUrl: (NSURL*) url username: (NSString*) username password: (NSString*) password domain: (NSString*) domain delegate: (id) delegate envelope: (NSString*) envelope_ action: (NSString*) action;
 - (void) startRequest;
 - (void)requestFinished:(ASIHTTPRequest *)request;
 - (void)requestFailed:(ASIHTTPRequest *)request;
