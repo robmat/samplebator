@@ -1,7 +1,8 @@
 #import <UIKit/UIKit.h>
 #import "VCBase.h"
+#import "ASIHTTPRequestDelegate.h"
 
-@interface SavedSearchVC : VCBase <UISearchBarDelegate> {
+@interface SavedSearchVC : VCBase <UISearchBarDelegate, ASIHTTPRequestDelegate> {
 	IBOutlet UIButton* cancelBtn;
 	IBOutlet UISearchBar* keywordSearchBar;
 	IBOutlet UISearchBar* locationSearchBar;
