@@ -1,7 +1,8 @@
 #import <UIKit/UIKit.h>
 #import "CXMLDocument.h"
+#import "ASIHTTPRequestDelegate.h"
 
-@interface SearchResultsTVC : UITableViewController {
+@interface SearchResultsTVC : UITableViewController <ASIHTTPRequestDelegate> {
 
 	UINavigationController* navCntrl;
 	CXMLDocument* doc;

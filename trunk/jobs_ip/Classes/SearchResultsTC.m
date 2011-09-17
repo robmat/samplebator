@@ -1,6 +1,5 @@
 #import "SearchResultsTC.h"
 
-
 @implementation SearchResultsTC
 
 @synthesize titleLbl, salaryLbl, descLbl;
@@ -11,6 +10,5 @@
 	[salaryLbl release];
 	[descLbl release];
 }
-
 
 @end

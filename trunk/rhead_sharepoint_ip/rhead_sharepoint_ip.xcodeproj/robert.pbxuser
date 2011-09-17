@@ -81,12 +81,12 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 337618821;
-			PBXWorkspaceStateSaveDate = 337618821;
+			PBXPerProjectTemplateStateSaveDate = 337954724;
+			PBXWorkspaceStateSaveDate = 337954724;
 		};
 		perUserProjectItems = {
-			E12C552B141FA76C0030A4ED /* PBXTextBookmark */ = E12C552B141FA76C0030A4ED /* PBXTextBookmark */;
 			E12C5644141FA7A10030A4ED /* PBXTextBookmark */ = E12C5644141FA7A10030A4ED /* PBXTextBookmark */;
+			E17F8CB11424C830000ADFCC /* PBXTextBookmark */ = E17F8CB11424C830000ADFCC /* PBXTextBookmark */;
 			E184AD27140D4002004EBF5A /* PBXTextBookmark */ = E184AD27140D4002004EBF5A /* PBXTextBookmark */;
 			E184AD28140D4002004EBF5A /* PBXTextBookmark */ = E184AD28140D4002004EBF5A /* PBXTextBookmark */;
 			E184AD8E140D4802004EBF5A /* PBXTextBookmark */ = E184AD8E140D4802004EBF5A /* PBXTextBookmark */;
@@ -152,7 +152,12 @@
 			sepNavVisRange = "{0, 207}";
 		};
 	};
-	E12C552B141FA76C0030A4ED /* PBXTextBookmark */ = {
+	8D1107310486CEB800E47090 /* rhead_sharepoint_ip-Info.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{15, 800}, {1351, 768}}";
+		};
+	};
+	E12C5644141FA7A10030A4ED /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = E19879EC141B7E7C004B4889 /* WebViewVC.m */;
 		name = "WebViewVC.m: 16";
@@ -162,7 +167,7 @@
 		vrLen = 824;
 		vrLoc = 0;
 	};
-	E12C5644141FA7A10030A4ED /* PBXTextBookmark */ = {
+	E17F8CB11424C830000ADFCC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = E19879EC141B7E7C004B4889 /* WebViewVC.m */;
 		name = "WebViewVC.m: 16";
@@ -662,7 +667,7 @@
 	};
 	E19879EC141B7E7C004B4889 /* WebViewVC.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1075, 403}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1075, 396}}";
 			sepNavSelRange = "{737, 0}";
 			sepNavVisRange = "{0, 824}";
 		};

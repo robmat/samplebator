@@ -143,30 +143,6 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">titleLbl</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="559861991"/>
-					</object>
-					<int key="connectionID">8</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">salaryLbl</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="419239093"/>
-					</object>
-					<int key="connectionID">9</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">descLbl</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="395950698"/>
-					</object>
-					<int key="connectionID">10</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">descLbl</string>
 						<reference key="source" ref="198521608"/>
 						<reference key="destination" ref="395950698"/>
@@ -256,7 +232,7 @@
 					<string>SearchResultsTC</string>
 					<string>UIResponder</string>
 					<string>SearchResultsTC</string>
-					<string>{{382, 454}, {320, 94}}</string>
+					<string>{{337, 477}, {320, 94}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
