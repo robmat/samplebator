@@ -28,11 +28,23 @@
 - (void)requestFinished:(ASIHTTPRequest *)request {
 	NSLog(@"%@", [request responseString]);
 	CXMLDocument* doc = [[CXMLDocument alloc] initWithData:[request responseData] options:0 error:nil];
-	SearchResultsVC* srvc = [[SearchResultsVC alloc] init];
-	srvc.doc = doc;
+	int resultCount = [[doc nodesForXPath:@"/RunSimpleSearch/Job" error:nil] count];
+	if (resultCount > 0) { 
+		SearchResultsVC* srvc = [[SearchResultsVC alloc] init];
+		srvc.doc = doc;
+		[self.navigationController pushViewController:srvc animated:YES];
+		[srvc release];
+	} else {
+		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"No search results." 
+														message:[NSString stringWithFormat:@"Search for \"%@\" in \"%@\" \n No Results", 
+																 keywordSearchBar.text == nil ? @"" : keywordSearchBar.text,
+																 locationSearchBar.text  == nil ? @"" : locationSearchBar.text] 
+													   delegate:nil cancelButtonTitle:@"Ok" 
+											  otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+	}
 	[doc release];
-	[self.navigationController pushViewController:srvc animated:YES];
-	[srvc release];
 }
 - (void)requestFailed:(ASIHTTPRequest *)request {
 	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[[request error] localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];

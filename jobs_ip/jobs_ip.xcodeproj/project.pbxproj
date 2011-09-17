@@ -54,6 +54,12 @@
 		E190FD2714210EB000C39F8F /* SearchResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E190FD2614210EB000C39F8F /* SearchResultsTVC.m */; };
 		E190FD3F142111C100C39F8F /* SearchResultsTC.m in Sources */ = {isa = PBXBuildFile; fileRef = E190FD3D142111C100C39F8F /* SearchResultsTC.m */; };
 		E190FD40142111C100C39F8F /* SearchResultsTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E190FD3E142111C100C39F8F /* SearchResultsTC.xib */; };
+		E19923FD1424A52200B65147 /* forgot_password_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = E19923F91424A52200B65147 /* forgot_password_btn.png */; };
+		E19923FE1424A52200B65147 /* login_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = E19923FA1424A52200B65147 /* login_btn.png */; };
+		E19923FF1424A52200B65147 /* login_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = E19923FB1424A52200B65147 /* login_screen.png */; };
+		E19924001424A52200B65147 /* register_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = E19923FC1424A52200B65147 /* register_btn.png */; };
+		E19924051424A5AD00B65147 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E19924031424A5AD00B65147 /* LoginVC.m */; };
+		E19924061424A5AD00B65147 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19924041424A5AD00B65147 /* LoginVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +140,13 @@
 		E190FD3C142111C100C39F8F /* SearchResultsTC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsTC.h; sourceTree = "<group>"; };
 		E190FD3D142111C100C39F8F /* SearchResultsTC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsTC.m; sourceTree = "<group>"; };
 		E190FD3E142111C100C39F8F /* SearchResultsTC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultsTC.xib; sourceTree = "<group>"; };
+		E19923F91424A52200B65147 /* forgot_password_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = forgot_password_btn.png; path = img/forgot_password_btn.png; sourceTree = "<group>"; };
+		E19923FA1424A52200B65147 /* login_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_btn.png; path = img/login_btn.png; sourceTree = "<group>"; };
+		E19923FB1424A52200B65147 /* login_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_screen.png; path = img/login_screen.png; sourceTree = "<group>"; };
+		E19923FC1424A52200B65147 /* register_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = register_btn.png; path = img/register_btn.png; sourceTree = "<group>"; };
+		E19924021424A5AD00B65147 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		E19924031424A5AD00B65147 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		E19924041424A5AD00B65147 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +193,9 @@
 				E190FD3C142111C100C39F8F /* SearchResultsTC.h */,
 				E190FD3D142111C100C39F8F /* SearchResultsTC.m */,
 				E190FD3E142111C100C39F8F /* SearchResultsTC.xib */,
+				E19924021424A5AD00B65147 /* LoginVC.h */,
+				E19924031424A5AD00B65147 /* LoginVC.m */,
+				E19924041424A5AD00B65147 /* LoginVC.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -273,6 +289,10 @@
 		E12C5678141FADBD0030A4ED /* img */ = {
 			isa = PBXGroup;
 			children = (
+				E19923F91424A52200B65147 /* forgot_password_btn.png */,
+				E19923FA1424A52200B65147 /* login_btn.png */,
+				E19923FB1424A52200B65147 /* login_screen.png */,
+				E19923FC1424A52200B65147 /* register_btn.png */,
 				E190FD01142107B800C39F8F /* refine_btn.png */,
 				E190FD02142107B800C39F8F /* save_search_btn.png */,
 				E190FCFB142106EF00C39F8F /* back_btn.png */,
@@ -376,6 +396,11 @@
 				E190FD03142107B800C39F8F /* refine_btn.png in Resources */,
 				E190FD04142107B800C39F8F /* save_search_btn.png in Resources */,
 				E190FD40142111C100C39F8F /* SearchResultsTC.xib in Resources */,
+				E19923FD1424A52200B65147 /* forgot_password_btn.png in Resources */,
+				E19923FE1424A52200B65147 /* login_btn.png in Resources */,
+				E19923FF1424A52200B65147 /* login_screen.png in Resources */,
+				E19924001424A52200B65147 /* register_btn.png in Resources */,
+				E19924061424A5AD00B65147 /* LoginVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +434,7 @@
 				E190FCF2142104C600C39F8F /* SearchResultsVC.m in Sources */,
 				E190FD2714210EB000C39F8F /* SearchResultsTVC.m in Sources */,
 				E190FD3F142111C100C39F8F /* SearchResultsTC.m in Sources */,
+				E19924051424A5AD00B65147 /* LoginVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

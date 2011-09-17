@@ -1,5 +1,6 @@
 #import "jobs_ipAppDelegate.h"
 #import "SplashVC.h"
+#import "ASIHTTPRequest.h"
 
 @implementation jobs_ipAppDelegate
 
@@ -11,7 +12,7 @@
 	SplashVC* svc = [[SplashVC alloc] initWithNibName:nil bundle:nil];
 	[navigationController pushViewController:svc animated:YES];
 	[svc release];
-	[window makeKeyAndVisible];
+	[window makeKeyAndVisible];	
     return YES;
 }
 
