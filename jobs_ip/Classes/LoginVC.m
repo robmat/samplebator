@@ -5,7 +5,7 @@
 
 @implementation LoginVC
 
-@synthesize loginTxt, passwTxt;
+@synthesize loginTxt, passwTxt, viewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,7 +26,9 @@
 	CXMLDocument* doc = [[CXMLDocument alloc] initWithData:[request responseData] options:0 error:nil];
 	CXMLElement* loggedIn = [[doc nodesForXPath:@"/LoginAPI/LoggedIn" error:nil] objectAtIndex:0];
 	if ([@"true" isEqualToString:[loggedIn stringValue]]) {
-		[self.navigationController popViewControllerAnimated:YES];
+		UINavigationController* contr = self.navigationController;
+		[contr popViewControllerAnimated:NO];
+		[contr pushViewController:viewController animated:YES];
 	} else {
 		NSString* msg = [[request responseString] rangeOfString:@"INVALID_PASSWORD"].location != NSNotFound ? @"Invalid pasword" : @"";
 		msg = [[request responseString] rangeOfString:@"NO_SUCH_USER"].location != NSNotFound ? @"Wrong user name" : @"";
@@ -43,9 +45,11 @@
 }
 
 - (void)registerAction: (id) sender {
+
 }
 
 - (void)forgotAction: (id) sender {
+
 }
 
 - (void)viewDidLoad {
@@ -57,6 +61,7 @@
     [super dealloc];
 	[passwTxt release];
 	[loginTxt release];
+	[viewController release];
 }
 
 @end

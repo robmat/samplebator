@@ -10,4 +10,5 @@
 - (void)playPlak;
 - (void) animateView: (UIView*) uiview up: (BOOL) up distance: (int) movementDistance;
 - (void) hideBackBtn;
+- (void)backAction: (id) sender;
 @end

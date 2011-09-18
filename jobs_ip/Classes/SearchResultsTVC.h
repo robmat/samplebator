@@ -6,6 +6,8 @@
 
 	UINavigationController* navCntrl;
 	CXMLDocument* doc;
+	int lastSelectedRow;
+	
 }
 
 @property (nonatomic, retain) UINavigationController* navCntrl;

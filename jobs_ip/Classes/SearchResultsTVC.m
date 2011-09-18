@@ -5,6 +5,7 @@
 #import "CXMLDocument.h"
 #import "ASIHTTPRequest.h"
 #import "LoginVC.h"
+#import "ResultDetailVC.h"
 
 @implementation SearchResultsTVC
 
@@ -59,17 +60,23 @@
 	ASIHTTPRequest* req = [ASIHTTPRequest requestWithURL:url];
 	[req setDelegate:self];
 	[req startAsynchronous];
+	
 }
 - (void)requestFinished:(ASIHTTPRequest *)request {
 	CXMLDocument* xmlDoc = [[CXMLDocument alloc] initWithData:[request responseData] options:0 error:nil];
 	CXMLElement* loggedIn = [[xmlDoc nodesForXPath:@"/AmILoggedIn/LoggedIn" error:nil] objectAtIndex:0];
+	ResultDetailVC* rdvc = [[ResultDetailVC alloc] init];
+	CXMLElement* jobIdElem = [[doc nodesForXPath:@"/RunSimpleSearch/Job/JobSID" error:nil] objectAtIndex:lastSelectedRow];
+	rdvc.jobId = [jobIdElem stringValue];
 	if ([@"true" isEqualToString:[loggedIn stringValue]]) {
-		NSLog(@"%@",@"true");
+		[self.navCntrl pushViewController:rdvc animated:YES];
 	} else {
 		LoginVC* lvc = [[LoginVC alloc] init];
+		lvc.viewController = rdvc;
 		[self.navCntrl pushViewController:lvc animated:YES];
 		[lvc release];
 	}
+	[rdvc release];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request {
