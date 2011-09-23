@@ -12,6 +12,8 @@
 	NSString* educationCategory;
 	IBOutlet UIProgressView* progressView;
 	IBOutlet UIButton* submitBtn;
+	IBOutlet UIButton* addNoteBtn;
+	IBOutlet UIButton* addTagsBtn;
 }
 
 @property (nonatomic, retain) AVPlayer *avplayer;
@@ -20,6 +22,8 @@
 @property (nonatomic, retain) NSString* educationCategory;
 @property (nonatomic, retain) IBOutlet UIProgressView* progressView;
 @property (nonatomic, retain) IBOutlet UIButton* submitBtn;
+@property (nonatomic, retain) IBOutlet UIButton* addNoteBtn;
+@property (nonatomic, retain) IBOutlet UIButton* addTagsBtn;
 
 - (IBAction) aboutAction: (id) sender;
 - (IBAction) addNoteAction: (id) sender;

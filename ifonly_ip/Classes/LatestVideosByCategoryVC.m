@@ -9,7 +9,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = category;
-	self.ytService = [ifonly_ipAppDelegate getYTService];
+	self.ytService = [ifonly_ipAppDelegate getYTServiceWithcredentials:NO];
 	NSString* accountName = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"account" ofType:@"plist"]] objectForKey:@"ytAccountName"];
 	NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://gdata.youtube.com/feeds/api/users/%@/uploads", accountName]];
 	NSLog(@"%@", [url description]);
@@ -25,9 +25,11 @@
 				action:@selector(sortAction:)
 	  forControlEvents:UIControlEventValueChanged];
 	[actIndView startAnimating];
+	backBtn.hidden = YES;
+	self.navigationController.navigationBarHidden = NO;
 }
 - (IBAction)searchAction {
-	[super animateView:searchBar up:NO distance:44];
+	[super animateView:searchBar up:NO distance:88];
 	backBtn.hidden = YES;
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
@@ -43,9 +45,8 @@
 	[self.tableVC.tableView reloadData];
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar_ {
-	[super animateView:searchBar up:YES distance:44];
+	[super animateView:searchBar up:YES distance:88];
 	[searchBar resignFirstResponder];
-	backBtn.hidden = NO;
 	self.tableVC.dataArr = [NSArray arrayWithArray:self.tableVC.originalDataArr];
 	[self.tableVC.tableView reloadData];
 }
@@ -68,6 +69,12 @@
 			GDataEntryYouTubeVideo* entry2 = (GDataEntryYouTubeVideo*) obj2;
 			NSNumber* views1 = [[entry1 statistics] viewCount];
 			NSNumber* views2 = [[entry2 statistics] viewCount];
+			if (views1 == nil) {
+				views1 = [NSNumber numberWithInt:0];
+			}
+			if (views2 == nil) {
+				views2 = [NSNumber numberWithInt:0];
+			}
 			return (NSComparisonResult)[views2 compare:views1];
 		}];
 		[self.tableVC.tableView reloadData];
@@ -88,6 +95,10 @@
 	[actIndView stopAnimating];
 	[actIndView setHidden:YES];
 	NSLog(@"Results after filtering: %i", [results count]);
+}
+- (void)viewDidAppear: (BOOL) animated {
+	[super viewDidAppear:animated];
+	self.navigationController.navigationBarHidden = NO;
 }
 - (void)dealloc {
 	[actIndView release];

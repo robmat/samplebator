@@ -1,12 +1,17 @@
 #import "MainMenuVC.h"
 #import "ChooseVideoSourceVC.h"
 #import "LatestVideosByCategoryVC.h"
+#import "ifonly_ipAppDelegate.h"
+#import "CompetitorsVC.h"
 
 @implementation MainMenuVC
+
+@synthesize ytService;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	backBtn.hidden = YES;
+	self.title = @"Main menu";
 }
 
 - (IBAction) recordMovieAction: (id) sender {
@@ -50,8 +55,40 @@
 	[self.navigationController pushViewController:lvbcvc animated:YES];
 	[lvbcvc release];
 }
+- (IBAction) demoAction: (id) sender {
+	[self playPlak];
+	self.ytService = [ifonly_ipAppDelegate getYTServiceWithcredentials:YES];
+	NSString* accountName = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"account" ofType:@"plist"]] objectForKey:@"ytAccountName"];
+	NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://gdata.youtube.com/feeds/api/users/%@/uploads?q=filming_tutorial_video", accountName]];
+	[ytService fetchFeedWithURL:url
+					   delegate:self
+			  didFinishSelector:@selector(entryListFetchTicket:finishedWithFeed:error:)];
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+- (void)entryListFetchTicket: (GDataServiceTicket *)ticket finishedWithFeed: (GDataFeedBase *)feed error: (NSError*) error {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	NSLog(@"%@", [feed description]);
+	if ([[feed entries] count] > 0) {
+		GDataEntryBase* entry = [[feed entries] objectAtIndex:0];
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[entry content] sourceURI]]];
+	} else {
+		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No tutorial movie found." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+	}
+}
+- (IBAction) competitionAction: (id) sender {
+	CompetitorsVC* cvc = [[CompetitorsVC alloc] init];
+	[self.navigationController pushViewController:cvc animated:YES];
+	[cvc release];
+}
+- (void)viewWillAppear: (BOOL) animated {
+	[super viewWillAppear:animated];
+	self.navigationController.navigationBarHidden = YES;
+}
 - (void)dealloc {
     [super dealloc];
+	[ytService release];
 }
 
 @end

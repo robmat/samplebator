@@ -8,6 +8,6 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 + (NSString*)getTempMovieInfoPath;
-+ (GDataServiceGoogleYouTube*) getYTService; 
++ (GDataServiceGoogleYouTube*) getYTServiceWithcredentials: (BOOL) withCredentials; 
 @end
 
