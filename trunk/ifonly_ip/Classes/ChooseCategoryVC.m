@@ -23,22 +23,23 @@
 	avplayer.actionAtItemEnd = AVPlayerActionAtItemEndNone;
 	self.category = @"Household Products";
 	
-	UIButton* playBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	playBtn.frame = CGRectMake(244, 4, 72, 37);
-	[playBtn setTitle:@"Play" forState:UIControlStateNormal];
-	[playBtn addTarget:self action:@selector(playPauseAction:) forControlEvents:UIControlEventTouchUpInside];
-	[self.view addSubview:playBtn];
+	UIBarButtonItem* playBtn = [[UIBarButtonItem alloc] initWithTitle:@"Play" style:UIBarButtonItemStylePlain target:self action:@selector(playPauseAction:)];
+	backBtn.hidden = YES;
+	self.navigationController.navigationBarHidden = NO;
+	self.navigationItem.rightBarButtonItem = playBtn;
+	[playBtn release];
+	self.title = @"Your video";
 }
 - (void)playPauseAction: (id) sender {
-	UIButton* btn = (UIButton*) sender;
-	if ([btn.titleLabel.text isEqual:@"Play"]) {
+	UIBarButtonItem* btn = (UIBarButtonItem*) sender;
+	if ([btn.title isEqual:@"Play"]) {
 		[avplayer play];
-		[btn setTitle:@"Pause" forState:UIControlStateNormal];
+		[btn setTitle:@"Pause"];
 		[self animateView:backgroundImage up:NO distance:320];
 		[self animateView:categoryPicker up:NO distance:320];
 	} else {
 		[avplayer pause];
-		[btn setTitle:@"Play" forState:UIControlStateNormal];
+		[btn setTitle:@"Play"];
 		[self animateView:backgroundImage up:YES distance:320];
 		[self animateView:categoryPicker up:YES distance:320];
 	}
@@ -94,7 +95,7 @@
 }
 - (void)viewDidAppear: (BOOL) animated {
 	[super viewDidAppear:animated];
-	//[avplayer play];
+	self.navigationController.navigationBarHidden = NO;
 }
 - (void)viewDidDisappear: (BOOL) animated {
 	[super viewDidDisappear:animated];

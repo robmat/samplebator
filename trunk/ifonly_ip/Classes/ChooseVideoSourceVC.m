@@ -6,6 +6,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	self.navigationController.navigationBarHidden = NO;
+	backBtn.hidden = YES;
+	self.title = @"Choose video source";
 }
 
 - (IBAction) cameraAction: (id) sender {
@@ -44,6 +47,10 @@
 
 - (IBAction) cancelAction: (id) sender {
 	[self.navigationController popViewControllerAnimated:YES];
+}
+- (void)viewDidAppear: (BOOL) animated {
+	[super viewDidAppear:animated];
+	self.navigationController.navigationBarHidden = NO;
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 	NSString* tempFileConf = [ifonly_ipAppDelegate getTempMovieInfoPath];

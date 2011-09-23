@@ -3,15 +3,16 @@
 #import "TextInputViewController.h"
 #import "GData.h"
 #import "GDataEntryYouTubeUpload.h"
-#import "TeasecVC.h"
+#import "AboutVC.h"
 #import "MainMenuVC.h"
 
 @implementation UploadVideoMenuVC
 
-@synthesize avplayer, playerView, ytService, educationCategory, progressView, submitBtn;
+@synthesize avplayer, playerView, ytService, educationCategory, progressView, submitBtn, addNoteBtn, addTagsBtn;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	self.title = @"Upload video";
 	NSDictionary* tempFileInfo = [NSDictionary dictionaryWithContentsOfFile:[ifonly_ipAppDelegate getTempMovieInfoPath]];
 	NSString* path = [tempFileInfo objectForKey:@"url"];
 	NSURL* url = [NSURL URLWithString: path];
@@ -25,23 +26,23 @@
 	avplayer.actionAtItemEnd = AVPlayerActionAtItemEndNone;
 	noteText = [[UITextField alloc] initWithFrame:CGRectZero];
 	tagsText = [[UITextField alloc] initWithFrame:CGRectZero];
-	self.ytService = [ifonly_ipAppDelegate getYTService];
+	self.ytService = [ifonly_ipAppDelegate getYTServiceWithcredentials:YES];
 	[self fetchStandardCategories];
 	
-	UIButton* playBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	playBtn.frame = CGRectMake(244, 4, 72, 37);
-	[playBtn setTitle:@"Play" forState:UIControlStateNormal];
-	[playBtn addTarget:self action:@selector(playPauseAction:) forControlEvents:UIControlEventTouchUpInside];
-	[self.view addSubview:playBtn];
+	UIBarButtonItem* playBtn = [[UIBarButtonItem alloc] initWithTitle:@"Play" style:UIBarButtonItemStylePlain target:self action:@selector(playPauseAction:)];
+	backBtn.hidden = YES;
+	self.navigationController.navigationBarHidden = NO;
+	self.navigationItem.rightBarButtonItem = playBtn;
+	[playBtn release];
 }
 - (void)playPauseAction: (id) sender {
-	UIButton* btn = (UIButton*) sender;
-	if ([btn.titleLabel.text isEqual:@"Play"]) {
+	UIBarButtonItem* btn = (UIBarButtonItem*) sender;
+	if ([btn.title isEqual:@"Play"]) {
 		[avplayer play];
-		[btn setTitle:@"Pause" forState:UIControlStateNormal];
+		[btn setTitle:@"Pause"];
 	} else {
 		[avplayer pause];
-		[btn setTitle:@"Play" forState:UIControlStateNormal];
+		[btn setTitle:@"Play"];
 	}
 }
 - (void)fetchStandardCategories {
@@ -87,11 +88,13 @@
 	}
 }
 - (IBAction) aboutAction: (id) sender {
-	TeasecVC* tvc = [[TeasecVC alloc] initWithNibName:nil bundle:nil];
+	AboutVC* tvc = [[AboutVC alloc] initWithNibName:nil bundle:nil];
 	[self.navigationController pushViewController:tvc animated:YES];
 	[tvc release];
 }
 - (IBAction) addNoteAction: (id) sender {
+	UIImage* image = [UIImage imageNamed:@"about_note_visited_btn.png"];
+	[addNoteBtn setImage:image forState:UIControlStateNormal];
 	TextInputViewController* tivc = [[TextInputViewController alloc] initWithNibName:nil bundle:nil];
 	tivc.targetTextView = noteText;
 	[self.navigationController pushViewController:tivc animated:YES];
@@ -104,6 +107,8 @@
 	[tivc release];
 }
 - (IBAction) addTagsAction: (id) sender {
+	UIImage* image = [UIImage imageNamed:@"tags_visited_btn.png"];
+	[addTagsBtn setImage:image forState:UIControlStateNormal];
 	TextInputViewController* tivc = [[TextInputViewController alloc] initWithNibName:nil bundle:nil];
 	tivc.targetTextView = tagsText;
 	[self.navigationController pushViewController:tivc animated:YES];
@@ -145,7 +150,7 @@
 	NSString *keywordsStr = tagsText.text;
 	GDataMediaKeywords *keywords = [GDataMediaKeywords keywordsWithString:keywordsStr];
 	
-	BOOL isPrivate = NO;
+	BOOL isPrivate = YES;
 	
 	GDataYouTubeMediaGroup *mediaGroup = [GDataYouTubeMediaGroup mediaGroup];
 	[mediaGroup setMediaTitle:title];
@@ -215,7 +220,7 @@
 }
 - (void)viewDidAppear: (BOOL) animated {
 	[super viewDidAppear:animated];
-	//[avplayer play];
+	self.navigationController.navigationBarHidden = NO;
 }
 - (void)viewDidDisappear: (BOOL) animated {
 	[super viewDidDisappear:animated];
@@ -228,6 +233,8 @@
 	[noteText release];
 	[tagsText release];
 	[educationCategory release];
+	[addNoteBtn release];
+	[addTagsBtn release];
     [super dealloc];
 }
 

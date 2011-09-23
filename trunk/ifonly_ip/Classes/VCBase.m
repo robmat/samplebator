@@ -20,6 +20,7 @@
 	[backBtn setTitle:@"Back" forState:UIControlStateNormal];
 	[backBtn addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:backBtn];
+	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 - (void) animateView: (UIView*) uiview up: (BOOL) up distance: (int) movementDistance {
     //const int movementDistance = 90; // tweak as needed
@@ -43,7 +44,6 @@
 - (void)viewDidUnload {
     [super viewDidUnload];
 }
-
 - (void)dealloc {
     [super dealloc];
 	[avPlayer release];
