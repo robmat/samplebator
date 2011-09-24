@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  <include layout="@layout/tob_bar" android:layout_weight="0.1" />
+  <RelativeLayout 
+  	android:layout_height="fill_parent"
+  	android:layout_width="fill_parent"
+  	android:background="@drawable/competition_back">
+  	<android.webkit.WebView
+  		android:id="@+id/competition_web_view_id"
+  		android:layout_height="fill_parent"
+  		android:layout_width="fill_parent"
+  		android:layout_alignParentBottom="true"
+  		android:layout_alignParentRight="true"
+  		android:layout_marginBottom="20dp"
+  		android:layout_marginRight="20dp"
+  		android:layout_marginLeft="60dp"
+  		android:layout_marginTop="120dp"/>
+  </RelativeLayout>
+</LinearLayout>

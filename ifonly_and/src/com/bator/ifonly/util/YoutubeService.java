@@ -125,6 +125,8 @@ public class YoutubeService {
 	 * @author fhackenberger
 	 */
 	public static class MediaGroup {
+		@Key("yt:private")
+		String ytPrivate;
 		@Key("media:title")
 		MediaAttribute title = new MediaAttribute();
 		@Key("media:description")
@@ -392,11 +394,16 @@ public class YoutubeService {
 			uploadEntry.group.description.value = description;
 			uploadEntry.group.category.category = category;
 			uploadEntry.group.keywords = keywords;
+			uploadEntry.group.ytPrivate = "";
 			atomContent.entry = uploadEntry;
 
 			MultipartRelatedContent multiPartContent = MultipartRelatedContent.forRequest(request);
 			multiPartContent.parts.add(atomContent);
 			multiPartContent.parts.add(videoContent);
+//			ByteArrayOutputStream bais = new ByteArrayOutputStream();
+//			multiPartContent.writeTo(bais);
+//			String requestStr = IOUtils.toString(new ByteArrayInputStream(bais.toByteArray()));
+//			System.out.println(requestStr);
 			request.content = multiPartContent;
 			GoogleHeaders gHeaders = (GoogleHeaders) request.headers;
 			gHeaders.slug = GoogleHeaders.SLUG_ESCAPER.escape(videoFilename);

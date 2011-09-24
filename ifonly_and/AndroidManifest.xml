@@ -33,14 +33,12 @@
         	<intent-filter>
                 <action android:name="ifonly.choose.category" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="file" />
             </intent-filter>
         </activity>
         <activity android:screenOrientation="portrait" android:name=".UploadVideoActivity">
         	<intent-filter>
                 <action android:name="ifonly.video.upload" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="file" />
             </intent-filter>
         </activity>
         <activity android:name="VideosListActivity" android:screenOrientation="portrait">
@@ -48,6 +46,18 @@
                 <action android:name="ifonly.video.list" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="category" />
+            </intent-filter>
+        </activity>
+        <activity android:screenOrientation="portrait" android:name=".CompetitionActivity">
+        	<intent-filter>
+                <action android:name="ifonly.competition" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:screenOrientation="portrait" android:name=".AboutActivity">
+        	<intent-filter>
+                <action android:name="ifonly.about" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

@@ -9,61 +9,62 @@
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
 		android:background="@drawable/choose_video_back">
-		<ImageView
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:src="@drawable/choose_video_bottom_back"
-			android:layout_alignParentBottom="true"
-			android:baselineAlignBottom="true"
-			android:adjustViewBounds="true"/>
-		<LinearLayout
+		<RelativeLayout
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:orientation="vertical"
 			android:layout_alignParentBottom="true">
-			<TextView 
-				android:layout_width="fill_parent"
-				android:gravity="center"
-				android:layout_height="wrap_content" 
-				android:textColor="@color/white"
-				android:textSize="24dp"
-				android:typeface="sans" 
-				android:textStyle="bold"
-				android:layout_marginBottom="28dp"
-				android:text="@string/choose_vid_add_vid_lbl" />
-			<TextView 
-				android:id="@+id/choose_vid_camera_id"
-				android:layout_width="fill_parent"
-				android:gravity="center"
-				android:layout_height="wrap_content" 
-				android:textColor="@color/white"
-				android:textSize="24dp"
-				android:typeface="sans" 
-				android:textStyle="bold"
-				android:layout_marginBottom="16dp"
-				android:text="@string/choose_vid_camera_lbl" />
-			<TextView 
-				android:id="@+id/choose_vid_library_id"
-				android:layout_width="fill_parent"
-				android:gravity="center"
-				android:layout_height="wrap_content" 
-				android:textColor="@color/white"
-				android:textSize="24dp"
-				android:typeface="sans" 
-				android:textStyle="bold"
-				android:layout_marginBottom="34dp"
-				android:text="@string/choose_vid_library_lbl" />
 			<TextView
 				android:id="@+id/choose_vid_cancel_id"
 				android:layout_width="fill_parent"
-				android:gravity="center"
+				android:paddingTop="25dp"
+				android:gravity="center_horizontal"
 				android:layout_height="wrap_content" 
 				android:textColor="@color/white"
 				android:textSize="24dp"
 				android:typeface="sans" 
 				android:textStyle="bold"
-				android:layout_marginBottom="14dp"
+				android:layout_alignParentBottom="true"
+				android:background="@drawable/choose_video_bottom_back_cancel"
 				android:text="@string/choose_vid_cancel_lbl" />
-		</LinearLayout>
+			<TextView 
+				android:id="@+id/choose_vid_library_id"
+				android:layout_width="fill_parent"
+				android:paddingTop="7dp"
+				android:gravity="center_horizontal"
+				android:layout_height="wrap_content" 
+				android:textColor="@color/white"
+				android:textSize="24dp"
+				android:typeface="sans" 
+				android:textStyle="bold"
+				android:layout_above="@id/choose_vid_cancel_id"
+				android:background="@drawable/choose_video_bottom_back_library"
+				android:text="@string/choose_vid_library_lbl" />
+			<TextView 
+				android:id="@+id/choose_vid_camera_id"
+				android:layout_width="fill_parent"
+				android:paddingTop="18dp"
+				android:gravity="center_horizontal"
+				android:layout_height="wrap_content" 
+				android:textColor="@color/white"
+				android:textSize="24dp"
+				android:typeface="sans" 
+				android:textStyle="bold"
+				android:layout_above="@id/choose_vid_library_id"
+				android:background="@drawable/choose_video_bottom_back_camera"
+				android:text="@string/choose_vid_camera_lbl" />
+			<TextView 
+				android:layout_width="fill_parent"
+				android:paddingTop="7dp"
+				android:gravity="center_horizontal"
+				android:layout_height="wrap_content" 
+				android:textColor="@color/white"
+				android:textSize="24dp"
+				android:typeface="sans" 
+				android:textStyle="bold"
+				android:layout_above="@id/choose_vid_camera_id"
+				android:background="@drawable/choose_video_bottom_back_title"
+				android:text="@string/choose_vid_add_vid_lbl" />
+		</RelativeLayout>
 	</RelativeLayout>
 </LinearLayout>

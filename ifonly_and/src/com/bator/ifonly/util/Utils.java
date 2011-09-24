@@ -50,7 +50,8 @@ public class Utils {
 	public static final String CHOOSE_CATEGORY_ACTION = "ifonly.choose.category";
 	public static final String UPLOAD_VIDEO_ACTION = "ifonly.video.upload";
 	public static final String VIDEO_LIST_ACTION = "ifonly.video.list";
-
+	public static final String COMPETITION_ACTION = "ifonly.competition";
+	public static final String ABOUT_ACTION = "ifonly.about";
 	public enum VID_CATEGORY {
 		HOUSEHOLD, GARDEN_TOOLS, ELECTRICAL_GOODS, TOOLS_MACHINERY, PERSONAL_PRODUCTS, MISC;
 		public String getStr(Context context) {
@@ -132,13 +133,14 @@ public class Utils {
 		HttpParams params = new BasicHttpParams();
 		HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
 		HttpProtocolParams.setContentCharset(params, "utf-8");
-		params.setBooleanParameter("http.protocol.expect-continue", false);
+		//params.setBooleanParameter("http.protocol.expect-continue", false);
 
 		// registers schemes for both http and https
 		SchemeRegistry registry = new SchemeRegistry();
-		registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+		PlainSocketFactory socketFactory = PlainSocketFactory.getSocketFactory();
+		registry.register(new Scheme("http", socketFactory, 80));
 		final SSLSocketFactory sslSocketFactory = SSLSocketFactory.getSocketFactory();
-		sslSocketFactory.setHostnameVerifier(SSLSocketFactory.BROWSER_COMPATIBLE_HOSTNAME_VERIFIER);
+		sslSocketFactory.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
 		registry.register(new Scheme("https", sslSocketFactory, 443));
 
 		ThreadSafeClientConnManager manager = new ThreadSafeClientConnManager(params, registry);

@@ -9,7 +9,7 @@
     <string name="main_menu_electrical_lbl">Electrical Goods</string>
     <string name="main_menu_tools_lbl">Tools/Machinery</string>
     <string name="main_menu_personal_lbl">Personal Products</string>
-    <string name="main_menu_misc_lbl">Miscelaneous</string>
+    <string name="main_menu_misc_lbl">Miscellaneous</string>
     <string name="back_lbl">Back</string>
     <string name="choose_vid_title_lbl">Your Video</string>
     <string name="choose_vid_add_vid_lbl">Choose Your Video</string>
@@ -34,4 +34,6 @@
    	<string name="video_list_order_by_views">Order by most viewed</string>
    	<string name="video_list_search">Search</string>
    	<string name="video_list_error">Unexpected error occured</string>
+   	<string name="competition_title">Competition</string>
+   	<string name="about_title">About if Only</string>
 </resources>
