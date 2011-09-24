@@ -60,7 +60,7 @@
 		case 4:
 			return @"Personal Products";
 		case 5:
-			return @"Miscelaneous";
+			return @"Miscellaneous";
 	}
 	return @"";
 }
