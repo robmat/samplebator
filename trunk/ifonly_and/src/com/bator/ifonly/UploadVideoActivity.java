@@ -9,18 +9,22 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.bator.ifonly.util.DebatingServiceException;
+import com.bator.ifonly.util.Utils;
 import com.bator.ifonly.util.YoutubeService;
 import com.bator.ifonly.util.YoutubeService.Video;
 
@@ -45,7 +49,7 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 		VideoView vv = (VideoView) findViewById(R.id.preview_vid_view);
 		mediaController = new MediaController(this, false);
 		mediaController.setAnchorView(vv);
-		Uri video = getIntent().getData();
+		Uri video = ChooseVidCategoryActivity.tempVid;
 		vv.setMediaController(mediaController);
 		vv.setVideoURI(video);
 		vv.start();
@@ -53,20 +57,13 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 	}
 
 	private void setUpListeners() {
-		findViewById(R.id.upload_vid_about_id).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				playPlak();
-				Intent intent = new Intent(UploadVideoActivity.this, SplashActivity.class);
-				intent.setData(Uri.parse("fake://foo.bar"));
-				startActivity(intent);
-			}
-		});
+		findViewById(R.id.upload_vid_about_id).setOnClickListener(new Utils.LaunchActivityListener(Utils.ABOUT_ACTION, this, null));
 		findViewById(R.id.upload_vid_add_note_id).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				playPlak();
 				showDialog(TEXT_INPUT_DIALOG_NOTES);
+				((ImageView) v).setImageResource(R.drawable.upload_vid_add_note_visited_btn);
 			}
 		});
 		findViewById(R.id.upload_vid_add_tags_id).setOnClickListener(new View.OnClickListener() {
@@ -74,6 +71,7 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 			public void onClick(View v) {
 				playPlak();
 				showDialog(TEXT_INPUT_DIALOG_TAGS);
+				((ImageView) v).setImageResource(R.drawable.upload_vid_add_tags_visited_btn);
 			}
 		});
 		findViewById(R.id.upload_vid_submit_id).setOnClickListener(new View.OnClickListener() {
@@ -89,9 +87,16 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 		dialog = ProgressDialog.show(UploadVideoActivity.this, "", getString(R.string.video_list_progress_dialog_title), true, false);
 		Runnable r = new Runnable() {
 			public void run() {
-				Uri uri = getIntent().getData();
+				Uri uri = ChooseVidCategoryActivity.tempVid;
+				String[] filePathColumn = { MediaStore.Video.Media.DATA };
+				Cursor cursor = getContentResolver().query(uri, filePathColumn, null, null, null);
+				cursor.moveToFirst();
+				int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+				String filePath = cursor.getString(columnIndex);
+				cursor.close();
+				Uri fileUri = Uri.parse("file://" + filePath);
 				String title = "[" + uri.getQueryParameter("category") + "] - " + notesStr;
-				String videoFilename = uri.getPath();
+				String videoFilename = fileUri.getPath();
 				YoutubeService service = new YoutubeService();
 				service.apiKey = "key=" + getString(R.string.ytDevKey);
 				service.appName = "ifonly-1.0";

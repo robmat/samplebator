@@ -40,7 +40,9 @@ public class ActivityBase extends Activity {
 	}
 	@Override
 	protected void onDestroy() {
-		mp.release();
+		if (mp != null) {
+			mp.release();
+		}
 		super.onDestroy();
 	}
 }

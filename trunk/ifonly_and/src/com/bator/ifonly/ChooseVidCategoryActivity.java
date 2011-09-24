@@ -1,7 +1,5 @@
 package com.bator.ifonly;
 
-import java.net.URL;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -20,6 +18,7 @@ public class ChooseVidCategoryActivity extends ActivityBase {
 	
 	private static final int CHOOSE_CATEGORY_DIALOG = 1;
 	private MediaController mediaController;
+	public static Uri tempVid;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class ChooseVidCategoryActivity extends ActivityBase {
 		mediaController = new MediaController(this, false);
 		mediaController.setAnchorView(vv);
 		//mediaController.set
-		Uri video = getIntent().getData();
+		Uri video = ChooseVidSourceActivity.tempVid;
 		vv.setMediaController(mediaController);
 		vv.setVideoURI(video);
 		vv.start();
@@ -55,8 +54,9 @@ public class ChooseVidCategoryActivity extends ActivityBase {
 			    	try {
 			    		playPlak();
 						String category = Utils.VID_CATEGORY.getStrArr(ChooseVidCategoryActivity.this)[item];
-						URL url = new URL(getIntent().getData().toString() + "?category=" + category);
-						Intent i = new Intent(Utils.UPLOAD_VIDEO_ACTION, Uri.parse(url.toString()));
+						String url = ChooseVidSourceActivity.tempVid.toString() + "?category=" + category;
+						tempVid = Uri.parse(url);
+						Intent i = new Intent(Utils.UPLOAD_VIDEO_ACTION);
 						startActivity(i);
 					} catch (Exception e) {
 						Log.e("ChooseVidCategoryActivity", "ChooseVidCategoryActivity.onCreateDialog", e);

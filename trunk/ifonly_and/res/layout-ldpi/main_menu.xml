@@ -15,13 +15,13 @@
 		android:layout_alignParentTop="true"/>
 	<TextView 
 		android:layout_width="fill_parent"
-		android:layout_height="180dp" 
+		android:layout_height="80dp" 
 		android:textColor="@color/white"
-		android:textSize="22dp"
+		android:textSize="17dp"
 		android:gravity="left|center_vertical"
 		android:typeface="sans" 
 		android:textStyle="bold"
-		android:paddingLeft="120dp"
+		android:paddingLeft="80dp"
 		android:paddingRight="20dp"
 		android:id="@+id/main_menu_make_vid_btn_id"
 		android:text="@string/main_menu_make_vid_btn_lbl" 
@@ -32,12 +32,12 @@
 		android:layout_width="60dp"
 		android:layout_height="60dp" 
 		android:src="@drawable/main_menu_demo_btn"
-		android:scaleType="fitXY"
+		android:scaleType="fitStart"
 		android:layout_alignBottom="@id/main_menu_make_vid_btn_id"
 		android:layout_alignRight="@id/main_menu_make_vid_btn_id"/>
 	<TextView 
 		android:layout_width="fill_parent"
-		android:layout_height="90dp" 
+		android:layout_height="40dp" 
 		android:textColor="@color/black"
 		android:textSize="16dp"
 		android:gravity="center"
@@ -51,7 +51,7 @@
 				android:id="@+id/main_menu_row_1"
 				android:orientation="horizontal"
 				android:layout_width="fill_parent" 
-				android:layout_height="140dp"
+				android:layout_height="80dp"
 				android:layout_weight="1.8"
 				android:weightSum="798"
 				android:layout_below="@id/main_menu_view_vids_id">
@@ -63,7 +63,7 @@
 					android:typeface="sans" 
 					android:textStyle="bold"
 					android:id="@+id/main_menu_household_id"
-					android:layout_height="140dp" 
+					android:layout_height="80dp" 
 					android:text="@string/main_menu_household_lbl" 
 					android:background="@drawable/main_menu_household_btn"
 					android:layout_weight="213" />
@@ -75,7 +75,7 @@
 					android:typeface="sans" 
 					android:textStyle="bold"
 					android:id="@+id/main_menu_garden_id"
-					android:layout_height="140dp" 
+					android:layout_height="80dp" 
 					android:text="@string/main_menu_garden_lbl" 
 					android:background="@drawable/main_menu_garden_tools_btn"
 					android:layout_weight="274" />
@@ -87,7 +87,7 @@
 					android:typeface="sans" 
 					android:textStyle="bold"
 					android:id="@+id/main_menu_electrical_id"
-					android:layout_height="140dp" 
+					android:layout_height="80dp" 
 					android:text="@string/main_menu_electrical_lbl" 
 					android:background="@drawable/main_menu_electrical_goods_btn"
 					android:layout_weight="311" />
@@ -96,11 +96,10 @@
 				android:id="@+id/main_menu_row_2"
 				android:orientation="horizontal"
 				android:layout_width="fill_parent" 
-				android:layout_height="140dp"
+				android:layout_height="80dp"
 				android:layout_weight="1.8"
 				android:weightSum="801"
-				android:layout_below="@id/main_menu_row_1"
-				android:layout_marginTop="40dp">
+				android:layout_below="@id/main_menu_row_1">
 				<TextView 
 					android:layout_width="wrap_content"
 					android:textColor="@color/black"
@@ -109,7 +108,7 @@
 					android:typeface="sans" 
 					android:textStyle="bold"
 					android:id="@+id/main_menu_tools_id"
-					android:layout_height="140dp" 
+					android:layout_height="80dp" 
 					android:text="@string/main_menu_tools_lbl" 
 					android:background="@drawable/main_menu_tools_btn"
 					android:layout_weight="264" />
@@ -121,7 +120,7 @@
 					android:typeface="sans" 
 					android:textStyle="bold"
 					android:id="@+id/main_menu_personal_id"
-					android:layout_height="140dp" 
+					android:layout_height="80dp" 
 					android:text="@string/main_menu_personal_lbl" 
 					android:background="@drawable/main_menu_personal_prod_btn"
 					android:layout_weight="292" />
@@ -133,7 +132,7 @@
 					android:typeface="sans" 
 					android:textStyle="bold"
 					android:id="@+id/main_menu_misc_id"
-					android:layout_height="140dp" 
+					android:layout_height="80dp" 
 					android:text="@string/main_menu_misc_lbl" 
 					android:background="@drawable/main_menu_misc_btn"
 					android:layout_weight="245" />
@@ -141,7 +140,7 @@
 		<ImageView
 			android:id="@+id/main_menu_competition_id"
 			android:layout_width="fill_parent"
-			android:layout_height="80dp" 
+			android:layout_height="70dp" 
 			android:src="@drawable/main_menu_botton_bar"
 			android:scaleType="fitXY"
 			android:padding="0dp"

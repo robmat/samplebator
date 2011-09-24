@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout   
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<AbsoluteLayout
+	  android:orientation="vertical"
+	  android:layout_width="fill_parent"
+	  android:layout_height="60dp"
+	  android:background="@drawable/video_list_cell_back"
+	  android:layout_alignParentLeft="true">
+	    <TextView
+	    	android:id="@+id/video_list_date"
+	    	android:layout_width="wrap_content"
+	  		android:layout_height="wrap_content"
+	  		android:textColor="@color/black"
+	  		android:layout_x="70dp"
+	  		android:layout_y="5dp"/>
+	  	<TextView
+	    	android:id="@+id/video_list_title"
+	    	android:layout_width="wrap_content"
+	  		android:layout_height="wrap_content"
+	  		android:textColor="@color/black"
+	  		android:layout_x="70dp"
+	  		android:layout_y="20dp"/>
+	  	<TextView
+	    	android:id="@+id/video_list_duration"
+	    	android:layout_width="wrap_content"
+	  		android:layout_height="wrap_content"
+	  		android:textColor="@color/white"
+	  		android:layout_x="70dp"
+	  		android:layout_y="35dp"/>
+	</AbsoluteLayout>
+	<ImageView
+	  		android:id="@+id/video_list_category_image"
+	  		android:layout_width="wrap_content"
+	  		android:layout_height="50dp"
+	  		android:layout_x="70dp"
+	  		android:layout_y="10dp"
+	  		android:scaleType="fitEnd"
+	  		android:layout_alignParentRight="true"
+	  		android:layout_alignParentBottom="true"/>
+</RelativeLayout>
