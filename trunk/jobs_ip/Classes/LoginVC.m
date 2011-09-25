@@ -28,7 +28,9 @@
 	if ([@"true" isEqualToString:[loggedIn stringValue]]) {
 		UINavigationController* contr = self.navigationController;
 		[contr popViewControllerAnimated:NO];
-		[contr pushViewController:viewController animated:YES];
+		if (viewController != nil) {
+			[contr pushViewController:viewController animated:YES];
+		}
 	} else {
 		NSString* msg = [[request responseString] rangeOfString:@"INVALID_PASSWORD"].location != NSNotFound ? @"Invalid pasword" : @"";
 		msg = [[request responseString] rangeOfString:@"NO_SUCH_USER"].location != NSNotFound ? @"Wrong user name" : @"";
