@@ -1,6 +1,7 @@
 #import "ChooseCvVC.h"
 #import "CXMLDocument.h"
 #import "ASIHTTPRequest.h"
+#import "ApplyVC.h"
 
 @implementation ChooseCvVC
 
@@ -18,7 +19,16 @@
 }
 
 - (void)nextAction: (id) sender {
-
+	ApplyVC* avc = [[ApplyVC alloc] init];
+	[self.navigationController pushViewController:avc animated:YES];
+	ChooseCvTC* cell = (ChooseCvTC*) [tableView cellForRowAtIndexPath:[tableView indexPathForSelectedRow]];
+	avc.jobTitle.text = jobTitleLbl.text;
+	avc.titlLbl.text = cell.titlLbl.text;
+	avc.dateLbl.text = cell.dateLbl.text;
+	avc.descLbl.text = cell.descLbl.text;
+	avc.cvId = [NSString stringWithFormat:@"%i", cell.tag];
+	avc.jobId = jobId;
+	[avc release];
 }
 
 - (void)viewDidLoad {
