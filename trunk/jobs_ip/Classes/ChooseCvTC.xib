@@ -62,7 +62,7 @@
 							<object class="IBUILabel" id="755886322">
 								<reference key="NSNextResponder" ref="524710077"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{56, 3}, {135, 21}}</string>
+								<string key="NSFrame">{{56, 3}, {139, 21}}</string>
 								<reference key="NSSuperview" ref="524710077"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -84,7 +84,7 @@
 							<object class="IBUILabel" id="603427916">
 								<reference key="NSNextResponder" ref="524710077"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{199, 3}, {61, 21}}</string>
+								<string key="NSFrame">{{203, 3}, {57, 21}}</string>
 								<reference key="NSSuperview" ref="524710077"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -92,6 +92,11 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">Label</string>
+								<object class="NSFont" key="IBUIFont">
+									<string key="NSName">Helvetica</string>
+									<double key="NSSize">14</double>
+									<int key="NSfFlags">16</int>
+								</object>
 								<object class="NSColor" key="IBUITextColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwLjA4MjM1Mjk0MTE4IDAuNTc2NDcwNTg4MgA</bytes>
@@ -293,7 +298,7 @@
 						<bytes key="NSTransformStruct">P4AAAL+AAABDhgAAwlwAAA</bytes>
 					</object>
 					<string>ChooseCvTC</string>
-					<string>{{348, 509}, {320, 57}}</string>
+					<string>{{331, 351}, {320, 57}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">P4AAAL+AAAAAAAAAwlwAAA</bytes>

@@ -92,7 +92,11 @@
 	NSString* cvIdStr = [[[doc nodesForXPath:@"/CVList/CV/ResumeSID" error:nil] objectAtIndex:indexPath.row] stringValue];
 	cell.titlLbl.text = title;
 	cell.descLbl.text = summary;
-	cell.dateLbl.text = date;
+	NSDateFormatter* dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate* dateObj = [dateFormatter dateFromString:date];
+	[dateFormatter setDateFormat:@"dd-MM-yyyy"];
+	cell.dateLbl.text = [dateFormatter stringFromDate:dateObj];
 	cell.tag = [cvIdStr intValue];
 	return cell;
 }

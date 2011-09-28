@@ -69,7 +69,7 @@
 					<object class="IBUIButton" id="1040699975">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{13, 6}, {58, 31}}</string>
+						<string key="NSFrame">{{10, 6}, {58, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -471,9 +471,9 @@
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{83, 42}</string>
+				<string>{60, 30}</string>
 				<string>{445, 73}</string>
-				<string>{375, 484}</string>
+				<string>{429, 554}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">141</string>
