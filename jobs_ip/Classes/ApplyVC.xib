@@ -47,7 +47,6 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 40}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
@@ -58,7 +57,7 @@
 					<object class="IBUIButton" id="230856399">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{10, 4}, {74, 31}}</string>
+						<string key="NSFrame">{{6, 4}, {74, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -147,7 +146,7 @@
 					<object class="IBUILabel" id="20677890">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{63, 102}, {168, 21}}</string>
+						<string key="NSFrame">{{63, 102}, {150, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -168,7 +167,7 @@
 					<object class="IBUILabel" id="230180225">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{239, 102}, {63, 21}}</string>
+						<string key="NSFrame">{{221, 102}, {81, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -4845,7 +4844,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>ApplyVC</string>
 					<string>UIResponder</string>
-					<string>{{382, 214}, {320, 480}}</string>
+					<string>{{360, 132}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -5237,12 +5236,12 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{994, 124}</string>
+				<string>{429, 58}</string>
 				<string>{445, 73}</string>
 				<string>{998, 177}</string>
 				<string>{860, 371}</string>
-				<string>{227, 95}</string>
-				<string>{310, 95}</string>
+				<string>{73, 30}</string>
+				<string>{100, 30}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">141</string>

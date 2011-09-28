@@ -188,7 +188,6 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="935707362"/>
-						<int key="IBUIButtonType">1</int>
 						<reference key="IBUIHighlightedTitleColor" ref="715777052"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -741,10 +740,10 @@
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{71, 42}</string>
-				<string>{79, 42}</string>
+				<string>{55, 34}</string>
+				<string>{58, 30}</string>
 				<string>{445, 73}</string>
-				<string>{445, 60}</string>
+				<string>{429, 56}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">141</string>
