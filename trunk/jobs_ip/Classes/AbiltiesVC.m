@@ -25,6 +25,7 @@
 	atvc.tableView = tableView;
 	atvc.navCntrl = self.navigationController;
 	[atvc viewDidLoad];
+	self.tableView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -94,10 +95,11 @@
 		cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red_disclousure.png"]];
 		cell.tag = 0;
 	}
+	cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-	
+
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];

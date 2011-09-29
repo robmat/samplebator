@@ -46,7 +46,9 @@
 	self.jobTitleTxt.text = [titleElem stringValue];
 	self.placeTxt.text = [NSString stringWithFormat:@"%@ - %@", [cityElem stringValue], [countryElem stringValue]];
 	self.salaryTxt.text = [NSString stringWithFormat:@"%@%@ %@", [salaryElem stringValue], [currCodeElem stringValue], [salaryTypeElem stringValue]];
-	[self.descriptionTxt loadHTMLString:[detailElem stringValue] baseURL: [NSURL URLWithString:@"http://fake.net"]];
+	NSString* detailHTML = [detailElem stringValue];
+	detailHTML = [NSString stringWithFormat:@"<html><head><style>body { font-family: 'Helvetica'; }</style></head><body>%@</body></html>", detailHTML];
+	[self.descriptionTxt loadHTMLString:detailHTML baseURL: [NSURL URLWithString:@"http://fake.net"]];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request {
@@ -62,6 +64,12 @@
 	ASIHTTPRequest* req = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlStr]];
 	req.delegate = self;
 	[req startAsynchronous];
+	for (id subview in descriptionTxt.subviews) {
+		if ([[subview class] isSubclassOfClass: [UIScrollView class]]) {
+			((UIScrollView *)subview).bounces = NO;
+		}
+	}
+	
 }
 
 - (void)dealloc {

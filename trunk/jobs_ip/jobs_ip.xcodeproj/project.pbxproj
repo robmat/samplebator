@@ -87,6 +87,10 @@
 		E1919F51142F76830086DDC8 /* no_cv_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = E1919F50142F76830086DDC8 /* no_cv_screen.png */; };
 		E1919F80142F7C3A0086DDC8 /* blue_tick.png in Resources */ = {isa = PBXBuildFile; fileRef = E1919F7F142F7C3A0086DDC8 /* blue_tick.png */; };
 		E1919FA3142F7F710086DDC8 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = E1919FA2142F7F710086DDC8 /* blank.png */; };
+		E195BC601434DC4100DE6877 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E195BC5F1434DC4100DE6877 /* icon.png */; };
+		E195BCC71434EEAB00DE6877 /* MainMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E195BCC51434EEAB00DE6877 /* MainMenuVC.m */; };
+		E195BCC81434EEAB00DE6877 /* MainMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E195BCC61434EEAB00DE6877 /* MainMenuVC.xib */; };
+		E195BCCF1434EFDA00DE6877 /* main_menu_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = E195BCCE1434EFDA00DE6877 /* main_menu_screen.png */; };
 		E19923FD1424A52200B65147 /* forgot_password_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = E19923F91424A52200B65147 /* forgot_password_btn.png */; };
 		E19923FE1424A52200B65147 /* login_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = E19923FA1424A52200B65147 /* login_btn.png */; };
 		E19923FF1424A52200B65147 /* login_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = E19923FB1424A52200B65147 /* login_screen.png */; };
@@ -213,6 +217,11 @@
 		E1919F50142F76830086DDC8 /* no_cv_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = no_cv_screen.png; path = img/no_cv_screen.png; sourceTree = "<group>"; };
 		E1919F7F142F7C3A0086DDC8 /* blue_tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blue_tick.png; path = img/blue_tick.png; sourceTree = "<group>"; };
 		E1919FA2142F7F710086DDC8 /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blank.png; path = img/blank.png; sourceTree = "<group>"; };
+		E195BC5F1434DC4100DE6877 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = img/icon.png; sourceTree = "<group>"; };
+		E195BCC41434EEAB00DE6877 /* MainMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuVC.h; sourceTree = "<group>"; };
+		E195BCC51434EEAB00DE6877 /* MainMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuVC.m; sourceTree = "<group>"; };
+		E195BCC61434EEAB00DE6877 /* MainMenuVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenuVC.xib; sourceTree = "<group>"; };
+		E195BCCE1434EFDA00DE6877 /* main_menu_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = main_menu_screen.png; path = img/main_menu_screen.png; sourceTree = "<group>"; };
 		E19923F91424A52200B65147 /* forgot_password_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = forgot_password_btn.png; path = img/forgot_password_btn.png; sourceTree = "<group>"; };
 		E19923FA1424A52200B65147 /* login_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_btn.png; path = img/login_btn.png; sourceTree = "<group>"; };
 		E19923FB1424A52200B65147 /* login_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_screen.png; path = img/login_screen.png; sourceTree = "<group>"; };
@@ -289,6 +298,9 @@
 				E184A207143247CE0031BFA9 /* ApplySuccessVC.h */,
 				E184A208143247CE0031BFA9 /* ApplySuccessVC.m */,
 				E184A209143247CE0031BFA9 /* ApplySuccessVC.xib */,
+				E195BCC41434EEAB00DE6877 /* MainMenuVC.h */,
+				E195BCC51434EEAB00DE6877 /* MainMenuVC.m */,
+				E195BCC61434EEAB00DE6877 /* MainMenuVC.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -382,6 +394,8 @@
 		E12C5678141FADBD0030A4ED /* img */ = {
 			isa = PBXGroup;
 			children = (
+				E195BCCE1434EFDA00DE6877 /* main_menu_screen.png */,
+				E195BC5F1434DC4100DE6877 /* icon.png */,
 				E184A20C143248D40031BFA9 /* applied_succesfully_back.png */,
 				E184A1A7143231570031BFA9 /* round_border.png */,
 				E184A1A514322FE10031BFA9 /* cv_back.png */,
@@ -548,6 +562,9 @@
 				E184A1A8143231570031BFA9 /* round_border.png in Resources */,
 				E184A20B143247CE0031BFA9 /* ApplySuccessVC.xib in Resources */,
 				E184A20D143248D40031BFA9 /* applied_succesfully_back.png in Resources */,
+				E195BC601434DC4100DE6877 /* icon.png in Resources */,
+				E195BCC81434EEAB00DE6877 /* MainMenuVC.xib in Resources */,
+				E195BCCF1434EFDA00DE6877 /* main_menu_screen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +606,7 @@
 				E184A19414322D930031BFA9 /* ApplyVC.m in Sources */,
 				E184A1AB143232F50031BFA9 /* UIPlaceHolderTextView.m in Sources */,
 				E184A20A143247CE0031BFA9 /* ApplySuccessVC.m in Sources */,
+				E195BCC71434EEAB00DE6877 /* MainMenuVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

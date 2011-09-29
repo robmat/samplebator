@@ -4635,7 +4635,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<object class="IBUIImageView" id="571488864">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 407}, {320, 53}}</string>
+						<string key="NSFrame">{{0, 410}, {320, 53}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -5237,7 +5237,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{429, 58}</string>
-				<string>{445, 73}</string>
+				<string>{1129, 167}</string>
 				<string>{998, 177}</string>
 				<string>{860, 371}</string>
 				<string>{73, 30}</string>
