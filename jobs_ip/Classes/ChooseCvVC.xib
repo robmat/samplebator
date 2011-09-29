@@ -134,7 +134,7 @@
 					<object class="IBUITableView" id="855023690">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{0, 93}, {320, 314}}</string>
+						<string key="NSFrame">{{0, 93}, {320, 320}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="IBUIBackgroundColor" ref="494720833"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -150,7 +150,7 @@
 					<object class="IBUIImageView" id="575995873">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 407}, {320, 53}}</string>
+						<string key="NSFrame">{{0, 410}, {320, 53}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -670,10 +670,10 @@
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{445, 73}</string>
-				<string>{445, 59}</string>
-				<string>{101, 43}</string>
-				<string>{86, 44}</string>
+				<string>{1129, 167}</string>
+				<string>{429, 58}</string>
+				<string>{73, 30}</string>
+				<string>{61, 30}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">141</string>

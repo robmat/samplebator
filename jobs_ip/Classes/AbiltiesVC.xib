@@ -70,14 +70,17 @@
 					<object class="IBUITableView" id="518005428">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{20, 90}, {280, 309}}</string>
+						<string key="NSFrame">{{31, 90}, {259, 309}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
 						</object>
+						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
+						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<bool key="IBUIBounces">NO</bool>
 						<bool key="IBUIAlwaysBounceVertical">YES</bool>
 						<int key="IBUIStyle">1</int>
 						<int key="IBUISeparatorStyle">2</int>
@@ -90,7 +93,7 @@
 					<object class="IBUIImageView" id="269473020">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 407}, {320, 53}}</string>
+						<string key="NSFrame">{{0, 410}, {320, 53}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -150,8 +153,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="9226497"/>
 							<reference ref="214496539"/>
-							<reference ref="518005428"/>
 							<reference ref="269473020"/>
+							<reference ref="518005428"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -200,13 +203,14 @@
 					<string>5.IBPluginDependency</string>
 					<string>5.IBViewBoundsToFrameTransform</string>
 					<string>6.IBPluginDependency</string>
+					<string>6.IBViewBoundsToFrameTransform</string>
 					<string>7.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>AbiltiesVC</string>
 					<string>UIResponder</string>
-					<string>{{344, 235}, {320, 480}}</string>
+					<string>{{378, 138}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -214,6 +218,9 @@
 						<bytes key="NSTransformStruct">P4AAAL+AAABCIAAAwtQAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAABBoAAAw8aAAA</bytes>
+					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
@@ -498,7 +505,7 @@
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{445, 73}</string>
+				<string>{1129, 167}</string>
 				<string>{457, 684}</string>
 				<string>{674, 187}</string>
 			</object>

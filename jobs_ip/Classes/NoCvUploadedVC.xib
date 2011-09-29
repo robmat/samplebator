@@ -45,7 +45,7 @@
 					<object class="IBUIImageView" id="433030506">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrameSize">{320, 410}</string>
+						<string key="NSFrameSize">{320, 414}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -57,8 +57,9 @@
 					<object class="IBUIImageView" id="1047189423">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 408}, {320, 52}}</string>
+						<string key="NSFrame">{{0, 411}, {320, 52}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
@@ -472,7 +473,7 @@
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{60, 30}</string>
-				<string>{445, 73}</string>
+				<string>{1129, 167}</string>
 				<string>{429, 554}</string>
 			</object>
 		</object>

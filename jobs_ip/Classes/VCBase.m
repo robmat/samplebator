@@ -1,5 +1,6 @@
 #import "VCBase.h"
 #import <AVFoundation/AVFoundation.h>
+#import "MainMenuVC.h"
 
 @implementation VCBase
 
@@ -16,12 +17,26 @@
 		[avPlayer play];
 	}
 	backBtn = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-	backBtn.frame = CGRectMake(9, 7, 68, 33);
+	backBtn.frame = CGRectMake(9, 8, 58, 29);
 	[backBtn setBackgroundImage:[UIImage imageNamed:@"back_btn.png"] forState:UIControlStateNormal];
 	[backBtn addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:backBtn];
+	[self setUpTabButtons];
 }
-- (void) animateView: (UIView*) uiview up: (BOOL) up distance: (int) movementDistance {
+- (void)setUpTabButtons {
+	tabMainMenuBtn = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+	tabMainMenuBtn.frame = CGRectMake(8, 418, 45, 37);
+	[tabMainMenuBtn addTarget:self action:@selector(tabAction:) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:tabMainMenuBtn];
+}
+- (void)tabAction: (id) sender {
+	if (sender == tabMainMenuBtn) {
+		MainMenuVC* ssvc = [[MainMenuVC alloc] init];
+		[self.navigationController pushViewController:ssvc animated:YES];
+		[ssvc release];
+	}
+}
+- (void)animateView: (UIView*) uiview up: (BOOL) up distance: (int) movementDistance {
     //const int movementDistance = 90; // tweak as needed
     const float movementDuration = 0.3f; // tweak as needed
     int movement = (up ? -movementDistance : movementDistance);
@@ -37,6 +52,9 @@
 - (void) hideBackBtn {
 	backBtn.hidden = YES;
 }
+- (void)hideTabButtons {
+	tabMainMenuBtn.hidden = YES;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -51,6 +69,7 @@
     [super dealloc];
 	[avPlayer release];
 	[backBtn release];
+	[tabMainMenuBtn release];
 }
 
 @end
