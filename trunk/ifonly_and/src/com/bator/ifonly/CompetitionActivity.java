@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.webkit.WebView;
 
+import com.bator.ifonly.util.Utils;
+
 public class CompetitionActivity extends ActivityBase {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +24,6 @@ public class CompetitionActivity extends ActivityBase {
 		} catch (Exception e) {
 			Log.e("CompetitionActivity", "onCreate", e);
 		}
+		wv.setWebViewClient(new Utils.LinkEnabledWebViewClient());
 	}
 }
