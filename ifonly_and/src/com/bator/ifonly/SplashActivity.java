@@ -18,7 +18,7 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.splash);
         if (getIntent().getData() != null) {
         	ImageView iv = (ImageView) findViewById(R.id.splash_image);
-        	iv.setBackgroundResource(R.drawable.about);
+        	iv.setBackgroundResource(R.drawable.splash);
         } else {
         	scheduler.schedule(new Runnable() {
     			@Override

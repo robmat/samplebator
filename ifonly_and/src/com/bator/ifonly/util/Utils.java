@@ -40,6 +40,8 @@ import android.net.ParseException;
 import android.net.Uri;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.bator.ifonly.ActivityBase;
 import com.bator.ifonly.R;
@@ -224,5 +226,12 @@ public class Utils {
 			}
 		}
 		return charset;
+	}
+	public static class LinkEnabledWebViewClient extends WebViewClient {
+	    @Override
+	    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+	        view.loadUrl(url);
+	        return true;
+	    }
 	}
 }
