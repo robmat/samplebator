@@ -5,6 +5,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	[self hideBackBtn];
 }
 - (void) loginAction:(id) sender {
 	LoginVC* lvc = [[LoginVC alloc] init];

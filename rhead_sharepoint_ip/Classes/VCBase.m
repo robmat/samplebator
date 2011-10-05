@@ -15,9 +15,9 @@
 		avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
 		[avPlayer play];
 	}
-	backBtn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
-	backBtn.frame = CGRectMake(4, 4, 72, 37);
-	[backBtn setTitle:@"Back" forState:UIControlStateNormal];
+	backBtn = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+	backBtn.frame = CGRectMake(5, 5, 72, 31);
+	[backBtn setImage:[UIImage imageNamed:@"back_btn.png"] forState:UIControlStateNormal];
 	[backBtn addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:backBtn];
 }

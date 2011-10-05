@@ -14,6 +14,17 @@
 	[self.window makeKeyAndVisible];
     return YES;
 }
++ (UIImage*)imageWithImage:(UIImage*)image 
+			  scaledToSize:(CGSize)newSize
+{
+	UIGraphicsBeginImageContext( newSize );
+	[image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+	UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	
+	return newImage;
+}
+
 + (NSString*) loginDictPath {
 	NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) ;
 	NSString* documentsDirectory = [paths objectAtIndex:0] ;

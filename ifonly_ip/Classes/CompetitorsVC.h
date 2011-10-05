@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "VCBase.h"
 
-@interface CompetitorsVC : VCBase {
+@interface CompetitorsVC : VCBase <UIWebViewDelegate> {
 	IBOutlet UIWebView* webView;
 }
 

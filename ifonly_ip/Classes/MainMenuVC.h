@@ -18,5 +18,6 @@
 - (IBAction) miscAction: (id) sender;
 - (IBAction) demoAction: (id) sender;
 - (IBAction) competitionAction: (id) sender;
+- (IBAction) allVideosAction: (id) sender;
 
 @end
