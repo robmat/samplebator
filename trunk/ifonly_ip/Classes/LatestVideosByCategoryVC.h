@@ -11,6 +11,7 @@
 	IBOutlet UISegmentedControl* orderBy;
 	IBOutlet UISearchBar* searchBar;
 	IBOutlet UIActivityIndicatorView* actIndView;
+	IBOutlet UIButton* searchBtn;
 }
 
 @property (nonatomic, retain) NSString* category;
@@ -20,6 +21,7 @@
 @property (nonatomic, retain) IBOutlet UISegmentedControl* orderBy;
 @property (nonatomic, retain) IBOutlet UISearchBar* searchBar;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView* actIndView;
+@property (nonatomic, retain) IBOutlet UIButton* searchBtn;
 
 - (void)entryListFetchTicket: (GDataServiceTicket *)ticket finishedWithFeed: (GDataFeedBase *)feed error: (NSError*) error;
 - (IBAction)searchAction;

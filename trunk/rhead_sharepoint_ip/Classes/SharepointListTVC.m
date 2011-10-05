@@ -20,6 +20,8 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
 	cell.backgroundColor = [UIColor colorWithRed:0 green:0.62890625 blue:0.82421875 alpha:1];
+	cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
+	cell.textLabel.textColor = [UIColor whiteColor];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView_ cellForRowAtIndexPath:(NSIndexPath *)indexPath {

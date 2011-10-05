@@ -57,6 +57,8 @@
 		E1904B3A141AA9A000E48312 /* botton_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = E1904B38141AA9A000E48312 /* botton_bar.png */; };
 		E1904B3B141AA9A000E48312 /* top_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = E1904B39141AA9A000E48312 /* top_bar.png */; };
 		E1904B45141AAABA00E48312 /* SharepointListsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E1904B44141AAABA00E48312 /* SharepointListsTVC.m */; };
+		E1909C80143A0B86000BB5BF /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1909C7F143A0B86000BB5BF /* icon.png */; };
+		E1909CA4143A0CB1000BB5BF /* back_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = E1909CA3143A0CB1000BB5BF /* back_btn.png */; };
 		E1987969141B5712004B4889 /* GetList.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1987968141B5712004B4889 /* GetList.txt */; };
 		E19879AE141B60E8004B4889 /* GetListAndView.txt in Resources */ = {isa = PBXBuildFile; fileRef = E19879AD141B60E8004B4889 /* GetListAndView.txt */; };
 		E19879C1141B664B004B4889 /* GetListItems.txt in Resources */ = {isa = PBXBuildFile; fileRef = E19879C0141B664B004B4889 /* GetListItems.txt */; };
@@ -153,6 +155,8 @@
 		E1904B39141AA9A000E48312 /* top_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = top_bar.png; path = img/top_bar.png; sourceTree = "<group>"; };
 		E1904B43141AAABA00E48312 /* SharepointListsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharepointListsTVC.h; sourceTree = "<group>"; };
 		E1904B44141AAABA00E48312 /* SharepointListsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharepointListsTVC.m; sourceTree = "<group>"; };
+		E1909C7F143A0B86000BB5BF /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = img/icon.png; sourceTree = "<group>"; };
+		E1909CA3143A0CB1000BB5BF /* back_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back_btn.png; path = img/back_btn.png; sourceTree = "<group>"; };
 		E1987968141B5712004B4889 /* GetList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GetList.txt; path = soap_requests/GetList.txt; sourceTree = "<group>"; };
 		E19879AD141B60E8004B4889 /* GetListAndView.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GetListAndView.txt; path = soap_requests/GetListAndView.txt; sourceTree = "<group>"; };
 		E19879C0141B664B004B4889 /* GetListItems.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GetListItems.txt; path = soap_requests/GetListItems.txt; sourceTree = "<group>"; };
@@ -340,6 +344,8 @@
 		E184AD49140D45F5004EBF5A /* img */ = {
 			isa = PBXGroup;
 			children = (
+				E1909CA3143A0CB1000BB5BF /* back_btn.png */,
+				E1909C7F143A0B86000BB5BF /* icon.png */,
 				E1904B38141AA9A000E48312 /* botton_bar.png */,
 				E1904B39141AA9A000E48312 /* top_bar.png */,
 				E1904B25141AA76300E48312 /* calendar.png */,
@@ -454,6 +460,8 @@
 				E19879C1141B664B004B4889 /* GetListItems.txt in Resources */,
 				E19879EF141B7E7C004B4889 /* WebViewVC.xib in Resources */,
 				E1987A16141B878B004B4889 /* SharepointListVC.xib in Resources */,
+				E1909C80143A0B86000BB5BF /* icon.png in Resources */,
+				E1909CA4143A0CB1000BB5BF /* back_btn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

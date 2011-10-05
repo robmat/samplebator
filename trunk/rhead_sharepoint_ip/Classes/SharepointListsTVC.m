@@ -2,6 +2,8 @@
 #import "SoapRequest.h"
 #import "rhead_sharepoint_ipAppDelegate.h"
 #import "SharepointListVC.h"
+#import "CXMLNode.h"
+#import "CXMLElement.h"
 
 @implementation SharepointListsTVC
 
@@ -45,7 +47,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [listsData count];
 }
-
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 50;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -60,10 +64,13 @@
     } else {
 		cell.imageView.image = [UIImage imageNamed:@"tasks.png"];
 	}
+	cell.imageView.image = [rhead_sharepoint_ipAppDelegate imageWithImage:cell.imageView.image scaledToSize:CGSizeMake(44, 44)];
 	return cell;
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
 	cell.backgroundColor = [UIColor colorWithRed:0 green:0.62890625 blue:0.82421875 alpha:1];
+	cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
+	cell.textLabel.textColor = [UIColor whiteColor];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;

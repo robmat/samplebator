@@ -13,7 +13,13 @@
 	[self.navigationController pushViewController:mmvc animated:YES];
 	[mmvc release];
 }
-- (void)dealloc {
+- (void) viewWillAppear:(BOOL)animated {
+	self.navigationController.navigationBarHidden = YES;
+}
+- (void) viewWillDisappear:(BOOL)animated {
+
+}
+- (void)dealloc {	
     [super dealloc];
 }
 

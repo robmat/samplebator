@@ -3,6 +3,8 @@
 #import "ASIHTTPRequest.h"
 #import "CXMLDocument.h"
 #import "SharepointListsVC.h"
+#import "CXMLNode.h"
+#import "CXMLElement.h"
 
 @implementation LoginVC
 

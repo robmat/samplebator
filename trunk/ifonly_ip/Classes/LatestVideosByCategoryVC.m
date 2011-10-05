@@ -4,7 +4,7 @@
 
 @implementation LatestVideosByCategoryVC
 
-@synthesize category, ytService, tableView, tableVC, orderBy, searchBar, actIndView;
+@synthesize category, ytService, tableView, tableVC, orderBy, searchBar, actIndView, searchBtn;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,15 +21,14 @@
 	self.tableVC.navCntrl = self.navigationController;
 	[self.tableVC viewDidLoad];
 	NSLog(@"Launched %@ with category: %@", [self description], category);
-	[orderBy addTarget:self
-				action:@selector(sortAction:)
-	  forControlEvents:UIControlEventValueChanged];
+	[orderBy addTarget:self	action:@selector(sortAction:) forControlEvents:UIControlEventValueChanged];
 	[actIndView startAnimating];
 	backBtn.hidden = YES;
 	self.navigationController.navigationBarHidden = NO;
 }
 - (IBAction)searchAction {
 	[super animateView:searchBar up:NO distance:88];
+	searchBtn.enabled = NO;
 	backBtn.hidden = YES;
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
@@ -49,6 +48,7 @@
 	[searchBar resignFirstResponder];
 	self.tableVC.dataArr = [NSArray arrayWithArray:self.tableVC.originalDataArr];
 	[self.tableVC.tableView reloadData];
+	searchBtn.enabled = NO;
 }
 - (void)sortAction: (id) sender {
 	UISegmentedControl* segment = (UISegmentedControl*) sender;
@@ -85,8 +85,10 @@
 	for (int i = 0; i < [[feed entries] count]; i++) {
         GDataEntryBase* entry = [[feed entries] objectAtIndex:i];
 		NSLog(@"Movie title: %@", [[entry title] stringValue]);
-		if ( !([[[entry title] stringValue] rangeOfString:category].location == NSNotFound) ) {
-			[results addObject:entry];
+		if (category == nil || !([[[entry title] stringValue] rangeOfString:category].location == NSNotFound)) {
+			if ([[[entry title] stringValue] rangeOfString:@"filming_tutorial_video"].location == NSNotFound) {	
+				[results addObject:entry];
+			}
 		}
     }
 	self.tableVC.dataArr = results;
@@ -108,6 +110,7 @@
 	[tableView release];
 	[ytService release];
 	[category release];
+	[searchBtn release];
     [super dealloc];
 }
 

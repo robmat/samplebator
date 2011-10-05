@@ -82,6 +82,13 @@
 	[self.navigationController pushViewController:cvc animated:YES];
 	[cvc release];
 }
+- (IBAction) allVideosAction: (id) sender {
+	LatestVideosByCategoryVC* lvbcvc = [[LatestVideosByCategoryVC alloc] initWithNibName:nil bundle:nil];
+	lvbcvc.category = nil;
+	[self.navigationController pushViewController:lvbcvc animated:YES];
+	[lvbcvc setTitle:@"All videos"];
+	[lvbcvc release];
+}
 - (void)viewWillAppear: (BOOL) animated {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden = YES;

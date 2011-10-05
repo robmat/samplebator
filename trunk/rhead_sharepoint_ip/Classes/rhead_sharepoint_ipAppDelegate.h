@@ -7,6 +7,7 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 + (NSString*) loginDictPath;
++ (UIImage*) imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
 
 @end
 
