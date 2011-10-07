@@ -51,9 +51,9 @@ public class VideosListActivity extends ActivityBase implements Callback {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		vidCategory = VID_CATEGORY.fromString(getIntent().getData().getHost());
+		vidCategory = getIntent().getData() == null ? null : VID_CATEGORY.fromString(getIntent().getData().getHost());
 		setContentView(R.layout.video_list);
-		setTopBarTitle(vidCategory.getStr(this));
+		setTopBarTitle(vidCategory != null ? vidCategory.getStr(this) : getString(R.string.video_list_all_videos));
 		backButtonListenerSetup();
 		listView = (ListView) findViewById(R.id.video_list_id);
 		listView.setAdapter(new ArrayAdapter<Video>(this, R.layout.video_list, videosList) {
@@ -67,7 +67,7 @@ public class VideosListActivity extends ActivityBase implements Callback {
 				TextView durationView = (TextView) itemView.findViewById(R.id.video_list_duration);
 				durationView.setText(getString(R.string.video_list_seconds, videosList.get(position).duration));
 				ImageView categoryImage = (ImageView) itemView.findViewById(R.id.video_list_category_image);
-				categoryImage.setImageResource(vidCategory.getImageResId());
+				categoryImage.setImageResource(videosList.get(position).category.getImageResId());
 				ScaleAnimation sa = new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 				sa.setDuration(500);
 				sa.setStartTime(1000 * position);
@@ -146,7 +146,7 @@ public class VideosListActivity extends ActivityBase implements Callback {
 		new Thread(new Runnable() {
 			public void run() {
 				try {
-					String category = vidCategory.getStr(VideosListActivity.this);
+					String category = vidCategory != null ? vidCategory.getStr(VideosListActivity.this) : "";
 					String query = (category.contains(" ") ? category.substring(0, category.indexOf(" ")) : category) + " " + queryString;
 					document = Utils.getVideosDOM(orderByStr, query);
 					handler.sendEmptyMessage(VIDEO_LIST_SUCCESS);
@@ -196,6 +196,7 @@ public class VideosListActivity extends ActivityBase implements Callback {
 						entryChild.normalize();
 						String title = entryChild.getFirstChild().getNodeValue();
 						videoObj.title = title;
+						videoObj.category = VID_CATEGORY.getCategoryFromTitle(title, this);
 					}
 					if ("published".equals(entryChild.getNodeName())) {
 						entryChild.normalize();
@@ -213,7 +214,9 @@ public class VideosListActivity extends ActivityBase implements Callback {
 					}
 					videoObj.duration = Integer.parseInt(durations.item(i).getAttributes().getNamedItem("seconds").getNodeValue());
 				}
-				videosList.add(videoObj);
+				if (!"filming_tutorial_video".equals(videoObj.title) && !"filming tutorial video".equals(videoObj.title)) {
+					videosList.add(videoObj);
+				}
 			}
 			((ArrayAdapter<String>) listView.getAdapter()).notifyDataSetChanged();
 			document = null;
@@ -227,5 +230,6 @@ public class VideosListActivity extends ActivityBase implements Callback {
 		public Date date;
 		public int duration;
 		public String url;
+		public VID_CATEGORY category;
 	}
 }
