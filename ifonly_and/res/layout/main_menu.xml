@@ -40,7 +40,7 @@
 		android:layout_height="90dp" 
 		android:textColor="@color/black"
 		android:textSize="16dp"
-		android:gravity="center"
+		android:gravity="left"
 		android:typeface="sans" 
 		android:textStyle="bold"
 		android:id="@+id/main_menu_view_vids_id"

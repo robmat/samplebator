@@ -6,11 +6,13 @@ import java.util.concurrent.TimeUnit;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 
 public class SplashActivity extends Activity {
     private ScheduledThreadPoolExecutor scheduler = new ScheduledThreadPoolExecutor(1);
+    private Runnable runnable;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,12 +22,20 @@ public class SplashActivity extends Activity {
         	ImageView iv = (ImageView) findViewById(R.id.splash_image);
         	iv.setBackgroundResource(R.drawable.splash);
         } else {
-        	scheduler.schedule(new Runnable() {
+        	runnable = new Runnable() {
     			@Override
     			public void run() {
     				startActivity(new Intent("ifonly.mainmenu"));
     			}
-    		}, 1, TimeUnit.SECONDS);
+    		};
+			scheduler.schedule(runnable, 15, TimeUnit.SECONDS);
         }
+        findViewById(R.id.splash_start_btn_id).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				scheduler.remove(runnable);
+				startActivity(new Intent("ifonly.mainmenu"));
+			}
+		});
     }
 }

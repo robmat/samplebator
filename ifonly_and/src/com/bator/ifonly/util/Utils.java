@@ -79,7 +79,7 @@ public class Utils {
 					return cat;
 				}
 			}
-			return MISC;
+			return null;
 		}
 		public static String[] getStrArr(Context context) {
 			List<String> strArr = new ArrayList<String>();
@@ -104,6 +104,18 @@ public class Utils {
 				return R.drawable.misc;
 			}
 			return R.drawable.misc;
+		}
+		public static VID_CATEGORY getCategoryFromTitle(String title, Context context) {
+			for (String catStr : getStrArr(context)) {
+				if (title.contains(catStr)) {
+					for (VID_CATEGORY vidCat : VID_CATEGORY.values()) {
+						if (vidCat.getStr(context).equals(catStr)) {
+							return vidCat;
+						}
+					}
+				}
+			}
+			return null;
 		}
 	};
 
@@ -230,7 +242,8 @@ public class Utils {
 	public static class LinkEnabledWebViewClient extends WebViewClient {
 	    @Override
 	    public boolean shouldOverrideUrlLoading(WebView view, String url) {
-	        view.loadUrl(url);
+	        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+	        view.getContext().startActivity(i);
 	        return true;
 	    }
 	}
