@@ -3,6 +3,8 @@
 #import "ASIHTTPRequest.h"
 #import "LoginVC.h"
 #import "SavedSearchVC.h"
+#import "MyCVs.h"
+#import "MyFavJobsVC.h"
 
 @implementation AbiltiesVC
 
@@ -109,6 +111,16 @@
 			[self.navCntrl pushViewController:ssvc animated:YES];
 			[ssvc release];
 		}
+		if ([cell.textLabel.text isEqualToString:@"Manage your CV's"]) {
+			MyCVs* ssvc = [[MyCVs alloc] init];
+			[self.navCntrl pushViewController:ssvc animated:YES];
+			[ssvc release];
+		}
+		if ([cell.textLabel.text isEqualToString:@"Keep a list of Fav. jobs"]) {
+			MyFavJobsVC* mfjvc = [[MyFavJobsVC alloc] init];
+			[self.navCntrl pushViewController:mfjvc animated:YES];
+			[mfjvc release];
+		}	
 		//todo rest shit
 	} else {
 		recheckStatusFlag = YES;

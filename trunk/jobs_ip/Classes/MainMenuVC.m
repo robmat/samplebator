@@ -1,5 +1,7 @@
 #import "MainMenuVC.h"
 #import "SavedSearchVC.h"
+#import "MyCVs.h"
+#import "MyFavJobsVC.h"
 
 @implementation MainMenuVC
 
@@ -15,8 +17,14 @@
 	[ssvc release];
 }
 - (IBAction)myCvsAction {
+	MyCVs* ssvc = [[MyCVs alloc] init];
+	[self.navigationController pushViewController:ssvc animated:YES];
+	[ssvc release];
 }
 - (IBAction)favJobsAction {
+	MyFavJobsVC* mfjvc = [[MyFavJobsVC alloc] init];
+	[self.navigationController pushViewController:mfjvc animated:YES];
+	[mfjvc release];
 }
 - (IBAction)applicationsAction {
 }
