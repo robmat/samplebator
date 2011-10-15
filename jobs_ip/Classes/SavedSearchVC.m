@@ -2,6 +2,7 @@
 #import "ASIHTTPRequest.h"
 #import "CXMLDocument.h"
 #import "SearchResultsVC.h"
+#import "SavedSearchTVC.h"
 
 @implementation SavedSearchVC
 
@@ -33,6 +34,8 @@
 		if (resultCount > 0) { 
 			SearchResultsVC* srvc = [[SearchResultsVC alloc] init];
 			srvc.doc = doc;
+			srvc.location = keywordSearchBar.text;
+			srvc.keyword = locationSearchBar.text;
 			[self.navigationController pushViewController:srvc animated:YES];
 			[srvc release];
 		} else {
@@ -49,7 +52,11 @@
 	}
 	if ([[[request url] lastPathComponent] isEqualToString:@"listsavedsearches"]) {
 		savedSearchesDoc = [[CXMLDocument alloc] initWithData:[request responseData] options:0 error:nil];
-		[tableView reloadData];
+		if ([[savedSearchesDoc nodesForXPath:@"/SavedSearches/Search" error:nil] count] == 0) {
+			tableView.hidden = YES;
+		} else {
+			[tableView reloadData];
+		}
 	}
 }
 - (void)requestFailed:(ASIHTTPRequest *)request {
@@ -58,16 +65,35 @@
 	[alert release];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView_ cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView_ dequeueReusableCellWithIdentifier:CellIdentifier];
+	SavedSearchTVC *cell = nil;
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"SavedSearchTVC" owner:self options:nil];
+        for (id currentObject in topLevelObjects){
+            if ([currentObject isKindOfClass:[UITableViewCell class]]){
+                cell =  (SavedSearchTVC *) currentObject;
+                break;
+            }
+        }
     }
-	cell.textLabel.text = [[[savedSearchesDoc nodesForXPath:@"/SavedSearches/Search/Name" error:nil] objectAtIndex:indexPath.row] stringValue];
+	cell.titleLbl.text = [[[savedSearchesDoc nodesForXPath:@"/SavedSearches/Search/Name" error:nil] objectAtIndex:indexPath.row] stringValue];
+	cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     return cell;
+}
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (indexPath.row % 2 == 0) {
+		cell.backgroundColor = [UIColor colorWithRed:0.447 green:0.454 blue:0.439 alpha:1];
+	} else {
+		cell.backgroundColor = [UIColor colorWithRed:0.341 green:0.345 blue:0.333 alpha:1];
+	}
+
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	return [[savedSearchesDoc nodesForXPath:@"/SavedSearches/Search" error:nil] count];
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSString* searchID = [[[savedSearchesDoc nodesForXPath:@"/SavedSearches/Search/SearchSID" error:nil] objectAtIndex:indexPath.row] stringValue];
+	//TODO
+	
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView_ {
 	return 1;

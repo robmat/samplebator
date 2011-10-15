@@ -3,7 +3,7 @@
 #import "ASIHTTPRequestDelegate.h"
 #import "CXMLDocument.h"
 
-@interface SavedSearchVC : VCBase <UISearchBarDelegate, ASIHTTPRequestDelegate, UITableViewDataSource> {
+@interface SavedSearchVC : VCBase <UISearchBarDelegate, ASIHTTPRequestDelegate, UITableViewDataSource, UITableViewDelegate> {
 	IBOutlet UIButton* cancelBtn;
 	IBOutlet UISearchBar* keywordSearchBar;
 	IBOutlet UISearchBar* locationSearchBar;

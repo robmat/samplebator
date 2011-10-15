@@ -49,6 +49,7 @@
 	cell.titleLbl.text = [jobTit stringValue];
 	cell.salaryLbl.text = [NSString stringWithFormat:@"%@ %@ %@", [salary stringValue], [curren stringValue], [salTyp stringValue]];
 	cell.descLbl.text = [descri stringValue];
+	cell.redSignImage.hidden = YES;
 	return cell;
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
