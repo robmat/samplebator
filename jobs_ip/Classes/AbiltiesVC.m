@@ -133,12 +133,14 @@
 - (void)recheckStatus {
 	if (!recheckStatusFlag) return;
 	ASIHTTPRequest* req = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://jobstelecom.com/development/wsapi/mobile/amiloggedin"]];
+	[req setRequestMethod:@"POST"];
 	[req startSynchronous];
 	CXMLDocument* doc = [[CXMLDocument alloc] initWithData:[req responseData] options:0 error:nil];
 	loggedIn = [[[[doc nodesForXPath:@"/AmILoggedIn/LoggedIn" error:nil] objectAtIndex:0] stringValue] isEqualToString:@"true"];
 	[doc release];
 	
 	req = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://jobstelecom.com/development/wsapi/mobile/listcvs"]];
+	[req setRequestMethod:@"POST"];
 	[req startSynchronous];
 	doc = [[CXMLDocument alloc] initWithData:[req responseData] options:0 error:nil];
 	uploadedCV = [[doc nodesForXPath:@"/CVList/CV" error:nil] count] > 0;

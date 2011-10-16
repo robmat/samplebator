@@ -20,6 +20,7 @@
 }
 - (void)timerAction {
 	ASIHTTPRequest* req = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://jobstelecom.com/development/wsapi/mobile/amiloggedin"]];
+	[req setRequestMethod:@"POST"];
 	[req startSynchronous];
 	CXMLDocument* doc = [[CXMLDocument alloc] initWithData:[req responseData] options:0 error:nil];
 	BOOL loggedIn = [[[[doc nodesForXPath:@"/AmILoggedIn/LoggedIn" error:nil] objectAtIndex:0] stringValue] isEqualToString:@"true"];

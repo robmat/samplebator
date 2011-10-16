@@ -5,6 +5,7 @@
 #import "CXMLNode.h"
 #import "SearchResultsTC.h"
 #import "ResultDetailVC.h"
+#import "ASIFormDataRequest.h"
 
 @implementation MyFavJobsVC
 
@@ -82,8 +83,9 @@
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 1) {
-		NSString* urlStr = [NSString stringWithFormat:@"http://jobstelecom.com/development/wsapi/mobile/deletefavourite?JobSID=%@", deleteFavJobId];
-		ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlStr]];
+		ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://jobstelecom.com/development/wsapi/mobile/deletefavourite"]];
+		[request setRequestMethod:@"POST"];
+		[request addPostValue:deleteFavJobId forKey:@"JobSID"];
 		request.delegate = self;
 		[request startAsynchronous];
 	}
@@ -92,6 +94,7 @@
     [super viewDidLoad];
 	ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://jobstelecom.com/development/wsapi/mobile/listfavourites"]];
 	request.delegate = self;
+	[request setRequestMethod:@"POST"];
 	[request startAsynchronous];
 	backBtn.hidden = YES;
 }

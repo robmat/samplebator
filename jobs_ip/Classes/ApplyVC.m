@@ -1,6 +1,7 @@
 #import "ApplyVC.h"
 #import "ASIHTTPRequest.h"
 #import "ApplySuccessVC.h"
+#import "ASIFormDataRequest.h"
 
 @implementation ApplyVC
 
@@ -25,9 +26,11 @@
 		[alertView dismissWithClickedButtonIndex:0 animated:YES];
 		return;
 	}
-	NSString* urlStr = @"http://jobstelecom.com/development/wsapi/mobile/applynow?JobSID=%@&ResumeID=%@&CoverNote=%@";
-	urlStr = [NSString stringWithFormat:urlStr, jobId, cvId, [textView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-	ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlStr]];
+	ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://jobstelecom.com/development/wsapi/mobile/applynow"]];
+	[request setRequestMethod:@"POST"];
+	[request addPostValue:jobId forKey:@"JobSID"];
+	[request addPostValue:cvId forKey:@"ResumeID"];
+	[request addPostValue:[textView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] forKey:@"CoverNote"];
 	[request setDelegate:self];
 	[request startAsynchronous];
 }

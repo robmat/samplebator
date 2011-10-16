@@ -4,6 +4,7 @@
 #import "CXMLElement.h"
 #import "ChooseCvVC.h"
 #import "NoCvUploadedVC.h"
+#import "ASIFormDataRequest.h"
 
 @implementation ResultDetailVC
 
@@ -18,6 +19,7 @@
 
 - (void)applyAction: (id) sender {
 	ASIHTTPRequest* req = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://jobstelecom.com/development/wsapi/mobile/listcvs"]];
+	[req setRequestMethod:@"POST"];
 	[req startSynchronous];
 	CXMLDocument* doc = [[CXMLDocument alloc] initWithData:[req responseData] options:0 error:nil];
 	int nodes = [[doc nodesForXPath:@"/CVList/CV" error:nil] count];
@@ -60,9 +62,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[self hideBackBtn];
-	NSString* urlStr = [NSString stringWithFormat:@"http://jobstelecom.com/development/wsapi/mobile/retrievejob?listing_id=%@", jobId];
-	ASIHTTPRequest* req = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlStr]];
+	NSString* urlStr = [NSString stringWithFormat:@"http://jobstelecom.com/development/wsapi/mobile/retrievejob"];
+	ASIFormDataRequest* req = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:urlStr]];
 	req.delegate = self;
+	[req addPostValue:jobId forKey:@"listing_id"];
+	[req setRequestMethod:@"POST"];
 	[req startAsynchronous];
 	for (id subview in descriptionTxt.subviews) {
 		if ([[subview class] isSubclassOfClass: [UIScrollView class]]) {

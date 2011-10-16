@@ -2,6 +2,7 @@
 #import "ASIHTTPRequest.h"
 #import "CXMLDocument.h"
 #import "CXMLElement.h"
+#import "ASIFormDataRequest.h"
 
 @implementation LoginVC
 
@@ -15,9 +16,12 @@
 }
 
 - (void)loginAction: (id) sender {
-	NSString* loginUrlStr = [NSString stringWithFormat:@"http://jobstelecom.com/development/wsapi/mobile/login?username=%@&password=%@", loginTxt.text, passwTxt.text];
+	NSString* loginUrlStr = [NSString stringWithFormat:@"http://jobstelecom.com/development/wsapi/mobile/login"];
 	NSURL* url = [NSURL URLWithString:loginUrlStr];
-	ASIHTTPRequest* req = [ASIHTTPRequest requestWithURL:url];
+	ASIFormDataRequest* req = [ASIFormDataRequest requestWithURL:url];
+	[req setRequestMethod:@"POST"];
+	[req addPostValue:loginTxt.text forKey:@"username"];
+	[req addPostValue:passwTxt.text forKey:@"password"];
 	[req setDelegate:self];
 	[req startAsynchronous];
 }

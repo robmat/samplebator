@@ -3,6 +3,7 @@
 #import "CXMLDocument.h"
 #import "SearchResultsVC.h"
 #import "SavedSearchTVC.h"
+#import "ASIFormDataRequest.h"
 
 @implementation SavedSearchVC
 
@@ -18,24 +19,27 @@
 	cancelBtn.hidden = NO;
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-	NSString* urlStr = @"http://jobstelecom.com/development/wsapi/mobile/runsimplesearch?keywords=%@&keywordsmode=any&location=%@&submit=submit";
-	urlStr = [NSString stringWithFormat:urlStr, keywordSearchBar.text, locationSearchBar.text];
+	NSString* urlStr = @"http://jobstelecom.com/development/wsapi/mobile/advancedsearch";
 	NSURL* url = [NSURL URLWithString:urlStr];
-	ASIHTTPRequest* httpReq = [ASIHTTPRequest requestWithURL:url];
-	httpReq.requestMethod = @"GET";
+	ASIFormDataRequest* httpReq = [ASIFormDataRequest requestWithURL:url];
+	httpReq.requestMethod = @"POST";
+	[httpReq addPostValue:keywordSearchBar.text forKey:@"keywords"];
+	[httpReq addPostValue:@"any" forKey:@"keywordsmode"];
+	[httpReq addPostValue:locationSearchBar.text forKey:@"location"];
+	[httpReq addPostValue:@"submit" forKey:@"submit"];
 	httpReq.delegate = self;
 	[httpReq startAsynchronous];
 }
 - (void)requestFinished:(ASIHTTPRequest *)request {
-	if ([[[request url] lastPathComponent] isEqualToString:@"runsimplesearch"]) {	
+	if ([[[request url] lastPathComponent] isEqualToString:@"advancedsearch"]) {	
 		NSLog(@"%@", [request responseString]);
 		CXMLDocument* doc = [[CXMLDocument alloc] initWithData:[request responseData] options:0 error:nil];
-		int resultCount = [[doc nodesForXPath:@"/RunSimpleSearch/Job" error:nil] count];
+		int resultCount = [[doc nodesForXPath:@"/AdvancedSearch/Job" error:nil] count];
 		if (resultCount > 0) { 
 			SearchResultsVC* srvc = [[SearchResultsVC alloc] init];
 			srvc.doc = doc;
-			srvc.location = keywordSearchBar.text;
-			srvc.keyword = locationSearchBar.text;
+			srvc.keyword = keywordSearchBar.text;
+			srvc.location = locationSearchBar.text;
 			[self.navigationController pushViewController:srvc animated:YES];
 			[srvc release];
 		} else {
@@ -111,6 +115,7 @@
 	[[locationSearchBar.subviews objectAtIndex:0] removeFromSuperview];
 	tableView.backgroundColor = [UIColor clearColor];
 	ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://jobstelecom.com/development/wsapi/mobile/listsavedsearches"]];
+	[request setRequestMethod:@"POST"];
 	[request setDelegate:self];
 	[request startAsynchronous];
 }
