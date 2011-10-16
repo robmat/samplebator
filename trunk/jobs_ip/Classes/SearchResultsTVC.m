@@ -24,7 +24,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSArray* nodes = [doc nodesForXPath:@"/RunSimpleSearch/Job" error:nil];
+    NSArray* nodes = [doc nodesForXPath:@"/AdvancedSearch/Job" error:nil];
 	NSLog(@"%@", [doc description]);
 	return [nodes count];
 }
@@ -40,7 +40,7 @@
             }
         }
     }
-    CXMLElement* node = [[doc nodesForXPath:@"/RunSimpleSearch/Job" error:nil] objectAtIndex:indexPath.row];
+    CXMLElement* node = [[doc nodesForXPath:@"/AdvancedSearch/Job" error:nil] objectAtIndex:indexPath.row];
 	CXMLNode* jobTit = [[node elementsForName:@"JobTitle"] objectAtIndex:0];
 	CXMLNode* salary = [[node elementsForName:@"Salary"] objectAtIndex:0];
 	CXMLNode* curren = [[node elementsForName:@"SalaryCurrencyCode"] objectAtIndex:0];
@@ -59,6 +59,7 @@
 	NSString* loginUrlStr = [NSString stringWithFormat:@"http://jobstelecom.com/development/wsapi/mobile/amiloggedin"];
 	NSURL* url = [NSURL URLWithString:loginUrlStr];
 	ASIHTTPRequest* req = [ASIHTTPRequest requestWithURL:url];
+	[req setRequestMethod:@"POST"];
 	[req setDelegate:self];
 	[req startAsynchronous];
 	
@@ -67,7 +68,7 @@
 	CXMLDocument* xmlDoc = [[CXMLDocument alloc] initWithData:[request responseData] options:0 error:nil];
 	CXMLElement* loggedIn = [[xmlDoc nodesForXPath:@"/AmILoggedIn/LoggedIn" error:nil] objectAtIndex:0];
 	ResultDetailVC* rdvc = [[ResultDetailVC alloc] init];
-	CXMLElement* jobIdElem = [[doc nodesForXPath:@"/RunSimpleSearch/Job/JobSID" error:nil] objectAtIndex:lastSelectedRow];
+	CXMLElement* jobIdElem = [[doc nodesForXPath:@"/AdvancedSearch/Job/JobSID" error:nil] objectAtIndex:lastSelectedRow];
 	rdvc.jobId = [jobIdElem stringValue];
 	if ([@"true" isEqualToString:[loggedIn stringValue]]) {
 		[self.navCntrl pushViewController:rdvc animated:YES];

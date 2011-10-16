@@ -1,6 +1,7 @@
 #import "ChooseCvVC.h"
 #import "CXMLDocument.h"
 #import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 #import "ApplyVC.h"
 
 @implementation ChooseCvVC
@@ -58,6 +59,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	ASIHTTPRequest* req = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://jobstelecom.com/development/wsapi/mobile/listcvs"]];
+	[req setRequestMethod:@"POST"];
 	req.delegate = self;
 	[req startAsynchronous];
 }

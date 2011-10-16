@@ -16,6 +16,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	ASIHTTPRequest* req = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://jobstelecom.com/development/wsapi/mobile/listcvs"]];
+	[req setRequestMethod:@"POST"];
 	req.delegate = self;
 	[req startAsynchronous];
 	backBtn.hidden = YES;
