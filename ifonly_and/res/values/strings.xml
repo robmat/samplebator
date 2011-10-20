@@ -35,6 +35,7 @@
    	<string name="video_list_search">Search</string>
    	<string name="video_list_error">Unexpected error occured</string>
    	<string name="video_list_all_videos">All videos</string>
+   	<string name="video_list_no_videos">No videos yet!</string>
    	<string name="competition_title">Competition</string>
    	<string name="about_title">About if Only</string>
    	<string name="categories_title">if Only video archive</string>

@@ -97,25 +97,6 @@ public class VideosListActivity extends ActivityBase implements Callback {
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(videosList.get(position).url)));
 			}
 		});
-		findViewById(R.id.video_list_order_by_btn_id).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				String[] options = { getString(R.string.video_list_order_by_date), getString(R.string.video_list_order_by_views) };
-				AlertDialog.Builder builder = new AlertDialog.Builder(VideosListActivity.this);
-				builder.setSingleChoiceItems(options, orderByStr.equals("published") ? 0 : 1, new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						playPlak();
-						orderByStr = which == 0 ? "published" : "viewCount";
-						dialog.dismiss();
-						fetchData();
-					}
-				});
-				AlertDialog dialog = builder.create();
-				dialog.setOwnerActivity(VideosListActivity.this);
-				dialog.show();
-			}
-		});
 		findViewById(R.id.video_list_search_btn_id).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -145,6 +126,31 @@ public class VideosListActivity extends ActivityBase implements Callback {
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(Utils.CATEGORIES_ACTION));
+			}
+		});
+		/*
+		ImageView iv = new ImageView(this);
+		iv.setImageResource(R.drawable.order_by_btn);
+		iv.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		setTopBarRightView(iv);
+		*/
+		findViewById(R.id.video_list_order_by_btn_id).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String[] options = { getString(R.string.video_list_order_by_date), getString(R.string.video_list_order_by_views) };
+				AlertDialog.Builder builder = new AlertDialog.Builder(VideosListActivity.this);
+				builder.setSingleChoiceItems(options, orderByStr.equals("published") ? 0 : 1, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						playPlak();
+						orderByStr = which == 0 ? "published" : "viewCount";
+						dialog.dismiss();
+						fetchData();
+					}
+				});
+				AlertDialog dialog = builder.create();
+				dialog.setOwnerActivity(VideosListActivity.this);
+				dialog.show();
 			}
 		});
 	}
@@ -247,6 +253,13 @@ public class VideosListActivity extends ActivityBase implements Callback {
 			}
 			((ArrayAdapter<String>) listView.getAdapter()).notifyDataSetChanged();
 			document = null;
+			if (videosList.size() == 0) {
+				findViewById(R.id.video_list_id).setVisibility(View.GONE);
+				findViewById(R.id.video_list_no_vids_yet_id).setVisibility(View.VISIBLE);
+			} else {
+				findViewById(R.id.video_list_id).setVisibility(View.VISIBLE);
+				findViewById(R.id.video_list_no_vids_yet_id).setVisibility(View.GONE);
+			}
 		} catch (Exception e) {
 			Log.e("VideosListActivity", "parseVideoFeed", e);
 		}

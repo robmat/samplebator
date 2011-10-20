@@ -28,6 +28,7 @@ public class SplashActivity extends Activity {
     			public void run() {
     				if (launchMainMenu) {
 						startActivity(new Intent("ifonly.mainmenu"));
+						SplashActivity.this.finish();
 					}
     			}
     		};
@@ -38,6 +39,7 @@ public class SplashActivity extends Activity {
 			public void onClick(View view) {
 				scheduler.remove(runnable);
 				startActivity(new Intent("ifonly.mainmenu"));
+				finish();
 				launchMainMenu = false;
 			}
 		});
