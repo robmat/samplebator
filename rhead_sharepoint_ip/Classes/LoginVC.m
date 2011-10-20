@@ -49,17 +49,20 @@
 	CXMLDocument* doc = [[CXMLDocument alloc] initWithData: [responseString dataUsingEncoding:NSUTF8StringEncoding] options: 0 error: nil];
 	NSArray* listsNodes = [doc nodesForXPath:@"/Envelope/Body/GetListCollectionResponse/GetListCollectionResult/Lists/List" error:nil];
 	NSMutableDictionary* listDict = [NSMutableDictionary dictionary];
+	NSMutableDictionary* titletoNameDict = [NSMutableDictionary dictionary];
 	for (CXMLElement* listNode in listsNodes) {
 		CXMLNode* titleAttr = [listNode attributeForName:@"Title"];
 		CXMLNode* nameAttr = [listNode attributeForName:@"Name"];
 		[listDict setObject:[titleAttr stringValue] forKey:[nameAttr stringValue]];
+		[titletoNameDict setObject:[nameAttr stringValue] forKey:[titleAttr stringValue]];
 	}
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	SharepointListsVC* slvc = [[SharepointListsVC alloc] initWithNibName:nil bundle:nil];
 	slvc.listsData = listDict;
+	slvc.titletoNameDict = titletoNameDict;
 	[self.navigationController pushViewController:slvc animated:YES];
 	[slvc release];
-	NSLog(@"%@", [doc description]);
+	//NSLog(@"%@", [doc description]);
 }
 - (void)requestFailed:(ASIHTTPRequest *)request {
 	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[[request error] description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
