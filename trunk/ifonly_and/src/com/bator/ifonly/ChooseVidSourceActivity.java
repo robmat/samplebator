@@ -25,6 +25,12 @@ public class ChooseVidSourceActivity extends ActivityBase {
 				playPlak();
 				Intent intent = new Intent(android.provider.MediaStore.ACTION_VIDEO_CAPTURE);
 				intent.putExtra("android.intent.extra.durationLimit", 60);
+//				if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+//					Boolean tempDirCreated = new File(Environment.getExternalStorageDirectory() , "ifonly/").mkdirs();
+//					Uri tempFile = Uri.fromFile(new File(Environment.getExternalStorageDirectory() , "tempVid"));
+//					intent.putExtra(MediaStore.EXTRA_OUTPUT, tempFile);
+//					Log.i("tempDirCreated", tempDirCreated.toString());
+//				}
 				//Uri tempFile = Uri.fromFile(new File(getFilesDir(), "tempVid.3gp"));
 				//intent.putExtra(MediaStore.EXTRA_OUTPUT, tempFile);
 				startActivityForResult(intent, REQUEST_VIDEO_CAPTURED);

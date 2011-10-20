@@ -55,6 +55,9 @@ public class VideosListActivity extends ActivityBase implements Callback {
 		setContentView(R.layout.video_list);
 		setTopBarTitle(vidCategory != null ? vidCategory.getStr(this) : getString(R.string.video_list_all_videos));
 		backButtonListenerSetup();
+		if (vidCategory != null) {
+			setTopBarRightImage(vidCategory.getImageResIdWhite());
+		}
 		listView = (ListView) findViewById(R.id.video_list_id);
 		listView.setAdapter(new ArrayAdapter<Video>(this, R.layout.video_list, videosList) {
 			@Override
@@ -118,6 +121,30 @@ public class VideosListActivity extends ActivityBase implements Callback {
 			public void onClick(View v) {
 				playPlak();
 				showDialog(-1);
+			}
+		});
+		findViewById(R.id.video_list_about_btn_id).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(Utils.ABOUT_ACTION));
+			}
+		});
+		findViewById(R.id.video_list_feedback_btn_id).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(Intent.ACTION_SEND);
+		        i.setType("text/plain");
+		        i.putExtra(Intent.EXTRA_EMAIL, new String[] {"s.v.rook@bath.ac.uk"});
+		        i.putExtra(Intent.EXTRA_SUBJECT, "Your feedback subject.");
+		        i.putExtra(Intent.EXTRA_CC, "");
+		        i.putExtra(Intent.EXTRA_TEXT, "Your feedback.");
+				startActivity(i);
+			}
+		});
+		findViewById(R.id.video_list_categories_btn_id).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(Utils.CATEGORIES_ACTION));
 			}
 		});
 	}
