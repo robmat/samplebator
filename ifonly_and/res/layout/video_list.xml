@@ -5,6 +5,25 @@
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
     <include layout="@layout/tob_bar" android:layout_weight="0.1"/>
+    <LinearLayout 
+  		android:layout_weight="0.1"
+  		android:layout_width="fill_parent"
+  		android:layout_height="60dp"
+  		android:gravity="center_vertical"
+  		android:background="@drawable/search_bar_back">
+  		<ImageView
+  			android:id="@+id/video_list_search_btn_id"
+  			android:src="@drawable/search_bar_search_btn"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_weight="0.5"/>
+  		<ImageView
+  			android:id="@+id/video_list_order_by_btn_id"
+  			android:src="@drawable/order_by_btn"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:layout_weight="0.5"/>
+  	</LinearLayout>
     <ListView
     	android:layout_weight="0.8"
     	android:id="@+id/video_list_id"
@@ -14,18 +33,22 @@
   		android:layout_weight="0.1"
   		android:layout_width="fill_parent"
   		android:layout_height="60dp"
-  		android:gravity="center_vertical">
-  		<Button
-  			android:id="@+id/video_list_order_by_btn_id"
-  			android:text="@string/video_list_order_by"
+  		android:gravity="center_vertical"
+  		android:background="@drawable/search_bar_back">
+  		<ImageView
+  			android:id="@+id/video_list_about_btn_id"
+  			android:src="@drawable/about_btn"
   			android:layout_width="wrap_content"
-  			android:layout_height="wrap_content"
-  			android:layout_weight="0.5"/>
-  		<Button
-  			android:id="@+id/video_list_search_btn_id"
-  			android:text="@string/video_list_search"
+  			android:layout_height="wrap_content" />
+  		<ImageView
+  			android:id="@+id/video_list_categories_btn_id"
+  			android:src="@drawable/categories_btn"
   			android:layout_width="wrap_content"
-  			android:layout_height="wrap_content"
-  			android:layout_weight="0.5"/>
+  			android:layout_height="wrap_content" />
+  		<ImageView
+  			android:id="@+id/video_list_feedback_btn_id"
+  			android:src="@drawable/feedback_btn"
+  			android:layout_width="wrap_content"
+  			android:layout_height="wrap_content" />
   	</LinearLayout>
 </LinearLayout>

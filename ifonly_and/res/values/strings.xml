@@ -37,4 +37,5 @@
    	<string name="video_list_all_videos">All videos</string>
    	<string name="competition_title">Competition</string>
    	<string name="about_title">About if Only</string>
+   	<string name="categories_title">if Only video archive</string>
 </resources>

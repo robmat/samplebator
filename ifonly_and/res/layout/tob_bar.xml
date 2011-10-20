@@ -29,5 +29,13 @@
    		android:textColor="@color/white"
    		android:textSize="20dp"
 		android:typeface="sans" 
-		android:textStyle="bold"/>	
+		android:textStyle="bold"/>
+	<LinearLayout 
+		android:id="@+id/top_bar_right_container_id"
+		android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+   		android:layout_margin="5dp"
+   		android:layout_centerVertical="true"
+   		android:layout_alignParentRight="true">
+   	</LinearLayout>
 </RelativeLayout>

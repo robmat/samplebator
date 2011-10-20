@@ -54,6 +54,7 @@ public class Utils {
 	public static final String VIDEO_LIST_ACTION = "ifonly.video.list";
 	public static final String COMPETITION_ACTION = "ifonly.competition";
 	public static final String ABOUT_ACTION = "ifonly.about";
+	public static final String CATEGORIES_ACTION = "ifonly.categories";
 	public enum VID_CATEGORY {
 		HOUSEHOLD, GARDEN_TOOLS, ELECTRICAL_GOODS, TOOLS_MACHINERY, PERSONAL_PRODUCTS, MISC;
 		public String getStr(Context context) {
@@ -100,10 +101,25 @@ public class Utils {
 				return R.drawable.tools;
 			case PERSONAL_PRODUCTS:
 				return R.drawable.personal_products;
-			case MISC:
+			default:
 				return R.drawable.misc;
 			}
-			return R.drawable.misc;
+		}
+		public int getImageResIdWhite() {
+			switch (this) {
+			case HOUSEHOLD:
+				return R.drawable.white_household;
+			case GARDEN_TOOLS:
+				return R.drawable.white_garden;
+			case ELECTRICAL_GOODS:
+				return R.drawable.white_electrical;
+			case TOOLS_MACHINERY:
+				return R.drawable.white_machinery;
+			case PERSONAL_PRODUCTS:
+				return R.drawable.white_personal;
+			default:
+				return R.drawable.white_misc;
+			}
 		}
 		public static VID_CATEGORY getCategoryFromTitle(String title, Context context) {
 			for (String catStr : getStrArr(context)) {

@@ -13,6 +13,7 @@ import android.widget.ImageView;
 public class SplashActivity extends Activity {
     private ScheduledThreadPoolExecutor scheduler = new ScheduledThreadPoolExecutor(1);
     private Runnable runnable;
+    private boolean launchMainMenu = true;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +24,11 @@ public class SplashActivity extends Activity {
         	iv.setBackgroundResource(R.drawable.splash);
         } else {
         	runnable = new Runnable() {
-    			@Override
+				@Override
     			public void run() {
-    				startActivity(new Intent("ifonly.mainmenu"));
+    				if (launchMainMenu) {
+						startActivity(new Intent("ifonly.mainmenu"));
+					}
     			}
     		};
 			scheduler.schedule(runnable, 15, TimeUnit.SECONDS);
@@ -35,6 +38,7 @@ public class SplashActivity extends Activity {
 			public void onClick(View view) {
 				scheduler.remove(runnable);
 				startActivity(new Intent("ifonly.mainmenu"));
+				launchMainMenu = false;
 			}
 		});
     }

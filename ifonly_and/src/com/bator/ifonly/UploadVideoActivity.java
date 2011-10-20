@@ -174,6 +174,7 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 				public void onClick(DialogInterface dialog, int id) {
 					playPlak();
 					startActivity(new Intent("ifonly.mainmenu"));
+					finish();
 				}
 			});
 			AlertDialog alert = builder.create();

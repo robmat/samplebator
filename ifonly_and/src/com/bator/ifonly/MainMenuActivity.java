@@ -52,6 +52,14 @@ public class MainMenuActivity extends ActivityBase implements Callback {
 							String url = mediaContentNodes.item(0).getAttributes().getNamedItem("url").getNodeValue();
 							Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 							startActivity(i);
+						} else {
+							if (progressDialog != null) {
+								progressDialog.dismiss();
+							}
+							Message m = new Message();
+							m.what = VIDEO_LIST_ERROR;
+							m.obj = "Video tutorial is missing.";
+							handler.sendMessage(m);
 						}
 					} catch (Exception e) {
 						Log.e("VideosListActivity", "onCreate", e);
@@ -81,6 +89,7 @@ public class MainMenuActivity extends ActivityBase implements Callback {
 					dialog.dismiss();
 				}
 			});
+			builder.create().show();
 		}
 		return false;
 	}

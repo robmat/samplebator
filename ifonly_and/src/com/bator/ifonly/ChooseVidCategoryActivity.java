@@ -58,6 +58,7 @@ public class ChooseVidCategoryActivity extends ActivityBase {
 						tempVid = Uri.parse(url);
 						Intent i = new Intent(Utils.UPLOAD_VIDEO_ACTION);
 						startActivity(i);
+						finish();
 					} catch (Exception e) {
 						Log.e("ChooseVidCategoryActivity", "ChooseVidCategoryActivity.onCreateDialog", e);
 					}
