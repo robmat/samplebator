@@ -6,10 +6,11 @@
 @synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-	UINavigationController* navCtrl = [[UINavigationController alloc] init];
-	window.rootViewController = navCtrl;
+	navigationController = [[UINavigationController alloc] init];
+	navigationController.navigationBar.barStyle = UIBarStyleBlack;
+	window.rootViewController = navigationController;
 	SplashVC* svc = [[SplashVC alloc] init];
-	[window.rootViewController pushViewController:svc animated:YES];
+	[navigationController pushViewController:svc animated:YES];
 	[svc release];
 	[self.window makeKeyAndVisible];
     return YES;
@@ -24,7 +25,11 @@
 	
 	return newImage;
 }
-
++ (NSString*) accountsPath {
+	NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) ;
+	NSString* documentsDirectory = [paths objectAtIndex:0] ;
+	return [documentsDirectory stringByAppendingPathComponent:@"accounts.plist"] ;
+}
 + (NSString*) loginDictPath {
 	NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) ;
 	NSString* documentsDirectory = [paths objectAtIndex:0] ;
@@ -43,6 +48,7 @@
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {}
 
 - (void)dealloc {
+	[navigationController release];
     [window release];
     [super dealloc];
 }
