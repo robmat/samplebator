@@ -57,7 +57,7 @@
 					<object class="IBUIButton" id="580668223">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{53, 114}, {107, 105}}</string>
+						<string key="NSFrame">{{35, 95}, {125, 124}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -435,7 +435,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NS.key.0">main_menu.png</string>
-			<string key="NS.object.0">{320, 465}</string>
+			<string key="NS.object.0">{376, 540}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">141</string>
 	</data>

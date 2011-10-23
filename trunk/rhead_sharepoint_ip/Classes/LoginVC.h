@@ -14,6 +14,7 @@
 @property (nonatomic,retain) IBOutlet UITextField* passwTxt;
 @property (nonatomic,retain) IBOutlet UITextField* domainTxt;
 
-- (void) loginAction:(id) sender;
+- (IBAction) loginAction:(id) sender;
+- (IBAction) accountsAction: (id) sender;
 
 @end

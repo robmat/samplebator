@@ -5,10 +5,6 @@
 
 @synthesize window;
 
-
-#pragma mark -
-#pragma mark Application lifecycle
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UINavigationController* navCtrl = [[UINavigationController alloc] init];
 	window.rootViewController = navCtrl;

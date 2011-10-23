@@ -4,14 +4,17 @@
 
 @implementation LatestVideosByCategoryVC
 
-@synthesize category, ytService, tableView, tableVC, orderBy, searchBar, actIndView, searchBtn;
+@synthesize category, ytService, tableView, tableVC, orderBy, searchBar, actIndView, searchBtn, noVidsLbl, catImgView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = category;
+	self.catImgView = [[UIImageView alloc] initWithFrame: CGRectMake(277, 4, 35, 35)];
+	[self.navigationController.navigationBar addSubview:catImgView];
 	self.ytService = [ifonly_ipAppDelegate getYTServiceWithcredentials:NO];
 	NSString* accountName = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"account" ofType:@"plist"]] objectForKey:@"ytAccountName"];
-	NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://gdata.youtube.com/feeds/api/users/%@/uploads", accountName]];
+	NSString* catParam = [category stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]; 
+	NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://gdata.youtube.com/feeds/api/users/%@/uploads?q=%@", accountName, catParam == nil ? @"" : catParam]];
 	NSLog(@"%@", [url description]);
 	[ytService fetchFeedWithURL:url
 					   delegate:self
@@ -25,6 +28,31 @@
 	[actIndView startAnimating];
 	backBtn.hidden = YES;
 	self.navigationController.navigationBarHidden = NO;
+	NSString* imgName = nil;
+	if ([category isEqualToString:@"Household Products"]) {
+		imgName = @"white_household.png";
+	}
+	if ([category isEqualToString:@"Garden Products"]) {
+		imgName = @"white_garden.png";
+	}
+	if ([category isEqualToString:@"Tools/Machinery"]) {
+		imgName = @"white_machinery.png";
+	}
+	if ([category isEqualToString:@"Electrical Goods"]) {
+		imgName = @"white_electrical.png";
+	}
+	if ([category isEqualToString:@"Personal Products"]) {
+		imgName = @"white_personal.png";
+	}
+	if ([category isEqualToString:@"Miscellaneous"]) {
+		imgName = @"white_misc.png";
+	}
+	if (imgName != nil) {
+		UIImage* img = [UIImage imageNamed:imgName];
+		[catImgView setImage:img];
+	} else {
+		[catImgView setImage:nil];
+	}
 }
 - (IBAction)searchAction {
 	[super animateView:searchBar up:NO distance:88];
@@ -87,7 +115,9 @@
 		NSLog(@"Movie title: %@", [[entry title] stringValue]);
 		if (category == nil || !([[[entry title] stringValue] rangeOfString:category].location == NSNotFound)) {
 			if ([[[entry title] stringValue] rangeOfString:@"filming_tutorial_video"].location == NSNotFound) {	
-				[results addObject:entry];
+				if ([[[entry title] stringValue] rangeOfString:@"filming tutorial video"].location == NSNotFound) {
+					[results addObject:entry];
+				}
 			}
 		}
     }
@@ -97,10 +127,22 @@
 	[actIndView stopAnimating];
 	[actIndView setHidden:YES];
 	NSLog(@"Results after filtering: %i", [results count]);
+	if ([results count] == 0) {
+		tableView.hidden = YES;
+		noVidsLbl.hidden = NO;
+	} else {
+		tableView.hidden = NO;
+		noVidsLbl.hidden = YES;
+	}
+
 }
 - (void)viewDidAppear: (BOOL) animated {
 	[super viewDidAppear:animated];
 	self.navigationController.navigationBarHidden = NO;
+}
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	self.catImgView.hidden = YES;
 }
 - (void)dealloc {
 	[actIndView release];
@@ -111,6 +153,8 @@
 	[ytService release];
 	[category release];
 	[searchBtn release];
+	[noVidsLbl release];
+	[catImgView release];
     [super dealloc];
 }
 

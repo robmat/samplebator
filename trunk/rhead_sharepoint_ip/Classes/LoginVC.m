@@ -5,6 +5,8 @@
 #import "SharepointListsVC.h"
 #import "CXMLNode.h"
 #import "CXMLElement.h"
+#import "iToast.h"
+#import "AccountsVC.h"
 
 @implementation LoginVC
 
@@ -12,8 +14,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	self.title = @"Login";
 }
-- (void) loginAction:(id) sender {
+- (IBAction) accountsAction: (id) sender {
+	AccountsVC* avc = [[AccountsVC alloc] init];
+	[self.navigationController pushViewController:avc animated:YES];
+	[avc release];
+}
+- (IBAction) loginAction:(id) sender {
 	if ([loginTxt.text length] == 0 || [passwTxt.text length] == 0 || [domainTxt.text length] == 0) {
 		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
 														message:@"Please provide login, password and domain." 
@@ -63,6 +71,20 @@
 	[self.navigationController pushViewController:slvc animated:YES];
 	[slvc release];
 	//NSLog(@"%@", [doc description]);
+	NSDictionary* loginDict = [NSDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate loginDictPath]];
+	NSMutableDictionary* accountsDict = nil;
+	if ([[NSFileManager defaultManager] fileExistsAtPath:[rhead_sharepoint_ipAppDelegate accountsPath]]) {
+		accountsDict = [NSMutableDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate accountsPath]];
+	} else {
+		accountsDict = [NSMutableDictionary dictionary];
+	}
+	if ([accountsDict objectForKey:[loginDict objectForKey:@"domain"]] == nil) {
+		iToast* toast = [iToast makeText:@"Account addded to accounts list"];
+		[toast setDuration:3000];
+		[toast show];
+	}
+	[accountsDict setObject:loginDict forKey:[loginDict objectForKey:@"domain"]];
+	[accountsDict writeToFile:[rhead_sharepoint_ipAppDelegate accountsPath] atomically:YES];
 }
 - (void)requestFailed:(ASIHTTPRequest *)request {
 	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[[request error] description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];

@@ -11,9 +11,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	backBtn.hidden = YES;
-	self.title = @"Main menu";
 }
-
+- (void) viewWillDisappear:(BOOL)animated {
+	self.title = @"Back";
+}
 - (IBAction) recordMovieAction: (id) sender {
 	ChooseVideoSourceVC* cvvc = [[ChooseVideoSourceVC alloc] init];
 	[self.navigationController pushViewController:cvvc animated:YES];
@@ -92,6 +93,7 @@
 - (void)viewWillAppear: (BOOL) animated {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden = YES;
+	self.title = @"Main menu";
 }
 - (void)dealloc {
     [super dealloc];
