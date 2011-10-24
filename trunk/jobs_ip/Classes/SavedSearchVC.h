@@ -4,14 +4,12 @@
 #import "CXMLDocument.h"
 
 @interface SavedSearchVC : VCBase <UISearchBarDelegate, ASIHTTPRequestDelegate, UITableViewDataSource, UITableViewDelegate> {
-	IBOutlet UIButton* cancelBtn;
 	IBOutlet UISearchBar* keywordSearchBar;
 	IBOutlet UISearchBar* locationSearchBar;
 	IBOutlet UITableView* tableView;
 	CXMLDocument* savedSearchesDoc;
 }
 
-@property (nonatomic, retain) IBOutlet UIButton* cancelBtn;
 @property (nonatomic, retain) IBOutlet UISearchBar* keywordSearchBar;
 @property (nonatomic, retain) IBOutlet UISearchBar* locationSearchBar;
 @property (nonatomic, retain) IBOutlet UITableView* tableView;

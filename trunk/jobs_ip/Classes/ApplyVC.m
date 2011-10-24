@@ -13,14 +13,12 @@
     }
     return self;
 }
-
 - (void)applyAction: (id) sender {
 	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Are you sure you want to apply for this job?" delegate:self 
 										  cancelButtonTitle:@"Cancel" otherButtonTitles:@"YES", nil];
 	[alert show];
 	[alert release];
 }
-
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 0) {
 		[alertView dismissWithClickedButtonIndex:0 animated:YES];
@@ -34,7 +32,6 @@
 	[request setDelegate:self];
 	[request startAsynchronous];
 }
-
 - (void)requestFinished:(ASIHTTPRequest *)request {
 	NSString* responseString = [request responseString];
 	if ([responseString rangeOfString:@"ApplicationSent"].location != NSNotFound) {
@@ -48,19 +45,26 @@
 		[alert release];
 	}
 }
-
 - (void)requestFailed:(ASIHTTPRequest *)request {
 	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[[request error] localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	[alert show];
 	[alert release];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	self.navigationController.navigationBarHidden = NO;
+}
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	self.navigationController.navigationBarHidden = YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 	backBtn.hidden = YES;
 	textView.placeholder = @"cover letter (optional)";
+	self.title = @"apply";
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"send application" style:UIBarStyleDefault target:self action:@selector(applyAction:)];
 }
-
 - (void)dealloc {
     [super dealloc];
 	[textView release];

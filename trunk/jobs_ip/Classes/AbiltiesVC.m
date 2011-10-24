@@ -34,6 +34,7 @@
 	if (atvc->recheckStatusFlag) {
 		[atvc recheckStatus];
 	}
+	self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)dealloc {

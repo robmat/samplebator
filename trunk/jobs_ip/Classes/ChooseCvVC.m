@@ -14,11 +14,9 @@
     }
     return self;
 }
-
 - (void)enableNext {
-	nextBtn.hidden = NO;
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarStyleDefault target:self action:@selector(nextAction:)];
 }
-
 - (void)nextAction: (id) sender {
 	ApplyVC* avc = [[ApplyVC alloc] init];
 	[self.navigationController pushViewController:avc animated:YES];
@@ -31,7 +29,14 @@
 	avc.jobId = jobId;
 	[avc release];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	self.navigationController.navigationBarHidden = NO;
+}
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	self.navigationController.navigationBarHidden = YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[self hideBackBtn];
@@ -41,7 +46,6 @@
 	tableVC.parentVC = self;
 	[tableVC viewDidLoad];
 }
-
 - (void)dealloc {
     [super dealloc];
 	[jobTitleLbl release];
