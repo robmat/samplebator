@@ -20,8 +20,11 @@
 	backBtn.frame = CGRectMake(9, 8, 58, 29);
 	[backBtn setBackgroundImage:[UIImage imageNamed:@"back_btn.png"] forState:UIControlStateNormal];
 	[backBtn addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
-	[self.view addSubview:backBtn];
+	//[self.view addSubview:backBtn];
 	[self setUpTabButtons];
+	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+	self.navigationItem.backBarButtonItem = backButton;
+	[backButton release];
 }
 - (void)setUpTabButtons {
 	tabMainMenuBtn = [[UIButton buttonWithType:UIButtonTypeCustom] retain];

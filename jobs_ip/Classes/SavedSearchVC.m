@@ -7,7 +7,7 @@
 
 @implementation SavedSearchVC
 
-@synthesize cancelBtn, keywordSearchBar, locationSearchBar, tableView;
+@synthesize keywordSearchBar, locationSearchBar, tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -15,8 +15,9 @@
     }
     return self;
 }
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-	cancelBtn.hidden = NO;
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+	[searchBar resignFirstResponder];
+	[searchBar setText:@""];
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
 	NSString* urlStr = @"http://jobstelecom.com/development/wsapi/mobile/advancedsearch";
@@ -105,12 +106,20 @@
 - (void)cancelAction: (id) sender {
 	[keywordSearchBar resignFirstResponder];
 	[locationSearchBar resignFirstResponder];
-	cancelBtn.hidden = YES;
 }
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	self.navigationController.navigationBarHidden = NO;
+}
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	self.navigationController.navigationBarHidden = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[self hideBackBtn];
-	cancelBtn.hidden = YES;
+	self.title = @"Saved searches";
 	[[keywordSearchBar.subviews objectAtIndex:0] removeFromSuperview];
 	[[locationSearchBar.subviews objectAtIndex:0] removeFromSuperview];
 	tableView.backgroundColor = [UIColor clearColor];
@@ -121,7 +130,6 @@
 }
 - (void)dealloc {
     [super dealloc];
-	[cancelBtn release];
 	[keywordSearchBar release];
 	[locationSearchBar release];
 	[tableView release];

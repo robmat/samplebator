@@ -123,6 +123,16 @@
 	backBtn.hidden = YES;
 	[tableView setBackgroundColor:[UIColor clearColor]];
 	refineParams = [[NSMutableDictionary alloc] init];
+	self.title = @"Refine";
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Search" style:UIBarStyleDefault target:self action:@selector(searchAction:)];
+}
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	self.navigationController.navigationBarHidden = NO;
+}
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	self.navigationController.navigationBarHidden = YES;
 }
 - (void)dealloc {
     [super dealloc];

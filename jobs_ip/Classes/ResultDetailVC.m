@@ -16,7 +16,6 @@
     }
     return self;
 }
-
 - (void)applyAction: (id) sender {
 	ASIHTTPRequest* req = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://jobstelecom.com/development/wsapi/mobile/listcvs"]];
 	[req setRequestMethod:@"POST"];
@@ -35,7 +34,6 @@
 		[ncuvc release];
 	}
 }
-
 - (void)requestFinished:(ASIHTTPRequest *)request {
 	CXMLDocument* xmlDoc = [[CXMLDocument alloc] initWithData:[request responseData] options:0 error:nil];
 	CXMLElement* titleElem = [[xmlDoc nodesForXPath:@"/Job/JobTitle" error:nil] objectAtIndex:0];
@@ -52,13 +50,19 @@
 	detailHTML = [NSString stringWithFormat:@"<html><head><style>body { font-family: 'Helvetica'; }</style></head><body>%@</body></html>", detailHTML];
 	[self.descriptionTxt loadHTMLString:detailHTML baseURL: [NSURL URLWithString:@"http://fake.net"]];
 }
-
 - (void)requestFailed:(ASIHTTPRequest *)request {
 	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[[request error] localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	[alert show];
 	[alert release];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	self.navigationController.navigationBarHidden = NO;
+}
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	self.navigationController.navigationBarHidden = YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[self hideBackBtn];
@@ -73,9 +77,9 @@
 			((UIScrollView *)subview).bounces = NO;
 		}
 	}
-	
+	self.title = @"job detail";
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarStyleDefault target:self action:@selector(applyAction:)];
 }
-
 - (void)dealloc {
     [super dealloc];
 	[jobTitleTxt release];

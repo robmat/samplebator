@@ -25,7 +25,10 @@
 	[req setDelegate:self];
 	[req startAsynchronous];
 }
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	[self loginAction:textField];
+	return NO;
+}
 - (void)requestFinished:(ASIHTTPRequest *)request {
 	CXMLDocument* doc = [[CXMLDocument alloc] initWithData:[request responseData] options:0 error:nil];
 	CXMLElement* loggedIn = [[doc nodesForXPath:@"/LoginAPI/LoggedIn" error:nil] objectAtIndex:0];
@@ -43,26 +46,31 @@
 		[alert release];
 	}
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	self.navigationController.navigationBarHidden = NO;
+}
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	self.navigationController.navigationBarHidden = YES;
+}
 - (void)requestFailed:(ASIHTTPRequest *)request {
 	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[[request error] localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	[alert show];
 	[alert release];
 }
-
 - (void)registerAction: (id) sender {
 
 }
-
 - (void)forgotAction: (id) sender {
 
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[self hideBackBtn];
+	self.title = @"";
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Register" style:UIBarStyleDefault target:self action:@selector(registerAction:)];
 }
-
 - (void)dealloc {
     [super dealloc];
 	[passwTxt release];
