@@ -53,17 +53,13 @@
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden = NO;
-}
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-	self.navigationController.navigationBarHidden = YES;
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"send application" style:UIBarStyleDefault target:self action:@selector(applyAction:)];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
 	backBtn.hidden = YES;
 	textView.placeholder = @"cover letter (optional)";
 	self.title = @"apply";
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"send application" style:UIBarStyleDefault target:self action:@selector(applyAction:)];
 }
 - (void)dealloc {
     [super dealloc];

@@ -26,6 +26,10 @@
 	[self.navigationController pushViewController:mfjvc animated:YES];
 	[mfjvc release];
 }
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	self.navigationController.navigationBarHidden = YES;
+}
 - (IBAction)applicationsAction {
 }
 - (IBAction)myProfileAction {
