@@ -16,10 +16,10 @@
 		avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
 		[avPlayer play];
 	}
-	backBtn = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-	backBtn.frame = CGRectMake(9, 8, 58, 29);
-	[backBtn setBackgroundImage:[UIImage imageNamed:@"back_btn.png"] forState:UIControlStateNormal];
-	[backBtn addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
+	//backBtn = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+	//backBtn.frame = CGRectMake(9, 8, 58, 29);
+	//[backBtn setBackgroundImage:[UIImage imageNamed:@"back_btn.png"] forState:UIControlStateNormal];
+	//[backBtn addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
 	//[self.view addSubview:backBtn];
 	[self setUpTabButtons];
 	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -28,7 +28,7 @@
 }
 - (void)setUpTabButtons {
 	tabMainMenuBtn = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-	tabMainMenuBtn.frame = CGRectMake(8, 418, 45, 37);
+	tabMainMenuBtn.frame = CGRectMake(8, 388, 45, 37);
 	[tabMainMenuBtn addTarget:self action:@selector(tabAction:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:tabMainMenuBtn];
 }

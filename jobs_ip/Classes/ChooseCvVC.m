@@ -33,13 +33,10 @@
 	[super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden = NO;
 }
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-	self.navigationController.navigationBarHidden = YES;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[self hideBackBtn];
+	self.title = @"Choose CV";
 	tableVC = [[ChooseCvTVC alloc] initWithStyle:UITableViewStylePlain];
 	tableVC.navCntrl = self.navigationController;
 	tableVC.tableView = tableView;
@@ -52,6 +49,7 @@
 	[tableView release];
 	[jobId release];
 	[nextBtn release];
+	[tableVC release];
 }
 
 @end
