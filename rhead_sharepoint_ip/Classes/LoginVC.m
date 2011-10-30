@@ -14,13 +14,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.title = @"Login";
+	self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title_image.png"]];
+	backBtn.hidden = YES;
 }
 - (IBAction) accountsAction: (id) sender {
 	AccountsVC* avc = [[AccountsVC alloc] init];
 	[self.navigationController pushViewController:avc animated:YES];
 	[avc release];
 }
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+	[self animateView:self.view up:YES distance:70];
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+	[self animateView:self.view up:NO distance:70];
+}
+- (void)viewWillAppear:(BOOL)animated {
+	self.navigationController.navigationBarHidden = NO;
+} 
 - (IBAction) loginAction:(id) sender {
 	if ([loginTxt.text length] == 0 || [passwTxt.text length] == 0 || [domainTxt.text length] == 0) {
 		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
