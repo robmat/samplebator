@@ -16,7 +16,14 @@
 	tableVC.tableView = tableView;
 	tableVC.navCntrl = self.navigationController;
 	[tableVC viewDidLoad];
-	//tableView.hidden = YES;
+	self.navigationController.navigationBarHidden = NO;
+	backBtn.hidden = YES;
+	NSDictionary* loginDict = [NSDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate loginDictPath]];
+	NSString* domain = [loginDict objectForKey:@"domain"];
+	domain = [domain stringByReplacingOccurrencesOfString:@"https://" withString:@""];
+	domain = [domain stringByReplacingOccurrencesOfString:@"http://" withString:@""];
+	domain = [domain stringByReplacingOccurrencesOfString:@"www." withString:@""];
+	self.title = domain;
 }
 - (IBAction) presentationsAction: (id) sender {
 	[self defaultListItemclickAction:@"Presetation"];
@@ -57,7 +64,6 @@
 	NSLog(@"%@", [doc description]);
 	NSArray* listsNodes = [doc nodesForXPath:@"/Envelope/Body/GetListItemsResponse/GetListItemsResult/listitems/data/row" error:nil];
 	NSMutableDictionary* listDict = [NSMutableDictionary dictionary];
-	//NSString* nameAttrName = [listTitleToUrlAttributeName objectForKey:selectedRowTitle] == nil ? @"ows_EncodedAbsUrl" : [listTitleToUrlAttributeName objectForKey:selectedRowTitle];
 	for (CXMLElement* listNode in listsNodes) {
 		CXMLNode* titleAttr = [listNode attributeForName:@"ows_Title"];
 		CXMLNode* nameAttr = [listNode attributeForName:@"ows_EncodedAbsUrl"];

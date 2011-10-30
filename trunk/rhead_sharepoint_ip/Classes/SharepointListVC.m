@@ -3,7 +3,7 @@
 
 @implementation SharepointListVC
 
-@synthesize tableView, sltvc, listsData;
+@synthesize tableView, sltvc, listsData, datesData;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -19,6 +19,7 @@
 	[tableView release];
 	[sltvc release];
 	[listsData release];
+	[datesData release];
 }
 
 @end

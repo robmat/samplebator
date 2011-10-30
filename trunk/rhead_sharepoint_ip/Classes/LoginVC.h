@@ -2,7 +2,7 @@
 #import "ASIHTTPRequestDelegate.h"
 #import "VCBase.h"
 
-@interface LoginVC : VCBase <ASIHTTPRequestDelegate> {
+@interface LoginVC : VCBase <ASIHTTPRequestDelegate, UITextFieldDelegate> {
 
 	IBOutlet UITextField* loginTxt;
 	IBOutlet UITextField* passwTxt;

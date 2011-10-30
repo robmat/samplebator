@@ -66,20 +66,36 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 334605988;
-			PBXWorkspaceStateSaveDate = 334605988;
+			PBXPerProjectTemplateStateSaveDate = 341661735;
+			PBXWorkspaceStateSaveDate = 341661735;
 		};
 		perUserProjectItems = {
+			E14C593B145D58C100DE2B09 /* PBXTextBookmark */ = E14C593B145D58C100DE2B09 /* PBXTextBookmark */;
+			E14C593C145D58C100DE2B09 /* PBXTextBookmark */ = E14C593C145D58C100DE2B09 /* PBXTextBookmark */;
+			E14C593D145D58C100DE2B09 /* PBXTextBookmark */ = E14C593D145D58C100DE2B09 /* PBXTextBookmark */;
+			E14C593E145D58C100DE2B09 /* PBXTextBookmark */ = E14C593E145D58C100DE2B09 /* PBXTextBookmark */;
 			E1D6F12A13F1ADB700F3661F /* PBXTextBookmark */ = E1D6F12A13F1ADB700F3661F /* PBXTextBookmark */;
 			E1D6F12B13F1ADB700F3661F /* PBXTextBookmark */ = E1D6F12B13F1ADB700F3661F /* PBXTextBookmark */;
 			E1D6F12E13F1ADB700F3661F /* PBXTextBookmark */ = E1D6F12E13F1ADB700F3661F /* PBXTextBookmark */;
 			E1D6F13013F1ADB700F3661F /* PBXTextBookmark */ = E1D6F13013F1ADB700F3661F /* PBXTextBookmark */;
 			E1D6F2B513F1B16C00F3661F /* PBXTextBookmark */ = E1D6F2B513F1B16C00F3661F /* PBXTextBookmark */;
-			E1D6F2B613F1B16C00F3661F /* PBXTextBookmark */ = E1D6F2B613F1B16C00F3661F /* PBXTextBookmark */;
-			E1D6F2CC13F1B2F700F3661F /* PBXTextBookmark */ = E1D6F2CC13F1B2F700F3661F /* PBXTextBookmark */;
 		};
 		sourceControlManager = E1D6F0C013F1A54400F3661F /* Source Control */;
 		userBuildSettings = {
+		};
+	};
+	CE6580F1138ECB2A00DE1F01 /* LogScreenViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1069, 3549}}";
+			sepNavSelRange = "{9637, 16}";
+			sepNavVisRange = "{9015, 1266}";
+		};
+	};
+	CE6760261392508200944CD4 /* SetReminderViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {789, 1521}}";
+			sepNavSelRange = "{3574, 16}";
+			sepNavVisRange = "{3228, 455}";
 		};
 	};
 	CE6CF692137E83D800BB69CB /* PathwayCell.h */ = {
@@ -119,10 +135,47 @@
 	};
 	CE7130A31378504C00B95FA0 /* TableViewControllerWrapper.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {768, 455}}";
+			sepNavIntBoundsRect = "{{0, 0}, {768, 442}}";
 			sepNavSelRange = "{285, 0}";
-			sepNavVisRange = "{0, 638}";
+			sepNavVisRange = "{0, 679}";
 		};
+	};
+	E14C593B145D58C100DE2B09 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CE7130A31378504C00B95FA0 /* TableViewControllerWrapper.m */;
+		name = "TableViewControllerWrapper.m: 13";
+		rLen = 0;
+		rLoc = 285;
+		rType = 0;
+		vrLen = 679;
+		vrLoc = 0;
+	};
+	E14C593C145D58C100DE2B09 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CE6580F1138ECB2A00DE1F01 /* LogScreenViewController.m */;
+		name = "LogScreenViewController.m: 234";
+		rLen = 16;
+		rLoc = 9637;
+		rType = 0;
+		vrLen = 1266;
+		vrLoc = 9015;
+	};
+	E14C593D145D58C100DE2B09 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CE6760261392508200944CD4 /* SetReminderViewController.m */;
+		rLen = 16;
+		rLoc = 3405;
+		rType = 0;
+	};
+	E14C593E145D58C100DE2B09 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CE6760261392508200944CD4 /* SetReminderViewController.m */;
+		name = "SetReminderViewController.m: 98";
+		rLen = 0;
+		rLoc = 3662;
+		rType = 0;
+		vrLen = 1025;
+		vrLoc = 3228;
 	};
 	E1D6F0B213F1A53D00F3661F /* smart_gp_ip */ = {
 		isa = PBXExecutable;
@@ -225,7 +278,7 @@
 		lineNumber = 13;
 		modificationTime = 334607093.213485;
 		originalNumberOfMultipleMatches = 1;
-		state = 1;
+		state = 0;
 	};
 	E1D6F2B513F1B16C00F3661F /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -236,25 +289,5 @@
 		rType = 0;
 		vrLen = 1110;
 		vrLoc = 105;
-	};
-	E1D6F2B613F1B16C00F3661F /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = CE7130A31378504C00B95FA0 /* TableViewControllerWrapper.m */;
-		name = "TableViewControllerWrapper.m: 13";
-		rLen = 0;
-		rLoc = 285;
-		rType = 0;
-		vrLen = 679;
-		vrLoc = 0;
-	};
-	E1D6F2CC13F1B2F700F3661F /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = CE7130A31378504C00B95FA0 /* TableViewControllerWrapper.m */;
-		name = "TableViewControllerWrapper.m: 13";
-		rLen = 0;
-		rLoc = 285;
-		rType = 0;
-		vrLen = 679;
-		vrLoc = 0;
 	};
 }

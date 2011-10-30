@@ -5,7 +5,6 @@
 	NSMutableDictionary* listsData;
 	NSArray* keysArr;
 	NSMutableDictionary* listTitleToImageNameMap;
-	/*NSMutableDictionary* listTitleToUrlAttributeName;*/
 	NSString* selectedRowTitle;
 	UINavigationController* navCntrl;
 }

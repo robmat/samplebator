@@ -14,30 +14,13 @@
 	self.keysArr = [listsData allKeys];
 	listTitleToImageNameMap = [[NSMutableDictionary alloc] init];
 	[listTitleToImageNameMap setObject:@"calendar" forKey:@"Calendar"];
-	//[listTitleToImageNameMap setObject:@"calendar" forKey:@"Links"];
 	[listTitleToImageNameMap setObject:@"project_reports" forKey:@"Project Reports"];
 	[listTitleToImageNameMap setObject:@"tasks" forKey:@"Tasks"];
-	//[listTitleToImageNameMap setObject:@"calendar" forKey:@"Announcements"];
 	[listTitleToImageNameMap setObject:@"site_photos" forKey:@"Site Progress Photos"];
 	[listTitleToImageNameMap setObject:@"team_discusion" forKey:@"Team Discussion"];
 	[listTitleToImageNameMap setObject:@"presentations" forKey:@"Presentations"];
 	[listTitleToImageNameMap setObject:@"project_documents" forKey:@"Project Documents"];
-	//[listTitleToImageNameMap setObject:@"calendar" forKey:@"Master Page Gallery"];
 	[listTitleToImageNameMap setObject:@"shared_documents" forKey:@"Shared Documents"];
-	/*
-	listTitleToUrlAttributeName = [[NSMutableDictionary alloc] init];
-	[listTitleToUrlAttributeName setObject:@"ows_EncodedAbsUrl" forKey:@"Site Progress Photos"];
-	[listTitleToUrlAttributeName setObject:@"ows_EncodedAbsUrl" forKey:@"Master Page Gallery"];
-	[listTitleToUrlAttributeName setObject:@"ows_EncodedAbsUrl" forKey:@"Announcements"];
-	[listTitleToUrlAttributeName setObject:@"ows_EncodedAbsUrl" forKey:@"Calendar"];
-	[listTitleToUrlAttributeName setObject:@"ows_EncodedAbsUrl" forKey:@"Tasks"];
-	[listTitleToUrlAttributeName setObject:@"ows_EncodedAbsUrl" forKey:@"Shared Documents"];
-	[listTitleToUrlAttributeName setObject:@"ows_EncodedAbsUrl" forKey:@"Project Documents"];
-	[listTitleToUrlAttributeName setObject:@"ows_EncodedAbsUrl" forKey:@"Presentations"];
-	[listTitleToUrlAttributeName setObject:@"ows_EncodedAbsUrl" forKey:@"Project Reports"];
-	[listTitleToUrlAttributeName setObject:@"ows_EncodedAbsUrl" forKey:@"Team Discussion"];
-	[listTitleToUrlAttributeName setObject:@"ows_EncodedAbsUrl" forKey:@"Links"];
-	 */
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -100,16 +83,22 @@
 	NSLog(@"%@", [doc description]);
 	NSArray* listsNodes = [doc nodesForXPath:@"/Envelope/Body/GetListItemsResponse/GetListItemsResult/listitems/data/row" error:nil];
 	NSMutableDictionary* listDict = [NSMutableDictionary dictionary];
+	NSMutableDictionary* dateDict = [NSMutableDictionary dictionary];
 	//NSString* nameAttrName = [listTitleToUrlAttributeName objectForKey:selectedRowTitle] == nil ? @"ows_EncodedAbsUrl" : [listTitleToUrlAttributeName objectForKey:selectedRowTitle];
 	for (CXMLElement* listNode in listsNodes) {
 		CXMLNode* titleAttr = [listNode attributeForName:@"ows_Title"];
 		CXMLNode* nameAttr = [listNode attributeForName:@"ows_EncodedAbsUrl"];
+		CXMLNode* dateAttr = [listNode attributeForName:@"ows_Created"];
 		if (nameAttr != nil && titleAttr != nil) {
 			[listDict setObject:[titleAttr stringValue] forKey:[nameAttr stringValue]];
+		}
+		if (nameAttr != nil && dateAttr != nil) {
+			[dateDict setObject:[dateAttr stringValue] forKey:[nameAttr stringValue]];
 		}
 	}
 	SharepointListVC* slvc = [[SharepointListVC alloc] initWithNibName:nil bundle:nil];
 	slvc.listsData = listDict;
+	slvc.datesData = dateDict;
 	[self.navCntrl pushViewController:slvc animated:YES];
 	[slvc release];
 }
@@ -128,7 +117,6 @@
 	[listsData release];
 	[keysArr release];
 	[listTitleToImageNameMap release];
-	/*[listTitleToUrlAttributeName release];*/
 	[selectedRowTitle release];
 	[navCntrl release];
 }
