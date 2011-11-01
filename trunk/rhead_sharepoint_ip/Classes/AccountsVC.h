@@ -1,6 +1,8 @@
 #import <UIKit/UIKit.h>
+#import "VCBase.h"
+#import "ASIHTTPRequest.h"
 
-@interface AccountsVC : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface AccountsVC : VCBase <UITableViewDelegate, UITableViewDataSource> {
 	
 	NSArray* accounts;
 	IBOutlet UITableView* tableView;
@@ -12,16 +14,16 @@
 
 @end
 
-@interface AccountTVC : UITableViewCell <UIActionSheetDelegate> {
+@interface AccountTVC : UITableViewCell <UIActionSheetDelegate, ASIHTTPRequestDelegate> {
 	
 	IBOutlet UILabel* titleLbl;
 	UIViewController* delegate;
-	
+	UINavigationController* navigationController;
 }
 
 @property (nonatomic,retain) IBOutlet UILabel* titleLbl;
 @property (nonatomic,retain) UIViewController* delegate;
-
+@property (nonatomic,retain) UINavigationController* navigationController;
 
 - (void)delAction: (id) sender;
 - (void)goAction: (id) sender;

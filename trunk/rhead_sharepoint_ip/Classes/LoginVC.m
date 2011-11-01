@@ -16,6 +16,7 @@
     [super viewDidLoad];
 	self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title_image.png"]];
 	backBtn.hidden = YES;
+	[self setUpTabBarButtons];
 }
 - (IBAction) accountsAction: (id) sender {
 	AccountsVC* avc = [[AccountsVC alloc] init];

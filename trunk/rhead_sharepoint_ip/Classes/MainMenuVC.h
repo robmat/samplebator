@@ -5,6 +5,9 @@
 
 }
 
-- (void) loginAction:(id) sender;
+- (IBAction)loginAction:(id) sender;
+- (IBAction)servAction:(id) sender;
+- (IBAction)contactAction:(id) sender;
+- (IBAction)appInfoAction:(id) sender;
 
 @end

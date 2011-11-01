@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="16"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -63,7 +63,7 @@
 					<object class="IBUIImageView" id="121844941">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{0, 371}, {320, 46}}</string>
+						<string key="NSFrame">{{0, 372}, {320, 46}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -76,7 +76,7 @@
 					<object class="IBUIImageView" id="560028569">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrameSize">{320, 372}</string>
+						<string key="NSFrameSize">{320, 374}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -248,9 +248,9 @@
 							<reference ref="533280537"/>
 							<reference ref="416956938"/>
 							<reference ref="111802590"/>
-							<reference ref="560028569"/>
 							<reference ref="46473046"/>
 							<reference ref="1068835837"/>
+							<reference ref="560028569"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -341,7 +341,7 @@
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAAAAAAAAw86AAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAAAAAAAAw7kAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
@@ -692,7 +692,7 @@
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{319, 45}</string>
+				<string>{320, 42}</string>
 				<string>{375, 444}</string>
 			</object>
 		</object>

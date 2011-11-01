@@ -98,7 +98,7 @@
 	}
 	SharepointListVC* slvc = [[SharepointListVC alloc] initWithNibName:nil bundle:nil];
 	slvc.listsData = listDict;
-	slvc.datesData = dateDict;
+	slvc.currentFolder = [NSString stringWithFormat:@"/%@/", selectedRowTitle];
 	[self.navCntrl pushViewController:slvc animated:YES];
 	[slvc release];
 }
