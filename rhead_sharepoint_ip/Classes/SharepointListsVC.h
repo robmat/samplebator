@@ -8,6 +8,8 @@
 	SharepointListsTVC* tableVC;
 	NSMutableDictionary* listsData;
 	NSMutableDictionary* titletoNameDict;
+	NSString* categoryPressed;
+	NSString* myListName;
 }
 
 @property (nonatomic,retain) IBOutlet UITableView* tableView;

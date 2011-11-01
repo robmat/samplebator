@@ -12,7 +12,7 @@
 	  </viewFields>
       <rowLimit>%@</rowLimit>
       <queryOptions>
-        <QueryOptions/>
+        <QueryOptions>%@</QueryOptions>
 	  </queryOptions>
       <webID></webID>
     </GetListItems>

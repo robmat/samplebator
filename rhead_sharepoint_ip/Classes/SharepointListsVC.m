@@ -18,12 +18,20 @@
 	[tableVC viewDidLoad];
 	self.navigationController.navigationBarHidden = NO;
 	backBtn.hidden = YES;
+	[self setUpTabBarButtons];
+}
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
 	NSDictionary* loginDict = [NSDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate loginDictPath]];
 	NSString* domain = [loginDict objectForKey:@"domain"];
 	domain = [domain stringByReplacingOccurrencesOfString:@"https://" withString:@""];
 	domain = [domain stringByReplacingOccurrencesOfString:@"http://" withString:@""];
 	domain = [domain stringByReplacingOccurrencesOfString:@"www." withString:@""];
 	self.title = domain;
+}
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	self.title = @"Back";
 }
 - (IBAction) presentationsAction: (id) sender {
 	[self defaultListItemclickAction:@"Presetation"];
@@ -38,6 +46,7 @@
 	[self defaultListItemclickAction:@"Project Documents"];
 }
 - (void) defaultListItemclickAction: (NSString*) actionStr {
+	categoryPressed = actionStr;
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	NSDictionary* loginDict = [NSDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate loginDictPath]];
 	NSString* domain = [loginDict objectForKey:@"domain"];
@@ -50,7 +59,8 @@
 												   encoding: NSUTF8StringEncoding 
 													  error:nil];
 	NSString* nameStr = [titletoNameDict objectForKey:actionStr];
-	envelope = [NSString stringWithFormat:envelope, nameStr, @"99999"];
+	envelope = [NSString stringWithFormat:envelope, nameStr, @"99999", @""];
+	myListName = nameStr;
 	SoapRequest* soapReq = [[SoapRequest alloc] initWithUrl:url 
 												   username:login 
 												   password:password 
@@ -65,14 +75,37 @@
 	NSArray* listsNodes = [doc nodesForXPath:@"/Envelope/Body/GetListItemsResponse/GetListItemsResult/listitems/data/row" error:nil];
 	NSMutableDictionary* listDict = [NSMutableDictionary dictionary];
 	for (CXMLElement* listNode in listsNodes) {
-		CXMLNode* titleAttr = [listNode attributeForName:@"ows_Title"];
 		CXMLNode* nameAttr = [listNode attributeForName:@"ows_EncodedAbsUrl"];
-		if (nameAttr != nil && titleAttr != nil) {
-			[listDict setObject:[titleAttr stringValue] forKey:[nameAttr stringValue]];
+		CXMLNode* dateCreatedAttr = [listNode attributeForName:@"ows_Created"];
+		CXMLNode* dateModifiedAttr = [listNode attributeForName:@"ows_Modified"];
+		CXMLNode* titleAttr = [listNode attributeForName:@"ows_Title"];
+		CXMLNode* contentAttr = [listNode attributeForName:@"ows_ContentType"];
+		if (titleAttr == nil) {
+			titleAttr = [listNode attributeForName:@"ows_LinkFilename"];
 		}
+		NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+		if ([titleAttr stringValue]) {
+			[dict setObject:[titleAttr stringValue] forKey:@"ows_Title"];
+		}
+		if ([nameAttr stringValue]) {
+			[dict setObject:[nameAttr stringValue] forKey:@"ows_EncodedAbsUrl"];
+		}
+		if ([dateCreatedAttr stringValue]) {
+			[dict setObject:[dateCreatedAttr stringValue] forKey:@"ows_Created"];
+		}
+		if ([dateModifiedAttr stringValue]) {
+			[dict setObject:[dateModifiedAttr stringValue] forKey:@"ows_Modified"];
+		}
+		if ([contentAttr stringValue]) {
+			[dict setObject:[contentAttr stringValue] forKey:@"ows_ContentType"];
+		}
+		[listDict setObject:dict forKey:[nameAttr stringValue]];
 	}
 	SharepointListVC* slvc = [[SharepointListVC alloc] initWithNibName:nil bundle:nil];
 	slvc.listsData = listDict;
+	slvc.title = categoryPressed;
+	slvc.myListName = myListName;
+	slvc.currentFolder = [NSString stringWithFormat:@"%@/", categoryPressed];
 	[self.navigationController pushViewController:slvc animated:YES];
 	[slvc release];
 }
@@ -88,6 +121,8 @@
 	[tableVC release];
 	[listsData release];
 	[titletoNameDict release];
+	[categoryPressed release];
+	[myListName release];
 }
 
 @end
