@@ -50,6 +50,10 @@
 		E184AD5C140D47AB004EBF5A /* MainMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E184AD5A140D47AB004EBF5A /* MainMenuVC.xib */; };
 		E184AD60140D47E8004EBF5A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E184AD5F140D47E8004EBF5A /* AVFoundation.framework */; };
 		E184ADA1140D4949004EBF5A /* splash2.png in Resources */ = {isa = PBXBuildFile; fileRef = E184ADA0140D4949004EBF5A /* splash2.png */; };
+		E18AD8D9146ADD7F000ACB4F /* iphone4-add-account.png in Resources */ = {isa = PBXBuildFile; fileRef = E18AD8D7146ADD7F000ACB4F /* iphone4-add-account.png */; };
+		E18AD8DA146ADD7F000ACB4F /* iphone4-viewaccount.png in Resources */ = {isa = PBXBuildFile; fileRef = E18AD8D8146ADD7F000ACB4F /* iphone4-viewaccount.png */; };
+		E18AD8DC146AE8E6000ACB4F /* AccountTVCLand.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18AD8DB146AE8E6000ACB4F /* AccountTVCLand.xib */; };
+		E18AD8DE146AEB26000ACB4F /* account_item_back_land.png in Resources */ = {isa = PBXBuildFile; fileRef = E18AD8DD146AEB26000ACB4F /* account_item_back_land.png */; };
 		E18EB17B1469ACA0004C979C /* blank_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = E18EB17A1469ACA0004C979C /* blank_bar.png */; };
 		E18F3CA3145461CB00DC83D7 /* AccountsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E18F3CA1145461CB00DC83D7 /* AccountsVC.m */; };
 		E18F3CA4145461CB00DC83D7 /* AccountsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18F3CA2145461CB00DC83D7 /* AccountsVC.xib */; };
@@ -164,6 +168,10 @@
 		E184AD5A140D47AB004EBF5A /* MainMenuVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenuVC.xib; sourceTree = "<group>"; };
 		E184AD5F140D47E8004EBF5A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E184ADA0140D4949004EBF5A /* splash2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash2.png; path = img/splash2.png; sourceTree = "<group>"; };
+		E18AD8D7146ADD7F000ACB4F /* iphone4-add-account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone4-add-account.png"; path = "img/iphone4-add-account.png"; sourceTree = "<group>"; };
+		E18AD8D8146ADD7F000ACB4F /* iphone4-viewaccount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone4-viewaccount.png"; path = "img/iphone4-viewaccount.png"; sourceTree = "<group>"; };
+		E18AD8DB146AE8E6000ACB4F /* AccountTVCLand.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountTVCLand.xib; sourceTree = "<group>"; };
+		E18AD8DD146AEB26000ACB4F /* account_item_back_land.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = account_item_back_land.png; path = img/account_item_back_land.png; sourceTree = "<group>"; };
 		E18EB17A1469ACA0004C979C /* blank_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blank_bar.png; path = img/blank_bar.png; sourceTree = "<group>"; };
 		E18F3CA0145461CB00DC83D7 /* AccountsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsVC.h; sourceTree = "<group>"; };
 		E18F3CA1145461CB00DC83D7 /* AccountsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsVC.m; sourceTree = "<group>"; };
@@ -277,6 +285,7 @@
 				E18F3CA1145461CB00DC83D7 /* AccountsVC.m */,
 				E18F3CA2145461CB00DC83D7 /* AccountsVC.xib */,
 				E14C58BA145D4C9300DE2B09 /* AccountTVC.xib */,
+				E18AD8DB146AE8E6000ACB4F /* AccountTVCLand.xib */,
 				E1A19189145F0BED006D6DA1 /* ServicesVC.h */,
 				E1A1918A145F0BED006D6DA1 /* ServicesVC.m */,
 				E1A1918B145F0BED006D6DA1 /* ServicesVC.xib */,
@@ -406,6 +415,9 @@
 		E184AD49140D45F5004EBF5A /* img */ = {
 			isa = PBXGroup;
 			children = (
+				E18AD8DD146AEB26000ACB4F /* account_item_back_land.png */,
+				E18AD8D7146ADD7F000ACB4F /* iphone4-add-account.png */,
+				E18AD8D8146ADD7F000ACB4F /* iphone4-viewaccount.png */,
 				E18EB17A1469ACA0004C979C /* blank_bar.png */,
 				E1A1919E145F0F1D006D6DA1 /* foldericon.png */,
 				E1A19194145F0DD9006D6DA1 /* about_screen.png */,
@@ -544,6 +556,10 @@
 				E1A191CB145F1259006D6DA1 /* AppInfoVC.xib in Resources */,
 				E1811752145FF0DA005ADAD5 /* contact.html in Resources */,
 				E18EB17B1469ACA0004C979C /* blank_bar.png in Resources */,
+				E18AD8D9146ADD7F000ACB4F /* iphone4-add-account.png in Resources */,
+				E18AD8DA146ADD7F000ACB4F /* iphone4-viewaccount.png in Resources */,
+				E18AD8DC146AE8E6000ACB4F /* AccountTVCLand.xib in Resources */,
+				E18AD8DE146AEB26000ACB4F /* account_item_back_land.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

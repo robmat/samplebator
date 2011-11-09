@@ -6,11 +6,14 @@
 	
 	NSArray* accounts;
 	IBOutlet UITableView* tableView;
-	
+	IBOutlet UIImageView* blankBottomBar;
 }
 
 @property(nonatomic,retain) NSArray* accounts;
 @property(nonatomic,retain) IBOutlet UITableView* tableView;
+@property(nonatomic,retain) IBOutlet UIImageView* blankBottomBar;
+
+- (void)setUpViewByOrientation: (UIInterfaceOrientation)toInterfaceOrientation;
 
 @end
 

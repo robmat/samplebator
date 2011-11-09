@@ -10,7 +10,7 @@
 
 @implementation LoginVC
 
-@synthesize loginTxt, passwTxt, domainTxt;
+@synthesize loginTxt, passwTxt, domainTxt, titleTxt;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,16 +42,20 @@
     [loginTxt resignFirstResponder];
     [passwTxt resignFirstResponder];
     [domainTxt resignFirstResponder];
+    [titleTxt resignFirstResponder];
 }
 - (IBAction) loginAction:(id) sender {
-	if ([loginTxt.text length] == 0 || [passwTxt.text length] == 0 || [domainTxt.text length] == 0) {
+	if ([loginTxt.text length] == 0 || [passwTxt.text length] == 0 || [domainTxt.text length] == 0 || [titleTxt.text length] == 0) {
 		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-														message:@"Please provide login, password and domain." 
+														message:@"Please provide login, password, domain and title." 
 													   delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 		[alert show];
 		[alert release];
 	} else {
-		NSDictionary* loginDict = [NSDictionary dictionaryWithObjectsAndKeys:loginTxt.text, @"login", passwTxt.text, @"password", domainTxt.text, @"domain", nil];
+		NSDictionary* loginDict = [NSDictionary dictionaryWithObjectsAndKeys:loginTxt.text, @"login", 
+                                                                             passwTxt.text, @"password", 
+                                                                             domainTxt.text, @"domain", 
+                                                                             titleTxt.text, @"name", nil];
 		[loginDict writeToFile:[rhead_sharepoint_ipAppDelegate loginDictPath] atomically:YES];
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 		NSString* envelope = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"GetListCollection" ofType:@"txt"] 
@@ -125,6 +129,7 @@
 	[passwTxt release];
 	[domainTxt release];
 	[loginTxt release];
+    [titleTxt release];
     [super dealloc];
 }
 

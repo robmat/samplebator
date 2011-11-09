@@ -23,9 +23,8 @@
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	NSDictionary* loginDict = [NSDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate loginDictPath]];
-	NSString* domain = [loginDict objectForKey:@"domain"];
-	domain = [[NSURL URLWithString:domain] host];
-	self.title = domain;
+	NSString* name = [loginDict objectForKey:@"name"];
+	self.title = name;
 }
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
