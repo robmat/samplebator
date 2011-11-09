@@ -10,7 +10,7 @@
 
 @implementation AccountsVC
 
-@synthesize accounts,tableView;
+@synthesize accounts, tableView, blankBottomBar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,16 +27,21 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self setUpViewByOrientation: self.interfaceOrientation];
 }
 - (void)dealloc {
     [super dealloc];
 	[tableView release];
 	[accounts release];
+    [blankBottomBar release];
 }
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	AccountTVC* cell = nil;
+    BOOL isPortrait = UIDeviceOrientationIsPortrait(self.interfaceOrientation);
+    NSString* nibName = isPortrait ? @"AccountTVC" : @"AccountTVCLand";
+    
 	if (cell == nil) {
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"AccountTVC" owner:self options:nil];
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
         for (id currentObject in topLevelObjects){
             if ([currentObject isKindOfClass:[UITableViewCell class]]){
                 cell =  (AccountTVC*) currentObject;
@@ -46,7 +51,7 @@
     }
 	cell.navigationController = self.navigationController;
 	cell.delegate = self;
-	cell.titleLbl.text = [[NSURL URLWithString: [[self.accounts objectAtIndex:indexPath.row] objectForKey:@"domain"]] host];
+	cell.titleLbl.text = [[self.accounts objectAtIndex:indexPath.row] objectForKey:@"name"];
     cell.url = [[self.accounts objectAtIndex:indexPath.row] objectForKey:@"domain"];
 	return cell;
 }
@@ -58,6 +63,26 @@
 }
 - (void)tableView:(UITableView *)tableView_ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[[tableView_ cellForRowAtIndexPath:indexPath] setSelected:NO];
+}
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return YES;
+}
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self setUpViewByOrientation: toInterfaceOrientation];
+}
+- (void)setUpViewByOrientation: (UIInterfaceOrientation)toInterfaceOrientation {
+    if (toInterfaceOrientation==UIInterfaceOrientationPortrait || toInterfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) {
+        self.blankBottomBar.hidden = YES;
+        infoBtn.frame = CGRectMake(30, 376, 45, 37);
+        newsBtn.frame = CGRectMake(243, 376, 45, 37);
+        contactBtn.frame = CGRectMake(98, 376, 45, 37);
+    } else {
+        self.blankBottomBar.hidden = NO;
+        infoBtn.frame = CGRectMake(108, 227, 45, 37);
+        newsBtn.frame = CGRectMake(321, 227, 45, 37);
+        contactBtn.frame = CGRectMake(176, 227, 45, 37);
+    }
+    [tableView reloadData];
 }
 @end
 
@@ -140,7 +165,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 0) {	
 		NSMutableDictionary* accountsDict = [NSMutableDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate accountsPath]];
-		[accountsDict removeObjectForKey:titleLbl.text];
+		[accountsDict removeObjectForKey:self.url];
 		[accountsDict writeToFile:[rhead_sharepoint_ipAppDelegate accountsPath] atomically:YES];
 		[delegate viewDidLoad];
 	}
