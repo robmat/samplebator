@@ -24,20 +24,20 @@
 	[self.view addSubview:backBtn];
 }
 - (void)setUpTabBarButtons {
-	UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
-	btn.frame = CGRectMake(30, 376, 45, 37);
-	[btn addTarget:self action:@selector(infoAction:) forControlEvents:UIControlEventTouchUpInside];
-	[self.view addSubview:btn];
+	infoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+	infoBtn.frame = CGRectMake(30, 376, 45, 37);
+	[infoBtn addTarget:self action:@selector(infoAction:) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:infoBtn];
 	
-	btn = [UIButton buttonWithType:UIButtonTypeCustom];
-	btn.frame = CGRectMake(243, 376, 45, 37);
-	[btn addTarget:self action:@selector(newsAction:) forControlEvents:UIControlEventTouchUpInside];
-	[self.view addSubview:btn];
+	newsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+	newsBtn.frame = CGRectMake(243, 376, 45, 37);
+	[newsBtn addTarget:self action:@selector(newsAction:) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:newsBtn];
 	
-	btn = [UIButton buttonWithType:UIButtonTypeCustom];
-	btn.frame = CGRectMake(98, 376, 45, 37);
-	[btn addTarget:self action:@selector(mailAction:) forControlEvents:UIControlEventTouchUpInside];
-	[self.view addSubview:btn];
+	contactBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+	contactBtn.frame = CGRectMake(98, 376, 45, 37);
+	[contactBtn addTarget:self action:@selector(mailAction:) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:contactBtn];
 }
 - (void)mailComposeController:(MFMailComposeViewController*)controller  
           didFinishWithResult:(MFMailComposeResult)result 
@@ -92,6 +92,7 @@
 - (void)newsAction: (id) sender {
 	WebViewVC* wwvc = [[WebViewVC alloc] init];
 	wwvc.url = @"http://www.rheadgroup.com/newshome.asp";
+    wwvc.title = @"News";
 	wwvc->dontAppendPass = YES;
 	[self.navigationController pushViewController:wwvc animated:YES];
 	[wwvc release];
@@ -121,7 +122,6 @@
 - (void)viewDidUnload {
     [super viewDidUnload];
 }
-
 - (void)dealloc {
     [super dealloc];
 	[avPlayer release];

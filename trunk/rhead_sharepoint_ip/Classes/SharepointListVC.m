@@ -20,6 +20,7 @@
 	dateFrmt = [[NSDateFormatter alloc] init];
 	[dateFrmt setDateFormat:@"yyyy-MM-dd' 'HH:mm:ss"];
 	tempTitle = self.title;
+    [self setUpTabBarButtons];
 }
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];

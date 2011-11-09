@@ -25,7 +25,6 @@
 		E12C54F1141FA7040030A4ED /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12C54F0141FA7040030A4ED /* CFNetwork.framework */; };
 		E12C5504141FA7170030A4ED /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12C5503141FA7170030A4ED /* CoreData.framework */; };
 		E12C5514141FA7410030A4ED /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12C5513141FA7410030A4ED /* MobileCoreServices.framework */; };
-		E12C5522141FA7540030A4ED /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E12C5521141FA7540030A4ED /* libz.1.2.3.dylib */; };
 		E12C5530141FA7730030A4ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12C552F141FA7730030A4ED /* Security.framework */; };
 		E12C5651141FA7AA0030A4ED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12C5650141FA7AA0030A4ED /* SystemConfiguration.framework */; };
 		E12C565F141FAD2A0030A4ED /* SplashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E12C565D141FAD2A0030A4ED /* SplashVC.m */; };
@@ -46,6 +45,7 @@
 		E12C573E141FC2310030A4ED /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E12C5735141FC2310030A4ED /* CXMLNode_PrivateExtensions.m */; };
 		E12C573F141FC2310030A4ED /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E12C5737141FC2310030A4ED /* CXMLNode_XPathExtensions.m */; };
 		E12C5740141FC2310030A4ED /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E12C5739141FC2310030A4ED /* CXMLNode.m */; };
+		E1550B171460112500A1DE4E /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1550B161460112500A1DE4E /* libz.1.2.5.dylib */; };
 		E184A19414322D930031BFA9 /* ApplyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E184A19214322D930031BFA9 /* ApplyVC.m */; };
 		E184A19514322D940031BFA9 /* ApplyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E184A19314322D930031BFA9 /* ApplyVC.xib */; };
 		E184A19C14322DFC0031BFA9 /* apply_top_bat.png in Resources */ = {isa = PBXBuildFile; fileRef = E184A19914322DFC0031BFA9 /* apply_top_bat.png */; };
@@ -189,6 +189,7 @@
 		E12C5738141FC2310030A4ED /* CXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLNode.h; path = TouchXML/CXMLNode.h; sourceTree = "<group>"; };
 		E12C5739141FC2310030A4ED /* CXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLNode.m; path = TouchXML/CXMLNode.m; sourceTree = "<group>"; };
 		E12C573A141FC2310030A4ED /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchXML.h; path = TouchXML/TouchXML.h; sourceTree = "<group>"; };
+		E1550B161460112500A1DE4E /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		E184A19114322D930031BFA9 /* ApplyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyVC.h; sourceTree = "<group>"; };
 		E184A19214322D930031BFA9 /* ApplyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyVC.m; sourceTree = "<group>"; };
 		E184A19314322D930031BFA9 /* ApplyVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyVC.xib; sourceTree = "<group>"; };
@@ -288,13 +289,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1550B171460112500A1DE4E /* libz.1.2.5.dylib in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				E12C54F1141FA7040030A4ED /* CFNetwork.framework in Frameworks */,
 				E12C5504141FA7170030A4ED /* CoreData.framework in Frameworks */,
 				E12C5514141FA7410030A4ED /* MobileCoreServices.framework in Frameworks */,
-				E12C5522141FA7540030A4ED /* libz.1.2.3.dylib in Frameworks */,
 				E12C5530141FA7730030A4ED /* Security.framework in Frameworks */,
 				E12C5651141FA7AA0030A4ED /* SystemConfiguration.framework in Frameworks */,
 				E12C5674141FAD9C0030A4ED /* AVFoundation.framework in Frameworks */,
@@ -381,6 +382,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				E1550B161460112500A1DE4E /* libz.1.2.5.dylib */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,

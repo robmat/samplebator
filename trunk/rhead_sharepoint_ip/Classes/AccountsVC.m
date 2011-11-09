@@ -46,7 +46,8 @@
     }
 	cell.navigationController = self.navigationController;
 	cell.delegate = self;
-	cell.titleLbl.text = [[self.accounts objectAtIndex:indexPath.row] objectForKey:@"domain"];
+	cell.titleLbl.text = [[NSURL URLWithString: [[self.accounts objectAtIndex:indexPath.row] objectForKey:@"domain"]] host];
+    cell.url = [[self.accounts objectAtIndex:indexPath.row] objectForKey:@"domain"];
 	return cell;
 }
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -62,16 +63,17 @@
 
 @implementation AccountTVC
 
-@synthesize titleLbl, delegate, navigationController;
+@synthesize titleLbl, delegate, navigationController, goBtn, url;
 
-- (void)delAction: (id) sender {
+- (IBAction)delAction: (id) sender {
 	UIActionSheet* as = [[UIActionSheet alloc] initWithTitle:@"Confirm delete" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:nil];
 	[as showInView: delegate.view];
 	[as release];
 }
-- (void)goAction: (id) sender {
+- (IBAction)goAction: (id) sender {
+    goBtn.hidden = YES;
 	NSMutableDictionary* accountsDict = [NSMutableDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate accountsPath]];
-	NSDictionary* loginDict = [accountsDict objectForKey:titleLbl.text];
+	NSDictionary* loginDict = [accountsDict objectForKey:url];
 	[loginDict writeToFile:[rhead_sharepoint_ipAppDelegate loginDictPath] atomically:YES];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	NSString* envelope = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"GetListCollection" ofType:@"txt"] 
@@ -92,6 +94,7 @@
 	[request startAsynchronous];
 }
 - (void)requestFinished:(ASIHTTPRequest *)request {
+    goBtn.hidden = NO;
 	NSString* responseString = [request responseString];
 	responseString = [responseString stringByReplacingOccurrencesOfString:@"soap:" withString:@""];
 	responseString = [responseString stringByReplacingOccurrencesOfString:@"xmlns=\"http://schemas.microsoft.com/sharepoint/soap/\"" withString:@""];
@@ -128,7 +131,8 @@
 	[accountsDict writeToFile:[rhead_sharepoint_ipAppDelegate accountsPath] atomically:YES];
 }
 - (void)requestFailed:(ASIHTTPRequest *)request {
-	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[[request error] description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    goBtn.hidden = NO;
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[[request error] localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	[alert show];
 	[alert release];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -147,6 +151,8 @@
 	[titleLbl release];
 	[delegate release];
 	[navigationController release];
+    [goBtn release];
+    [url release];
 }
 
 @end

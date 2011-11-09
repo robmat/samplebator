@@ -6,7 +6,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	backBtn.hidden = YES;
-	self.title = @"Rhead Group App";
+	self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title_image.png"]];
 	[self setUpTabBarButtons];
 }
 - (IBAction)visitAction: (id) sender {
@@ -15,6 +15,10 @@
 	wwvc->dontAppendPass = YES;
 	[self.navigationController pushViewController:wwvc animated:YES];
 	[wwvc release];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[UIDevice currentDevice] setOrientation:UIInterfaceOrientationPortrait];
 }
 - (void)dealloc {
     [super dealloc];

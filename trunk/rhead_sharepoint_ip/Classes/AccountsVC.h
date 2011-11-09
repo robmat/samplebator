@@ -19,14 +19,18 @@
 	IBOutlet UILabel* titleLbl;
 	UIViewController* delegate;
 	UINavigationController* navigationController;
+    IBOutlet UIButton* goBtn;
+    NSString* url;
 }
 
 @property (nonatomic,retain) IBOutlet UILabel* titleLbl;
 @property (nonatomic,retain) UIViewController* delegate;
 @property (nonatomic,retain) UINavigationController* navigationController;
+@property (nonatomic,retain) IBOutlet UIButton* goBtn;
+@property (nonatomic,retain) NSString* url;
 
-- (void)delAction: (id) sender;
-- (void)goAction: (id) sender;
+- (IBAction)delAction: (id) sender;
+- (IBAction)goAction: (id) sender;
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 @end
