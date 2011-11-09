@@ -6,6 +6,9 @@
 	BOOL shouldIPlayPlak;
 	AVAudioPlayer* avPlayer;
 	UIButton* backBtn;
+    UIButton* infoBtn;
+    UIButton* newsBtn;
+    UIButton* contactBtn;
 }
 
 - (void)playPlak;

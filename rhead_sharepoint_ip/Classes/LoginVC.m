@@ -29,9 +29,20 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField{
 	[self animateView:self.view up:NO distance:70];
 }
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden = NO;
-} 
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [loginTxt resignFirstResponder];
+    [passwTxt resignFirstResponder];
+    [domainTxt resignFirstResponder];
+}
 - (IBAction) loginAction:(id) sender {
 	if ([loginTxt.text length] == 0 || [passwTxt.text length] == 0 || [domainTxt.text length] == 0) {
 		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
@@ -98,7 +109,14 @@
 	[accountsDict writeToFile:[rhead_sharepoint_ipAppDelegate accountsPath] atomically:YES];
 }
 - (void)requestFailed:(ASIHTTPRequest *)request {
-	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[[request error] description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    NSString* msg = [[request error] localizedDescription];
+    if ([msg rangeOfString:@"Authentication needed"].location != NSNotFound) {
+        msg = @"Login and password you've provided are no recognized, check again.";
+    }
+    if ([msg rangeOfString:@"Authentication needed"].location != NSNotFound) {
+        msg = @"Application can't find the domain you've entered, check again.";
+    }
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:msg delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	[alert show];
 	[alert release];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;

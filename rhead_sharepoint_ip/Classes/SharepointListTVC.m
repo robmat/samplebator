@@ -78,10 +78,12 @@
 	return [str rangeOfString:con].location != NSNotFound;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	[[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
 	NSString* key = [keysArr objectAtIndex:indexPath.row];
-	indexPressed = indexPath;
+	if (indexPressed) {
+        [indexPressed release];
+    }
+    indexPressed = [[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section] retain];
 	if ([[[listsData objectForKey:key] objectForKey:@"ows_ContentType"] isEqualToString:@"Folder"]) {
 		NSDictionary* loginDict = [NSDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate loginDictPath]];
 		NSString* domain = [loginDict objectForKey:@"domain"];
@@ -103,6 +105,7 @@
 													   delegate:self 
 													   envelope:envelope action:@"http://schemas.microsoft.com/sharepoint/soap/GetListItems"];
 		[soapReq startRequest];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	} else {
 		WebViewVC* wvvc = [[WebViewVC alloc] initWithNibName:nil bundle:nil];
 		wvvc.url = key;
@@ -155,7 +158,7 @@
 	[slvc release];
 }
 - (void) requestFinishedWithError: (NSError*) error {
-	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	[alert show];
 	[alert release];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;

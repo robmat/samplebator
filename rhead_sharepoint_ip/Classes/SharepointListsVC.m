@@ -24,9 +24,7 @@
 	[super viewWillAppear:animated];
 	NSDictionary* loginDict = [NSDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate loginDictPath]];
 	NSString* domain = [loginDict objectForKey:@"domain"];
-	domain = [domain stringByReplacingOccurrencesOfString:@"https://" withString:@""];
-	domain = [domain stringByReplacingOccurrencesOfString:@"http://" withString:@""];
-	domain = [domain stringByReplacingOccurrencesOfString:@"www." withString:@""];
+	domain = [[NSURL URLWithString:domain] host];
 	self.title = domain;
 }
 - (void)viewWillDisappear:(BOOL)animated {
@@ -34,7 +32,7 @@
 	self.title = @"Back";
 }
 - (IBAction) presentationsAction: (id) sender {
-	[self defaultListItemclickAction:@"Presetation"];
+	[self defaultListItemclickAction:@"Presentations"];
 }
 - (IBAction) progressAction: (id) sender {
 	[self defaultListItemclickAction:@"Site Progress Photos"];
@@ -110,7 +108,7 @@
 	[slvc release];
 }
 - (void) requestFinishedWithError: (NSError*) error {
-	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	[alert show];
 	[alert release];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;

@@ -103,7 +103,7 @@
 	[slvc release];
 }
 - (void) requestFinishedWithError: (NSError*) error {
-	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	[alert show];
 	[alert release];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
