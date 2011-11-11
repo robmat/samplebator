@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>rhead_sharepoint_ip copy.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 		<key>rhead_sharepoint_ip.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,11 +13,6 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>1D6058900D05DD3D006BFB54</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E15B1524146D044E0013AC56</key>
 		<dict>
 			<key>primary</key>
 			<true/>

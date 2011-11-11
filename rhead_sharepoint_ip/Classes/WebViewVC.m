@@ -32,15 +32,9 @@
     [self setUpViewByOrientation: toInterfaceOrientation];
 }
 - (void)setUpViewByOrientation: (UIInterfaceOrientation)toInterfaceOrientation {
-    if (toInterfaceOrientation==UIInterfaceOrientationPortrait || toInterfaceOrientation== UIInterfaceOrientationPortraitUpsideDown) {
-        self.webView.frame = CGRectMake(0, 0, 327, 374);
-        self.bottomBar.frame = CGRectMake(0, 372, 320, 46);
-        infoBtn.frame = CGRectMake(30, 376, 45, 37);
-        newsBtn.frame = CGRectMake(243, 376, 45, 37);
-        contactBtn.frame = CGRectMake(98, 376, 45, 37);
-        self.indicator.frame = CGRectMake(153, 177, 20, 20);
-        self.blankBar.hidden = YES;
-    } else {
+    if (toInterfaceOrientation==UIInterfaceOrientationLandscapeLeft|| toInterfaceOrientation== UIInterfaceOrientationLandscapeRight) {
+        
+        
         self.webView.frame = CGRectMake(0, 0, 480, 226);
         self.bottomBar.frame = CGRectMake(80, 224, 320, 46);
         infoBtn.frame = CGRectMake(108, 227, 45, 37);
@@ -48,6 +42,18 @@
         contactBtn.frame = CGRectMake(176, 227, 45, 37);
         self.indicator.frame = CGRectMake(230, 118, 20, 20);
         self.blankBar.hidden = NO;
+        
+    } else {
+        
+        self.webView.frame = CGRectMake(0, 0, 327, 374);
+        self.bottomBar.frame = CGRectMake(0, 372, 320, 46);
+        infoBtn.frame = CGRectMake(30, 376, 45, 37);
+        newsBtn.frame = CGRectMake(243, 376, 45, 37);
+        contactBtn.frame = CGRectMake(98, 376, 45, 37);
+        self.indicator.frame = CGRectMake(153, 177, 20, 20);
+        self.blankBar.hidden = YES;
+        
+        
     }
 }
 - (void)viewWillAppear:(BOOL)animated {

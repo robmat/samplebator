@@ -115,7 +115,7 @@
 - (void)dealloc {
     [super dealloc];
 	[tableView release];
-	[tableVC release];
+	//[tableVC release];
 	[listsData release];
 	[titletoNameDict release];
 	[categoryPressed release];
