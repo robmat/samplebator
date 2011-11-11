@@ -16,6 +16,7 @@
 		NSString *path = [[NSBundle mainBundle] pathForResource:@"plak" ofType:@"wav"];
 		avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
 		[avPlayer play];
+        [avPlayer release];
 	}
 	backBtn = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
 	backBtn.frame = CGRectMake(5, 5, 72, 31);
@@ -117,15 +118,19 @@
     [super didReceiveMemoryWarning];
 }
 - (void)playPlak {
-	[avPlayer play];
+	//[avPlayer play];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"plak" ofType:@"wav"];
+    avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
+    [avPlayer play];
+    [avPlayer release];
 }
 - (void)viewDidUnload {
     [super viewDidUnload];
 }
 - (void)dealloc {
     [super dealloc];
-	[avPlayer release];
-	[backBtn release];
+	//[avPlayer release];
+	//[backBtn release];
 }
 
 @end

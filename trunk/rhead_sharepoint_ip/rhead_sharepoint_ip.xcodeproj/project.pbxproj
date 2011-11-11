@@ -13,6 +13,12 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		C04B15A2146C294200BAB279 /* addaccount.png in Resources */ = {isa = PBXBuildFile; fileRef = C04B15A0146C294200BAB279 /* addaccount.png */; };
+		C04B15A3146C294200BAB279 /* viewprojects.png in Resources */ = {isa = PBXBuildFile; fileRef = C04B15A1146C294200BAB279 /* viewprojects.png */; };
+		C04B15A7146C2C9600BAB279 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = C04B15A6146C2C9600BAB279 /* appicon.png */; };
+		C04B15A9146C2D6400BAB279 /* apphr.png in Resources */ = {isa = PBXBuildFile; fileRef = C04B15A8146C2D6400BAB279 /* apphr.png */; };
+		C067B472146BF75F00465E66 /* add-account.png in Resources */ = {isa = PBXBuildFile; fileRef = C067B470146BF75F00465E66 /* add-account.png */; };
+		C067B473146BF75F00465E66 /* view-projects.png in Resources */ = {isa = PBXBuildFile; fileRef = C067B471146BF75F00465E66 /* view-projects.png */; };
 		E14C5873145D48D900DE2B09 /* item_cell_back.png in Resources */ = {isa = PBXBuildFile; fileRef = E14C5871145D48D900DE2B09 /* item_cell_back.png */; };
 		E14C5874145D48D900DE2B09 /* title_image.png in Resources */ = {isa = PBXBuildFile; fileRef = E14C5872145D48D900DE2B09 /* title_image.png */; };
 		E14C58BB145D4C9300DE2B09 /* AccountTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14C58BA145D4C9300DE2B09 /* AccountTVC.xib */; };
@@ -107,6 +113,13 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* rhead_sharepoint_ip_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rhead_sharepoint_ip_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* rhead_sharepoint_ip-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "rhead_sharepoint_ip-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		C04B15A0146C294200BAB279 /* addaccount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addaccount.png; sourceTree = "<group>"; };
+		C04B15A1146C294200BAB279 /* viewprojects.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = viewprojects.png; sourceTree = "<group>"; };
+		C04B15A5146C2B7600BAB279 /* rhead_sharepoint_ip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = rhead_sharepoint_ip.entitlements; sourceTree = "<group>"; };
+		C04B15A6146C2C9600BAB279 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
+		C04B15A8146C2D6400BAB279 /* apphr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apphr.png; sourceTree = "<group>"; };
+		C067B470146BF75F00465E66 /* add-account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-account.png"; sourceTree = "<group>"; };
+		C067B471146BF75F00465E66 /* view-projects.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "view-projects.png"; sourceTree = "<group>"; };
 		E14C5871145D48D900DE2B09 /* item_cell_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = item_cell_back.png; path = img/item_cell_back.png; sourceTree = "<group>"; };
 		E14C5872145D48D900DE2B09 /* title_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title_image.png; path = img/title_image.png; sourceTree = "<group>"; };
 		E14C58BA145D4C9300DE2B09 /* AccountTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountTVC.xib; sourceTree = "<group>"; };
@@ -114,6 +127,7 @@
 		E14C5A46145D6A6900DE2B09 /* sort_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sort_bar.png; path = img/sort_bar.png; sourceTree = "<group>"; };
 		E1550B201460202F00A1DE4E /* libxml2.2.7.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.7.3.dylib; path = usr/lib/libxml2.2.7.3.dylib; sourceTree = SDKROOT; };
 		E1550B221460209700A1DE4E /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		E15B158A146D04500013AC56 /* rhead_sharepoint_ip copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "rhead_sharepoint_ip copy-Info.plist"; path = "/Users/robert/Desktop/samplebator/rhead_sharepoint_ip/rhead_sharepoint_ip copy-Info.plist"; sourceTree = "<absolute>"; };
 		E17C83C8144C81F5008CE451 /* main_items_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = main_items_menu.png; path = img/main_items_menu.png; sourceTree = "<group>"; };
 		E1811751145FF0DA005ADAD5 /* contact.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = contact.html; sourceTree = "<group>"; };
 		E184ACE6140D3EF1004EBF5A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -310,11 +324,16 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C093CC96146C365B00BF34CE /* build */,
+				C04B15A8146C2D6400BAB279 /* apphr.png */,
+				C04B15A6146C2C9600BAB279 /* appicon.png */,
+				C04B15A5146C2B7600BAB279 /* rhead_sharepoint_ip.entitlements */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				E15B158A146D04500013AC56 /* rhead_sharepoint_ip copy-Info.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -357,6 +376,13 @@
 				E184ACEE140D3F43004EBF5A /* MobileCoreServices.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C093CC96146C365B00BF34CE /* build */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = build;
 			sourceTree = "<group>";
 		};
 		E184ACE5140D3ECA004EBF5A /* ASIHTTP */ = {
@@ -415,6 +441,10 @@
 		E184AD49140D45F5004EBF5A /* img */ = {
 			isa = PBXGroup;
 			children = (
+				C04B15A0146C294200BAB279 /* addaccount.png */,
+				C04B15A1146C294200BAB279 /* viewprojects.png */,
+				C067B470146BF75F00465E66 /* add-account.png */,
+				C067B471146BF75F00465E66 /* view-projects.png */,
 				E18AD8DD146AEB26000ACB4F /* account_item_back_land.png */,
 				E18AD8D7146ADD7F000ACB4F /* iphone4-add-account.png */,
 				E18AD8D8146ADD7F000ACB4F /* iphone4-viewaccount.png */,
@@ -560,6 +590,12 @@
 				E18AD8DA146ADD7F000ACB4F /* iphone4-viewaccount.png in Resources */,
 				E18AD8DC146AE8E6000ACB4F /* AccountTVCLand.xib in Resources */,
 				E18AD8DE146AEB26000ACB4F /* account_item_back_land.png in Resources */,
+				C067B472146BF75F00465E66 /* add-account.png in Resources */,
+				C067B473146BF75F00465E66 /* view-projects.png in Resources */,
+				C04B15A2146C294200BAB279 /* addaccount.png in Resources */,
+				C04B15A3146C294200BAB279 /* viewprojects.png in Resources */,
+				C04B15A7146C2C9600BAB279 /* appicon.png in Resources */,
+				C04B15A9146C2D6400BAB279 /* apphr.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +648,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -619,7 +657,11 @@
 				GCC_PREFIX_HEADER = rhead_sharepoint_ip_Prefix.pch;
 				INFOPLIST_FILE = "rhead_sharepoint_ip-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				New_Setting = "";
 				PRODUCT_NAME = rhead_sharepoint_ip;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -628,12 +670,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = rhead_sharepoint_ip_Prefix.pch;
 				INFOPLIST_FILE = "rhead_sharepoint_ip-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				New_Setting = "";
 				PRODUCT_NAME = rhead_sharepoint_ip;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -643,14 +691,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robert Batorowski (95AU4PXATD)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}\"/usr/include/libxml2/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lxml2";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "71D57AA8-37BA-4CF8-B28A-14D078BAD801";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -659,13 +709,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}\"/usr/include/libxml2/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
