@@ -34,8 +34,11 @@ import org.apache.http.protocol.HTTP;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.ParseException;
 import android.net.Uri;
 import android.util.Log;
@@ -262,5 +265,10 @@ public class Utils {
 	        view.getContext().startActivity(i);
 	        return true;
 	    }
+	}
+	public static boolean isNetworkAvailable(Activity a) {
+	    ConnectivityManager connectivityManager = (ConnectivityManager) a.getSystemService(Context.CONNECTIVITY_SERVICE);
+	    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+	    return activeNetworkInfo != null;
 	}
 }

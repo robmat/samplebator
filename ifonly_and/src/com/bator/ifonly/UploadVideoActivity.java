@@ -54,6 +54,20 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 		vv.setVideoURI(video);
 		vv.start();
 		setUpListeners();
+		if (!Utils.isNetworkAvailable(this)) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle(getString(R.string.error));
+			builder.setMessage(getString(R.string.network_unreachable)).setCancelable(false).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int id) {
+					playPlak();
+					startActivity(new Intent("ifonly.mainmenu"));
+					finish();
+				}
+			});
+			AlertDialog alert = builder.create();
+			alert.setOwnerActivity(this);
+			alert.show();
+		}
 	}
 
 	private void setUpListeners() {

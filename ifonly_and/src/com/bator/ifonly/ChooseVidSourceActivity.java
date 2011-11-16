@@ -3,6 +3,7 @@ package com.bator.ifonly;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class ChooseVidSourceActivity extends ActivityBase {
 				playPlak();
 				Intent intent = new Intent(android.provider.MediaStore.ACTION_VIDEO_CAPTURE);
 				intent.putExtra("android.intent.extra.durationLimit", 60);
+				intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
 //				if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
 //					Boolean tempDirCreated = new File(Environment.getExternalStorageDirectory() , "ifonly/").mkdirs();
 //					Uri tempFile = Uri.fromFile(new File(Environment.getExternalStorageDirectory() , "tempVid"));
