@@ -39,4 +39,6 @@
    	<string name="competition_title">Competition</string>
    	<string name="about_title">About if Only</string>
    	<string name="categories_title">if Only video archive</string>
+   	<string name="network_unreachable">It appears there\'s no internet connection available.</string>
+   	<string name="error">Error</string>
 </resources>
