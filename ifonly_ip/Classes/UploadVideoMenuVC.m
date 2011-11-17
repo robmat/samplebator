@@ -34,6 +34,7 @@
 	self.navigationController.navigationBarHidden = NO;
 	self.navigationItem.rightBarButtonItem = playBtn;
 	[playBtn release];
+    self.educationCategory = @"Education";
 }
 - (void)playPauseAction: (id) sender {
 	UIBarButtonItem* btn = (UIBarButtonItem*) sender;
@@ -55,6 +56,12 @@
 - (void)categoryFetcher:(GTMHTTPFetcher *)fetcher finishedWithData:(NSData *)data error:(NSError *)error {
 	if (error) {
 		NSLog(@"categoryFetcher:%@ failedWithError:%@", fetcher, error);
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+														message:[error localizedDescription] 
+													   delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+        self.submitBtn.hidden = YES;
 		return;
 	}
 	NSString *const path = @"app:categories/atom:category[yt:assignable]";
@@ -185,7 +192,7 @@
 // progress callback
 - (void)ticket:(GDataServiceTicket *)ticket hasDeliveredByteCount:(unsigned long long)numberOfBytesRead
 												 ofTotalByteCount:(unsigned long long)dataLength {
-	//NSLog(@"Upload: %i/%i, fraction: %f", numberOfBytesRead, dataLength, (float) numberOfBytesRead / dataLength);
+	NSLog(@"Upload: %qu/%qu, fraction: %f", numberOfBytesRead, dataLength, (float) numberOfBytesRead / dataLength);
 	self.progressView.hidden = NO;
 	self.progressView.progress = (float) numberOfBytesRead / dataLength;
 }
@@ -207,7 +214,7 @@
 		[mmvc release];
 	} else {
 		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Upload error" 
-														message:[error localizedDescription] 
+														message:@"Unexpected error occured, please try again." 
 													   delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 		[alert show];
 		[alert release];

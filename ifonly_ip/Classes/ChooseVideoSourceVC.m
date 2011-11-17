@@ -22,6 +22,7 @@
 				uiipc.delegate = self;
 				uiipc.allowsEditing = YES;
 				uiipc.videoMaximumDuration = 60;
+                //uiipc.videoQuality = UIImagePickerControllerQualityTypeLow;
 				[self.navigationController presentModalViewController:uiipc animated:YES];
 				[uiipc release];
 			}
