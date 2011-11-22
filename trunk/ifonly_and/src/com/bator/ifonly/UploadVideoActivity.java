@@ -27,13 +27,16 @@ import com.bator.ifonly.util.DebatingServiceException;
 import com.bator.ifonly.util.Utils;
 import com.bator.ifonly.util.YoutubeService;
 import com.bator.ifonly.util.YoutubeService.Video;
+import com.google.api.client.http.AbstractInputStreamContent;
+import com.google.api.client.http.AbstractInputStreamContent.UploadListener;
 
-public class UploadVideoActivity extends ActivityBase implements Callback {
+public class UploadVideoActivity extends ActivityBase implements Callback, UploadListener {
 	public static final int TEXT_INPUT_DIALOG_NOTES = 1;
 	public static final int TEXT_INPUT_DIALOG_TAGS = 2;
 	public static final int UPLOAD_VIDEO_MSG_WHAT = 1;
 	public static final int UPLOAD_VIDEO_SUCCESS_MSG_WHAT = 2;
 	public static final int UPLOAD_VIDEO_ERROR_MSG_WHAT = 3;
+	public static final int UPLOAD_VIDEO_PROGRESS = 4;
 	private MediaController mediaController;
 	private String tagsStr = "";
 	private String notesStr = "";
@@ -98,7 +101,13 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 	}
 
 	private void uploadVideo() {
-		dialog = ProgressDialog.show(UploadVideoActivity.this, "", getString(R.string.video_list_progress_dialog_title), true, false);
+		//dialog = ProgressDialog.show(UploadVideoActivity.this, "", getString(R.string.video_list_progress_dialog_title), false, false);
+		dialog = new ProgressDialog(UploadVideoActivity.this);
+		((ProgressDialog) dialog).setMessage(getString(R.string.video_list_progress_dialog_title));
+		((ProgressDialog) dialog).setIndeterminate(false);
+		((ProgressDialog) dialog).setCancelable(false);
+		((ProgressDialog) dialog).setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+		((ProgressDialog) dialog).show();
 		Runnable r = new Runnable() {
 			public void run() {
 				Uri uri = ChooseVidCategoryActivity.tempVid;
@@ -111,11 +120,14 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 				Uri fileUri = Uri.parse("file://" + filePath);
 				String title = "[" + uri.getQueryParameter("category") + "] - " + notesStr;
 				String videoFilename = fileUri.getPath();
+				int length = (int) new File(filePath).length();
+				((ProgressDialog) dialog).setMax(length);
 				YoutubeService service = new YoutubeService();
 				service.apiKey = "key=" + getString(R.string.ytDevKey);
 				service.appName = "ifonly-1.0";
 				service.youtubeUser = getString(R.string.ytAccountName);
 				service.youtubePassword = getString(R.string.ytAccountPass);
+				AbstractInputStreamContent.uploadListener = UploadVideoActivity.this;
 				try {
 					Video video = service.uploadVideo(handler, new FileInputStream(new File(videoFilename)), videoFilename, title, notesStr, "Education", tagsStr);
 					Log.d("uploadVideo", "Video: " + video.toString());
@@ -176,9 +188,6 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 
 	@Override
 	public boolean handleMessage(Message msg) {
-		if (dialog != null) {
-			dialog.dismiss();
-		}
 		if (msg.what == UPLOAD_VIDEO_MSG_WHAT) {
 			uploadVideo();
 		}
@@ -194,6 +203,9 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 			AlertDialog alert = builder.create();
 			alert.setOwnerActivity(this);
 			alert.show();
+			if (dialog != null) {
+				dialog.dismiss();
+			}
 		}
 		if (msg.what == UPLOAD_VIDEO_ERROR_MSG_WHAT) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -206,7 +218,24 @@ public class UploadVideoActivity extends ActivityBase implements Callback {
 			AlertDialog alert = builder.create();
 			alert.setOwnerActivity(this);
 			alert.show();
+			if (dialog != null) {
+				dialog.dismiss();
+			}
+		}
+		if (msg.what == UPLOAD_VIDEO_PROGRESS) {
+			ProgressDialog progDial = (ProgressDialog) dialog;
+			progDial.setProgress(msg.arg1);
 		}
 		return false;
+	}
+
+	@Override
+	public void uploadedBytes(long uploadedBytes, long contentLength) {
+		if (dialog != null && dialog instanceof ProgressDialog) {
+			Message msg = new Message();
+			msg.what = UPLOAD_VIDEO_PROGRESS;
+			msg.arg1 = (int) uploadedBytes;
+			handler.sendMessage(msg);
+		}
 	}
 }
