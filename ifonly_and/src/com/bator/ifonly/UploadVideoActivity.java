@@ -135,6 +135,8 @@ public class UploadVideoActivity extends ActivityBase implements Callback, Uploa
 					Log.e("uploadVideo", e.getMessage(), e);
 				} catch (DebatingServiceException e) {
 					Log.e("uploadVideo", e.getMessage(), e);
+				} catch (Exception e) {
+					Log.e("uploadVideo", e.getMessage(), e);
 				}
 			}
 		};
