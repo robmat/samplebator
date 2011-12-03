@@ -57,11 +57,19 @@
 	NSString* tempFileConf = [ifonly_ipAppDelegate getTempMovieInfoPath];
 	NSString* fileUrl = [[info objectForKey:UIImagePickerControllerMediaURL] description];
 	NSDictionary* dictTemp = [NSDictionary dictionaryWithObject:fileUrl forKey:@"url"];
-	[dictTemp writeToFile:tempFileConf atomically:YES];
+	[dictTemp writeToFile:tempFileConf atomically:NO];
 	[self.navigationController dismissModalViewControllerAnimated:YES];
 	ChooseCategoryVC* ccvc = [[ChooseCategoryVC alloc] initWithNibName:nil bundle:nil];
 	[self.navigationController pushViewController:ccvc animated:YES];
 	[ccvc release];
+    fileUrl = [[NSURL URLWithString:fileUrl] path];
+    if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(fileUrl)) {
+        UISaveVideoAtPathToSavedPhotosAlbum(fileUrl, self, @selector(video:finishedSavingWithError:contextInfo:), nil);
+    }
+
+}
+- (void)video: (NSString*) path finishedSavingWithError: (NSError*) error contextInfo: (NSObject*) ctx {
+    NSLog(@"%@", [error description]);
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
 	[self.navigationController dismissModalViewControllerAnimated:YES];

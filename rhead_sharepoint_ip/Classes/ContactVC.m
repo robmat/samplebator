@@ -11,6 +11,7 @@
 	backBtn.hidden = YES;
 	self.title = @"Contact";
 	[self setUpTabBarButtons];
+    contactBtn.hidden = YES;
 	NSString* html = [[NSBundle mainBundle] pathForResource:@"contact" ofType:@"html"];
 	html = [NSString stringWithContentsOfFile:html encoding:NSUTF8StringEncoding error:nil];
 	[self.webView loadHTMLString:html baseURL:[NSURL URLWithString:@"http://fake.com"]];
