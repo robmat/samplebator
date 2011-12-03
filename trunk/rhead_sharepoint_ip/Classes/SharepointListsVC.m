@@ -56,6 +56,10 @@
 												   encoding: NSUTF8StringEncoding 
 													  error:nil];
 	NSString* nameStr = [titletoNameDict objectForKey:actionStr];
+    if (!nameStr) {
+        nameStr = [titletoNameDict objectForKey:@"Pictures"];
+        categoryPressed = @"Pictures";
+    }
 	envelope = [NSString stringWithFormat:envelope, nameStr, @"99999", @""];
 	myListName = nameStr;
 	SoapRequest* soapReq = [[SoapRequest alloc] initWithUrl:url 
@@ -75,14 +79,15 @@
 		CXMLNode* nameAttr = [listNode attributeForName:@"ows_EncodedAbsUrl"];
 		CXMLNode* dateCreatedAttr = [listNode attributeForName:@"ows_Created"];
 		CXMLNode* dateModifiedAttr = [listNode attributeForName:@"ows_Modified"];
-		CXMLNode* titleAttr = [listNode attributeForName:@"ows_Title"];
+		CXMLNode* titleAttr = [listNode attributeForName:@"ows_BaseName"];
+        CXMLNode* orderAttr = [listNode attributeForName:@"ows_Order"];
 		CXMLNode* contentAttr = [listNode attributeForName:@"ows_ContentType"];
 		if (titleAttr == nil) {
 			titleAttr = [listNode attributeForName:@"ows_LinkFilename"];
 		}
 		NSMutableDictionary* dict = [NSMutableDictionary dictionary];
 		if ([titleAttr stringValue]) {
-			[dict setObject:[titleAttr stringValue] forKey:@"ows_Title"];
+			[dict setObject:[titleAttr stringValue] forKey:@"ows_BaseName"];
 		}
 		if ([nameAttr stringValue]) {
 			[dict setObject:[nameAttr stringValue] forKey:@"ows_EncodedAbsUrl"];
@@ -92,6 +97,9 @@
 		}
 		if ([dateModifiedAttr stringValue]) {
 			[dict setObject:[dateModifiedAttr stringValue] forKey:@"ows_Modified"];
+		}
+        if ([orderAttr stringValue]) {
+			[dict setObject:[orderAttr stringValue] forKey:@"ows_Order"];
 		}
 		if ([contentAttr stringValue]) {
 			[dict setObject:[contentAttr stringValue] forKey:@"ows_ContentType"];

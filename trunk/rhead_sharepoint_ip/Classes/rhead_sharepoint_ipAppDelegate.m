@@ -3,15 +3,16 @@
 
 @implementation rhead_sharepoint_ipAppDelegate
 
-@synthesize window;
+@synthesize window, navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-	navigationController = [[UINavigationController alloc] init];
-	navigationController.navigationBar.barStyle = UIBarStyleBlack;
+	navigationController = [[UITabBarController alloc] init];//[[UINavigationController alloc] init];
+	//navigationController.navigationBar.barStyle = UIBarStyleBlack;
 	window.rootViewController = navigationController;
 	SplashVC* svc = [[SplashVC alloc] init];
-	[navigationController pushViewController:svc animated:YES];
-	[svc release];
+	//[navigationController pushViewController:svc animated:YES];
+	navigationController.viewControllers = [NSArray arrayWithObjects:svc, nil];
+    [svc release];
 	[self.window makeKeyAndVisible];
     return YES;
 }

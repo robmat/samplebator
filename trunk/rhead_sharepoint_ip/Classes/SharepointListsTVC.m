@@ -86,7 +86,7 @@
 	NSMutableDictionary* dateDict = [NSMutableDictionary dictionary];
 	//NSString* nameAttrName = [listTitleToUrlAttributeName objectForKey:selectedRowTitle] == nil ? @"ows_EncodedAbsUrl" : [listTitleToUrlAttributeName objectForKey:selectedRowTitle];
 	for (CXMLElement* listNode in listsNodes) {
-		CXMLNode* titleAttr = [listNode attributeForName:@"ows_Title"];
+		CXMLNode* titleAttr = [listNode attributeForName:@"ows_BaseName"];
 		CXMLNode* nameAttr = [listNode attributeForName:@"ows_EncodedAbsUrl"];
 		CXMLNode* dateAttr = [listNode attributeForName:@"ows_Created"];
 		if (nameAttr != nil && titleAttr != nil) {

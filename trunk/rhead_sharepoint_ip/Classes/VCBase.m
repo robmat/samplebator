@@ -96,6 +96,7 @@
     wwvc.title = @"News";
 	wwvc->dontAppendPass = YES;
 	[self.navigationController pushViewController:wwvc animated:YES];
+    wwvc->newsBtn.hidden = YES;
 	[wwvc release];
 }
 - (void) animateView: (UIView*) uiview up: (BOOL) up distance: (int) movementDistance {

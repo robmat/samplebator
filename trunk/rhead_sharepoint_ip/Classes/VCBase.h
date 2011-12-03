@@ -5,7 +5,8 @@
 @interface VCBase : UIViewController <MFMailComposeViewControllerDelegate> {
 	BOOL shouldIPlayPlak;
 	AVAudioPlayer* avPlayer;
-	UIButton* backBtn;
+@public	
+    UIButton* backBtn;
     UIButton* infoBtn;
     UIButton* newsBtn;
     UIButton* contactBtn;

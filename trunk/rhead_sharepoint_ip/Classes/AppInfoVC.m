@@ -8,6 +8,7 @@
 	backBtn.hidden = YES;
 	self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title_image.png"]];
 	[self setUpTabBarButtons];
+    infoBtn.hidden = YES;
 }
 - (IBAction)visitAction: (id) sender {
 	WebViewVC* wwvc = [[WebViewVC alloc] init];

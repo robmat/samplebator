@@ -12,6 +12,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.keysArr = [listsData allKeys];
+    self.keysArr = [self.keysArr sortedArrayUsingComparator:^(id obj1, id obj2) {
+        NSString* ord1 = [[listsData objectForKey:obj1] objectForKey:@"ows_Order"];
+        NSString* ord2 = [[listsData objectForKey:obj2] objectForKey:@"ows_Order"];
+        return (NSComparisonResult)[ord1 compare:ord2];
+    }];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	return 64.0;
@@ -38,7 +43,7 @@
     }
     NSString* key = [keysArr objectAtIndex:indexPath.row];
 	NSDictionary* dict = [listsData objectForKey:key];
-	cell.titleLbl.text = [dict objectForKey:@"ows_Title"];
+	cell.titleLbl.text = [dict objectForKey:@"ows_BaseName"];
 	cell.dateLbl.text = [dict objectForKey:@"ows_Created"];
 	cell.icon.hidden = YES;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -95,7 +100,7 @@
 		NSString* envelope = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"GetListItems" ofType:@"txt"] 
 													   encoding: NSUTF8StringEncoding 
 														  error:nil];
-		NSString* folder = [NSString stringWithFormat:@"%@%@/", currentFolder,[[listsData objectForKey:key] objectForKey:@"ows_Title"]];
+		NSString* folder = [NSString stringWithFormat:@"%@%@/", currentFolder,[[listsData objectForKey:key] objectForKey:@"ows_BaseName"]];
 		NSString* queryOptions = [NSString stringWithFormat:@"<Folder>%@</Folder>", folder];
 		envelope = [NSString stringWithFormat:envelope, myListName, @"99999", queryOptions];
 		SoapRequest* soapReq = [[SoapRequest alloc] initWithUrl:url 
@@ -124,14 +129,15 @@
 		CXMLNode* nameAttr = [listNode attributeForName:@"ows_EncodedAbsUrl"];
 		CXMLNode* dateCreatedAttr = [listNode attributeForName:@"ows_Created"];
 		CXMLNode* dateModifiedAttr = [listNode attributeForName:@"ows_Modified"];
-		CXMLNode* titleAttr = [listNode attributeForName:@"ows_Title"];
+		CXMLNode* titleAttr = [listNode attributeForName:@"ows_BaseName"];
+        CXMLNode* orderAttr = [listNode attributeForName:@"ows_Order"];
 		CXMLNode* contentAttr = [listNode attributeForName:@"ows_ContentType"];
 		if (titleAttr == nil) {
 			titleAttr = [listNode attributeForName:@"ows_LinkFilename"];
 		}
 		NSMutableDictionary* dict = [NSMutableDictionary dictionary];
 		if ([titleAttr stringValue]) {
-			[dict setObject:[titleAttr stringValue] forKey:@"ows_Title"];
+			[dict setObject:[titleAttr stringValue] forKey:@"ows_BaseName"];
 		}
 		if ([nameAttr stringValue]) {
 			[dict setObject:[nameAttr stringValue] forKey:@"ows_EncodedAbsUrl"];
@@ -142,6 +148,9 @@
 		if ([dateModifiedAttr stringValue]) {
 			[dict setObject:[dateModifiedAttr stringValue] forKey:@"ows_Modified"];
 		}
+        if ([orderAttr stringValue]) {
+			[dict setObject:[orderAttr stringValue] forKey:@"ows_Order"];
+		}
 		if ([contentAttr stringValue]) {
 			[dict setObject:[contentAttr stringValue] forKey:@"ows_ContentType"];
 		}
@@ -150,9 +159,9 @@
 	NSString* key = [keysArr objectAtIndex:indexPressed.row];
 	SharepointListVC* slvc = [[SharepointListVC alloc] init];
 	slvc.listsData = listDict;
-	NSString* folderChoosed = [[listsData objectForKey:key] objectForKey:@"ows_Title"] ;
+	NSString* folderChoosed = [[listsData objectForKey:key] objectForKey:@"ows_BaseName"] ;
 	slvc.currentFolder = [NSString stringWithFormat:@"%@%@/", currentFolder, folderChoosed];
-	slvc.title = [[listsData objectForKey:key] objectForKey:@"ows_Title"];
+	slvc.title = [[listsData objectForKey:key] objectForKey:@"ows_BaseName"];
 	slvc.myListName = myListName;
 	[self.navCntrl pushViewController:slvc animated:YES];
 	[slvc release];

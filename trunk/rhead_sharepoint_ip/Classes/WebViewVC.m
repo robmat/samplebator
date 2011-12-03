@@ -11,6 +11,7 @@
 	NSString* loginPassStr = [NSString stringWithFormat:@"https://%@:%@@", [loginDict objectForKey:@"login"], [loginDict objectForKey:@"password"]];
 	NSString* urlStr = [url stringByReplacingOccurrencesOfString:@"https://" withString:@""];
 	if (!dontAppendPass) {
+        loginPassStr = [loginPassStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 		urlStr = [NSString stringWithFormat:@"%@%@", loginPassStr, urlStr];
 	}
 	NSURLRequest* urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
@@ -24,6 +25,11 @@
 	self.indicator.hidden = NO;
 	[self.indicator startAnimating];
 	return YES;
+}
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
+    [alert release];
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation {
     return YES;
