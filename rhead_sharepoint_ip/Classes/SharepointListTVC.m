@@ -32,8 +32,11 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView_ cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SharepointListCell* cell = nil;
+    BOOL isPortrait = ([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeLeft) || ([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeRight);
+    NSString* nibName = !isPortrait ? @"SharepointListCell" : @"SharepointListCellLand";
+    
 	if (cell == nil) {
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"SharepointListCell" owner:self options:nil];
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
         for (id currentObject in topLevelObjects){
             if ([currentObject isKindOfClass:[UITableViewCell class]]){
                 cell =  (SharepointListCell*) currentObject;
@@ -53,7 +56,7 @@
 		[self str:url contains:@"jpg"] ||
 		[self str:url contains:@"jpeg"] ||
 		[self str:url contains:@"bmp"] ||
-		[self str:currentFolder contains:@"Site Progress Photos"]) {
+		[self str:currentFolder contains:@"Pictures"]) {
 		cell.icon.hidden = NO;
 		cell.icon.image = [UIImage imageNamed:@"photoicon.png"];
 	}

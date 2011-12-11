@@ -7,6 +7,7 @@
 #import "CXMLElement.h"
 #import "iToast.h"
 #import "AccountsVC.h"
+#import "rhead_sharepoint_ipAppDelegate.h"
 
 @implementation LoginVC
 
@@ -94,7 +95,8 @@
 	SharepointListsVC* slvc = [[SharepointListsVC alloc] initWithNibName:nil bundle:nil];
 	slvc.listsData = listDict;
 	slvc.titletoNameDict = titletoNameDict;
-	[self.navigationController pushViewController:slvc animated:YES];
+	[rhead_sharepoint_ipAppDelegate hideTabcontroller:slvc];
+    //[self.navigationController pushViewController:slvc animated:YES];
 	[slvc release];
 	//NSLog(@"%@", [doc description]);
 	NSDictionary* loginDict = [NSDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate loginDictPath]];

@@ -6,5 +6,5 @@
 }
 
 - (void)clickAction: (id) sender;
-
+- (void)laucnhTabController;
 @end

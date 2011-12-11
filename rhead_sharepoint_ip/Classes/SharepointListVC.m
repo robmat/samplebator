@@ -22,6 +22,12 @@
 	tempTitle = self.title;
     [self setUpTabBarButtons];
 }
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return YES;
+}
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self.tableView reloadData];
+}
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
 	tempTitle = self.title;

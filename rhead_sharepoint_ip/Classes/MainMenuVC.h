@@ -9,5 +9,5 @@
 - (IBAction)servAction:(id) sender;
 - (IBAction)contactAction:(id) sender;
 - (IBAction)appInfoAction:(id) sender;
-
+- (IBAction)test:(id)sender;
 @end
