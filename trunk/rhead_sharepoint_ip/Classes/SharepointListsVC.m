@@ -4,6 +4,7 @@
 #import "SharepointListVC.h"
 #import "CXMLNode.h"
 #import "CXMLElement.h"
+#import "rhead_sharepoint_ipAppDelegate.h"
 
 @implementation SharepointListsVC
 
@@ -19,6 +20,12 @@
 	self.navigationController.navigationBarHidden = NO;
 	backBtn.hidden = YES;
 	[self setUpTabBarButtons];
+    UIBarButtonItem* barBackBtn = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backAction:)];
+    self.navigationItem.leftBarButtonItem = barBackBtn;
+    [barBackBtn release];
+}
+- (void)backAction: (id) sender {
+    [rhead_sharepoint_ipAppDelegate launchTabcontroller];
 }
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
@@ -34,7 +41,7 @@
 	[self defaultListItemclickAction:@"Presentations"];
 }
 - (IBAction) progressAction: (id) sender {
-	[self defaultListItemclickAction:@"Site Progress Photos"];
+	[self defaultListItemclickAction:@"Pictures"];
 }
 - (IBAction) reportsAction: (id) sender {
 	[self defaultListItemclickAction:@"Project Reports"];
@@ -56,10 +63,8 @@
 												   encoding: NSUTF8StringEncoding 
 													  error:nil];
 	NSString* nameStr = [titletoNameDict objectForKey:actionStr];
-    if (!nameStr) {
-        nameStr = [titletoNameDict objectForKey:@"Pictures"];
-        categoryPressed = @"Pictures";
-    }
+    
+    NSLog(@"Entering list: %@", nameStr);
 	envelope = [NSString stringWithFormat:envelope, nameStr, @"99999", @""];
 	myListName = nameStr;
 	SoapRequest* soapReq = [[SoapRequest alloc] initWithUrl:url 

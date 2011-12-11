@@ -14,6 +14,7 @@
 	WebViewVC* wwvc = [[WebViewVC alloc] init];
 	wwvc.url = @"http://www.rheadgroup.com";
 	wwvc->dontAppendPass = YES;
+    wwvc.title = @"www.rheadgroup.com";
 	[self.navigationController pushViewController:wwvc animated:YES];
 	[wwvc release];
 }

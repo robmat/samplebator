@@ -1,8 +1,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import <MessageUI/MessageUI.h>
 
-@interface VCBase : UIViewController <MFMailComposeViewControllerDelegate> {
+@interface VCBase : UIViewController {
 	BOOL shouldIPlayPlak;
 	AVAudioPlayer* avPlayer;
 @public	
@@ -18,5 +17,5 @@
 - (void)setUpTabBarButtons;
 - (void)infoAction: (id) sender;
 - (void)newsAction: (id) sender;
-- (void)mailAction: (id) sender;
+
 @end

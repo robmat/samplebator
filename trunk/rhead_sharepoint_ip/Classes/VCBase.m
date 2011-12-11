@@ -2,7 +2,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AppInfoVC.h"
 #import "WebViewVC.h"
-#import <MessageUI/MessageUI.h>
 
 @implementation VCBase
 
@@ -40,51 +39,6 @@
 	[contactBtn addTarget:self action:@selector(mailAction:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:contactBtn];
 }
-- (void)mailComposeController:(MFMailComposeViewController*)controller  
-          didFinishWithResult:(MFMailComposeResult)result 
-                        error:(NSError*)error {
-	if (result == MFMailComposeResultCancelled) {
-		[self dismissModalViewControllerAnimated:YES];
-		return;
-	}
-	if (result == MFMailComposeResultSent) {
-		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Mail sent." 
-														message:@"Sending the mail succeeded." 
-													   delegate:nil 
-											  cancelButtonTitle:@"Ok" 
-											  otherButtonTitles:nil];
-		[alert show];
-		[alert release];
-	} else {
-		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Failure." 
-														message:@"Sending the mail failed for unknown reason, try again later." 
-													   delegate:nil 
-											  cancelButtonTitle:@"Ok" 
-											  otherButtonTitles:nil];
-		[alert show];
-		[alert release];
-	}
-	[self dismissModalViewControllerAnimated:YES];
-}
-- (void)mailAction: (id) sender {
-	MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
-	if ([MFMailComposeViewController canSendMail] && controller != nil)	{
-		controller.mailComposeDelegate = self;
-		[controller setToRecipients:[NSArray arrayWithObjects:@"headoffice@rheadgroup.com", nil]];
-		[controller setSubject:@""];
-		[controller setMessageBody:@"" isHTML:NO]; 
-		[self presentModalViewController:controller animated:YES];
-		[controller release];
-	} else {
-		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Failure." 
-														message:@"Can't send mail, probably no email account is set up." 
-													   delegate:nil 
-											  cancelButtonTitle:@"Ok" 
-											  otherButtonTitles:nil];
-		[alert show];
-		[alert release];
-	}
-}	
 - (void)infoAction: (id) sender {
 	AppInfoVC* aivc = [[AppInfoVC alloc] init];
 	[self.navigationController pushViewController:aivc animated:YES];
