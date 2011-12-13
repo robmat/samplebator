@@ -45,12 +45,13 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{0, 6}, {440, 51}}</string>
 								<reference key="NSSuperview" ref="364437472"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="938175317"/>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">item_cell_back.png</string>
+									<string key="NSResourceName">item_cell_back_land.png</string>
 								</object>
 							</object>
 							<object class="IBUILabel" id="194557225">
@@ -58,6 +59,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{57, 9}, {363, 21}}</string>
 								<reference key="NSSuperview" ref="364437472"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="561078865"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -92,6 +94,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{57, 32}, {363, 21}}</string>
 								<reference key="NSSuperview" ref="364437472"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -109,8 +112,9 @@
 							<object class="IBUIImageView" id="938175317">
 								<reference key="NSNextResponder" ref="364437472"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{3, 8}, {48, 48}}</string>
+								<string key="NSFrame">{{5, 6}, {51, 51}}</string>
 								<reference key="NSSuperview" ref="364437472"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="194557225"/>
 								<int key="IBUIContentMode">1</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -123,6 +127,7 @@
 						</array>
 						<string key="NSFrameSize">{440, 63}</string>
 						<reference key="NSSuperview" ref="189117682"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="214978080"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -137,6 +142,7 @@
 				</array>
 				<string key="NSFrameSize">{440, 64}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="364437472"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
@@ -242,16 +248,46 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">9</int>
+			<int key="maxID">10</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">SharepointListCell</string>
+					<string key="superclassName">UITableViewCell</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="dateLbl">UILabel</string>
+						<string key="icon">UIImageView</string>
+						<string key="titleLbl">UILabel</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="dateLbl">
+							<string key="name">dateLbl</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="icon">
+							<string key="name">icon</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="titleLbl">
+							<string key="name">titleLbl</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SharepointListCell.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="excelicon.png">{68, 63}</string>
-			<string key="item_cell_back.png">{1068, 209}</string>
+			<string key="item_cell_back_land.png">{440, 51}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">933</string>
 	</data>
