@@ -54863,6 +54863,26 @@
       <key>category</key>
       <string>gp</string>
     </dict>
+    <dict>
+      <key>name</key>
+      <string></string>
+      <key>addressLarge</key>
+      <string></string>
+      <key>city</key>
+      <string></string>
+      <key>district</key>
+      <string></string>
+      <key>postcode</key>
+      <string></string>
+      <key>telephone</key>
+      <string></string>
+      <key>latitude</key>
+      <string></string>
+      <key>longitude</key>
+      <string></string>
+      <key>category</key>
+      <string></string>
+    </dict>
   </array>
 </plist>
 

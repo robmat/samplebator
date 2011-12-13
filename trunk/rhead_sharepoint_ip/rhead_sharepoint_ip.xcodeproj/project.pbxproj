@@ -26,6 +26,7 @@
 		E14C5A47145D6A6900DE2B09 /* sort_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = E14C5A46145D6A6900DE2B09 /* sort_bar.png */; };
 		E1550B211460203000A1DE4E /* libxml2.2.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1550B201460202F00A1DE4E /* libxml2.2.7.3.dylib */; };
 		E1550B231460209700A1DE4E /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1550B221460209700A1DE4E /* libz.1.2.5.dylib */; };
+		E17BB169149553E1002C6759 /* item_cell_back_land.png in Resources */ = {isa = PBXBuildFile; fileRef = E17BB168149553E1002C6759 /* item_cell_back_land.png */; };
 		E17C83C9144C81F5008CE451 /* main_items_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C83C8144C81F5008CE451 /* main_items_menu.png */; };
 		E17E37B2148BD42800C9F0B5 /* appinfo_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = E17E37AE148BD42800C9F0B5 /* appinfo_tab.png */; };
 		E17E37B3148BD42800C9F0B5 /* contact_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = E17E37AF148BD42800C9F0B5 /* contact_tab.png */; };
@@ -136,6 +137,7 @@
 		E1550B201460202F00A1DE4E /* libxml2.2.7.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.7.3.dylib; path = usr/lib/libxml2.2.7.3.dylib; sourceTree = SDKROOT; };
 		E1550B221460209700A1DE4E /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		E15B158A146D04500013AC56 /* rhead_sharepoint_ip copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "rhead_sharepoint_ip copy-Info.plist"; path = "/Users/robert/Desktop/samplebator/rhead_sharepoint_ip/rhead_sharepoint_ip copy-Info.plist"; sourceTree = "<absolute>"; };
+		E17BB168149553E1002C6759 /* item_cell_back_land.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = item_cell_back_land.png; path = img/item_cell_back_land.png; sourceTree = "<group>"; };
 		E17C83C8144C81F5008CE451 /* main_items_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = main_items_menu.png; path = img/main_items_menu.png; sourceTree = "<group>"; };
 		E17E37AE148BD42800C9F0B5 /* appinfo_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appinfo_tab.png; path = img/appinfo_tab.png; sourceTree = "<group>"; };
 		E17E37AF148BD42800C9F0B5 /* contact_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contact_tab.png; path = img/contact_tab.png; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 		E184AD49140D45F5004EBF5A /* img */ = {
 			isa = PBXGroup;
 			children = (
+				E17BB168149553E1002C6759 /* item_cell_back_land.png */,
 				E17F076F14926DD600B9638D /* news_tab.png */,
 				E17E37AE148BD42800C9F0B5 /* appinfo_tab.png */,
 				E17E37AF148BD42800C9F0B5 /* contact_tab.png */,
@@ -637,6 +640,7 @@
 				E17E37B5148BD42800C9F0B5 /* services_tab.png in Resources */,
 				E17F077014926DD600B9638D /* news_tab.png in Resources */,
 				E1845EE81493EA3B0081B47B /* SharepointListCellLand.xib in Resources */,
+				E17BB169149553E1002C6759 /* item_cell_back_land.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
