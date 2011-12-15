@@ -80,7 +80,7 @@
 }
 - (void) requestFinishedWithXml: (CXMLDocument*) doc {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	NSLog(@"%@", [doc description]);
+	//NSLog(@"%@", [doc description]);
 	NSArray* listsNodes = [doc nodesForXPath:@"/Envelope/Body/GetListItemsResponse/GetListItemsResult/listitems/data/row" error:nil];
 	NSMutableDictionary* listDict = [NSMutableDictionary dictionary];
 	NSMutableDictionary* dateDict = [NSMutableDictionary dictionary];

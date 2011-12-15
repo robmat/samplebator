@@ -14,8 +14,8 @@
 	sltvc.myListName = myListName;
 	sltvc.delegate = self;
 	sltvc.currentFolder = currentFolder;
+    sltvc.tableView.backgroundColor = [UIColor clearColor];
 	[sltvc viewDidLoad];
-	self.tableView.backgroundColor = [UIColor clearColor];
 	backBtn.hidden = YES;
 	dateFrmt = [[NSDateFormatter alloc] init];
 	[dateFrmt setDateFormat:@"yyyy-MM-dd' 'HH:mm:ss"];
