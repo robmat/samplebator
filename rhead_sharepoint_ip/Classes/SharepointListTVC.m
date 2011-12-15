@@ -28,7 +28,7 @@
     return [listsData count];
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-	[cell setBackgroundColor:[UIColor colorWithRed:0.195 green:0.234 blue:0.437 alpha:1]];
+	[cell setBackgroundColor:[UIColor clearColor]];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView_ cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SharepointListCell* cell = nil;
@@ -125,7 +125,7 @@
 }
 - (void) requestFinishedWithXml: (CXMLDocument*) doc {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	NSLog(@"%@", [doc description]);
+	//NSLog(@"%@", [doc description]);
 	NSArray* listsNodes = [doc nodesForXPath:@"/Envelope/Body/GetListItemsResponse/GetListItemsResult/listitems/data/row" error:nil];
 	NSMutableDictionary* listDict = [NSMutableDictionary dictionary];
 	for (CXMLElement* listNode in listsNodes) {

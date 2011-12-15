@@ -23,7 +23,7 @@
 	[backBtn addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:backBtn];
     UIImageView* backgroundImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
-    backgroundImg.frame = CGRectMake(-1, -1, 321, 481);
+    backgroundImg.frame = CGRectMake(-1, -1, 481, 481);
     [self.view addSubview:backgroundImg];
     [self.view sendSubviewToBack:backgroundImg];
     [backgroundImg release];
