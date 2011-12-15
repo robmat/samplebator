@@ -14,6 +14,8 @@
 @property(nonatomic,retain) IBOutlet UIImageView* blankBottomBar;
 
 - (void)setUpViewByOrientation: (UIInterfaceOrientation)toInterfaceOrientation;
+- (void)addAction: (id) sender;
+- (void)editAction: (id) sender;
 
 @end
 
@@ -24,6 +26,7 @@
 	UINavigationController* navigationController;
     IBOutlet UIButton* goBtn;
     NSString* url;
+    IBOutlet UIButton* delBtn;
 }
 
 @property (nonatomic,retain) IBOutlet UILabel* titleLbl;
@@ -31,6 +34,7 @@
 @property (nonatomic,retain) UINavigationController* navigationController;
 @property (nonatomic,retain) IBOutlet UIButton* goBtn;
 @property (nonatomic,retain) NSString* url;
+@property (nonatomic,retain) IBOutlet UIButton* delBtn;
 
 - (IBAction)delAction: (id) sender;
 - (IBAction)goAction: (id) sender;

@@ -4,7 +4,7 @@
 #import "WebViewVC.h"
 #import "AppInfoVC.h"
 #import <MessageUI/MessageUI.h>
-#import "LoginVC.h"
+#import "AccountsVC.h"
 #import "ServicesVC.h"
 
 @implementation rhead_sharepoint_ipAppDelegate
@@ -42,7 +42,7 @@ static rhead_sharepoint_ipAppDelegate* appDelegate;
     self.navigationController = [[UINavigationController alloc] init];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
-    LoginVC* lvc = [[LoginVC alloc] init];
+    AccountsVC* lvc = [[AccountsVC alloc] init];
     AppInfoVC* aivc = [[AppInfoVC alloc] init];
     ServicesVC* svc = [[ServicesVC alloc] init];
     

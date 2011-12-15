@@ -18,10 +18,30 @@
 	NSDictionary* accountsDict = [NSMutableDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate accountsPath]];
 	self.accounts = [accountsDict allValues];
 	self.title = @"Projects";
-	self.tableView.backgroundColor = [UIColor colorWithRed:0.195 green:0.234 blue:0.437 alpha:1];
+	self.tableView.backgroundColor = [UIColor clearColor];//[UIColor colorWithRed:0.195 green:0.234 blue:0.437 alpha:1];
 	[self.tableView reloadData];
 	[self setUpTabBarButtons];
 	backBtn.hidden = YES;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(editAction:)];
+    self.navigationItem.leftBarButtonItem.enabled = NO;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"add_project_button.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(addAction:)];
+}
+- (void)addAction: (id) sender {
+    LoginVC* lvc = [[LoginVC alloc] init];
+    [self.navigationController pushViewController:lvc animated:YES];
+    [lvc release];
+}
+- (void)editAction: (id) sender {
+    NSIndexPath* path = [self.tableView indexPathForSelectedRow];
+    LoginVC* lvc = [[LoginVC alloc] init];
+    [self.navigationController pushViewController:lvc animated:YES];
+    NSDictionary* accountsDict = [NSMutableDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate accountsPath]];
+    NSDictionary* account = [accountsDict objectForKey:[[accounts objectAtIndex:path.row] objectForKey:@"domain"]];
+    lvc.titleTxt.text = [account objectForKey:@"name"];
+    lvc.domainTxt.text = [account objectForKey:@"domain"];
+    lvc.loginTxt.text = [account objectForKey:@"login"];
+    lvc.passwTxt.text = [account objectForKey:@"password"];
+    [lvc release];
 }
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
@@ -30,15 +50,11 @@
     [super viewWillAppear:animated];
     [self setUpViewByOrientation: self.interfaceOrientation];
 }
-- (void)dealloc {
-    [super dealloc];
-	[tableView release];
-	[accounts release];
-    [blankBottomBar release];
-}
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	AccountTVC* cell = nil;
+	/*
+    AccountTVC* cell = nil;
     BOOL isPortrait = UIDeviceOrientationIsPortrait(self.interfaceOrientation);
+    
     NSString* nibName = isPortrait ? @"AccountTVC" : @"AccountTVCLand";
     
 	if (cell == nil) {
@@ -50,9 +66,13 @@
             }
         }
     }
+    */
+    AccountTVC* cell = [[[AccountTVC alloc] init] autorelease];
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 	cell.navigationController = self.navigationController;
 	cell.delegate = self;
 	cell.titleLbl.text = [[self.accounts objectAtIndex:indexPath.row] objectForKey:@"name"];
+    cell.textLabel.text = [[self.accounts objectAtIndex:indexPath.row] objectForKey:@"name"];
     cell.url = [[self.accounts objectAtIndex:indexPath.row] objectForKey:@"domain"];
 	return cell;
 }
@@ -60,10 +80,23 @@
 	return [accounts count];
 }
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 72;
+	return 42;
 }
 - (void)tableView:(UITableView *)tableView_ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[[tableView_ cellForRowAtIndexPath:indexPath] setSelected:NO];
+	//[[tableView_ cellForRowAtIndexPath:indexPath] setSelected:NO];
+    for (int i = 0; i < [accounts count]; i++) {
+        AccountTVC* cell = (AccountTVC*) [tableView_ cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i  inSection:0]];
+        cell.imageView.image = nil;
+        [cell.delBtn removeFromSuperview];
+    }
+    AccountTVC* cell = (AccountTVC*) [tableView_ cellForRowAtIndexPath:indexPath];
+    cell.imageView.image = [UIImage imageNamed:@"delete_project_button.png"];
+    UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 62, 42);
+    [cell.contentView addSubview:btn];
+    [btn addTarget:cell action:@selector(delAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell setDelBtn:btn];
+    self.navigationItem.leftBarButtonItem.enabled = YES;
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return YES;
@@ -85,11 +118,21 @@
     }
     [tableView reloadData];
 }
+- (void)tableView:(UITableView *)tableView_ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    AccountTVC* cell = (AccountTVC*) [tableView_ cellForRowAtIndexPath:indexPath];
+    [cell goAction: nil];
+}
+- (void)dealloc {
+    [super dealloc];
+	[tableView release];
+	[accounts release];
+    [blankBottomBar release];
+}
 @end
 
 @implementation AccountTVC
 
-@synthesize titleLbl, delegate, navigationController, goBtn, url;
+@synthesize titleLbl, delegate, navigationController, goBtn, url, delBtn;
 
 - (IBAction)delAction: (id) sender {
 	UIActionSheet* as = [[UIActionSheet alloc] initWithTitle:@"Confirm delete" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:nil];

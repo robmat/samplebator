@@ -18,6 +18,8 @@
 	self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title_image.png"]];
 	backBtn.hidden = YES;
 	[self setUpTabBarButtons];
+    [self.titleTxt becomeFirstResponder];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(loginAction:)];
 }
 - (IBAction) accountsAction: (id) sender {
 	AccountsVC* avc = [[AccountsVC alloc] init];
@@ -25,10 +27,10 @@
 	[avc release];
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-	[self animateView:self.view up:YES distance:70];
+	//[self animateView:self.view up:YES distance:70];
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-	[self animateView:self.view up:NO distance:70];
+	//[self animateView:self.view up:NO distance:70];
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
