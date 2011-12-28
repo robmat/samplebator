@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="hello">Hello World, MainActivity!</string>
-    <string name="app_name">Lockerz picture downloader</string>
-	<string name="ok">Ok</string>
-	<string name="search_field_hint">Type in the name of person you search</string>
-</resources>
