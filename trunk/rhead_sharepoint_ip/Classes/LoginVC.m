@@ -19,6 +19,8 @@
 	backBtn.hidden = YES;
 	[self setUpTabBarButtons];
     [self.titleTxt becomeFirstResponder];
+    UIView* rightView = titleTxt.rightView;
+    NSLog(@"%@", [rightView description]);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(loginAction:)];
 }
 - (IBAction) accountsAction: (id) sender {
@@ -108,12 +110,12 @@
 	} else {
 		accountsDict = [NSMutableDictionary dictionary];
 	}
-	if ([accountsDict objectForKey:[loginDict objectForKey:@"domain"]] == nil) {
+	if ([accountsDict objectForKey:[loginDict objectForKey:@"name"]] == nil) {
 		iToast* toast = [iToast makeText:@"Account addded to accounts list"];
 		[toast setDuration:3000];
 		[toast show];
 	}
-	[accountsDict setObject:loginDict forKey:[loginDict objectForKey:@"domain"]];
+	[accountsDict setObject:loginDict forKey:[loginDict objectForKey:@"name"]];
 	[accountsDict writeToFile:[rhead_sharepoint_ipAppDelegate accountsPath] atomically:YES];
 }
 - (void)requestFailed:(ASIHTTPRequest *)request {

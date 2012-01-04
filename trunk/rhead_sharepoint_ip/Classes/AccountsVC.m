@@ -11,10 +11,11 @@
 
 @implementation AccountsVC
 
-@synthesize accounts, tableView, blankBottomBar;
+@synthesize accounts, tableView, blankBottomBar, logoImg, hintLbl;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    editMode = NO;
 	NSDictionary* accountsDict = [NSMutableDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate accountsPath]];
 	self.accounts = [accountsDict allValues];
 	self.title = @"Projects";
@@ -23,8 +24,9 @@
 	[self setUpTabBarButtons];
 	backBtn.hidden = YES;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(editAction:)];
-    self.navigationItem.leftBarButtonItem.enabled = NO;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"add_project_button.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(addAction:)];
+    //self.navigationItem.leftBarButtonItem.enabled = NO;
+    UIBarButtonItem* barBtnItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"add_project_button.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(addAction:)];
+    self.navigationItem.rightBarButtonItem = barBtnItem;
 }
 - (void)addAction: (id) sender {
     LoginVC* lvc = [[LoginVC alloc] init];
@@ -32,16 +34,13 @@
     [lvc release];
 }
 - (void)editAction: (id) sender {
-    NSIndexPath* path = [self.tableView indexPathForSelectedRow];
-    LoginVC* lvc = [[LoginVC alloc] init];
-    [self.navigationController pushViewController:lvc animated:YES];
-    NSDictionary* accountsDict = [NSMutableDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate accountsPath]];
-    NSDictionary* account = [accountsDict objectForKey:[[accounts objectAtIndex:path.row] objectForKey:@"domain"]];
-    lvc.titleTxt.text = [account objectForKey:@"name"];
-    lvc.domainTxt.text = [account objectForKey:@"domain"];
-    lvc.loginTxt.text = [account objectForKey:@"login"];
-    lvc.passwTxt.text = [account objectForKey:@"password"];
-    [lvc release];
+    //NSIndexPath* path = [self.tableView indexPathForSelectedRow];
+    if (!editMode) {            
+        editMode = YES;
+    } else {
+        editMode = NO;
+    }
+    [tableView reloadData];
 }
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
@@ -49,6 +48,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setUpViewByOrientation: self.interfaceOrientation];
+    if ([self.accounts count] == 0) {
+        logoImg.hidden = NO;
+        hintLbl.hidden = NO;
+    }
 }
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	/*
@@ -74,6 +77,19 @@
 	cell.titleLbl.text = [[self.accounts objectAtIndex:indexPath.row] objectForKey:@"name"];
     cell.textLabel.text = [[self.accounts objectAtIndex:indexPath.row] objectForKey:@"name"];
     cell.url = [[self.accounts objectAtIndex:indexPath.row] objectForKey:@"domain"];
+    if (editMode) {
+        UIImage* img = [UIImage imageNamed:@"delete_project_button.png"];
+        cell.imageView.image = img;
+        UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(0, 0, 62, 42);
+        [cell.contentView addSubview:btn];
+        [btn addTarget:cell action:@selector(delAction:) forControlEvents:UIControlEventTouchUpInside];
+        [cell setDelBtn:btn];
+    } else {
+        cell.imageView.image = nil;
+        [cell.delBtn removeFromSuperview];
+        cell.delBtn = nil;
+    }
 	return cell;
 }
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -83,20 +99,21 @@
 	return 42;
 }
 - (void)tableView:(UITableView *)tableView_ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	//[[tableView_ cellForRowAtIndexPath:indexPath] setSelected:NO];
-    for (int i = 0; i < [accounts count]; i++) {
-        AccountTVC* cell = (AccountTVC*) [tableView_ cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i  inSection:0]];
-        cell.imageView.image = nil;
-        [cell.delBtn removeFromSuperview];
+	[[tableView_ cellForRowAtIndexPath:indexPath] setSelected:NO];
+    if (!editMode) {
+        AccountTVC* cell = (AccountTVC*) [tableView_ cellForRowAtIndexPath:indexPath];
+        [cell goAction:nil];
+        return;   
     }
-    AccountTVC* cell = (AccountTVC*) [tableView_ cellForRowAtIndexPath:indexPath];
-    cell.imageView.image = [UIImage imageNamed:@"delete_project_button.png"];
-    UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, 0, 62, 42);
-    [cell.contentView addSubview:btn];
-    [btn addTarget:cell action:@selector(delAction:) forControlEvents:UIControlEventTouchUpInside];
-    [cell setDelBtn:btn];
-    self.navigationItem.leftBarButtonItem.enabled = YES;
+    LoginVC* lvc = [[LoginVC alloc] init];
+    [self.navigationController pushViewController:lvc animated:YES];
+    NSDictionary* accountsDict = [NSMutableDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate accountsPath]];
+    NSDictionary* account = [accountsDict objectForKey:[[accounts objectAtIndex:indexPath.row] objectForKey:@"domain"]];
+    lvc.titleTxt.text = [account objectForKey:@"name"];
+    lvc.domainTxt.text = [account objectForKey:@"domain"];
+    lvc.loginTxt.text = [account objectForKey:@"login"];
+    lvc.passwTxt.text = [account objectForKey:@"password"];
+    [lvc release];
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return YES;
@@ -142,7 +159,7 @@
 - (IBAction)goAction: (id) sender {
     goBtn.hidden = YES;
 	NSMutableDictionary* accountsDict = [NSMutableDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate accountsPath]];
-	NSDictionary* loginDict = [accountsDict objectForKey:url];
+	NSDictionary* loginDict = [accountsDict objectForKey:self.textLabel.text];
 	[loginDict writeToFile:[rhead_sharepoint_ipAppDelegate loginDictPath] atomically:YES];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	NSString* envelope = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"GetListCollection" ofType:@"txt"] 
@@ -164,6 +181,15 @@
 }
 - (void)requestFinished:(ASIHTTPRequest *)request {
     goBtn.hidden = NO;
+    int responseCode = [request responseStatusCode];
+    NSLog(@"%d", responseCode);
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    if (responseCode == 404) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error 404 returned, probaly bad domain" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        return;
+    }
 	NSString* responseString = [request responseString];
 	responseString = [responseString stringByReplacingOccurrencesOfString:@"soap:" withString:@""];
 	responseString = [responseString stringByReplacingOccurrencesOfString:@"xmlns=\"http://schemas.microsoft.com/sharepoint/soap/\"" withString:@""];
@@ -177,7 +203,6 @@
 		[listDict setObject:[titleAttr stringValue] forKey:[nameAttr stringValue]];
 		[titletoNameDict setObject:[nameAttr stringValue] forKey:[titleAttr stringValue]];
 	}
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	SharepointListsVC* slvc = [[SharepointListsVC alloc] initWithNibName:nil bundle:nil];
 	slvc.listsData = listDict;
 	slvc.titletoNameDict = titletoNameDict;
@@ -192,12 +217,12 @@
 	} else {
 		accountsDict = [NSMutableDictionary dictionary];
 	}
-	if ([accountsDict objectForKey:[loginDict objectForKey:@"domain"]] == nil) {
+	if ([accountsDict objectForKey:[loginDict objectForKey:@"name"]] == nil) {
 		iToast* toast = [iToast makeText:@"Account addded to accounts list"];
 		[toast setDuration:3000];
 		[toast show];
 	}
-	[accountsDict setObject:loginDict forKey:[loginDict objectForKey:@"domain"]];
+	[accountsDict setObject:loginDict forKey:[loginDict objectForKey:@"name"]];
 	[accountsDict writeToFile:[rhead_sharepoint_ipAppDelegate accountsPath] atomically:YES];
 }
 - (void)requestFailed:(ASIHTTPRequest *)request {
