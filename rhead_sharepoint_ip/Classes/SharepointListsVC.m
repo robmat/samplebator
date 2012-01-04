@@ -5,6 +5,7 @@
 #import "CXMLNode.h"
 #import "CXMLElement.h"
 #import "rhead_sharepoint_ipAppDelegate.h"
+#import <ImageIO/ImageIO.h>
 
 @implementation SharepointListsVC
 

@@ -7,11 +7,16 @@
 	NSArray* accounts;
 	IBOutlet UITableView* tableView;
 	IBOutlet UIImageView* blankBottomBar;
+    BOOL editMode;
+    IBOutlet UIImageView* logoImg;
+    IBOutlet UILabel* hintLbl;
 }
 
 @property(nonatomic,retain) NSArray* accounts;
 @property(nonatomic,retain) IBOutlet UITableView* tableView;
 @property(nonatomic,retain) IBOutlet UIImageView* blankBottomBar;
+@property(nonatomic,retain) IBOutlet UIImageView* logoImg;
+@property(nonatomic,retain) IBOutlet UILabel* hintLbl;
 
 - (void)setUpViewByOrientation: (UIInterfaceOrientation)toInterfaceOrientation;
 - (void)addAction: (id) sender;
