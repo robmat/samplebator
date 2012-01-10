@@ -121,7 +121,7 @@
 - (void)requestFailed:(ASIHTTPRequest *)request {
     NSString* msg = [[request error] localizedDescription];
     if ([msg rangeOfString:@"Authentication needed"].location != NSNotFound) {
-        msg = @"Login and password you've provided are no recognized, check again.";
+        msg = @"Login and password you've provided are not recognised, check again.";
     }
     if ([msg rangeOfString:@"Authentication needed"].location != NSNotFound) {
         msg = @"Application can't find the domain you've entered, check again.";
