@@ -36,12 +36,20 @@ int element_index ;
 }
 
 -(IBAction)DentalButton{
-	
+	/*
 	UIAlertView * alert =	[[UIAlertView alloc] initWithTitle:@"NHS Yorkshire and Humber: Dentist" message:@"To find a dentist accepting NHS patients, call the NHS Yorkshire and Humber Dental Helpline on: 0845 120 6680. The line is open between 9 a.m. and 6 p.m. Monday to Fridays." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Continue", nil];
 	
 	element_index = 2 ; // I have pressed the button 'Dentist' button
 	[alert show];
 	[alert release];
+     */
+    estado_anterior = 2 ; // Estoy en service finder, donde estoy ahora 
+    estado_siguiente = 3 ; // Voy al mapa
+    avanzar = TRUE ;	
+    
+    dentalMAP * vardentalMAP = [[dentalMAP alloc] initWithNibName:@"dentalMAP" bundle:nil ] ;
+    [[self navigationController] pushViewController:vardentalMAP animated:YES];
+    [vardentalMAP release] ;
 }
 
 
@@ -133,13 +141,7 @@ int element_index ;
 		// Emergencies Button And Continue option pressed		
 		if (element_index == 2) {
 
-			estado_anterior = 2 ; // Estoy en service finder, donde estoy ahora 
-			estado_siguiente = 3 ; // Voy al mapa
-			avanzar = TRUE ;	
-			
-			dentalMAP * vardentalMAP = [[dentalMAP alloc] initWithNibName:@"dentalMAP" bundle:nil ] ;
-			[[self navigationController] pushViewController:vardentalMAP animated:YES];
-			[vardentalMAP release] ;	
+				
 		}
 		// Walk-in Centers Button And Continue option pressed
 		if ( element_index == 1 ) { 
