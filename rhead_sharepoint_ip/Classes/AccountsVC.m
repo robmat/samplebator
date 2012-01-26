@@ -105,10 +105,10 @@
         [cell goAction:nil];
         return;   
     }
+    NSDictionary* accountsDict = [NSMutableDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate accountsPath]];
+    NSDictionary* account = [accountsDict objectForKey:[[accounts objectAtIndex:indexPath.row] objectForKey:@"name"]];
     LoginVC* lvc = [[LoginVC alloc] init];
     [self.navigationController pushViewController:lvc animated:YES];
-    NSDictionary* accountsDict = [NSMutableDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate accountsPath]];
-    NSDictionary* account = [accountsDict objectForKey:[[accounts objectAtIndex:indexPath.row] objectForKey:@"domain"]];
     lvc.titleTxt.text = [account objectForKey:@"name"];
     lvc.domainTxt.text = [account objectForKey:@"domain"];
     lvc.loginTxt.text = [account objectForKey:@"login"];
@@ -235,7 +235,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 0) {	
 		NSMutableDictionary* accountsDict = [NSMutableDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate accountsPath]];
-		[accountsDict removeObjectForKey:self.url];
+		[accountsDict removeObjectForKey:self.titleLbl.text];
 		[accountsDict writeToFile:[rhead_sharepoint_ipAppDelegate accountsPath] atomically:YES];
 		[delegate viewDidLoad];
 	}

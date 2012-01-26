@@ -3,7 +3,7 @@
 #import "VCBase.h"
 #import <MapKit/MapKit.h>
 
-@interface SharepointListVC : VCBase <UIImagePickerControllerDelegate> {
+@interface SharepointListVC : VCBase <UIImagePickerControllerDelegate, UIAlertViewDelegate> {
 	
 	IBOutlet UITableView* tableView;
 	SharepointListTVC* sltvc;
@@ -14,6 +14,9 @@
 	NSString* currentFolder;
 	NSString* tempTitle;
     IBOutlet MKMapView* map;
+    NSError* error;
+    IBOutlet UIActivityIndicatorView* indicator;
+    IBOutlet UIView* indicatorBack;
 }
 
 @property (nonatomic,retain) IBOutlet UITableView* tableView;
@@ -23,6 +26,9 @@
 @property (nonatomic,retain) NSString* titleStr;
 @property (nonatomic,retain) NSString* currentFolder;
 @property (nonatomic,retain) IBOutlet MKMapView* map;
+@property (nonatomic,retain) NSError* error;
+@property (nonatomic,retain) IBOutlet UIActivityIndicatorView* indicator;
+@property (nonatomic,retain) IBOutlet UIView* indicatorBack;
 
 - (IBAction)sortTypeAction: (id) sender;
 - (IBAction)sortTitleAction: (id) sender;
