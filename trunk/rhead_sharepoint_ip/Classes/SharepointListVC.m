@@ -3,10 +3,11 @@
 #import "Base64.h"
 #import "rhead_sharepoint_ipAppDelegate.h"
 #import <ImageIO/ImageIO.h>
+#import "ErrorDetailsVC.h"
 
 @implementation SharepointListVC
 
-@synthesize tableView, sltvc, listsData, myListName, titleStr, currentFolder, map;
+@synthesize tableView, sltvc, listsData, myListName, titleStr, currentFolder, map, error, indicator, indicatorBack;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +32,8 @@
     map.showsUserLocation = YES;
 }
 - (void)uploadPhoto: (id) sender {
+    [indicator startAnimating];
+    indicatorBack.hidden = NO;
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
 		NSArray* types = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
 		for (NSString* type in types) {
@@ -39,7 +42,7 @@
 				uiipc.sourceType = UIImagePickerControllerSourceTypeCamera;
 				uiipc.mediaTypes = [NSArray arrayWithObjects:@"public.image", nil];
 				uiipc.delegate = self;
-				uiipc.allowsEditing = YES;
+				uiipc.allowsEditing = NO;
 				uiipc.videoMaximumDuration = 60;
                 //uiipc.videoQuality = UIImagePickerControllerQualityTypeLow;
 				[self.navigationController presentModalViewController:uiipc animated:YES];
@@ -50,6 +53,8 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [indicator stopAnimating];
+    indicatorBack.hidden = YES;
     NSDictionary* loginDict = [NSDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate loginDictPath]];
 	NSString* loginPassStr = [loginDict objectForKey:@"login"];
     NSDate* dateObj = [NSDate date];
@@ -72,17 +77,25 @@
     //NSLog(@"%@", base64ImgStr);
     NSString* uploadFolder = [currentFolder substringToIndex:[currentFolder rangeOfString:@"Pictures"].length];
     envelope = [NSString stringWithFormat:envelope, uploadFolder, @"", base64ImgStr, filename];
-        
-    NSURL* url = [NSURL URLWithString:@"https://www.rheadsharepoint.com/tps/_vti_bin/imaging.asmx"];
-    SoapRequest* soap = [[SoapRequest alloc] initWithUrl:url username:@"myoxygen" password:@"rhead150811" domain:@"https://www.rheadsharepoint.com/tps/" delegate:self envelope:envelope action:@"http://schemas.microsoft.com/sharepoint/soap/ois/Upload"];
+    
+    NSString* domain = [loginDict objectForKey:@"domain"];
+    NSString* login = [loginDict objectForKey:@"login"];
+    NSString* password = [loginDict objectForKey:@"password"];
+    NSString* urlStr = [NSString stringWithFormat:@"%@%@", domain, @"/_vti_bin/imaging.asmx"];
+    
+    NSURL* url = [NSURL URLWithString:urlStr];
+    SoapRequest* soap = [[SoapRequest alloc] initWithUrl:url username:login password:password domain:domain delegate:self envelope:envelope action:@"http://schemas.microsoft.com/sharepoint/soap/ois/Upload"];
     [soap startRequest];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [self.navigationController dismissModalViewControllerAnimated:YES];
+    [indicator startAnimating];
+    indicatorBack.hidden = NO;
 }
 - (void) requestFinishedWithXml: (CXMLDocument*) doc {
     NSLog(@"%@", [doc description]);
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    
+    [indicator stopAnimating];
+    indicatorBack.hidden = YES;
     NSString* errorMsg = nil;
     int index = [[doc description] rangeOfString:@"<errorstring>"].location;
     if (index != NSNotFound) {
@@ -95,18 +108,38 @@
     [alert release];
     [self.navigationController popViewControllerAnimated:YES];
 }
-- (void) requestFinishedWithError: (NSError*) error {
+- (void) requestFinishedWithError: (NSError*) error_ {
+    self.error = error_;
     NSLog(@"%@", [error description]);
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Upload failed" message:@"Your image has not been uploaded due to an unforseen error, contact your sharepoint administrator" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    [indicator stopAnimating];
+    indicatorBack.hidden = YES;
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Upload failed" message:@"Your image has not been uploaded due to an unforseen error, contact your sharepoint administrator" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: @"Show details", nil];
+    alert.delegate = self;
     [alert show];
     [alert release];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
+    NSLog(@"Button index: %i", buttonIndex);
+    if (buttonIndex == 1) {
+        ErrorDetailsVC* edvc = [[ErrorDetailsVC alloc] init];
+        edvc.errorDetails = [NSString stringWithFormat:@"Description: %@\n\n Debug error: %@", [error description], [error debugDescription]];
+        [self.navigationController pushViewController:edvc animated:YES];
+        [edvc release];
+    }
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return YES;
 }
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     [self.tableView reloadData];
+    indicator.frame = CGRectMake(142, 165, 37, 37);
+    indicatorBack.frame = CGRectMake(142, 165, 37, 37);
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        indicator.frame = CGRectMake(222, 85, 37, 37);
+        indicatorBack.frame = CGRectMake(222, 85, 37, 37);
+    }
 }
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
@@ -237,6 +270,7 @@
 	[titleStr release];
 	[currentFolder release];
 	[tempTitle release];
+    [error release];
 }
 
 @end

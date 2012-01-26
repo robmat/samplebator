@@ -75,6 +75,8 @@
 		E18558CF149BE21B0069202E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18558CE149BE21B0069202E /* MapKit.framework */; };
 		E18558D1149BE3B60069202E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18558D0149BE3B60069202E /* ImageIO.framework */; };
 		E1856055149E38E1004AE040 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E1856054149E38E1004AE040 /* logo.png */; };
+		E187322114C73E4D002D3EBD /* ErrorDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E187321F14C73E4D002D3EBD /* ErrorDetailsVC.m */; };
+		E187322214C73E4D002D3EBD /* ErrorDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E187322014C73E4D002D3EBD /* ErrorDetailsVC.xib */; };
 		E18AD8D9146ADD7F000ACB4F /* iphone4-add-account.png in Resources */ = {isa = PBXBuildFile; fileRef = E18AD8D7146ADD7F000ACB4F /* iphone4-add-account.png */; };
 		E18AD8DA146ADD7F000ACB4F /* iphone4-viewaccount.png in Resources */ = {isa = PBXBuildFile; fileRef = E18AD8D8146ADD7F000ACB4F /* iphone4-viewaccount.png */; };
 		E18AD8DC146AE8E6000ACB4F /* AccountTVCLand.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18AD8DB146AE8E6000ACB4F /* AccountTVCLand.xib */; };
@@ -223,6 +225,9 @@
 		E18558CE149BE21B0069202E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E18558D0149BE3B60069202E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		E1856054149E38E1004AE040 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = img/logo.png; sourceTree = "<group>"; };
+		E187321E14C73E4D002D3EBD /* ErrorDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorDetailsVC.h; sourceTree = "<group>"; };
+		E187321F14C73E4D002D3EBD /* ErrorDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorDetailsVC.m; sourceTree = "<group>"; };
+		E187322014C73E4D002D3EBD /* ErrorDetailsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorDetailsVC.xib; sourceTree = "<group>"; };
 		E18AD8D7146ADD7F000ACB4F /* iphone4-add-account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone4-add-account.png"; path = "img/iphone4-add-account.png"; sourceTree = "<group>"; };
 		E18AD8D8146ADD7F000ACB4F /* iphone4-viewaccount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone4-viewaccount.png"; path = "img/iphone4-viewaccount.png"; sourceTree = "<group>"; };
 		E18AD8DB146AE8E6000ACB4F /* AccountTVCLand.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountTVCLand.xib; sourceTree = "<group>"; };
@@ -358,6 +363,9 @@
 				E1A191C7145F1259006D6DA1 /* AppInfoVC.h */,
 				E1A191C8145F1259006D6DA1 /* AppInfoVC.m */,
 				E1A191C9145F1259006D6DA1 /* AppInfoVC.xib */,
+				E187321E14C73E4D002D3EBD /* ErrorDetailsVC.h */,
+				E187321F14C73E4D002D3EBD /* ErrorDetailsVC.m */,
+				E187322014C73E4D002D3EBD /* ErrorDetailsVC.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -693,6 +701,7 @@
 				E17248A0149A852D004478E6 /* upload_photo_buton.png in Resources */,
 				E1856055149E38E1004AE040 /* logo.png in Resources */,
 				E195C0DE14BB6BB900929E2D /* appinfo.html in Resources */,
+				E187322214C73E4D002D3EBD /* ErrorDetailsVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,6 +745,7 @@
 				E1A191B2145F1067006D6DA1 /* ContactVC.m in Sources */,
 				E1A191CA145F1259006D6DA1 /* AppInfoVC.m in Sources */,
 				E18F4853148B755D00AEB04F /* Base64.m in Sources */,
+				E187322114C73E4D002D3EBD /* ErrorDetailsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
