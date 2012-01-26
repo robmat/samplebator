@@ -235,7 +235,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 0) {	
 		NSMutableDictionary* accountsDict = [NSMutableDictionary dictionaryWithContentsOfFile:[rhead_sharepoint_ipAppDelegate accountsPath]];
-		[accountsDict removeObjectForKey:self.titleLbl.text];
+		[accountsDict removeObjectForKey:self.textLabel.text];
 		[accountsDict writeToFile:[rhead_sharepoint_ipAppDelegate accountsPath] atomically:YES];
 		[delegate viewDidLoad];
 	}
