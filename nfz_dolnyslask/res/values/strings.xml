@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NFZ Dolnysląsk</string>
+    <string name="benefit_list_first_use_dialog_title">Witaj</string>
+    <string name="benefit_list_first_use_dialog_msg">
+        Aby rozpocząć wyszukiwanie usług medycznych, wybierz jedną z kategorii usług.
+    </string>
+    <string name="err">Błąd</string>
+    <string name="no_net_err">Brak połączenia z siecią, upewnij się, że masz włączony internet!</string>
+    <string name="err_msg">Nastąpił nieokreślony błąd: \n</string>
+</resources>
