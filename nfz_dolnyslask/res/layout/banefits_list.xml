@@ -3,7 +3,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-
+	
+    <TextView 
+        android:id="@+id/benefit_list_prompt_id"
+        android:text="@string/benefit_list_prompt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@android:style/TextAppearance.Large"/>
+    
     <ListView
         android:id="@+id/benefit_list_list_id"
         android:layout_width="fill_parent"
