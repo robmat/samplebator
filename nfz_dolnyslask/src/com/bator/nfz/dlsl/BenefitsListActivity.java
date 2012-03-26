@@ -18,6 +18,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView.LayoutParams;
@@ -43,21 +44,14 @@ public class BenefitsListActivity extends Activity implements OnItemClickListene
 	ArrayList<String> nodeListKeys = new ArrayList<String>();
 	ArrayList<String> nodeListVals = new ArrayList<String>();
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.banefits_list);
 		listView = (ListView) findViewById(R.id.benefit_list_list_id);
 		checkIfFirstUse();
-		if (savedInstanceState == null) {
-			showDialog(DIALOG_PROGRESS);
-			startListDownloading();
-		} else if (savedInstanceState != null && savedInstanceState.getString(NODE_LIST_VALS_SAVED) != null && savedInstanceState.getString(NODE_LIST_KEYS_SAVED) != null) {
-			nodeListKeys = new Gson().fromJson(savedInstanceState.getString(NODE_LIST_KEYS_SAVED), ArrayList.class);
-			nodeListVals = new Gson().fromJson(savedInstanceState.getString(NODE_LIST_VALS_SAVED), ArrayList.class);
-			updateList();
-		}
+		startListDownloading();
+		updateList();
 	}
 
 	@Override
@@ -72,13 +66,14 @@ public class BenefitsListActivity extends Activity implements OnItemClickListene
 			new Thread(new Runnable() {
 				public void run() {
 					try {
+						runOnUiThread(new Runnable() { public void run() { showDialog(DIALOG_PROGRESS); }});
 						URL url = new URL("http://www.nfz-wroclaw.pl/gsl/gsleasyp.aspx");
 						URLConnection connection = url.openConnection();
 						Parser parser = new Parser(connection);
 						NodeList nodes = parser.parse(new NodeFilter() {
 							private static final long serialVersionUID = 8716046850571851002L;
 							public boolean accept(Node node) {
-								return node instanceof OptionTag;
+								return node != null && node instanceof OptionTag;
 							}
 						});
 						for (Node node : nodes.toNodeArray()) {
@@ -126,7 +121,11 @@ public class BenefitsListActivity extends Activity implements OnItemClickListene
 					}
 				});
 				listView.setOnItemClickListener(BenefitsListActivity.this);
-				dismissDialog(DIALOG_PROGRESS);
+				try {
+					dismissDialog(DIALOG_PROGRESS);
+				} catch (Exception e) {
+					Log.w("NFZ", "No dialog is displayed.", e);
+				}
 			}
 		};
 		runOnUiThread(runnable);
@@ -142,10 +141,10 @@ public class BenefitsListActivity extends Activity implements OnItemClickListene
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		if (id == DIALOG_ID_FIRST_USE) {
-			ActivityUtil.showDialog(this, R.string.benefit_list_first_use_dialog_title, R.string.benefit_list_first_use_dialog_msg);
+			return ActivityUtil.showDialog(this, R.string.benefit_list_first_use_dialog_title, R.string.benefit_list_first_use_dialog_msg);
 		}
 		if (id == DIALOG_ID_NO_NET) {
-			ActivityUtil.showDialog(this, R.string.err, R.string.no_net_err);
+			return ActivityUtil.showDialog(this, R.string.err, R.string.no_net_err);
 		}
 		if (id == DIALOG_PROGRESS) {
 			return ProgressDialog.show(this, getString(R.string.wait_title), getString(R.string.download_msg), true, false);
@@ -155,8 +154,8 @@ public class BenefitsListActivity extends Activity implements OnItemClickListene
 
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		String value = nodeListVals.get(arg2);
-		Intent intent = new Intent(getApplicationContext(), DetailedBenefitsListActivity.class);
-		intent.putExtra(DetailedBenefitsListActivity.EXTRA_BENEFIT_ID, value);
+		Intent intent = new Intent(getApplicationContext(), LocationListActivity.class);
+		intent.putExtra(LocationListActivity.EXTRA_BENEFIT_ID, value);
 		startActivity(intent);
 	}
 }

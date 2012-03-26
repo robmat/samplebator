@@ -3,7 +3,8 @@
     <string name="app_name">NFZ Dolnysląsk</string>
     <string name="benefit_list_prompt">Wybierz interesującą Cię kategorię:</string>
     <string name="benefit_list_prompt_localization">Wybierz interesującą Cię lokalizację:</string>
-    <string name="benefit_list_prompt_service">Wybierz interesującą Cię lokalizację:</string>
+    <string name="benefit_list_prompt_service">Wybierz interesującą Cię usługę:</string>
+    <string name="benefit_list_prompt_results">Wyniki wyszukiwania:</string>
     <string name="benefit_list_first_use_dialog_title">Witaj</string>
     <string name="benefit_list_first_use_dialog_msg">
         Aby rozpocząć wyszukiwanie usług medycznych, wybierz jedną z kategorii usług.
