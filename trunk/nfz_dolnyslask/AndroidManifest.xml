@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bator.nfz.dlsl"
+<manifest package="com.bator.nfz.dlsl"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="7" />
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -13,14 +12,15 @@
         android:label="@string/app_name" android:name=".app.NfzApp">
         <activity
             android:name=".BenefitsListActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailedBenefitsListActivity"></activity>
+        <activity android:name=".LocationListActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ServiceListActivity" android:screenOrientation="portrait"></activity>
+        <activity android:screenOrientation="portrait" android:name="AddressesListActivity"></activity>
     </application>
 
 </manifest>
