@@ -20,7 +20,7 @@
         </activity>
         <activity android:name=".LocationListActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".ServiceListActivity" android:screenOrientation="portrait"></activity>
-        <activity android:screenOrientation="portrait" android:name="AddressesListActivity"></activity>
+        <activity android:screenOrientation="portrait" android:name=".AddressesListActivity"></activity>
     </application>
 
 </manifest>
