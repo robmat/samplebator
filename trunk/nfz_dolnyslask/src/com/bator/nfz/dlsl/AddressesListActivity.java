@@ -10,8 +10,6 @@ import java.util.List;
 import org.htmlparser.Node;
 import org.htmlparser.NodeFilter;
 import org.htmlparser.Parser;
-import org.htmlparser.nodes.TagNode;
-import org.htmlparser.nodes.TextNode;
 import org.htmlparser.tags.TableColumn;
 import org.htmlparser.tags.TableTag;
 import org.htmlparser.util.NodeList;
@@ -20,11 +18,18 @@ import org.htmlparser.util.ParserException;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AbsListView.LayoutParams;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -62,21 +67,34 @@ public class AddressesListActivity extends Activity {
 							runOnUiThread(new Runnable() { public void run() { showDialog(DIALOG_PROGRESS); }});
 							//String locationEncoded = URLEncoder.encode(location);
 							URL url = new URL("http://www.nfz-wroclaw.pl/gsl/gsleasyp.aspx?lev=3&val1=" + benefitId + "&val2=" + serviceId + "&val4=" + location + "&pagea=1&pageb=" + i);
+							Log.v("TAG", url.toString());
 							URLConnection connection = url.openConnection();
 							Parser parser = new Parser(connection);
 							NodeList nodes = parser.parse(new NodeFilter() {
 								private static final long serialVersionUID = 8716046850571851002L;
+								private boolean inResultsTable = false;
+								//private TableTag tableTagResults;
 								public boolean accept(Node node) {
-									if (node instanceof TableColumn && node.getParent().getParent() instanceof TableTag) {
-										return ((TableTag) node.getParent().getParent()).getAttribute("bordercolor") != null && ((TableTag) node.getParent().getParent()).getAttribute("bordercolor").equalsIgnoreCase("blue");
+									if (node instanceof TableTag && ((TableTag) node).getAttribute("bordercolor") != null && ((TableTag) node).getAttribute("bordercolor").equalsIgnoreCase("blue")) {
+										inResultsTable = true;
+										//tableTagResults = (TableTag) node;
+									}
+									if (inResultsTable && node instanceof TableColumn) {
+										return node.toHtml().contains("<br />");
 									}
 									return false;
 								}
 							});
 							if (nodes.size() == 0) break;
 							for (Node node : nodes.toNodeArray()) {
-								Address address = new Address(node);
-								if (!nodeList.contains(address)) {
+								Address address = null;
+								try {
+									address = new Address(node);
+								} catch (Exception e) {
+									Log.e("TAG", "Error: ", e);
+									continue;
+								}
+								if (!nodeList.contains(address) && address != null) {
 									nodeList.add(address);
 								} else {
 									donwload = false;
@@ -104,13 +122,68 @@ public class AddressesListActivity extends Activity {
 		Runnable runnable = new Runnable() {
 			public void run() {
 				listView.setAdapter(new BaseAdapter() {
-					public View getView(int position, View convertView, ViewGroup parent) {
+					public View getView(final int position, View convertView, ViewGroup parent) {
+						LinearLayout linearLayout = new LinearLayout(AddressesListActivity.this);
+						linearLayout.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
+						linearLayout.setOrientation(LinearLayout.VERTICAL);
+						
 						TextView textView = new TextView(AddressesListActivity.this);
 						textView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
 						textView.setText(nodeList.get(position).name.toUpperCase());
 						textView.setTextAppearance(AddressesListActivity.this, android.R.style.TextAppearance_Large);
 						textView.setPadding(10, 10, 10, 10);
-						return textView;
+						linearLayout.addView(textView);
+						
+						textView = new TextView(AddressesListActivity.this);
+						textView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
+						textView.setText(getString(R.string.address) + ": " + nodeList.get(position).address);
+						textView.setTextAppearance(AddressesListActivity.this, android.R.style.TextAppearance_Large);
+						textView.setPadding(10, 10, 10, 10);
+						linearLayout.addView(textView);
+						
+						Button button = null;
+						if (!AddressesListActivity.this.isEmpty(nodeList.get(position).register)) {
+							button = new Button(AddressesListActivity.this);
+							button.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.FILL_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
+							button.setText(getString(R.string.register) + ": " + nodeList.get(position).register);
+							button.setOnClickListener(new OnClickListener() {
+								public void onClick(View v) {
+									String number = nodeList.get(position).register;
+									if (number.startsWith("0")) number = number.substring(1);
+									Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + number)); 
+							        startActivity(callIntent);
+								}
+							});
+							linearLayout.addView(button);
+						}
+						
+						if (!AddressesListActivity.this.isEmpty(nodeList.get(position).information)) {
+							button = new Button(AddressesListActivity.this);
+							button.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.FILL_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
+							button.setText(getString(R.string.information) + ": " + nodeList.get(position).information);
+							linearLayout.addView(button);
+						}
+						
+						if (!AddressesListActivity.this.isEmpty(nodeList.get(position).url)) {
+							button = new Button(AddressesListActivity.this);
+							button.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.FILL_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
+							button.setText(getString(R.string.wwwPage) + ": " + nodeList.get(position).url);
+							linearLayout.addView(button);
+						}
+						
+						if (!AddressesListActivity.this.isEmpty(nodeList.get(position).email)) {
+							button = new Button(AddressesListActivity.this);
+							button.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.FILL_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
+							button.setText(getString(R.string.email) + ": " + nodeList.get(position).email);
+							linearLayout.addView(button);
+						}
+						
+						View view = new View(AddressesListActivity.this);
+						view.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.FILL_PARENT, 2));
+						view.setBackgroundColor(Color.parseColor("#FFFFFF"));
+						linearLayout.addView(view);
+						
+						return linearLayout;
 					}
 
 					public long getItemId(int position) {
@@ -155,6 +228,9 @@ public class AddressesListActivity extends Activity {
 			}
 		});
 	}
+	private boolean isEmpty(String str) {
+		return str == null || "".equals(str.trim());
+	}
 	static class Address {
 		String name = "";
 		String address = "";
@@ -164,15 +240,23 @@ public class AddressesListActivity extends Activity {
 		String url = "";
 		
 		public Address(Node node) {
-			boolean firstBrEncountered = false;
-			for (int i  = 0; i < node.getChildren().size(); i++ ) {
-				Node child = node.getChildren().elementAt(i);
-				if (child instanceof TextNode && !firstBrEncountered) {
-					name += ((TextNode) child).getText().trim();
-				}
-				if (child instanceof TagNode && ((TagNode)child).getRawTagName().equals("/b")) {
-					firstBrEncountered = true;
-				}
+			String html = node.toHtml();
+			String[] parts = html.split("<br />");
+			name = parts[0].replaceAll("<td>", "").replaceAll("<b>", "").replaceAll("</b>", "").trim();
+			address = parts[1];
+			register = parts[2].replaceAll("rejestracja:", "").replaceAll("\\(", "").replaceAll("\\)", "").replaceAll(" ", "");
+			information = parts[3].replaceAll("</td>", "").replaceAll("informacja:", "").replaceAll("\\(", "").replaceAll("\\)", "").replaceAll(" ", "");;
+			if (parts.length > 4 && parts[4].contains("mailto:")) {
+				email = parts[4].substring(parts[4].indexOf("mailto:") + "mailto:".length(), parts[4].indexOf("\">", parts[4].indexOf("mailto:")));
+			}
+			if (parts.length > 4 && parts[4].contains("newwin('")) {
+				url = parts[4].substring(parts[4].indexOf("newwin('") + "newwin('".length(), parts[4].indexOf("')", parts[4].indexOf("newwin('")));
+			}
+			if (parts.length > 5 && parts[5].contains("mailto:")) {
+				email = parts[5].substring(parts[5].indexOf("mailto:") + "mailto:".length(), parts[5].indexOf("\">", parts[5].indexOf("mailto:")));
+			}
+			if (parts.length > 5 && parts[5].contains("newwin('")) {
+				url = parts[5].substring(parts[5].indexOf("newwin('") + "newwin('".length(), parts[5].indexOf("')", parts[5].indexOf("newwin('")));
 			}
 		}
 		@Override

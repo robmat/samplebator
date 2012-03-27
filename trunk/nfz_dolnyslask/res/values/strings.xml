@@ -15,4 +15,9 @@
     <string name="wait_title">Chwileczkę…</string>
     <string name="download_msg">Sciągam dane.</string>
     <string name="whole_lower_silesia">CAŁE DOLNOŚLĄSKIE</string>
+    <string name="address">Adres</string>
+    <string name="register">Zadzwoń do rejestracji</string>
+    <string name="information">Zadzwoń do informacji</string>
+    <string name="email">Wyślij email</string>
+    <string name="wwwPage">Otwórz stronę WWW</string>
 </resources>
