@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +35,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bator.nfz.dlsl.util.ActivityUtil;
+import com.bator.nfz.dlsl.util.Windows1250Encoding;
 
 public class AddressesListActivity extends Activity {
 	public final static String EXTRA_SERVICE_ID = "EXTRA_SERVICE_ID";
@@ -65,9 +67,9 @@ public class AddressesListActivity extends Activity {
 						int i = 1;
 						while (donwload) {
 							runOnUiThread(new Runnable() { public void run() { showDialog(DIALOG_PROGRESS); }});
-							//String locationEncoded = URLEncoder.encode(location);
-							URL url = new URL("http://www.nfz-wroclaw.pl/gsl/gsleasyp.aspx?lev=3&val1=" + benefitId + "&val2=" + serviceId + "&val4=" + location + "&pagea=1&pageb=" + i);
-							Log.v("TAG", url.toString());
+							String locationEncoded = Windows1250Encoding.encode(location);
+							URL url = new URL("http://www.nfz-wroclaw.pl/gsl/gsleasyp.aspx?lev=3&val1=" + benefitId + "&val2=" + serviceId + "&val4=" + locationEncoded + "&pagea=1&pageb=" + i);
+							Log.v("TAG", url.toString() + " " + locationEncoded);
 							URLConnection connection = url.openConnection();
 							Parser parser = new Parser(connection);
 							NodeList nodes = parser.parse(new NodeFilter() {
@@ -124,7 +126,7 @@ public class AddressesListActivity extends Activity {
 				listView.setAdapter(new BaseAdapter() {
 					public View getView(final int position, View convertView, ViewGroup parent) {
 						LinearLayout linearLayout = new LinearLayout(AddressesListActivity.this);
-						linearLayout.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
+						linearLayout.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.FILL_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
 						linearLayout.setOrientation(LinearLayout.VERTICAL);
 						
 						TextView textView = new TextView(AddressesListActivity.this);
@@ -161,6 +163,14 @@ public class AddressesListActivity extends Activity {
 							button = new Button(AddressesListActivity.this);
 							button.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.FILL_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
 							button.setText(getString(R.string.information) + ": " + nodeList.get(position).information);
+							button.setOnClickListener(new OnClickListener() {
+								public void onClick(View v) {
+									String number = nodeList.get(position).information;
+									if (number.startsWith("0")) number = number.substring(1);
+									Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + number)); 
+							        startActivity(callIntent);
+								}
+							});
 							linearLayout.addView(button);
 						}
 						
@@ -168,6 +178,15 @@ public class AddressesListActivity extends Activity {
 							button = new Button(AddressesListActivity.this);
 							button.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.FILL_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
 							button.setText(getString(R.string.wwwPage) + ": " + nodeList.get(position).url);
+							button.setOnClickListener(new OnClickListener() {
+								public void onClick(View v) {
+									String url = nodeList.get(position).url;
+									if (!url.startsWith("http://") && !url.startsWith("https://")) {
+										   url = "http://" + url;
+									}
+									startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+								}
+							});
 							linearLayout.addView(button);
 						}
 						
@@ -175,6 +194,16 @@ public class AddressesListActivity extends Activity {
 							button = new Button(AddressesListActivity.this);
 							button.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.FILL_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
 							button.setText(getString(R.string.email) + ": " + nodeList.get(position).email);
+							button.setOnClickListener(new OnClickListener() {
+								public void onClick(View v) {
+									Intent i = new Intent(Intent.ACTION_SEND);
+									i.setType("message/rfc822") ;
+									i.putExtra(Intent.EXTRA_EMAIL, new String[] { nodeList.get(position).email });
+									i.putExtra(Intent.EXTRA_SUBJECT,"subject goes here");
+									i.putExtra(Intent.EXTRA_TEXT,"body goes here");
+									startActivity(i);
+								}
+							});
 							linearLayout.addView(button);
 						}
 						

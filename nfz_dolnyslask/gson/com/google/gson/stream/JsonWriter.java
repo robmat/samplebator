@@ -28,7 +28,7 @@ import java.util.List;
  * literal values (strings, numbers, booleans and nulls) as well as the begin
  * and end delimiters of objects and arrays.
  *
- * <h3>Encoding JSON</h3>
+ * <h3>Windows1250Encoding JSON</h3>
  * To encode your data as JSON, create a new {@code JsonWriter}. Each JSON
  * document must contain one top-level array or object. Call methods on the
  * writer as you walk the structure's contents, nesting arrays and objects as
