@@ -83,12 +83,12 @@ public class ServiceListActivity extends Activity implements OnItemClickListener
 							updateList();
 						}
 						runOnUiThread(new Runnable() { public void run() { dismissDialog(DIALOG_PROGRESS); }});
-					} catch (MalformedURLException e) {
-						ActivityUtil.showErrDialog(ServiceListActivity.this, e);
-					} catch (IOException e) {
-						ActivityUtil.showErrDialog(ServiceListActivity.this, e);
-					} catch (ParserException e) {
-						ActivityUtil.showErrDialog(ServiceListActivity.this, e);
+					} catch (final MalformedURLException e) {
+						runOnUiThread(new Runnable() { public void run() { ActivityUtil.showErrDialog(ServiceListActivity.this, e); } }); 
+					} catch (final IOException e) {
+						runOnUiThread(new Runnable() { public void run() { ActivityUtil.showErrDialog(ServiceListActivity.this, e); } }); 
+					} catch (final ParserException e) {
+						runOnUiThread(new Runnable() { public void run() { ActivityUtil.showErrDialog(ServiceListActivity.this, e); } }); 
 					}
 				}
 

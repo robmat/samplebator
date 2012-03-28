@@ -81,12 +81,12 @@ public class BenefitsListActivity extends Activity implements OnItemClickListene
 							nodeListVals.add(((OptionTag) node).getValue());
 						}
 						updateList();
-					} catch (MalformedURLException e) {
-						ActivityUtil.showErrDialog(BenefitsListActivity.this, e);
-					} catch (IOException e) {
-						ActivityUtil.showErrDialog(BenefitsListActivity.this, e);
-					} catch (ParserException e) {
-						ActivityUtil.showErrDialog(BenefitsListActivity.this, e);
+					} catch (final MalformedURLException e) {
+						runOnUiThread(new Runnable() { public void run() { ActivityUtil.showErrDialog(BenefitsListActivity.this, e); } }); 
+					} catch (final IOException e) {
+						runOnUiThread(new Runnable() { public void run() { ActivityUtil.showErrDialog(BenefitsListActivity.this, e); } }); 
+					} catch (final ParserException e) {
+						runOnUiThread(new Runnable() { public void run() { ActivityUtil.showErrDialog(BenefitsListActivity.this, e); } }); 
 					}
 				}
 			}).start();
