@@ -66,12 +66,12 @@ public class LocationListActivity extends Activity implements OnItemClickListene
 							nodeList.add(((OptionTag)node).getValue().equals("") ?  getString(R.string.whole_lower_silesia) : ((OptionTag)node).getValue());
 						}
 						updateList();
-					} catch (MalformedURLException e) {
-						ActivityUtil.showErrDialog(LocationListActivity.this, e);
-					} catch (IOException e) {
-						ActivityUtil.showErrDialog(LocationListActivity.this, e);
-					} catch (ParserException e) {
-						ActivityUtil.showErrDialog(LocationListActivity.this, e);
+					} catch (final MalformedURLException e) {
+						runOnUiThread(new Runnable() { public void run() { ActivityUtil.showErrDialog(LocationListActivity.this, e); } }); 
+					} catch (final IOException e) {
+						runOnUiThread(new Runnable() { public void run() { ActivityUtil.showErrDialog(LocationListActivity.this, e); } }); 
+					} catch (final ParserException e) {
+						runOnUiThread(new Runnable() { public void run() { ActivityUtil.showErrDialog(LocationListActivity.this, e); } }); 
 					}
 				}
 			}).start();

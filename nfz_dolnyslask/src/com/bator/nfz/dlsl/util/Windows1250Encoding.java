@@ -21,6 +21,7 @@ public class Windows1250Encoding {
 		map.put("Ó", "%D3");
 		map.put("Œ", "%8C");
 		map.put("¯", "%AF");
+		map.put(" ", "%20");
 	}
 	public static String encode(String str) {
 		for (Entry<String, String> entry : map.entrySet()) {

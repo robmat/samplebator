@@ -30,6 +30,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView.LayoutParams;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -106,12 +107,12 @@ public class AddressesListActivity extends Activity {
 							updateList();
 						}
 						runOnUiThread(new Runnable() { public void run() { dismissDialog(DIALOG_PROGRESS); }});
-					} catch (MalformedURLException e) {
-						ActivityUtil.showErrDialog(AddressesListActivity.this, e);
-					} catch (IOException e) {
-						ActivityUtil.showErrDialog(AddressesListActivity.this, e);
-					} catch (ParserException e) {
-						ActivityUtil.showErrDialog(AddressesListActivity.this, e);
+					} catch (final MalformedURLException e) {
+						runOnUiThread(new Runnable() { public void run() { ActivityUtil.showErrDialog(AddressesListActivity.this, e); } }); 
+					} catch (final IOException e) {
+						runOnUiThread(new Runnable() { public void run() { ActivityUtil.showErrDialog(AddressesListActivity.this, e); } });
+					} catch (final ParserException e) {
+						runOnUiThread(new Runnable() { public void run() { ActivityUtil.showErrDialog(AddressesListActivity.this, e); } });
 					}
 				}
 
@@ -143,6 +144,17 @@ public class AddressesListActivity extends Activity {
 						textView.setPadding(10, 10, 10, 10);
 						linearLayout.addView(textView);
 						
+						ImageButton imageButton = new ImageButton(AddressesListActivity.this);
+						imageButton.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.FILL_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
+						imageButton.setImageResource(android.R.drawable.ic_dialog_map);
+						linearLayout.addView(imageButton);
+						imageButton.setOnClickListener(new OnClickListener() {
+							public void onClick(View v) {
+								Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+								startActivity(intent);
+							}
+						});
+						
 						Button button = null;
 						if (!AddressesListActivity.this.isEmpty(nodeList.get(position).register)) {
 							button = new Button(AddressesListActivity.this);
@@ -152,6 +164,7 @@ public class AddressesListActivity extends Activity {
 								public void onClick(View v) {
 									String number = nodeList.get(position).register;
 									if (number.startsWith("0")) number = number.substring(1);
+									if (number.contains("w.")) number = number.substring(0, number.indexOf("w."));
 									Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + number)); 
 							        startActivity(callIntent);
 								}
@@ -167,6 +180,7 @@ public class AddressesListActivity extends Activity {
 								public void onClick(View v) {
 									String number = nodeList.get(position).information;
 									if (number.startsWith("0")) number = number.substring(1);
+									if (number.contains("w.")) number = number.substring(0, number.indexOf("w."));
 									Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + number)); 
 							        startActivity(callIntent);
 								}
@@ -199,8 +213,8 @@ public class AddressesListActivity extends Activity {
 									Intent i = new Intent(Intent.ACTION_SEND);
 									i.setType("message/rfc822") ;
 									i.putExtra(Intent.EXTRA_EMAIL, new String[] { nodeList.get(position).email });
-									i.putExtra(Intent.EXTRA_SUBJECT,"subject goes here");
-									i.putExtra(Intent.EXTRA_TEXT,"body goes here");
+									i.putExtra(Intent.EXTRA_SUBJECT,"");
+									i.putExtra(Intent.EXTRA_TEXT,"");
 									startActivity(i);
 								}
 							});
