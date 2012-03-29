@@ -1,13 +1,16 @@
 package com.bator.nfz.dlsl;
 
-import java.io.IOException;
-import java.util.List;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.text.MessageFormat;
+
+import org.apache.commons.io.IOUtils;
 
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.location.Address;
-import android.location.Geocoder;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.bator.nfz.dlsl.util.ActivityUtil;
 import com.google.android.maps.GeoPoint;
@@ -15,6 +18,7 @@ import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
+import com.google.gson.Gson;
 
 public class MapsActivity extends MapActivity {
 	public static final String ADDRESS_KEY = "ADDRESS_KEY";
@@ -25,16 +29,20 @@ public class MapsActivity extends MapActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.map_view);
 		final MapView mapView = (MapView) findViewById(R.id.mapView);
-		final Drawable itemMarker = getResources().getDrawable(android.R.drawable.btn_plus);
+		final Drawable itemMarker = getResources().getDrawable(R.drawable.marker);
 		mapView.setBuiltInZoomControls(true);
 		Runnable r = new Runnable() {
 			public void run() {
 				try {
-					Geocoder geocoder = new Geocoder(MapsActivity.this);
-					List<Address> addresses = geocoder.getFromLocationName(getIntent().getStringExtra(ADDRESS_KEY), Integer.MAX_VALUE);
-					if (addresses.size() > 0) {
-						double latitude = addresses.get(0).getLatitude() * 1000000;
-						double longitude = addresses.get(0).getLongitude() * 1000000;
+					String urlstr = "http://maps.googleapis.com/maps/api/geocode/json?address="+URLEncoder.encode(getIntent().getStringExtra(ADDRESS_KEY))+"&sensor=true";
+					urlstr = MessageFormat.format(urlstr, URLEncoder.encode(getIntent().getStringExtra(ADDRESS_KEY)));
+					URL url = new URL(urlstr);
+					URLConnection connection = url.openConnection();
+					String response = IOUtils.toString(connection.getInputStream());
+					GeoCodeingResults results = new Gson().fromJson(response, GeoCodeingResults.class);
+					if (results.results.length > 0) {
+						double latitude = results.results[0].geometry.location.lat * 1000000;
+						double longitude = results.results[0].geometry.location.lng * 1000000;
 						final GeoPoint geoPoint = new GeoPoint((int) latitude, (int) longitude);
 						runOnUiThread(new Runnable() { public void run() { 
 							mapView.getController().animateTo(geoPoint); 
@@ -44,8 +52,13 @@ public class MapsActivity extends MapActivity {
 							item.setMarker(itemMarker);
 							mapView.getOverlays().add(new Overlay(itemMarker, item));
 						} });
+					} else {
+						runOnUiThread(new Runnable() { public void run() { 
+							Toast.makeText(getApplicationContext(), getString(R.string.location_unavailable), Toast.LENGTH_LONG).show();
+							finish(); 
+						} });
 					}
-				} catch (final IOException e) {
+				} catch (final Exception e) {
 					runOnUiThread(new Runnable() { public void run() { ActivityUtil.showErrDialog(MapsActivity.this, e); } });
 				}
 			}
@@ -83,5 +96,19 @@ public class MapsActivity extends MapActivity {
 			super.draw(canvas, mapview, flag);
 			boundCenterBottom(defaultMarker);
 		}
+	}
+	class GeoCodeingResults {
+		String status;
+		Result[] results;
+	}
+	class Result {
+		Geometry geometry;
+	}
+	class Geometry {
+		Location location;
+	}
+	class Location {
+		double lat;
+		double lng;
 	}
 }
