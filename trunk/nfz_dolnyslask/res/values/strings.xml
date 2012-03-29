@@ -20,4 +20,5 @@
     <string name="information">Zadzwoń do informacji</string>
     <string name="email">Wyślij email</string>
     <string name="wwwPage">Otwórz stronę WWW</string>
+    <string name="location_unavailable">Lokalizacja niedostępna.</string>
 </resources>
