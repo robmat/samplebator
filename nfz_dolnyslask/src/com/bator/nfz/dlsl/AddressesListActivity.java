@@ -151,6 +151,7 @@ public class AddressesListActivity extends Activity {
 							public void onClick(View v) {
 								Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
 								intent.putExtra(MapsActivity.ADDRESS_KEY, nodeList.get(position).address);
+								intent.putExtra(MapsActivity.ADDRESS_NAME, nodeList.get(position).name);
 								startActivity(intent);
 							}
 						});
