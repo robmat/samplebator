@@ -28,6 +28,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.admob.android.ads.AdView;
 import com.bator.nfz.dlsl.util.ActivityUtil;
 
 public class LocationListActivity extends Activity implements OnItemClickListener {
@@ -47,6 +48,9 @@ public class LocationListActivity extends Activity implements OnItemClickListene
 		String benefitId = getIntent().getStringExtra(EXTRA_BENEFIT_ID);
 		showDialog(DIALOG_PROGRESS);
 		startListDownloading(benefitId);
+		
+		AdView adView = (AdView) findViewById(R.id.adMobAd);
+		adView.requestFreshAd();
 	}
 	private void startListDownloading(final String benefitId) {
 		if (ActivityUtil.isOnline(this)) {

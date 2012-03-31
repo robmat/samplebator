@@ -12,6 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.admob.android.ads.AdView;
 import com.bator.nfz.dlsl.util.ActivityUtil;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.ItemizedOverlay;
@@ -64,6 +65,9 @@ public class MapsActivity extends MapActivity {
 			}
 		};
 		new Thread(r).start();
+		
+		AdView adView = (AdView) findViewById(R.id.adMobAd);
+		adView.requestFreshAd();
 	}
 
 	@Override

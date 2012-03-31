@@ -34,6 +34,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.admob.android.ads.AdView;
 import com.bator.nfz.dlsl.util.ActivityUtil;
 import com.bator.nfz.dlsl.util.Windows1250Encoding;
 
@@ -56,6 +57,9 @@ public class AddressesListActivity extends Activity {
 		String location = getIntent().getStringExtra(ServiceListActivity.EXTRA_LOCATION_ID);
 		String serviceId = getIntent().getStringExtra(EXTRA_SERVICE_ID);
 		startDownloading(benefitId, location, serviceId);
+		
+		AdView adView = (AdView) findViewById(R.id.adMobAd);
+		adView.requestFreshAd();
 	}
 
 	private void startDownloading(final String benefitId, final String location, final String serviceId) {
