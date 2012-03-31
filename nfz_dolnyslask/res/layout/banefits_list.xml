@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-	
-    <TextView 
+
+    <TextView
         android:id="@+id/benefit_list_prompt_id"
-        android:text="@string/benefit_list_prompt"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="@android:style/TextAppearance.Large"/>
-    
+        android:text="@string/benefit_list_prompt"
+        android:textAppearance="@android:style/TextAppearance.Large" />
+
     <ListView
         android:id="@+id/benefit_list_list_id"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
+
+    <com.admob.android.ads.AdView
+        android:id="@+id/adMobAd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

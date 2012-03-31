@@ -5,7 +5,8 @@
 	<classpathentry kind="src" path="gson"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
-	<classpathentry exported="true" kind="lib" path="lib/htmlparser.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/commons-io-2.1.jar"/>
+	<classpathentry kind="lib" path="libs/commons-io-2.1.jar"/>
+	<classpathentry kind="lib" path="libs/htmlparser.jar"/>
+	<classpathentry kind="lib" path="libs/admob-sdk-android.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

@@ -14,8 +14,6 @@ import org.htmlparser.tags.LinkTag;
 import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
 
-import com.bator.nfz.dlsl.util.ActivityUtil;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -24,12 +22,16 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AbsListView.LayoutParams;
+
+import com.admob.android.ads.AdManager;
+import com.admob.android.ads.AdView;
+import com.bator.nfz.dlsl.util.ActivityUtil;
 
 public class ServiceListActivity extends Activity implements OnItemClickListener {
 	public static final String EXTRA_LOCATION_ID = "EXTRA_LOCATION_ID";
@@ -49,6 +51,10 @@ public class ServiceListActivity extends Activity implements OnItemClickListener
 		String benefitId = getIntent().getStringExtra(LocationListActivity.EXTRA_BENEFIT_ID);
 		String location = getIntent().getStringExtra(EXTRA_LOCATION_ID);
 		startListDownloading(benefitId, location);
+		
+		AdManager.setTestDevices( new String[] { "F84AF8E1636C8787E6E1078071B9EFE7" } );
+		AdView adView = (AdView) findViewById(R.id.adMobAd);
+		adView.requestFreshAd();
 	}
 
 	private void startListDownloading(final String benefitId, String location) {

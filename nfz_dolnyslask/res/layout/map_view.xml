@@ -7,7 +7,7 @@
         android:id="@+id/mapView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:apiKey="0N_VRQz-BsODiJZjyzhqLG4xIaNy7cdoKoMTPYg"
+        android:apiKey="0N_VRQz-BsOC0OS3rl_hTnA_mf6FEVOMSE_1ing"
         android:clickable="true"
         android:state_enabled="true" />
 
@@ -17,5 +17,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
-
+    
+	 <com.admob.android.ads.AdView
+        android:id="@+id/adMobAd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+	
 </RelativeLayout>

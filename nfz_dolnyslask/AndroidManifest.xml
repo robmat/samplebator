@@ -25,6 +25,18 @@
         <activity android:name=".AddressesListActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".MapsActivity" android:screenOrientation="portrait"></activity>
         
+        <!-- AdMobActivity definition -->
+		<activity android:name="com.admob.android.ads.AdMobActivity"
+			android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+			android:configChanges="orientation|keyboard|keyboardHidden" />
+		<!-- Track Market installs -->
+		<receiver android:name="com.admob.android.ads.analytics.InstallReceiver" android:exported="true">
+			<intent-filter>
+				<action android:name="com.android.vending.INSTALL_REFERRER" />
+			</intent-filter>
+		</receiver>        
+        <meta-data android:value="a14f76e4e7770f9" android:name="ADMOB_PUBLISHER_ID" />
+        
         <uses-library android:name="com.google.android.maps" />
     </application>
 
