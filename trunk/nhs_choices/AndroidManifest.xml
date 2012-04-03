@@ -22,6 +22,7 @@
         </activity>
         
         <uses-library android:name="com.google.android.maps" />
+        <activity android:name=".MapsActivity"></activity>
     </application>
 
 </manifest>
