@@ -17,7 +17,7 @@
         android:id="@+id/mapView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:apiKey="0N_VRQz-BsODiJZjyzhqLG4xIaNy7cdoKoMTPYg"
+        android:apiKey="0VuS1mjkfGQ4swNpBzI_iXEoPI5DsaoKZqYEMSw"
         android:clickable="true"
         android:state_enabled="true" />
 

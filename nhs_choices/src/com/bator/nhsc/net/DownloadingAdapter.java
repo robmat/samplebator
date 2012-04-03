@@ -33,7 +33,6 @@ public class DownloadingAdapter<T> extends BaseAdapter {
 
 	public void startDownload() {
 		Runnable r = new Runnable() {
-			@Override
 			public void run() {
 				try {
 					listener.donwloadStart();
@@ -77,22 +76,18 @@ public class DownloadingAdapter<T> extends BaseAdapter {
 		}
 	}
 
-	@Override
 	public int getCount() {
 		return model.size();
 	}
 
-	@Override
 	public Object getItem(int i) {
 		return model.get(i);
 	}
 
-	@Override
 	public long getItemId(int i) {
 		return i;
 	}
 
-	@Override
 	public View getView(int i, View v, ViewGroup parent) {
 		return listener.getView(i, v, parent);
 	}

@@ -71,7 +71,6 @@ public class ChooseVidCategoryActivity extends ActivityBase {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		menu.add(R.string.choose_category_dialog_title_lbl).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-			@Override
 			public boolean onMenuItemClick(MenuItem item) {
 				showDialog(CHOOSE_CATEGORY_DIALOG);
 				return true;

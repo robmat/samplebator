@@ -29,8 +29,6 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.admob.android.ads.AdManager;
-import com.admob.android.ads.AdView;
 import com.bator.nfz.dlsl.util.ActivityUtil;
 
 public class ServiceListActivity extends Activity implements OnItemClickListener {
@@ -51,10 +49,6 @@ public class ServiceListActivity extends Activity implements OnItemClickListener
 		String benefitId = getIntent().getStringExtra(LocationListActivity.EXTRA_BENEFIT_ID);
 		String location = getIntent().getStringExtra(EXTRA_LOCATION_ID);
 		startListDownloading(benefitId, location);
-		
-		AdManager.setTestDevices( new String[] { "F84AF8E1636C8787E6E1078071B9EFE7" } );
-		AdView adView = (AdView) findViewById(R.id.adMobAd);
-		adView.requestFreshAd();
 	}
 
 	private void startListDownloading(final String benefitId, String location) {

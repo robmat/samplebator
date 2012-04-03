@@ -36,7 +36,6 @@ public class MainMenuActivity extends ActivityBase implements Callback {
 		findViewById(R.id.main_menu_tools_id).setOnClickListener(new Utils.LaunchActivityListener(Utils.VIDEO_LIST_ACTION, this, Uri.parse("category://" + Utils.VID_CATEGORY.TOOLS_MACHINERY.toString())));
 		findViewById(R.id.main_menu_competition_id).setOnClickListener(new Utils.LaunchActivityListener(Utils.COMPETITION_ACTION, this, null));
 		findViewById(R.id.main_menu_demo_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				new Thread(new Runnable() {
 					public void run() {
@@ -73,7 +72,6 @@ public class MainMenuActivity extends ActivityBase implements Callback {
 			}
 		});
 	}
-	@Override
 	public boolean handleMessage(Message msg) {
 		if (msg.what == SHOW_PROGRESS_DIALOG) {
 			progressDialog = ProgressDialog.show(MainMenuActivity.this, "", getString(R.string.video_list_progress_dialog_title), true, false);
@@ -83,7 +81,6 @@ public class MainMenuActivity extends ActivityBase implements Callback {
 			builder.setTitle(R.string.video_list_error);
 			builder.setMessage(msg.obj.toString());
 			builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					playPlak();
 					dialog.dismiss();

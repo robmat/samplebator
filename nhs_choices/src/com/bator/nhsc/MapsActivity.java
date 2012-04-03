@@ -1,11 +1,17 @@
 package com.bator.nhsc;
 
-import java.net.MalformedURLException;
+import java.io.ByteArrayInputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.commons.io.IOUtils;
+import org.w3c.dom.Document;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -51,13 +57,12 @@ public class MapsActivity extends MapActivity implements LocationListener {
 	protected boolean isRouteDisplayed() {
 		return false;
 	}
-	@Override
 	public void onLocationChanged(android.location.Location location) {
 		Log.v(TAG, location.toString());
 		if (!locationProvided) {
-			final double latitude = location.getLatitude();
+			final double latitude = 52.955464;//location.getLatitude();
 			int lat = (int) (latitude * 1000000);
-			final double longitude = location.getLongitude();
+			final double longitude = -1.158772;// location.getLongitude();
 			int lon = (int) (longitude * 1000000);
 			mapView.getController().animateTo(new GeoPoint(lat, lon));
 			mapView.getController().setZoom(16);
@@ -68,7 +73,17 @@ public class MapsActivity extends MapActivity implements LocationListener {
 						URLConnection connection = url.openConnection();
 						String result = IOUtils.toString(connection.getInputStream());
 						GeoCodingResults results = new Gson().fromJson(result, GeoCodingResults.class);
-						Log.v(TAG, result);
+						Log.v(TAG, results.getPostalCode());
+						String urlExtra = getIntent().getStringExtra(URI_KEY);
+						urlExtra = urlExtra.substring(0, urlExtra.indexOf("?")) + "/postcode/" + results.getPostalCode().replaceAll(" ", "") + ".xml?apikey=PHRJCDTY&range=100";
+						url = new URL(urlExtra);
+						connection = url.openConnection();
+						result = IOUtils.toString(connection.getInputStream());
+						DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+						DocumentBuilder builder = factory.newDocumentBuilder();
+						Document document = builder.parse(new ByteArrayInputStream(result.getBytes()));
+						List<Document> documents = new ArrayList<Document>();
+						new ResultItemizedOverlay(getResources().getDrawable(R.drawable.marker), documents);
 					} catch (Exception e) {
 						Log.e(TAG, "error: ", e);
 					}
@@ -79,7 +94,6 @@ public class MapsActivity extends MapActivity implements LocationListener {
 			locationManager.removeUpdates(this);
 		}
 	}
-	@Override
 	public void onProviderDisabled(String provider) {
 		Log.v(TAG, "Provider disabled: " + provider);
 		if (!locationPopupShown) {
@@ -87,7 +101,6 @@ public class MapsActivity extends MapActivity implements LocationListener {
 			builder.setTitle("Warning");
 			builder.setMessage("Your GPS is disabled, do you want to enable it to find You location?");
 			builder.setPositiveButton("Yes", new OnClickListener() {
-				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					dialog.dismiss();
 					startActivity(new Intent(
@@ -95,7 +108,6 @@ public class MapsActivity extends MapActivity implements LocationListener {
 				}
 			});
 			builder.setNegativeButton("No", new OnClickListener() {
-				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					dialog.dismiss();
 				}
@@ -104,15 +116,12 @@ public class MapsActivity extends MapActivity implements LocationListener {
 			locationPopupShown = true;
 		}
 	}
-	@Override
 	public void onProviderEnabled(String provider) {
 		
 	}
-	@Override
 	public void onStatusChanged(String provider, int status, Bundle extras) {
 		
 	}
-	@Override
 	protected void onDestroy() {
 		super.onDestroy();
 		locationManager.removeUpdates(this);

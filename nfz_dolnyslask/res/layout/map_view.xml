@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
     <com.google.android.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:apiKey="0N_VRQz-BsOC0OS3rl_hTnA_mf6FEVOMSE_1ing"
         android:clickable="true"
         android:state_enabled="true" />
 
-    <LinearLayout
-        android:id="@+id/zoom"
+	 <com.google.ads.AdView
+        android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-    
-	 <com.admob.android.ads.AdView
-        android:id="@+id/adMobAd"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        ads:adSize="BANNER"
+        ads:adUnitId="a14f76e4e7770f9"
+        ads:loadAdOnCreate="true" />
 	
-</RelativeLayout>
+</LinearLayout>

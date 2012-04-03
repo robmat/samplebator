@@ -20,7 +20,6 @@ public class ChooseVidSourceActivity extends ActivityBase {
 		backButtonListenerSetup();
 		setTopBarTitle(getString(R.string.choose_vid_title_lbl));
 		findViewById(R.id.choose_vid_camera_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				playPlak();
 				Intent intent = new Intent(android.provider.MediaStore.ACTION_VIDEO_CAPTURE);
@@ -38,7 +37,6 @@ public class ChooseVidSourceActivity extends ActivityBase {
 			}
 		});
 		findViewById(R.id.choose_vid_library_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				playPlak();
 				Intent i = new Intent(Intent.ACTION_GET_CONTENT);
@@ -47,7 +45,6 @@ public class ChooseVidSourceActivity extends ActivityBase {
 			}
 		});
 		findViewById(R.id.choose_vid_cancel_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				playPlak();
 				finish();

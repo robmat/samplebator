@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
@@ -14,11 +15,15 @@
     <ListView
         android:id="@+id/benefit_list_list_id"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
-
-    <com.admob.android.ads.AdView
-        android:id="@+id/adMobAd"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.google.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="a14f76e4e7770f9"
+        ads:loadAdOnCreate="true" />
 
 </LinearLayout>

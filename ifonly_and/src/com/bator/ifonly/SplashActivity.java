@@ -24,7 +24,6 @@ public class SplashActivity extends Activity {
         	iv.setBackgroundResource(R.drawable.splash);
         } else {
         	runnable = new Runnable() {
-				@Override
     			public void run() {
     				if (launchMainMenu) {
 						startActivity(new Intent("ifonly.mainmenu"));
@@ -35,7 +34,6 @@ public class SplashActivity extends Activity {
 			scheduler.schedule(runnable, 15, TimeUnit.SECONDS);
         }
         findViewById(R.id.splash_start_btn_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View view) {
 				scheduler.remove(runnable);
 				startActivity(new Intent("ifonly.mainmenu"));

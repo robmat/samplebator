@@ -47,7 +47,6 @@ public class YouTubeSample {
     final JsonFactory jsonFactory = new JacksonFactory();
     HttpRequestFactory factory = transport.createRequestFactory(new HttpRequestInitializer() {
 
-      @Override
       public void initialize(HttpRequest request) {
         // set the parser
         JsonCParser parser = new JsonCParser();

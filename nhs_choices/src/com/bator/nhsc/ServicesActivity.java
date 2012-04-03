@@ -42,7 +42,6 @@ public class ServicesActivity extends Activity implements IDownloadingAdapterLis
         listView.setOnItemClickListener(this);
     }
 
-	@Override
 	public View getView(int i, View v, ViewGroup parent) {
 		Pair<String, String> pair = adapter.getModel().get(i);
 		LinearLayout linearLayout = new LinearLayout(this);
@@ -60,7 +59,6 @@ public class ServicesActivity extends Activity implements IDownloadingAdapterLis
 		return linearLayout;
 	}
 
-	@Override
 	public void donwloadStart() {
 		Runnable r = new Runnable() {
 			public void run() {
@@ -73,7 +71,6 @@ public class ServicesActivity extends Activity implements IDownloadingAdapterLis
 		runOnUiThread(r);
 	}
 
-	@Override
 	public void donwloadFinished() {
 		Runnable r = new Runnable() {
 			public void run() {
@@ -84,7 +81,6 @@ public class ServicesActivity extends Activity implements IDownloadingAdapterLis
 		runOnUiThread(r);
 	}
 
-	@Override
 	public void donwloadProgress(final int prorgess, final int max) {
 		Runnable r = new Runnable() {
 			public void run() {
@@ -95,12 +91,10 @@ public class ServicesActivity extends Activity implements IDownloadingAdapterLis
 		runOnUiThread(r);
 	}
 
-	@Override
 	public void downloadError(Exception exception) {
 		Log.e(TAG , "Error: ", exception);
 	}
 
-	@Override
 	public void downloadParseResult(Document document, ArrayList<Pair<String, String>> model) {
 		NodeList linkNodes = document.getElementsByTagName("Link");
 		for (int i = 0; i < linkNodes.getLength(); i++) {
@@ -124,7 +118,6 @@ public class ServicesActivity extends Activity implements IDownloadingAdapterLis
 		}
 	}
 
-	@Override
 	public void onItemClick(AdapterView<?> listView, View view, int index, long id) {
 		Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
 		intent.putExtra(MapsActivity.URI_KEY, adapter.getModel().get(index).second);
