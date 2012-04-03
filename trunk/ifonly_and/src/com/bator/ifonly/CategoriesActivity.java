@@ -49,13 +49,11 @@ public class CategoriesActivity extends ActivityBase implements Callback {
 			}
 		});
 		findViewById(R.id.video_list_about_btn_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(Utils.ABOUT_ACTION));
 			}
 		});
 		findViewById(R.id.video_list_feedback_btn_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(Intent.ACTION_SEND);
 				i.setType("text/plain");
@@ -66,13 +64,11 @@ public class CategoriesActivity extends ActivityBase implements Callback {
 			}
 		});
 		findViewById(R.id.video_list_categories_btn_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(Utils.CATEGORIES_ACTION));
 			}
 		});
 		((ListView) findViewById(R.id.categories_list_id)).setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				VID_CATEGORY vidCat =  VID_CATEGORY.values()[position];
 				Intent i = new Intent(Utils.VIDEO_LIST_ACTION, Uri.parse("category://" + vidCat.toString()));
@@ -111,14 +107,12 @@ public class CategoriesActivity extends ActivityBase implements Callback {
 		}).start();
 	}
 	@SuppressWarnings("unchecked")
-	@Override
 	public boolean handleMessage(Message msg) {
 		if (msg.what == VIDEO_LIST_ERROR) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle(R.string.video_list_error);
 			builder.setMessage(msg.obj.toString());
 			builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					playPlak();
 					dialog.dismiss();

@@ -90,7 +90,6 @@ public class YoutubeService {
 	protected class YoutubeUnsuccessfulResponseHandler implements HttpUnsuccessfulResponseHandler {
 		YoutubeErrors errors = null;
 
-		@Override
 		public boolean handleResponse(HttpRequest request, HttpResponse response, boolean retrySupported) throws IOException {
 			errors = response.parseAs(YoutubeErrors.class);
 			return false;
@@ -343,7 +342,6 @@ public class YoutubeService {
 		// set up the HTTP request factory
 		transport = new NetHttpTransport();
 		requestFactory = transport.createRequestFactory(new HttpRequestInitializer() {
-			@Override
 			public void initialize(HttpRequest request) {
 				request.addParser(jsonParser);
 				request.addParser(atomParser);

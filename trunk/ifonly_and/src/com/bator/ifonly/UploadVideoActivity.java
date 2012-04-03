@@ -76,7 +76,6 @@ public class UploadVideoActivity extends ActivityBase implements Callback, Uploa
 	private void setUpListeners() {
 		findViewById(R.id.upload_vid_about_id).setOnClickListener(new Utils.LaunchActivityListener(Utils.ABOUT_ACTION, this, null));
 		findViewById(R.id.upload_vid_add_note_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				playPlak();
 				showDialog(TEXT_INPUT_DIALOG_NOTES);
@@ -84,7 +83,6 @@ public class UploadVideoActivity extends ActivityBase implements Callback, Uploa
 			}
 		});
 		findViewById(R.id.upload_vid_add_tags_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				playPlak();
 				showDialog(TEXT_INPUT_DIALOG_TAGS);
@@ -92,7 +90,6 @@ public class UploadVideoActivity extends ActivityBase implements Callback, Uploa
 			}
 		});
 		findViewById(R.id.upload_vid_submit_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				playPlak();
 				handler.sendEmptyMessage(UPLOAD_VIDEO_MSG_WHAT);
@@ -188,7 +185,6 @@ public class UploadVideoActivity extends ActivityBase implements Callback, Uploa
 		}
 	}
 
-	@Override
 	public boolean handleMessage(Message msg) {
 		if (msg.what == UPLOAD_VIDEO_MSG_WHAT) {
 			uploadVideo();
@@ -231,7 +227,6 @@ public class UploadVideoActivity extends ActivityBase implements Callback, Uploa
 		return false;
 	}
 
-	@Override
 	public void uploadedBytes(long uploadedBytes, long contentLength) {
 		if (dialog != null && dialog instanceof ProgressDialog) {
 			Message msg = new Message();

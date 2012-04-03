@@ -21,7 +21,6 @@ public class ActivityBase extends Activity {
 		View backBtn = findViewById(R.id.top_bar_back_btn_id);
 		if (backBtn != null) { //if back button exists
 			backBtn.setOnClickListener(new View.OnClickListener() {
-				@Override
 				public void onClick(View v) {
 					playPlak();
 					ActivityBase.this.finish();
@@ -52,7 +51,6 @@ public class ActivityBase extends Activity {
 			mp = MediaPlayer.create(this, R.raw.plak);
 		}
 		mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-			@Override
 			public void onCompletion(MediaPlayer mp) {
 				ActivityBase.this.releaseMediaPlayer();
 			}

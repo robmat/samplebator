@@ -78,13 +78,10 @@ public class VideosListActivity extends ActivityBase implements Callback {
 				itemView.startAnimation(sa);
 				itemView.setVisibility(View.INVISIBLE);
 				sa.setAnimationListener(new Animation.AnimationListener() {
-					@Override
 					public void onAnimationStart(Animation animation) {
 						itemView.setVisibility(View.VISIBLE);
 					}
-					@Override
 					public void onAnimationRepeat(Animation animation) {}
-					@Override
 					public void onAnimationEnd(Animation animation) {}
 				});
 				return itemView;
@@ -92,26 +89,22 @@ public class VideosListActivity extends ActivityBase implements Callback {
 		});
 		fetchData();
 		listView.setOnItemClickListener(new OnItemClickListener() {
-			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(videosList.get(position).url)));
 			}
 		});
 		findViewById(R.id.video_list_search_btn_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				playPlak();
 				showDialog(-1);
 			}
 		});
 		findViewById(R.id.video_list_about_btn_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(Utils.ABOUT_ACTION));
 			}
 		});
 		findViewById(R.id.video_list_feedback_btn_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(Intent.ACTION_SEND);
 		        i.setType("text/plain");
@@ -123,7 +116,6 @@ public class VideosListActivity extends ActivityBase implements Callback {
 			}
 		});
 		findViewById(R.id.video_list_categories_btn_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(Utils.CATEGORIES_ACTION));
 			}
@@ -135,12 +127,10 @@ public class VideosListActivity extends ActivityBase implements Callback {
 		setTopBarRightView(iv);
 		*/
 		findViewById(R.id.video_list_order_by_btn_id).setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				String[] options = { getString(R.string.video_list_order_by_date), getString(R.string.video_list_order_by_views) };
 				AlertDialog.Builder builder = new AlertDialog.Builder(VideosListActivity.this);
 				builder.setSingleChoiceItems(options, orderByStr.equals("published") ? 0 : 1, new DialogInterface.OnClickListener() {
-					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						playPlak();
 						orderByStr = which == 0 ? "published" : "viewCount";
@@ -193,7 +183,6 @@ public class VideosListActivity extends ActivityBase implements Callback {
 			}
 		}).start();
 	}
-	@Override
 	public boolean handleMessage(Message msg) {
 		if (msg.what == VIDEO_LIST_SUCCESS) {
 			dialog.dismiss();
@@ -205,7 +194,6 @@ public class VideosListActivity extends ActivityBase implements Callback {
 			builder.setTitle(R.string.video_list_error);
 			builder.setMessage(msg.obj.toString());
 			builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					playPlak();
 					dialog.dismiss();

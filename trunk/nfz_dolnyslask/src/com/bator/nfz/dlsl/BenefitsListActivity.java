@@ -28,7 +28,6 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.admob.android.ads.AdView;
 import com.bator.nfz.dlsl.prefs.PrefsUtils;
 import com.bator.nfz.dlsl.util.ActivityUtil;
 import com.google.gson.Gson;
@@ -53,9 +52,6 @@ public class BenefitsListActivity extends Activity implements OnItemClickListene
 		checkIfFirstUse();
 		startListDownloading();
 		updateList();
-		
-		AdView adView = (AdView) findViewById(R.id.adMobAd);
-		adView.requestFreshAd();
 	}
 
 	@Override
