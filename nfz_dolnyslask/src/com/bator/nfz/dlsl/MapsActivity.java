@@ -40,7 +40,7 @@ public class MapsActivity extends MapActivity {
 					URL url = new URL(urlstr);
 					URLConnection connection = url.openConnection();
 					String response = IOUtils.toString(connection.getInputStream());
-					GeoCodeingResults results = new Gson().fromJson(response, GeoCodeingResults.class);
+					GeoCodingResults results = new Gson().fromJson(response, GeoCodingResults.class);
 					if (results.results.length > 0) {
 						double latitude = results.results[0].geometry.location.lat * 1000000;
 						double longitude = results.results[0].geometry.location.lng * 1000000;
@@ -101,7 +101,7 @@ public class MapsActivity extends MapActivity {
 			boundCenterBottom(defaultMarker);
 		}
 	}
-	class GeoCodeingResults {
+	class GeoCodingResults {
 		String status;
 		Result[] results;
 	}

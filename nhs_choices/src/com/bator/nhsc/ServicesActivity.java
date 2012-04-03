@@ -8,12 +8,17 @@ import org.w3c.dom.NodeList;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView.LayoutParams;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,7 +26,7 @@ import com.bator.nhsc.net.DownloadingAdapter;
 import com.bator.nhsc.net.DownloadingAdapter.IDownloadingAdapterListener;
 import com.bator.nhsc.util.XmlUtil;
 
-public class ServicesActivity extends Activity implements IDownloadingAdapterListener<Pair<String, String>> {
+public class ServicesActivity extends Activity implements IDownloadingAdapterListener<Pair<String, String>>, OnItemClickListener {
     
 	ProgressDialog progressDialog;
 	String TAG = getClass().getSimpleName();
@@ -34,15 +39,25 @@ public class ServicesActivity extends Activity implements IDownloadingAdapterLis
         adapter = new DownloadingAdapter<Pair<String, String>>(this, "http://v1.syndication.nhschoices.nhs.uk/organisations.xml?apikey=PHRJCDTY");
         ListView listView = (ListView) findViewById(R.id.benefit_list_list_id);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(this);
     }
 
 	@Override
 	public View getView(int i, View v, ViewGroup parent) {
 		Pair<String, String> pair = adapter.getModel().get(i);
+		LinearLayout linearLayout = new LinearLayout(this);
+		linearLayout.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
+		linearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.item_back));
+		linearLayout.setGravity(Gravity.CENTER);
+		
 		TextView textView = new TextView(this);
-		textView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
+		textView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		textView.setText(pair.first);
-		return textView;
+		textView.setTextAppearance(ServicesActivity.this, android.R.style.TextAppearance_Medium);
+		textView.setGravity(Gravity.CENTER);
+		
+		linearLayout.addView(textView);
+		return linearLayout;
 	}
 
 	@Override
@@ -102,7 +117,17 @@ public class ServicesActivity extends Activity implements IDownloadingAdapterLis
 					link = XmlUtil.getTextFromNode(linkChild);
 				}
 			}
+			if (text.equals("Strategic Health Authorities") || text.equals("GP-led Health Centres")) {
+				continue;
+			}
 			model.add(new Pair<String, String>(text, link));
 		}
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> listView, View view, int index, long id) {
+		Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+		intent.putExtra(MapsActivity.URI_KEY, adapter.getModel().get(index).second);
+		startActivity(intent);
 	}
 }
