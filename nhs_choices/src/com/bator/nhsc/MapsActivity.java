@@ -4,8 +4,6 @@ import java.io.ByteArrayInputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -24,18 +22,20 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 
+import com.bator.nhsc.ResultItemizedOverlay.IResultListener;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapView;
 import com.google.gson.Gson;
 
-public class MapsActivity extends MapActivity implements LocationListener {
+public class MapsActivity extends MapActivity implements LocationListener, IResultListener {
 	String TAG = getClass().getSimpleName();
 	public static final String URI_KEY = "URI_KEY";
 	LocationManager locationManager;
 	MapView mapView;
-	private boolean locationProvided = false;
+	private int locationProvidedCount = 0;
 	private boolean locationPopupShown = false;
+	ResultItemizedOverlay resultItemizedOverlay;
 	
 	@Override
 	protected void onCreate(Bundle icicle) {
@@ -59,7 +59,7 @@ public class MapsActivity extends MapActivity implements LocationListener {
 	}
 	public void onLocationChanged(android.location.Location location) {
 		Log.v(TAG, location.toString());
-		if (!locationProvided) {
+		if (locationProvidedCount < 1) {
 			final double latitude = 52.955464;//location.getLatitude();
 			int lat = (int) (latitude * 1000000);
 			final double longitude = -1.158772;// location.getLongitude();
@@ -82,14 +82,14 @@ public class MapsActivity extends MapActivity implements LocationListener {
 						DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 						DocumentBuilder builder = factory.newDocumentBuilder();
 						Document document = builder.parse(new ByteArrayInputStream(result.getBytes()));
-						List<Document> documents = new ArrayList<Document>();
-						new ResultItemizedOverlay(getResources().getDrawable(R.drawable.marker), documents);
+						resultItemizedOverlay = new ResultItemizedOverlay(getResources().getDrawable(R.drawable.marker), document, MapsActivity.this);
+						finishedLoading();
 					} catch (Exception e) {
 						Log.e(TAG, "error: ", e);
 					}
 				}
 			}).start();
-			locationProvided = true;
+			locationProvidedCount++;
 		} else {
 			locationManager.removeUpdates(this);
 		}
@@ -161,4 +161,18 @@ public class MapsActivity extends MapActivity implements LocationListener {
 		double lat;
 		double lng;
 	}
+	public void finishedLoading() {
+		if (resultItemizedOverlay != null) {
+			runOnUiThread(new Runnable() {
+				public void run() {
+					mapView.getOverlays().add(resultItemizedOverlay);
+					mapView.invalidate();
+				}
+			});
+		}
+	}
+	public Context getContext() {
+		return this;
+	}
+	
 }

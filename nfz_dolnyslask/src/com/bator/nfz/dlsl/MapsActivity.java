@@ -34,8 +34,8 @@ public class MapsActivity extends MapActivity {
 		Runnable r = new Runnable() {
 			public void run() {
 				try {
-					String urlstr = "http://maps.googleapis.com/maps/api/geocode/json?address="+URLEncoder.encode(getIntent().getStringExtra(ADDRESS_KEY))+"&sensor=true";
-					urlstr = MessageFormat.format(urlstr, URLEncoder.encode(getIntent().getStringExtra(ADDRESS_KEY)));
+					String urlstr = "http://maps.googleapis.com/maps/api/geocode/json?address="+URLEncoder.encode(getIntent().getStringExtra(ADDRESS_KEY), "utf-8")+"&sensor=true";
+					urlstr = MessageFormat.format(urlstr, URLEncoder.encode(getIntent().getStringExtra(ADDRESS_KEY), "utf-8"));
 					URL url = new URL(urlstr);
 					URLConnection connection = url.openConnection();
 					String response = IOUtils.toString(connection.getInputStream());
