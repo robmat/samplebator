@@ -5,6 +5,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -18,6 +19,8 @@ import org.w3c.dom.NodeList;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.location.Location;
+import android.location.LocationManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
@@ -30,7 +33,7 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
 
 public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
-
+	final static int MIN_OVERLAP_DISTANCE = 300;
 	String TAG = getClass().getSimpleName();
 	List<Entry> model = new ArrayList<Entry>();
 	IResultListener listener;
@@ -68,7 +71,7 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 					nextPage = Integer.parseInt(nextPageStr);
 				}
 			}
-			if (nextPage <= pageCount && nextLink != null && nextPage != 3) {
+			if (nextPage <= pageCount && nextLink != null && nextPage != 5) {
 				URL url = new URL(nextLink.replaceAll("\\?", ".xml?"));
 				URLConnection connection = url.openConnection();
 				String result = IOUtils.toString(connection.getInputStream());
@@ -104,7 +107,16 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 			Node contactNode = XmlUtil.getChildElementByName(summaryNode, "s:contact");
 			entry.telephone = XmlUtil.getTextFromNode(XmlUtil.getChildElementByName(contactNode, "s:telephone"));
 			entry.email = XmlUtil.getTextFromNode(XmlUtil.getChildElementByName(contactNode, "s:email"));
-			model.add(entry);
+			boolean nearFlag = false;
+			for (Entry entry2 : model) {
+				if (entry2.closeToOtherEntry(entry)) {
+					entry2.closeEntries.add(entry);
+					nearFlag = true;
+				}
+			}
+			if (!nearFlag) {
+				model.add(entry);
+			}
 		}
 	}
 
@@ -136,7 +148,11 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 //		overlayItem.setMarker(marker);
 		LayoutInflater inflater = LayoutInflater.from(listener.getContext());
 		FrameLayout frame = (FrameLayout) inflater.inflate(R.layout.marker_layout, null, false);
-		OverlayItem overlayItem = new CustomItem(geoPoint, model.get(i).name, "", frame, listener.getContext());
+		String label = "* " + model.get(i).name;
+		for (Entry entry : model.get(i).closeEntries) {
+			label += "\n* " + entry.name;
+		}
+		OverlayItem overlayItem = new CustomItem(geoPoint, label, "", frame, listener.getContext());
 		return overlayItem;
 	}
 	@Override
@@ -163,7 +179,17 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 		public double lat;
 		public String telephone;
 		public String email;
-
+		public List<Entry> closeEntries = new ArrayList<Entry>();
+		
+		public boolean closeToOtherEntry(Entry e1) {
+			Location location = new Location(LocationManager.GPS_PROVIDER);
+			location.setLatitude(e1.lat);
+			location.setLongitude(e1.lon);
+			Location locationOther = new Location(LocationManager.GPS_PROVIDER);
+			locationOther.setLatitude(lat);
+			locationOther.setLongitude(lon);
+			return location.distanceTo(locationOther) < MIN_OVERLAP_DISTANCE;
+		}
 		@Override
 		public String toString() {
 			return "Entry [name=" + name + ", detailsLink=" + detailsLink + ",  addressLines=" + Arrays.toString(addressLines) + ", postcode=" + postcode + ", lon=" + lon + ", lat=" + lat + ", telephone=" + telephone + ", email=" + email + "]";
