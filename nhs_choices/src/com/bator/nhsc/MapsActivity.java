@@ -63,9 +63,9 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 		Log.v(TAG, location.toString());
 		if (locationProvidedCount < 1) {
 			final double latitude = 52.955464;//location.getLatitude();
-			int lat = (int) (latitude * 1000000);
+			int lat = (int) (latitude * 1E6);
 			final double longitude = -1.158772;// location.getLongitude();
-			int lon = (int) (longitude * 1000000);
+			int lon = (int) (longitude * 1E6);
 			mapView.getController().animateTo(new GeoPoint(lat, lon));
 			mapView.getController().setZoom(16);
 			new Thread(new Runnable() {
