@@ -3,24 +3,63 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    
-         <com.google.android.maps.MapView
+    <com.google.android.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:apiKey="0N_VRQz-BsODiJZjyzhqLG4xIaNy7cdoKoMTPYg"
         android:clickable="true"
-        android:state_enabled="true" />
-    
-<!--
+        android:state_enabled="true" />
+    <!--
     <com.google.android.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:apiKey="0VuS1mjkfGQ4swNpBzI_iXEoPI5DsaoKZqYEMSw"
         android:clickable="true"
-        android:state_enabled="true" />
--->
+        android:state_enabled="true" />
+    -->
+
+    <ImageButton
+        android:id="@+id/search_bar_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@string/app_name"
+        android:src="@android:drawable/ic_menu_search" />
+
+    <LinearLayout
+        android:id="@+id/search_bar_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/search_back"
+        android:visibility="gone" >
+
+        <EditText
+            android:id="@+id/search_edit"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Type in a post code here to search" />
+        
+        <Button
+            android:id="@+id/search_btn" 
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="Go"/>
+    </LinearLayout>
+
+    <com.bator.nhsc.view.IndicatorView
+        android:id="@+id/title_bar_activity_indicator_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:focusable="false"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icon_wait"
+        android:visibility="visible" />
+
     <LinearLayout
         android:id="@+id/zoom"
         android:layout_width="wrap_content"

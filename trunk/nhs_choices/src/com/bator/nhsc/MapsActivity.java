@@ -21,14 +21,19 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationUtils;
 
 import com.bator.nhsc.ResultItemizedOverlay.IResultListener;
+import com.bator.nhsc.view.IndicatorView;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapView;
 import com.google.gson.Gson;
 
-public class MapsActivity extends MapActivity implements LocationListener, IResultListener {
+public class MapsActivity extends MapActivity implements LocationListener, IResultListener, android.view.View.OnClickListener, AnimationListener {
 	String TAG = getClass().getSimpleName();
 	public static final String URI_KEY = "URI_KEY";
 	LocationManager locationManager;
@@ -36,7 +41,7 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 	private int locationProvidedCount = 0;
 	private boolean locationPopupShown = false;
 	ResultItemizedOverlay resultItemizedOverlay;
-	
+	IndicatorView indicatorView;
 	@Override
 	protected void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
@@ -46,12 +51,9 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, MapsActivity.this);
 		locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, MapsActivity.this);
-		Runnable r = new Runnable() {
-			public void run() {
-				
-			}
-		};
-		new Thread(r).start();
+		indicatorView = (IndicatorView) findViewById(R.id.title_bar_activity_indicator_id);
+		findViewById(R.id.search_bar_btn).setOnClickListener(this);
+		findViewById(R.id.search_btn).setOnClickListener(this);
 	}
 	@Override
 	protected boolean isRouteDisplayed() {
@@ -69,6 +71,7 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 			new Thread(new Runnable() {
 				public void run() {
 					try {
+						startIndidcator();
 						URL url = new URL(MessageFormat.format("http://maps.googleapis.com/maps/api/geocode/json?latlng={0},{1}&sensor=true", String.valueOf(latitude), String.valueOf(longitude)));
 						URLConnection connection = url.openConnection();
 						String result = IOUtils.toString(connection.getInputStream());
@@ -86,6 +89,8 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 						finishedLoading();
 					} catch (Exception e) {
 						Log.e(TAG, "error: ", e);
+					} finally {
+						stopIndidcator();
 					}
 				}
 			}).start();
@@ -103,8 +108,7 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 			builder.setPositiveButton("Yes", new OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
 					dialog.dismiss();
-					startActivity(new Intent(
-							Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+					startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
 				}
 			});
 			builder.setNegativeButton("No", new OnClickListener() {
@@ -125,6 +129,36 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 	protected void onDestroy() {
 		super.onDestroy();
 		locationManager.removeUpdates(this);
+	}
+	public void finishedLoading() {
+		if (resultItemizedOverlay != null) {
+			runOnUiThread(new Runnable() {
+				public void run() {
+					mapView.getOverlays().add(resultItemizedOverlay);
+					mapView.invalidate();
+				}
+			});
+		}
+	}
+	public Context getContext() {
+		return this;
+	}
+	public void startIndidcator() {
+		runOnUiThread(new Runnable() { public void run() { indicatorView.setVisibility(View.VISIBLE); }});
+	}
+	public void stopIndidcator() {
+		runOnUiThread(new Runnable() { public void run() { indicatorView.setVisibility(View.GONE); }});
+	}
+	public void onClick(View v) {
+		if (v.getId() == R.id.search_bar_btn) {
+			findViewById(R.id.search_bar_layout).setVisibility(View.VISIBLE);
+			findViewById(R.id.search_bar_layout).startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_from_up));
+		}
+		if (v.getId() == R.id.search_btn) {
+			Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_to_up);
+			animation.setAnimationListener(this);
+			findViewById(R.id.search_bar_layout).startAnimation(animation);
+		}
 	}
 	class GeoCodingResults {
 		String status;
@@ -161,18 +195,13 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 		double lat;
 		double lng;
 	}
-	public void finishedLoading() {
-		if (resultItemizedOverlay != null) {
-			runOnUiThread(new Runnable() {
-				public void run() {
-					mapView.getOverlays().add(resultItemizedOverlay);
-					mapView.invalidate();
-				}
-			});
-		}
+	public void onAnimationEnd(Animation arg0) {
+		findViewById(R.id.search_bar_layout).setVisibility(View.GONE);
 	}
-	public Context getContext() {
-		return this;
+	public void onAnimationRepeat(Animation arg0) {
+		
 	}
-	
+	public void onAnimationStart(Animation arg0) {
+		
+	}
 }
