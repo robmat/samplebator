@@ -122,8 +122,8 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 
 	@Override
 	protected OverlayItem createItem(final int i) {
-		double latInt = model.get(i).lat * 1000000;
-		double lonInt = model.get(i).lon * 1000000;
+		double latInt = model.get(i).lat * 1E6;
+		double lonInt = model.get(i).lon * 1E6;
 		GeoPoint geoPoint = new GeoPoint((int) latInt, (int) lonInt);
 //		OverlayItem overlayItem = new OverlayItem(geoPoint, "title", "message") {
 //			private BitmapDrawable bitmapDrawable;

@@ -41,8 +41,8 @@ public class MapsActivity extends MapActivity {
 					String response = IOUtils.toString(connection.getInputStream());
 					GeoCodingResults results = new Gson().fromJson(response, GeoCodingResults.class);
 					if (results.results.length > 0) {
-						double latitude = results.results[0].geometry.location.lat * 1000000;
-						double longitude = results.results[0].geometry.location.lng * 1000000;
+						double latitude = results.results[0].geometry.location.lat * 1E6;
+						double longitude = results.results[0].geometry.location.lng * 1E6;
 						final GeoPoint geoPoint = new GeoPoint((int) latitude, (int) longitude);
 						runOnUiThread(new Runnable() { public void run() { 
 							mapView.getController().animateTo(geoPoint); 
