@@ -37,6 +37,7 @@ public class DownloadingAdapter<T> extends BaseAdapter {
 				try {
 					listener.donwloadStart();
 					URL url = new URL(DownloadingAdapter.this.url);
+					Log.v(TAG, "Opening URL: " + url.toString());
 					URLConnection connection = url.openConnection();
 					InputStream inputStream = connection.getInputStream();
 					int length = connection.getContentLength();

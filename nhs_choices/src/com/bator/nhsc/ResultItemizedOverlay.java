@@ -5,7 +5,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -23,6 +22,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.widget.FrameLayout;
 
 import com.bator.nhsc.util.CustomItem;
@@ -36,10 +36,10 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 	final static int MIN_OVERLAP_DISTANCE = 300;
 	String TAG = getClass().getSimpleName();
 	List<Entry> model = new ArrayList<Entry>();
-	IResultListener listener;
+	IResultAndClickListener listener;
 	Drawable marker;
 	
-	public ResultItemizedOverlay(Drawable defaultMarker, Document document, IResultListener listener) {
+	public ResultItemizedOverlay(Drawable defaultMarker, Document document, IResultAndClickListener listener) {
 		super(defaultMarker);
 		this.marker = defaultMarker;
 		this.listener = listener;
@@ -51,7 +51,6 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 	private void parseDocument(Document document) {
 		try {
 			parseResults(document);
-			
 			NodeList linkNodes = document.getElementsByTagName("link");
 			int pageCount = 1;
 			int nextPage = 1;
@@ -71,8 +70,9 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 					nextPage = Integer.parseInt(nextPageStr);
 				}
 			}
-			if (nextPage <= pageCount && nextLink != null && nextPage != 5) {
+			if (nextPage <= pageCount && nextLink != null && nextPage != 4) {
 				URL url = new URL(nextLink.replaceAll("\\?", ".xml?"));
+				Log.v(TAG, "Opening URL: " + url.toString());
 				URLConnection connection = url.openConnection();
 				String result = IOUtils.toString(connection.getInputStream());
 				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -87,6 +87,7 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 
 	private void parseResults(Document document) {
 		NodeList entriesNodesList = document.getElementsByTagName("entry");
+		Log.v(TAG, "Parsing results: " + entriesNodesList.getLength());
 		for (int i = 0; i < entriesNodesList.getLength(); i++) {
 			Entry entry = new Entry();
 			Node entryNode = entriesNodesList.item(i);
@@ -110,11 +111,13 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 			boolean nearFlag = false;
 			for (Entry entry2 : model) {
 				if (entry2.closeToOtherEntry(entry)) {
+					Log.v(TAG, "Adding as close entry: " + entry.toString());
 					entry2.closeEntries.add(entry);
 					nearFlag = true;
 				}
 			}
 			if (!nearFlag) {
+				Log.v(TAG, "Adding to results: " + entry.toString());
 				model.add(entry);
 			}
 		}
@@ -125,27 +128,6 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 		double latInt = model.get(i).lat * 1E6;
 		double lonInt = model.get(i).lon * 1E6;
 		GeoPoint geoPoint = new GeoPoint((int) latInt, (int) lonInt);
-//		OverlayItem overlayItem = new OverlayItem(geoPoint, "title", "message") {
-//			private BitmapDrawable bitmapDrawable;
-//
-//			@Override
-//			public Drawable getMarker(int stateBitset) {
-//				if (bitmapDrawable == null) {
-//					LayoutInflater inflater = LayoutInflater.from(listener.getContext());
-//					TextView textView = (TextView) inflater.inflate(R.layout.marker_layout, null, false);
-//					textView.setText(model.get(i).name);
-//					textView.setDrawingCacheEnabled(true);
-//					textView.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
-//					textView.layout(0, 0, textView.getMeasuredWidth(), textView.getMeasuredHeight());
-//					textView.buildDrawingCache(true);
-//					Bitmap markerBitmap = Bitmap.createBitmap(textView.getDrawingCache());
-//					textView.setDrawingCacheEnabled(false);
-//					bitmapDrawable = new BitmapDrawable(markerBitmap);
-//				}
-//				return bitmapDrawable;
-//			}
-//		};
-//		overlayItem.setMarker(marker);
 		LayoutInflater inflater = LayoutInflater.from(listener.getContext());
 		FrameLayout frame = (FrameLayout) inflater.inflate(R.layout.marker_layout, null, false);
 		String label = "* " + model.get(i).name;
@@ -158,7 +140,12 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 	@Override
 	protected boolean onTap(int index) {
 		Log.v(TAG, "Tapped: " + model.get(index).toString());
-		return super.onTap(index);
+		return true;
+	}
+	@Override
+	public boolean onTouchEvent(MotionEvent event, MapView mapView) {
+		//Log.v(TAG, event.toString());
+		return listener.onTouchEvent(event, mapView);
 	}
 	@Override
 	public int size() {
@@ -194,9 +181,29 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 		public String toString() {
 			return "Entry [name=" + name + ", detailsLink=" + detailsLink + ",  addressLines=" + Arrays.toString(addressLines) + ", postcode=" + postcode + ", lon=" + lon + ", lat=" + lat + ", telephone=" + telephone + ", email=" + email + "]";
 		}
+		public boolean isWithinBounds(int[][] bounds) {
+			if (lat * 1E6 < bounds[0][0] && lat * 1E6 > bounds[1][0]) {
+				if (lon * 1E6 < bounds[0][1] && lon * 1E6 > bounds[1][1]) {
+					return true;
+				}
+			}
+			return false;
+		}
 	}
-	public static interface IResultListener {
+	public static interface IResultAndClickListener {
 		void finishedLoading();
 		Context getContext();
+		boolean onTouchEvent(MotionEvent event, MapView mapView);
+	}
+	public boolean checkIfAnyEntryIsWithinBounds(int[][] bounds) {
+		boolean result = false;
+		for (Entry entry : model) {
+			boolean withinBounds = entry.isWithinBounds(bounds);
+			Log.v(TAG, entry.name + " is within bounds: " + withinBounds);
+			if (withinBounds) {
+				result = true;
+			}
+		}
+		return result;
 	}
 }
