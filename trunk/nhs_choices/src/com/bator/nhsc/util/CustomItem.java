@@ -20,7 +20,7 @@ public class CustomItem extends OverlayItem {
 	// for trulia this is going to be the price of the property
 	private String label;
 
-	// this is the marker we will send back to the Overlay to use when drawing
+	// this is the marker we will send back to the SingleItemOverlay to use when drawing
 	private StateListDrawable marker = null;
 
 	// this framelayout holds the view we will be turning into a drawable
@@ -37,8 +37,8 @@ public class CustomItem extends OverlayItem {
 	// private Resources res;
 
 	// these are the resource ids for the two differnt marker states
-	private static final int MARKER_DRAWABLE_UNVIEWED = R.drawable.ic_map_marker_unviewed;
-	private static final int MARKER_DRAWABLE_SELECTED = R.drawable.ic_map_marker_selected;
+	public int MARKER_DRAWABLE_UNVIEWED = R.drawable.ic_map_marker_unviewed;
+	public int MARKER_DRAWABLE_SELECTED = R.drawable.ic_map_marker_selected;
 
 	// Constructor which besides a GeoPoint, laben and snippet also gets pass
 	// our
