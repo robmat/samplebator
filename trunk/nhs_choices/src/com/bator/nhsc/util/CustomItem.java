@@ -80,8 +80,7 @@ public class CustomItem extends OverlayItem {
 			int paddingRight = textView.getPaddingRight();
 			int paddingBottom = textView.getPaddingBottom();
 
-			// set the background bubble image based on whether its selected or
-			// not
+			// set the background bubble image based on whether its selected or not
 			if (selected) {
 				textView.setBackgroundResource(MARKER_DRAWABLE_SELECTED);
 			} else {

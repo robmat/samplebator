@@ -140,6 +140,7 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 	@Override
 	protected boolean onTap(int index) {
 		Log.v(TAG, "Tapped: " + model.get(index).toString());
+		listener.onTappedEntry(model.get(index));
 		return true;
 	}
 	@Override
@@ -153,8 +154,8 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 	}
 	@Override
 	public void draw(Canvas canvas, MapView mapview, boolean flag) {
-		super.draw(canvas, mapview, false);
 		boundCenterBottom(marker);
+		super.draw(canvas, mapview, false);
 	}
 	public static class Entry {
 		//public String externalLink;
@@ -192,6 +193,7 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 	}
 	public static interface IResultAndClickListener {
 		void finishedLoading();
+		void onTappedEntry(Entry entry);
 		Context getContext();
 		boolean onTouchEvent(MotionEvent event, MapView mapView);
 	}

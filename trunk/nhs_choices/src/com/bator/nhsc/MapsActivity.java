@@ -1,6 +1,7 @@
 package com.bator.nhsc;
 
 import java.io.ByteArrayInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.MessageFormat;
@@ -32,7 +33,11 @@ import android.view.View.OnTouchListener;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bator.nhsc.ResultItemizedOverlay.Entry;
 import com.bator.nhsc.ResultItemizedOverlay.IResultAndClickListener;
 import com.bator.nhsc.view.IndicatorView;
 import com.google.android.maps.GeoPoint;
@@ -51,7 +56,7 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 	IndicatorView indicatorView;
 	double latitude;
 	double longitude;
-	Runnable searchRunnable;
+	SearchRunnable searchRunnable = new SearchRunnable();
 	Handler handler = new Handler(this);
 
 	@Override
@@ -67,35 +72,6 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 		indicatorView = (IndicatorView) findViewById(R.id.title_bar_activity_indicator_id);
 		findViewById(R.id.search_bar_btn).setOnClickListener(this);
 		findViewById(R.id.search_btn).setOnClickListener(this);
-
-		searchRunnable = new Runnable() {
-			public void run() {
-				try {
-					startIndidcator();
-					URL url = new URL(MessageFormat.format("http://maps.googleapis.com/maps/api/geocode/json?latlng={0},{1}&sensor=true", String.valueOf(latitude), String.valueOf(longitude)));
-					Log.v(TAG, "Opening URL: " + url.toString());
-					URLConnection connection = url.openConnection();
-					String result = IOUtils.toString(connection.getInputStream());
-					GeoCodingResults results = new Gson().fromJson(result, GeoCodingResults.class);
-					Log.v(TAG, results.getPostalCode());
-					String urlExtra = getIntent().getStringExtra(URI_KEY);
-					urlExtra = urlExtra.substring(0, urlExtra.indexOf("?")) + "/postcode/" + results.getPostalCode().replaceAll(" ", "") + ".xml?apikey=PHRJCDTY&range=10";
-					url = new URL(urlExtra);
-					Log.v(TAG, "Opening URL: " + url.toString());
-					connection = url.openConnection();
-					result = IOUtils.toString(connection.getInputStream());
-					DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-					DocumentBuilder builder = factory.newDocumentBuilder();
-					Document document = builder.parse(new ByteArrayInputStream(result.getBytes()));
-					resultItemizedOverlay = new ResultItemizedOverlay(getResources().getDrawable(R.drawable.marker), document, MapsActivity.this);
-					finishedLoading();
-				} catch (Exception e) {
-					Log.e(TAG, "error: ", e);
-				} finally {
-					stopIndidcator();
-				}
-			}
-		};
 	}
 
 	@Override
@@ -112,6 +88,7 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 			int lon = (int) (longitude * 1E6);
 			mapView.getController().animateTo(new GeoPoint(lat, lon));
 			mapView.getController().setZoom(17);
+			searchRunnable.postCode = null;
 			new Thread(searchRunnable).start();
 			locationProvidedCount++;
 		} else {
@@ -196,6 +173,13 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 		}
 		if (v.getId() == R.id.search_btn) {
 			hideSearchBar();
+			TextView postCodeText = (TextView) findViewById(R.id.search_edit);
+			if (postCodeText.getText().toString() == null || "".equals(postCodeText.getText().toString())) {
+				Toast.makeText(this, "Post code not given empty.", Toast.LENGTH_LONG).show();
+			} else {
+				searchRunnable.postCode = postCodeText.getText().toString().replaceAll(" ", "");
+				new Thread(searchRunnable).start();
+			}
 		}
 	}
 
@@ -203,6 +187,8 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 		Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_to_up);
 		animation.setAnimationListener(this);
 		findViewById(R.id.search_bar_layout).startAnimation(animation);
+		InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+		imm.hideSoftInputFromWindow(findViewById(R.id.search_edit).getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 	}
 
 	class GeoCodingResults {
@@ -279,12 +265,14 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 			latitude = point.getLatitudeE6() / 1E6;
 			longitude = point.getLongitudeE6() / 1E6;
 			Log.v(TAG, "Search started at: " + point.toString());
+			searchRunnable.postCode = null;
 			new Thread(searchRunnable).start();
 		}
 	});
 
-	public boolean onTouch(View v, MotionEvent event) {
-		onTouchEvent(event, null);
+	public boolean onTouch(View v, MotionEvent me) {
+		Log.v(TAG, me.toString());
+		onTouchEvent(me, null);
 		return false;
 	}
 
@@ -309,5 +297,69 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 		}
 		return false;
 	}
+	class SearchRunnable implements Runnable {
+		String postCode = null;
+		public void run() {
+			try {
+				startIndidcator();
+				URL url;
+				URLConnection connection;
+				String result;
+				GeoCodingResults results = new GeoCodingResults();
+				if (postCode == null) {
+					url = new URL(MessageFormat.format("http://maps.googleapis.com/maps/api/geocode/json?latlng={0},{1}&sensor=true", String.valueOf(latitude), String.valueOf(longitude)));
+					Log.v(TAG, "Opening URL: " + url.toString());
+					connection = url.openConnection();
+					result = IOUtils.toString(connection.getInputStream());
+					results = new Gson().fromJson(result, GeoCodingResults.class);
+				} else {
+					url = new URL(MessageFormat.format("http://maps.googleapis.com/maps/api/geocode/json?address={0},UK&sensor=true", String.valueOf(postCode)));
+					connection = url.openConnection();
+					result = IOUtils.toString(connection.getInputStream());
+					results = new Gson().fromJson(result, GeoCodingResults.class);
+					if (results.results != null && results.results.length > 0) {
+						double lat = results.results[0].geometry.location.lat;
+						double lon = results.results[0].geometry.location.lng;
+						final int latitude = (int) (lat * 1E6);
+						final int longtitude = (int) (lon * 1E6);
+						Runnable r = new Runnable() {
+							public void run() {
+								mapView.getController().animateTo(new GeoPoint(latitude, longtitude));
+								mapView.getController().setZoom(17);
+							}
+						};
+						runOnUiThread(r);
+					}
+				}
+				String postcode = postCode == null ? results.getPostalCode().replaceAll(" ", "") : postCode;
+				Log.v(TAG, "Searching near: " + postcode);
+				String urlExtra = getIntent().getStringExtra(URI_KEY);
+				urlExtra = urlExtra.substring(0, urlExtra.indexOf("?")) + "/postcode/" + postcode + ".xml?apikey=PHRJCDTY&range=100";
+				url = new URL(urlExtra);
+				Log.v(TAG, "Opening URL: " + url.toString());
+				connection = url.openConnection();
+				result = IOUtils.toString(connection.getInputStream());
+				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+				DocumentBuilder builder = factory.newDocumentBuilder();
+				Document document = builder.parse(new ByteArrayInputStream(result.getBytes()));
+				resultItemizedOverlay = new ResultItemizedOverlay(getResources().getDrawable(R.drawable.marker), document, MapsActivity.this);
+				finishedLoading();
+			} catch (FileNotFoundException e) {
+				runOnUiThread(new Runnable() { public void run() { Toast.makeText(MapsActivity.this, "Haven't found anyhting near this location, try a bit elsewhere.", Toast.LENGTH_LONG).show(); }});
+				Log.w(TAG, "Exception: ", e);
+			} catch (final Exception e) {
+				runOnUiThread(new Runnable() { public void run() { Toast.makeText(MapsActivity.this, "Error: " + e.getClass().getSimpleName() + " " + e.getMessage(), Toast.LENGTH_LONG).show(); }});
+				Log.e(TAG, "Error: ", e);
+			} finally {
+				stopIndidcator();
+			}
+		}
 
+	}
+
+	public void onTappedEntry(Entry entry) {
+		Intent intent = new Intent(this, SiteDetailsActivity.class);
+		intent.putExtra(SiteDetailsActivity.EXTRA_ENTRY_GSON_KEY, new Gson().toJson(entry));
+		startActivity(intent);
+	}
 }
