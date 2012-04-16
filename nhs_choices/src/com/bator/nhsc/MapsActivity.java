@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -13,6 +14,7 @@ import org.apache.commons.io.IOUtils;
 import org.w3c.dom.Document;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -26,14 +28,22 @@ import android.os.Message;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,7 +57,10 @@ import com.google.gson.Gson;
 
 public class MapsActivity extends MapActivity implements LocationListener, IResultAndClickListener, android.view.View.OnClickListener, AnimationListener, OnTouchListener, Callback {
 	String TAG = getClass().getSimpleName();
+	
 	public static final String URI_KEY = "URI_KEY";
+	private static final int DIALOG_MULTIPLE_ENTRIES_DIALOG = 1;
+	
 	LocationManager locationManager;
 	MapView mapView;
 	private int locationProvidedCount = 0;
@@ -58,6 +71,7 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 	double longitude;
 	SearchRunnable searchRunnable = new SearchRunnable();
 	Handler handler = new Handler(this);
+	Entry tappedEntry;
 
 	@Override
 	protected void onCreate(Bundle icicle) {
@@ -161,7 +175,11 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 	public void stopIndidcator() {
 		runOnUiThread(new Runnable() {
 			public void run() {
-				indicatorView.setVisibility(View.GONE);
+				try {
+					indicatorView.setVisibility(View.GONE);
+				} catch (Exception e) {
+					Log.w(TAG, "Error: ", e);
+				}
 			}
 		});
 	}
@@ -270,6 +288,7 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 		}
 	});
 
+
 	public boolean onTouch(View v, MotionEvent me) {
 		Log.v(TAG, me.toString());
 		onTouchEvent(me, null);
@@ -358,8 +377,74 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 	}
 
 	public void onTappedEntry(Entry entry) {
-		Intent intent = new Intent(this, SiteDetailsActivity.class);
-		intent.putExtra(SiteDetailsActivity.EXTRA_ENTRY_GSON_KEY, new Gson().toJson(entry));
-		startActivity(intent);
+		tappedEntry = entry;
+		if (entry.closeEntries.size() == 0) {
+			Intent intent = new Intent(this, SiteDetailsActivity.class);
+			intent.putExtra(SiteDetailsActivity.EXTRA_ENTRY_GSON_KEY, new Gson().toJson(entry));
+			startActivity(intent);
+		} else {
+			showDialog(DIALOG_MULTIPLE_ENTRIES_DIALOG);
+		}
+	}
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		if (id == DIALOG_MULTIPLE_ENTRIES_DIALOG) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("Choose the site Your interested in:");
+			ListView listView = new ListView(this);
+			listView.setId(R.id.benefit_list_list_id);
+			listView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+			builder.setView(listView);
+			return builder.create();
+		}
+		return super.onCreateDialog(id);
+	}
+	@Override
+	protected void onPrepareDialog(int id, final Dialog dialog) {
+		if (id == DIALOG_MULTIPLE_ENTRIES_DIALOG) {
+			Log.v(TAG, "onPrepareDialog(int id, Dialog dialog)" + dialog.toString());
+			final ArrayList<CharSequence> names = new ArrayList<CharSequence>();
+			names.add(tappedEntry.name);
+			for (Entry entry : tappedEntry.closeEntries) {
+				names.add(entry.name);
+			}
+			ListView listView = (ListView) dialog.findViewById(R.id.benefit_list_list_id);
+			listView.setAdapter(new BaseAdapter() {
+				public View getView(int i, View view, ViewGroup viewgroup) {
+					TextView textView = new TextView(MapsActivity.this);
+					textView.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.FILL_PARENT, AbsListView.LayoutParams.WRAP_CONTENT));
+					textView.setTextAppearance(MapsActivity.this, android.R.style.TextAppearance_Medium);
+					textView.setText(names.get(i));
+					textView.setBackgroundDrawable(getResources().getDrawable(R.drawable.item_back));
+					textView.setGravity(Gravity.CENTER);
+					return textView;
+				}
+				public long getItemId(int i) {
+					return i;
+				}
+				public Object getItem(int i) {
+					return names.get(i);
+				}
+				public int getCount() {
+					return names.size();
+				}
+			});
+			listView.setOnItemClickListener(new OnItemClickListener() {
+				public void onItemClick(AdapterView<?> adapterview, View view, int which, long l) {
+					dialog.dismiss();
+					Entry entry = null;
+					if (which == 0) {
+						entry = tappedEntry;
+					} else {
+						entry = tappedEntry.closeEntries.get(which - 1);
+					}
+					Log.v(TAG, "Choosen entry: " + entry.name);
+					Intent intent = new Intent(MapsActivity.this, SiteDetailsActivity.class);
+					intent.putExtra(SiteDetailsActivity.EXTRA_ENTRY_GSON_KEY, new Gson().toJson(entry));
+					startActivity(intent);
+				}
+			});
+		}
+		super.onPrepareDialog(id, dialog);
 	}
 }
