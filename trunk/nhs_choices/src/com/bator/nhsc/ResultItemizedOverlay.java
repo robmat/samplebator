@@ -33,7 +33,7 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
 
 public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
-	final static int MIN_OVERLAP_DISTANCE = 300;
+	final static int MIN_OVERLAP_DISTANCE = 100;
 	String TAG = getClass().getSimpleName();
 	List<Entry> model = new ArrayList<Entry>();
 	IResultAndClickListener listener;
