@@ -63,4 +63,12 @@ public class XmlUtil {
 		}
 		return result.toArray(new Node[result.size()]);
 	}
+	public static String getChildText(Node parent, String name) {
+		Node child = getChildElementByName(parent, name);
+		return getTextFromNode(child);
+	}
+
+	public static String getAttributeValue(Node node, String attrName) {
+		return node.getAttributes() != null && node.getAttributes().getNamedItem(attrName) != null ? node.getAttributes().getNamedItem(attrName).getNodeValue() : "";
+	}
 }
