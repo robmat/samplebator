@@ -66,36 +66,38 @@ public class SiteDetailsActivity extends Activity {
 								Node answerMetric = XmlUtil.getChildElementByName(ratingsNodeList.item(i), "answerMetric");
 								int answerValue = (int) Math.round(Double.parseDouble(XmlUtil.getAttributeValue(answerMetric, "value")));
 								int maxValue = (int) Math.round(Double.parseDouble(XmlUtil.getAttributeValue(answerMetric, "maxValue")));
-								View ratingsView = getLayoutInflater().inflate(R.layout.rating_layout, ratingsLayout);
+								View ratingsView = getLayoutInflater().inflate(R.layout.rating_layout, ratingsLayout, false);
 								((TextView) ratingsView.findViewById(R.id.rating_layout_question_text_id)).setText(questionText + ":");
 								((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setText(answerText);
 								if (maxValue == 5) {
-									((TextView) ratingsLayout.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablePadding(5);
 									switch (answerValue) {
 									case 1:
-										((TextView) ratingsLayout.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_5, 0, 0, 0);
+										((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_5, 0, 0, 0);
 										break;
 									case 2:
-										((TextView) ratingsLayout.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_4, 0, 0, 0);
+										((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_4, 0, 0, 0);
 										break;
 									case 3:
-										((TextView) ratingsLayout.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_3, 0, 0, 0);
+										((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_3, 0, 0, 0);
 										break;
 									case 4:
-										((TextView) ratingsLayout.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_2, 0, 0, 0);
+										((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_2, 0, 0, 0);
 										break;
 									case 5:
-										((TextView) ratingsLayout.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_1, 0, 0, 0);
+										((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_1, 0, 0, 0);
 										break;
 									}
+									((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablePadding(5);
 								}
+								ratingsLayout.addView(ratingsView);
 							}
 						}
 					};
 					runOnUiThread(r);
-					hideRatingIndicator();
 				} catch (Exception e) {
 					Log.e(TAG, "Error: ", e);
+				} finally {
+					hideRatingIndicator();
 				}
 			}
 		};
