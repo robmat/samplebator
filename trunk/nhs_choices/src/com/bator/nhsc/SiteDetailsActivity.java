@@ -1,14 +1,7 @@
 package com.bator.nhsc;
 
-import java.io.ByteArrayInputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
+import java.util.List;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.apache.commons.io.IOUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -20,15 +13,19 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bator.nhsc.CommentsRunnable.Comment;
+import com.bator.nhsc.CommentsRunnable.ICommentsFinishedListener;
 import com.bator.nhsc.ResultItemizedOverlay.Entry;
+import com.bator.nhsc.net.NetUtil;
 import com.bator.nhsc.util.XmlUtil;
 import com.google.gson.Gson;
 
-public class SiteDetailsActivity extends Activity {
+public class SiteDetailsActivity extends Activity implements ICommentsFinishedListener {
 	public static final String EXTRA_ENTRY_GSON_KEY = "EXTRA_ENTRY_GSON_KEY";
 	String TAG = getClass().getSimpleName();
-	private Runnable ratingRunnable;
-
+	Runnable ratingRunnable;
+	String allCommentsLink;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,14 +45,13 @@ public class SiteDetailsActivity extends Activity {
 			public void run() {
 				try {
 					showRatingIndicator();
-					URL url = new URL(entry.detailsLink);
-					Log.v(TAG, "Opening URL: " + url.toString());
-					URLConnection connection = url.openConnection();
-					String resultXML = IOUtils.toString(connection.getInputStream());
-					Log.v(TAG, "Result: " + resultXML);
-					DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-					DocumentBuilder builder = factory.newDocumentBuilder();
-					final Document dom = builder.parse(new ByteArrayInputStream(resultXML.getBytes()));
+					final Document dom = NetUtil.getXmlFromUrl(entry.detailsLink);
+					NodeList linksNodes = dom.getElementsByTagName("d2p1:Link");
+					for (int i = 0; i < linksNodes.getLength(); i++) {
+						if (XmlUtil.getChildText(linksNodes.item(i), "d2p1:Text").equalsIgnoreCase("all comments")) {
+							allCommentsLink = XmlUtil.getChildText(linksNodes.item(i), "d2p1:Uri");
+						}
+					}
 					Runnable r = new Runnable() {
 						public void run() {
 							LinearLayout ratingsLayout = (LinearLayout) findViewById(R.id.site_details_rating_layout_id);
@@ -72,19 +68,19 @@ public class SiteDetailsActivity extends Activity {
 								if (maxValue == 5) {
 									switch (answerValue) {
 									case 1:
-										((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_5, 0, 0, 0);
+										((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_1, 0, 0, 0);
 										break;
 									case 2:
-										((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_4, 0, 0, 0);
+										((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_2, 0, 0, 0);
 										break;
 									case 3:
 										((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_3, 0, 0, 0);
 										break;
 									case 4:
-										((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_2, 0, 0, 0);
+										((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_4, 0, 0, 0);
 										break;
 									case 5:
-										((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_1, 0, 0, 0);
+										((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablesWithIntrinsicBounds(R.drawable.rating_5, 0, 0, 0);
 										break;
 									}
 									((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setCompoundDrawablePadding(5);
@@ -98,6 +94,11 @@ public class SiteDetailsActivity extends Activity {
 					Log.e(TAG, "Error: ", e);
 				} finally {
 					hideRatingIndicator();
+					if (allCommentsLink != null) {
+						new Thread(new CommentsRunnable(allCommentsLink, SiteDetailsActivity.this)).start();
+					} else {
+						hideCommentsIndicator();
+					}
 				}
 			}
 		};
@@ -125,6 +126,42 @@ public class SiteDetailsActivity extends Activity {
 			public void run() {
 				findViewById(R.id.site_details_rating_indicator_layout_id).setVisibility(View.GONE);
 				findViewById(R.id.site_details_rating_indicator_id).setVisibility(View.GONE);
+			}
+		});
+	}
+	private void showCommentsIndicator() {
+		runOnUiThread(new Runnable() {
+			public void run() {
+				findViewById(R.id.site_details_comments_indicator_layout_id).setVisibility(View.VISIBLE);
+				findViewById(R.id.site_details_comments_indicator_id).setVisibility(View.VISIBLE);
+			}
+		});
+	}
+
+	private void hideCommentsIndicator() {
+		runOnUiThread(new Runnable() {
+			public void run() {
+				findViewById(R.id.site_details_comments_indicator_layout_id).setVisibility(View.GONE);
+				findViewById(R.id.site_details_comments_indicator_id).setVisibility(View.GONE);
+			}
+		});
+	}
+	public void commentsStarted() {
+		showCommentsIndicator();
+	}
+	public void commentsFinished(final List<Comment> comments) {
+		hideCommentsIndicator();
+		runOnUiThread(new Runnable() {
+			public void run() {
+				LinearLayout ratingsLayout = (LinearLayout) findViewById(R.id.site_details_comments_layout_id);
+				for (Comment comment : comments) {
+					View ratingsView = getLayoutInflater().inflate(R.layout.rating_layout, ratingsLayout, false);
+					((TextView) ratingsView.findViewById(R.id.rating_layout_question_text_id)).setText(comment.title);
+					((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setText(comment.body);
+					((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setTextAppearance(SiteDetailsActivity.this, android.R.style.TextAppearance_Medium);
+					//((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setTextColor(android.R.color.white);
+					ratingsLayout.addView(ratingsView);
+				}
 			}
 		});
 	}

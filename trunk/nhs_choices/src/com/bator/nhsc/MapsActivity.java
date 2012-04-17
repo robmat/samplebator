@@ -6,6 +6,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -47,6 +48,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bator.nhsc.CommentsRunnable.Comment;
+import com.bator.nhsc.CommentsRunnable.ICommentsFinishedListener;
 import com.bator.nhsc.ResultItemizedOverlay.Entry;
 import com.bator.nhsc.ResultItemizedOverlay.IResultAndClickListener;
 import com.bator.nhsc.view.IndicatorView;
@@ -55,7 +58,7 @@ import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapView;
 import com.google.gson.Gson;
 
-public class MapsActivity extends MapActivity implements LocationListener, IResultAndClickListener, android.view.View.OnClickListener, AnimationListener, OnTouchListener, Callback {
+public class MapsActivity extends MapActivity implements LocationListener, IResultAndClickListener, android.view.View.OnClickListener, AnimationListener, OnTouchListener, Callback, ICommentsFinishedListener {
 	String TAG = getClass().getSimpleName();
 	
 	public static final String URI_KEY = "URI_KEY";
@@ -446,5 +449,15 @@ public class MapsActivity extends MapActivity implements LocationListener, IResu
 			});
 		}
 		super.onPrepareDialog(id, dialog);
+	}
+
+	public void commentsFinished(List<Comment> comments) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void commentsStarted() {
+		// TODO Auto-generated method stub
+		
 	}
 }
