@@ -78,6 +78,36 @@
                     android:layout_height="wrap_content"/>
             </LinearLayout>
         </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/site_details_comments_layout_id"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_back"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/site_details_comments_indicator_layout_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <com.bator.nhsc.view.IndicatorView
+                    android:id="@+id/site_details_comments_indicator_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:focusable="false"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_wait"
+                    android:visibility="visible" />
+                <TextView 
+                    android:text="Loading comments..."
+                    android:textAppearance="@android:style/TextAppearance.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

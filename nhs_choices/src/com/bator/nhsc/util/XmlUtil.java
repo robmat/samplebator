@@ -23,7 +23,7 @@ public class XmlUtil {
 			NodeList children = parent.getChildNodes();
 			for (int i = 0; i < children.getLength(); i++) {
 				Node child = children.item(i);
-				if (child.getNodeType() == Node.ELEMENT_NODE && child.getNodeName().equals(name)) {
+				if (name.equals(child.getNodeName())) {
 					return child;
 				}
 			}
@@ -70,5 +70,15 @@ public class XmlUtil {
 
 	public static String getAttributeValue(Node node, String attrName) {
 		return node.getAttributes() != null && node.getAttributes().getNamedItem(attrName) != null ? node.getAttributes().getNamedItem(attrName).getNodeValue() : "";
+	}
+	public static String getTextFromNodeRecursive(Node linkChild) {
+		String result = getTextFromNode(linkChild);
+		NodeList children = linkChild.getChildNodes();
+		if (children != null) {
+			for (int i = 0; i < children.getLength(); i++) {
+				result += getTextFromNode(children.item(i));
+			}
+		}
+		return result;
 	}
 }
