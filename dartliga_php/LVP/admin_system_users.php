@@ -62,6 +62,9 @@ function user_form() {
 	$ret = $ret._input( 1, 'uname', $uname, 50, 50 );
 	$ret = $ret.'</td></tr><tr><td>Password:</td><td>';
 	$ret = $ret.'<input type="text" size="50" id="pass" name="pass" value="'.$pass.'" '.( empty( $uid ) ? '' : 'disabled' ).' />';
+	$ret = $ret.'<input type="hidden" size="50" id="passHidden" name="passHidden" />';
+	$ret = $ret.'<input type="checkbox" onclick="enablePasswordEdit(this);" '.( empty( $uid ) ? '' : 'checked="checked"' ).' />';
+	$ret = $ret.'Click to unlock password editintg.';
 	$ret = $ret.'</td></tr><tr><td>Email:</td><td>';
 	$ret = $ret._input( 1, 'email', $email, 50, 50 );
 	$ret = $ret.'</td></tr><tr><td>User type:</td><td>';
@@ -106,11 +109,13 @@ function user_form() {
  # Validate new user form, and return html results
 function user_validate_form() {
 	global $dbi;
-
+	
+	$does_password_needs_editing = !empty( $_REQUEST['passHidden'] );
+	
 	$ret = '<div style="color: red; padding: 5px;">';
 	if ( empty( $_REQUEST['name'] ) ) { $ret = $ret.'Name required!<br/>'; }
 	if ( empty( $_REQUEST['uname'] ) ) { $ret = $ret.'User name required!<br/>'; }
-	if ( empty( $_REQUEST['pass'] ) && !( isset( $_REQUEST['uid'] ) && !empty( $_REQUEST['uid'] ) ) ) { $ret = $ret.'Password required!<br/>'; }
+	if ( empty( $_REQUEST['pass'] ) && ( empty( $_REQUEST['uid'] ) || $does_password_needs_editing ) ) { $ret = $ret.'Password required!<br/>'; }
 	$ret = $ret.'</div>';
 	
 	if ( strcmp( $ret, '<div style="color: red; padding: 5px;"></div>' )  == 0 ) { # valid
@@ -129,7 +134,10 @@ function user_validate_form() {
 		$sql = $sql.' (0, 0, "'.$name.'", "'.$uname.'", "'.$pass.'", "'.$aclevel.'", '.$utype.', "'.$email.'", '.$organisation.', "Lite", '.$uactive.', 0, '.$location.', '.$playerid.') ';
 		
 		if ( isset( $_REQUEST['uid'] ) && !empty( $_REQUEST['uid'] ) ) {
-			$sql = 'UPDATE tuser SET fullname = "'.$name.'", uname = "'.$uname.'", usertype_id = '.$utype.', email = "'.$email.'", verein_id = '.$organisation;
+			if ( $does_password_needs_editing ) {
+				$pass_edit_sql = ' pass = "'.$pass.'", ';
+			}
+			$sql = 'UPDATE tuser SET '.$pass_edit_sql.' fullname = "'.$name.'", uname = "'.$uname.'", usertype_id = '.$utype.', email = "'.$email.'", verein_id = '.$organisation;
 			$sql = $sql.', uactive = '.$uactive.', location_id = '.$location.', player_id = '.$playerid.' WHERE id = '.$_REQUEST['uid'];
 		}
 		

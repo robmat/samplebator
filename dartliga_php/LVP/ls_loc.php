@@ -33,14 +33,26 @@ function _LS_LocationPage(){
 	.'<td></td><td bgcolor="white" id="locsaveActivity"><i>Ready</i></td>'
 	.'</tr></table><br>';
 	
-	# SECTION 1 BROWSELIST HEADER
-	$aTH=array('ID','Name','Adresse','Telephon','Aktiv','Map');
-	$HEAD=ArrayToTableHead($aTH);
-	echo '<table id="browseheader"><col width=30><col width=130><col width=310><col width=80><col width=40><col width=100>'.$HEAD.'</table>';
-	# Section 1.1 Browselist Body
-	echo '<DIV class="tableroll">';
-	echo '<table bgcolor="'.$tdbg.'" name="browsetable" id="browsetable" border="0" cellpadding="2" cellspacing="1" width="100%"><tbody></tbody></table></div><br/>';
-		
+	$location_count_result = sql_query( 'SELECT COUNT(*) FROM tbllocation l, tverband v WHERE l.lrealm_id = v.id', $dbi);
+	$location_count = 0;
+	while ( list ( $count ) = sql_fetch_row( $location_count_result, $dbi ) ) {
+		$location_count = $count;	
+	}
+	$response->page = 1; 
+	$response->total = 1; 
+	$response->records = $location_count; 
+
+	$i=0; 
+	$location_result = sql_query( 'SELECT * FROM tbllocation l, tverband v WHERE l.lrealm_id = v.id', $dbi);
+	while ( list( $locid, $lname, $lcity, $lplz, $laddress, $lphone, $lactive, $lrealm_id, $lemail, $lcoordinates, $version, $lkey, $vereinid, $vcode, $vname, $vlogic, $version, $vactive ) = sql_fetch_row( $location_result, $dbi ) ) {
+		$response->rows[$i]['id'] = $locid;
+		$response->rows[$i]['cell'] = array( $locid, $lname, $lcity, $lplz, $laddress, $lphone, $lactive, $lemail, $vname, $lcoordinates, $lrealm_id );
+		$i++; 
+	}
+	
+	echo '<div id="locationData" style="display: none;">'.json_encode($response).'</div>';
+	echo '<table id="locationTable"></table><div id="locationPager"></div><script> createLocationTable(); </script>';
+	
 	# SECTION 2 DETAIL VIEW
 	echo '<div id="frmLocation"><form name="locentry" action="fsaveLocation.php?opcode=save" method="post" target="_blank" onSubmit="submitForm(this);return false;"><fieldset><legend>Location Bearbeiten</legend>';
 	echo include('forms/location.php');
@@ -48,10 +60,6 @@ function _LS_LocationPage(){
 	
 	# section 4 BrowseOnSelectedDetail
 	echo '<h3>Aktuelle Heimmannschaften dieser Spielst&auml;tte</h3><div id="axteamtable"></div>';
-
-	# // call the page initialisation at last make sure all DOM stuff is in place ....
-	echo '<script language=\'javascript\'>window.onload=initlocationpage();</script>';
-	
 }
 
 _LS_LocationPage();

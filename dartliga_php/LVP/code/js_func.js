@@ -130,3 +130,60 @@ function resetUserLoginFailcount( uid ) {
 		}
 	});
 }
+//Locations grid
+function createLocationTable() {
+	var locationDataStr = $('#locationData').html();
+	var mygrid = jQuery( '#locationTable' ).jqGrid({
+		datatype: 'jsonstring',
+		datastr: locationDataStr,
+		multiselect: false,
+		height: 'auto',
+		autowidth: true,
+		forceFit: true,
+		colNames: [ 'Id', 'Name', 'City', 'Postcode', 'Address', 'Phone', 'Active', 'Email', 'Region', 'Coordinates', 'reg_id' ],
+		colModel : [
+			{ name:'id', index:'id', sorttype:"int" },
+			{ name:'name', index:'name', align:'center' },
+			{ name:'city', index:'city', align:'center' },
+			{ name:'postcode', index:'postcode', align:'center' },
+			{ name:'address', index:'address', align:'center' },
+			{ name:'phone', index:'phone', align:'center' },
+			{ name:'active', index:'active', align:'center' },
+			{ name:'email', index:'email', align:'center' },
+			{ name:'region', index:'region', align:'center' },
+			{ name:'coordinates', index:'coordinates', align:'center' },
+			{ name:'reg_id', index:'reg_id', hidden: true }
+		],
+		pager: jQuery('#locationPager'),
+		rowNum:10,
+		rowList:[10,20,30],
+	   	viewrecords: true,
+	   	altRows:true,
+	   	onSelectRow: function(id){
+			var rowData = mygrid.getRowData(id);
+			$('#vlocid').val(rowData['id']);
+			$('#vlocname').val(rowData['name']);
+			$('#vlocactive').val(rowData['active']);
+			$('#vloccity').val(rowData['city']);
+			$('#vlocplz').val(rowData['postcode']);
+			$('#vlocaddress').val(rowData['address']);
+			$('#vlocphone').val(rowData['phone']);
+			$('#vlocemail').val(rowData['mail']);
+			$('#vloccoordinates').val(rowData['coordinates']);
+			$('#vlocrealm option').removeAttr('selected');
+			$('#vlocrealm option[value=' + rowData['reg_id'] + ']').attr('selected', 'selected');
+	    }
+	}).navGrid('#locationPager',{edit:false,add:false,del:false,search:false,refresh:false}); 
+	mygrid.filterToolbar(); 
+}
+function enablePasswordEdit( checkBox ) {
+	if ( $(checkBox).is(':checked') ) {
+		$( 'input#passHidden' ).val( $( 'input#pass' ).val() );
+		$( 'input#pass' ).val('');
+		$( 'input#pass' ).removeAttr( 'disabled' );
+	} else {
+		$( 'input#pass' ).val( $( 'input#passHidden' ).val() );
+		$( 'input#passHidden' ).val('');
+		$( 'input#pass' ).attr( 'disabled', 'disabled' );
+	}
+}

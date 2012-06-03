@@ -80,7 +80,7 @@ function form_Player($aP){
 function form_SearchPlayer($btnAction='',$docLocation='',$inputname=1){
 		$RET='<table><tr>';
 		$RET=$RET.'<td>Pass Nr: '._input(1,'ppassnr','',10,10).'</td>';
-		if ($inputname==1) {$RET=$RET.'<td>Nachname: '._input(1,'lastname','',20,20).'</td>';}
+		if ($inputname==1) {$RET=$RET.'<td>Nachname: '._input(1,'lastname','',50,50).'</td>';}
 		$RET=$RET.'<td>'._button('Suchen',$btnAction,$docLocation).'</td>';
 		return $RET.'</tr></table>';
 }

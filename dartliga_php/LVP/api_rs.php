@@ -389,19 +389,22 @@ function DB_listWFTeamLineUp($DB,$wfteam_id=0,$wfteam_name='',$player_type_id=0,
 * 	params:		
 *	returns:	recordset
 */
-function DB_listPlayers($DB,$p_id=0,$last_name='',$first_name='',$p_fkey1='',$p_town=''){
+function DB_listPlayers($DB,$p_id=0,$last_name='',$first_name='',$p_fkey1='',$p_town='',$firstLastName=''){
 	$sw=array();
 	if ($p_id>0) $sw[]="P.pid=$p_id";
-	if (strlen($last_name)>0) $sw[]="UPPER(P.plname) LIKE UPPER('$last_name%')";
-	if (strlen($first_name)>0) $sw[]="P.pfname LIKE '$first_name%'";
-	if (strlen($p_fkey1)>0) $sw[]="(P.pfkey1 LIKE '%$p_fkey1%' OR P.pfkey2 LIKE '%$p_fkey1%')";
-	if (strlen($p_town)>0) $sw[]="P.ptown LIKE '%$p_town%'";
+	
+	if (strlen($firstLastName)>0) $sw[]="UPPER(CONCAT(P.plname, P.pfname)) LIKE UPPER('%$firstLastName%')";
+	if (strlen($last_name)>0) $sw[]="UPPER(P.plname) LIKE UPPER('%$last_name%')";
+	if (strlen($first_name)>0) $sw[]="UPPER(P.pfname) LIKE UPPER('%$first_name%')";
+	if (strlen($p_fkey1)>0) $sw[]="( UPPER(P.pfkey1) LIKE UPPER('%$p_fkey1%') OR UPPER(P.pfkey2) LIKE UPPER('%$p_fkey1%'))";
+	if (strlen($p_town)>0) $sw[]="UPPER(P.ptown) LIKE UPPER('%$p_town%')";
 	$sWHERE=" WHERE pid>0";
 	$args = count($sw);
 	for ($c=0; $c < $args; $c++) {
 		$sWHERE=$sWHERE." AND ".$sw[$c];
 	}
 	$qry="SELECT P.pid,P.pactive,P.pfname,P.plname,P.pfkey1,P.pfkey2,P.pplz,P.ptown from tplayer P".$sWHERE." ORDER by P.plname,P.pfname";
+	
 	#echo $qry;
 	#debug($qry);
 	$presult=sql_query($qry,$DB);
