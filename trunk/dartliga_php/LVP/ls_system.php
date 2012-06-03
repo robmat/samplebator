@@ -47,7 +47,7 @@ function _schedule($eventid) {
 	echo '<div id=\'maincontent\'>';
 	echo '<p>Jedes Match in diesem Spielplan funktioniert als Hyperlink und zeigt den detailierten Spielbericht an.</p>';
 	
-	$sSQL='SELECT mid,mkey,mround,mdate,mlocation,mstatus,mthome,mtlegs,mtsets,T.id,T.tname'
+	$sSQL='SELECT mid,mkey,mround,mdate,mlocation,mstatus,mthome,mtlegs,mtsets,T.id,T.tname, M.mcomment'
 	.' FROM tblevent E,tblmatch M,tblmatchteam MT,tblteam T'
 	.' WHERE E.ID='.$eventid.' AND E.ID=M.mevid and M.MKEY=MT.MTMKEY and MT.MTTID=T.ID'
 	.' ORDER by M.MROUND,M.MKEY,MT.MTHOME desc';
@@ -56,7 +56,7 @@ function _schedule($eventid) {
 	$lastmid=0;
 	
 	OpenTable();
-	while(list($mid,$mkey,$mround,$mdate,$mlocation,$mstatus,$mthome,$mvlegs,$mvsets,$tid,$tname)=sql_fetch_row($precord,$dbi)){
+	while(list($mid,$mkey,$mround,$mdate,$mlocation,$mstatus,$mthome,$mvlegs,$mvsets,$tid,$tname,$mcomment)=sql_fetch_row($precord,$dbi)){
 		$jumptarget='ls_system.php?func=showmatch&vmkey='.$mkey.'&eventid='.$eventid;
 		if ( $lastround<>$mround ) echo _roundhead($mround,10);
 		if ($lastmid<>$mid) {
@@ -104,6 +104,7 @@ function _schedule($eventid) {
 						._input(0,'eventid',$eventid)
 						._button('Detail').'</form></td>';
 			}
+			echo '<tr><td colspan="3" align="center">'.$mcomment.'</td></tr>';
 			echo '</tr><tr><td colspan="10" align="right"><div id="msg'.$mid.'"></div></td></tr>';
 		}
 

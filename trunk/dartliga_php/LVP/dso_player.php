@@ -66,9 +66,9 @@ function listall($findstr='',$findpass=''){
 
 	if (sizeof($usertoken['registermap']) < 1) die_red('Err58:RegisterMap');
 	
-	if (strlen($findstr)<1 && strlen($findpass)<1) $findstr='A';
+	if (strlen($findstr)<1) $findstr='A';
 	$aTH=array('Aktiv','Vorname','Nachname','Key-1','Key-2','PLZ','Wohnsitz');
-	$RS=DB_listPlayers($dbi,0,$findstr,'',$findpass);
+	$RS=DB_listPlayers($dbi,0,'','',$findpass,'',$findstr);
 	$target=$playercode.'?func=edit&amp;vpid=%P1%';
 	$ROWS=RecordsetToClickTable($RS,0,$target,0);
 	
@@ -279,7 +279,7 @@ function _insupdplayer($v_pid=0,$last_name='') {
 	return $res;
 }
 
-if (isset($_REQUEST['findstr']) && strlen($_REQUEST['findstr'])<10){ $my_findstr=(strip_tags($_REQUEST['findstr']));}else{$my_findstr='';}
+if (isset($_REQUEST['findstr']) && strlen($_REQUEST['findstr'])<50){ $my_findstr=(strip_tags($_REQUEST['findstr']));}else{$my_findstr='';}
 if (isset($_REQUEST['findpass']) && strlen($_REQUEST['findpass'])<10){ $my_findpass=(strip_tags($_REQUEST['findpass']));}else{$my_findpass='';}
 if (isset($_REQUEST['func']) && strlen($_REQUEST['func'])<15){ $my_func=(strip_tags($_REQUEST['func']));}else{$my_func='';}
 # ----
