@@ -389,10 +389,11 @@ function DB_listWFTeamLineUp($DB,$wfteam_id=0,$wfteam_name='',$player_type_id=0,
 * 	params:		
 *	returns:	recordset
 */
-function DB_listPlayers($DB,$p_id=0,$last_name='',$first_name='',$p_fkey1='',$p_town='',$firstLastName=''){
+function DB_listPlayers($DB,$p_id=0,$last_name='',$first_name='',$p_fkey1='',$p_town='',$firstLastName='',$firstCharacterLastName=''){
 	$sw=array();
 	if ($p_id>0) $sw[]="P.pid=$p_id";
 	
+	if (strlen($firstCharacterLastName)>0) $sw[]="UPPER(P.plname) LIKE UPPER('$firstCharacterLastName%')";
 	if (strlen($firstLastName)>0) $sw[]="UPPER(CONCAT(P.plname, P.pfname)) LIKE UPPER('%$firstLastName%')";
 	if (strlen($last_name)>0) $sw[]="UPPER(P.plname) LIKE UPPER('%$last_name%')";
 	if (strlen($first_name)>0) $sw[]="UPPER(P.pfname) LIKE UPPER('%$first_name%')";
