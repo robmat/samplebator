@@ -68,7 +68,8 @@ function listall($findstr='',$findpass=''){
 	
 	if (strlen($findstr)<1) $findstr='A';
 	$aTH=array('Aktiv','Vorname','Nachname','Key-1','Key-2','PLZ','Wohnsitz');
-	$RS=DB_listPlayers($dbi,0,'','',$findpass,'',$findstr);
+	
+	$RS=DB_listPlayers($dbi,0,'','',$findpass,'','',$findstr);
 	$target=$playercode.'?func=edit&amp;vpid=%P1%';
 	$ROWS=RecordsetToClickTable($RS,0,$target,0);
 	
