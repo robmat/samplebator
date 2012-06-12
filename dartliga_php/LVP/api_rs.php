@@ -410,29 +410,31 @@ function DB_listPlayers($DB,$p_id=0,$last_name='',$first_name='',$p_fkey1='',$p_
 	#debug($qry);
 	$presult=sql_query($qry,$DB);
 	$RET=createRecordSet($presult,$DB);
-	return $RET;
+	
+	$returnedArray = array();
+	//Y and U umlaut workaround
+	for ($i = 0; $i < count($RET); $i++) {
+		if ( substr( $RET[$i][3], 0, 1) == $firstCharacterLastName ) {
+			$returnedArray[] = $RET[$i];
+		}
+	}
+	return $returnedArray;
 }
 
 function DB_getSpecialCharsForUsersFilter($DB) {
-    $a=array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
-
-    $queryBuilder = array();
     $output = array();
 
-    foreach( $a as $letter ) {
-        $queryBuilder[] = "plname NOT LIKE UPPER('" . $letter . "%')";
-    }
-
-    $query = "SELECT plname FROM tplayer WHERE " . implode( ' AND ', $queryBuilder );
+    $query = "SELECT DISTINCT plname FROM tplayer ORDER BY plname";
+    
     $presult = sql_query($query, $DB);
     $RET=createRecordSet($presult,$DB);
 
     if( count( $RET ) > 0 ) {
         foreach( $RET as $record ) {
            if( substr( $record[0], 0, 1 ) == '&' ) {
-               $output[] = substr( $record[0], 0, ( strpos( $record[0], ';' ) + 1 ) );
+               $output[] = strtoupper( substr( $record[0], 0, ( strpos( $record[0], ';' ) + 1 ) ));
            } else {
-               $output[] = substr( $record[0], 0, 1 );
+               $output[] = strtoupper( substr( $record[0], 0, 1 ) );
            }
         }
     }
