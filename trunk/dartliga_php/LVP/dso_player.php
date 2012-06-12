@@ -32,7 +32,7 @@ function LastNameBrowseBar($show){
 	#
 	global $playercode, $dbi;
 	$outstring="";
-	$letters = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+	$letters = array(/*"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"*/);
     $specialChars = DB_getSpecialCharsForUsersFilter($dbi);
 
     $a = array_merge( $letters, $specialChars );
