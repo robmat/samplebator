@@ -47,7 +47,7 @@ function LastNameBrowseBar($show){
             } else {
                 $link = urlencode($i);
             }
-			$outstring=$outstring."<td>"._button("$i","","$playercode?findstr=$link")."</td>";
+			$outstring=$outstring."<td>"._button("$i","","$playercode?findletter=$link")."</td>";
 		}
 	}
 	$outstring=$outstring."</tr></table>";
@@ -59,23 +59,23 @@ function LastNameBrowseBar($show){
 * 	params:		findstring, findpassnr
 *	returns:	renders Page with Browsebar+PlayerTable
 */
-function listall($findstr='',$findpass=''){
+function listall($findstr='',$findpass='',$firstLetter=''){
 	# zeigt einen Table mit einer SpielerListe an
 	
 	global $dbi,$realm_id,$playercode,$usertoken;
 
 	if (sizeof($usertoken['registermap']) < 1) die_red('Err58:RegisterMap');
 	
-	if (strlen($findstr)<1) $findstr='A';
+	if ( strlen( $findstr ) < 1 && strlen( $findpass ) < 1 && strlen( $firstLetter ) < 1 ) $findstr = 'A';
 	$aTH=array('Aktiv','Vorname','Nachname','Key-1','Key-2','PLZ','Wohnsitz');
 	
-	$RS=DB_listPlayers($dbi,0,'','',$findpass,'','',$findstr);
+	$RS=DB_listPlayers($dbi,0,$findstr,'',$findpass,'','',$firstLetter);
 	$target=$playercode.'?func=edit&amp;vpid=%P1%';
 	$ROWS=RecordsetToClickTable($RS,0,$target,0);
 	
 	// OUTPUT //
 	echo setPageTitle('<h3>Liste::Spielereintr&auml;ge '.$findstr.'</h3>');
-	echo LastNameBrowseBar($findstr);
+	echo LastNameBrowseBar($firstLetter);
 	OpenTable('browse');
 	echo ArrayToTableHead($aTH);
 	echo $ROWS;
@@ -281,6 +281,7 @@ function _insupdplayer($v_pid=0,$last_name='') {
 }
 
 if (isset($_REQUEST['findstr']) && strlen($_REQUEST['findstr'])<50){ $my_findstr=(strip_tags($_REQUEST['findstr']));}else{$my_findstr='';}
+if (isset($_REQUEST['findletter']) && strlen($_REQUEST['findletter'])<50){ $my_findletter=(strip_tags($_REQUEST['findletter']));}else{$my_findletter='';}
 if (isset($_REQUEST['findpass']) && strlen($_REQUEST['findpass'])<10){ $my_findpass=(strip_tags($_REQUEST['findpass']));}else{$my_findpass='';}
 if (isset($_REQUEST['func']) && strlen($_REQUEST['func'])<15){ $my_func=(strip_tags($_REQUEST['func']));}else{$my_func='';}
 # ----
@@ -290,16 +291,16 @@ if (isset($_POST['vlname']) && strlen($_POST['vlname'])<180){ $last_name=(strip_
 
 switch($my_func) {
 
-    	default:
-    	listall($my_findstr);	# show all MY players
+    default:
+    	listall($my_findstr, '', $my_findletter);	# show all MY players
     	break;
 
 	case 'list':
 		listall($my_findstr);
 		break;
-
+		
 	case 'search':
-		listall($my_findstr,$my_findpass);
+		listall($my_findstr, $my_findpass);
 		break;
 	
 	case 'nossi':

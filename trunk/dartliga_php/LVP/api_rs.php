@@ -406,19 +406,20 @@ function DB_listPlayers($DB,$p_id=0,$last_name='',$first_name='',$p_fkey1='',$p_
 	}
 	$qry="SELECT P.pid,P.pactive,P.pfname,P.plname,P.pfkey1,P.pfkey2,P.pplz,P.ptown from tplayer P".$sWHERE." ORDER by P.plname,P.pfname";
 	
-	#echo $qry;
-	#debug($qry);
 	$presult=sql_query($qry,$DB);
 	$RET=createRecordSet($presult,$DB);
 	
 	$returnedArray = array();
 	//Y and U umlaut workaround
-	for ($i = 0; $i < count($RET); $i++) {
-		if ( substr( $RET[$i][3], 0, 1) == $firstCharacterLastName ) {
-			$returnedArray[] = $RET[$i];
+	if ( strlen($firstCharacterLastName) > 0 ) {
+		for ($i = 0; $i < count($RET); $i++) {
+			if ( substr( $RET[$i][3], 0, 1) == $firstCharacterLastName ) {
+				$returnedArray[] = $RET[$i];
+			}
 		}
 	}
-	return $returnedArray;
+	
+	return strlen( $firstCharacterLastName ) > 0 ? $returnedArray : $RET;
 }
 
 function DB_getSpecialCharsForUsersFilter($DB) {
