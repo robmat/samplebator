@@ -1162,7 +1162,7 @@ function DB_listGames($DB,$event_id=0,$matchkey='',$game_type='single'){
 function DB_getGame($DB,$game_id,$mod_dart=0,$mod_rounds=0,$player_id=0,$leg_dist=501){
 	if($player_id<>0){$pWHERE=' AND L.lpid='.$player_id;}else{$pWHERE='';}
 	if ($mod_dart==1){
-		$SELECT=',L.lid,L.lstart,L.ldarts,(501-L.lscore),L.lfinish,L.lhighscore';
+		$SELECT=',L.lid,L.lstart,L.ldarts,(501-L.lscore),L.lfinish,L.lhighscore,L.lhighscore171';
 		$JOIN=' left join tblleg L on G.gid=L.lgid';
 		$sWhere=' WHERE G.gid='.$game_id.' AND L.lpid=P.pid'.$pWHERE;
 		$sORDER=' ORDER by G.gid,P.pid,L.lid';

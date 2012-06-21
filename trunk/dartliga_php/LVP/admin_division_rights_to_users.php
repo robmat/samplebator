@@ -120,7 +120,6 @@ function new_liga_user_right_creation() {
 		if ( !empty( $aid ) ) {
 			$sql = 'UPDATE tbladminliga SET auid_id = '.$uname.', access_id = '.$accesstype.', aevactive = '.$active.', aevcode_id = '.$liganame.', acomment = "'.$comment.'" WHERE id = '.$aid;
 		}
-		var_dump( $sql );
 		$insert_result = sql_query( $sql, $dbi );
 		
 		if ($insert_result == TRUE) {

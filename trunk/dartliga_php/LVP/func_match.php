@@ -191,7 +191,8 @@ function _LS_leglegend($objEvent){
 			if ($objEvent['evsgldarts']==1) $strret=$strret.'<td class="legend">Darts</td>';
 			if ($objEvent['evsglrest']==1) $strret=$strret.'<td class="legend">Rest</td>';
 			if ($objEvent['evsglfinish']==1) $strret=$strret.'<td class="legend">Finish</td>';
-			if ($objEvent['evsglhighscore']==1) $strret=$strret.'<td class="legend">Max</td>';
+			if ($objEvent['evsglhighscore']==1) $strret=$strret.'<td class="legend">Max 180</td>';
+			if ($objEvent['evsglhighscore171']==1) $strret=$strret.'<td class="legend">Max 171</td>';
 		} elseif ($objEvent['evsglroundcheck']==1){
 			if ($objEvent['evsglstart']==1) $strret=$strret.'<td class="legend">Anfang</td>';
 			if ($objEvent['evsglroundscore']==1) $strret=$strret.'<td class="legend">Runde &lt; 159</td>';
@@ -226,6 +227,7 @@ function _LS_legrow($objEvent,$data=array()){
 		if ($objEvent['evsglrest']==1) $strret=$strret.'<td>'._input(1,'R',$data[12],3,3).'</td>';
 		if ($objEvent['evsglfinish']==1) $strret=$strret.'<td>'._input(1,'F',$data[13],3,3).'</td>';
 		if ($objEvent['evsglhighscore']==1) $strret=$strret.'<td>'._input(1,'M',$data[14],3,3).'</td>';
+		if ($objEvent['evsglhighscore171']==1) $strret=$strret.'<td>'._input(1,'M171',$data[15],3,3).'</td>';
 	} elseif ($objEvent['evsglroundcheck']==1){
 		if ($objEvent['evsglstart']==1) $strret=$strret.'<td>'._checkbox('B',$data[10]).'</td>';
 		if ($objEvent['evsglroundscore']==1) $strret=$strret.'<td>'._input(1,'S',$data[11],3,3).'</td>';
@@ -249,7 +251,7 @@ function _LS_addLeg($GameID,$playerID,$match_key,$eventID){
 	global $dbi,$usertoken;
 	$event=reteventconfig($eventID);
 	if ($event['evsgldarts']==1) {
-		$qry="insert into tblleg values(0,$GameID,$playerID,0,0,0,0,0)";
+		$qry="insert into tblleg values(0,$GameID,$playerID,0,0,0,0,0,0)";
 	} else {
 		$qry="insert into tbllegrounds values(0,$GameID,$playerID,0,0,0,0,0,0)";
 	}
@@ -356,6 +358,8 @@ function _LS_InsUpdateLegRecord($eventID,&$aLegValuePairs){
 				$cL->aDATA['lstart']=$aVal[1];break;
 			case 'M':
 				$cL->aDATA['lhighscore']=$aVal[1];break;
+			case 'M171':
+				$cL->aDATA['lhighscore171']=$aVal[1];break;
 		}
 	}
 	/*

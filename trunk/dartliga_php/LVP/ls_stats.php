@@ -439,11 +439,21 @@ function _showlowstat($eventid){
 		echo '<tr><td colspan=4 class="thead">'.$legend.'</td></tr>'.$ROWS;
 	}
 	
-	echo '</table></td><td width="50%" valign="top"><table width="100%">';
+	echo '</table></td></tr><tr><td width="50%" valign="top"><table width="100%">';
+	
+	if ($event['evsglhighscore171']==1) {
+		$legend='Anzahl erzielter Highscores 171';
+		$precord = sql_query("select lpid,pfname,plname,sum(lhighscore171) HS from tblleg,tblgame,tplayer where lpid=pid and lgid=gid and gmkey like 'e".$eventid."r%' and gtype=1 and lhighscore171>0 group by lpid order by HS desc",$dbi);
+		$RS=createRecordSet($precord,$dbi);
+		$ROWS=RecordsetToDataTable($RS,array(1,2,3));
+		echo '<tr><td colspan=4 class="thead">'.$legend.'</td></tr>'.$ROWS.'</table>';
+	}
+
+	echo '<td width="50%" valign="top"><table width="100%">';
 	
 	# // how about the HIGHSCORES ???
 	if ($event['evsglhighscore']==1) {
-		$legend='Anzahl erzielter Highscores';
+		$legend='Anzahl erzielter Highscores 180';
 		$precord = sql_query("select lpid,pfname,plname,sum(lhighscore) HS from tblleg,tblgame,tplayer where lpid=pid and lgid=gid and gmkey like 'e".$eventid."r%' and gtype=1 and lhighscore>0 group by lpid order by HS desc",$dbi);
 		$RS=createRecordSet($precord,$dbi);
 		$ROWS=RecordsetToDataTable($RS,array(1,2,3));
