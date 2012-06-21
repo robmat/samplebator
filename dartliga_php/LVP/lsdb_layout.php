@@ -44,7 +44,8 @@ function LS_header($pagetitle='') {
 		$OUT=$OUT.'<script language="JavaScript" src="code/jqGrid-4.1.2/js/jquery-1.5.2.min.js"></script>';
 		$OUT=$OUT.'<script language="JavaScript" src="code/jqGrid-4.1.2/js/i18n/grid.locale-de.js"></script>';
 		$OUT=$OUT.'<script language="JavaScript" src="code/jqGrid-4.1.2/js/jquery.jqGrid.min.js"></script>';
-		
+		$OUT=$OUT.'<script language="JavaScript" src="code/jq_block_ui.js"></script>';
+				
 		$OUT=$OUT.'<LINK REL="StyleSheet" HREF="theme/Lite/style.css" TYPE="text/css">';
 		$OUT=$OUT.'<LINK REL="StyleSheet" HREF="css/jquery-ui-1.8.14.custom.css" TYPE="text/css">';
 		$OUT=$OUT.'<LINK REL="StyleSheet" HREF="code/jqGrid-4.1.2/css/ui.jqgrid.css" TYPE="text/css">';
