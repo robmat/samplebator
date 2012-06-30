@@ -37,13 +37,13 @@ function LS_header($pagetitle='') {
 		# Do not remove the following line!
 		$OUT=$OUT.'<META NAME="GENERATOR" CONTENT="LSDB System 4a">';
 
-		$OUT=$OUT.'<script language="JavaScript" src="code/js_func.js"></script>';
-		$OUT=$OUT.'<script language="JavaScript" src="code/jquery-1.2.6.js"></script>';
-		$OUT=$OUT.'<script language="JavaScript" src="code/wz_jsgraphics.js"></script>';
-		$OUT=$OUT.'<script language="JavaScript" src="code/lsdbfunc.js"></script>';
 		$OUT=$OUT.'<script language="JavaScript" src="code/jqGrid-4.1.2/js/jquery-1.5.2.min.js"></script>';
 		$OUT=$OUT.'<script language="JavaScript" src="code/jqGrid-4.1.2/js/i18n/grid.locale-de.js"></script>';
 		$OUT=$OUT.'<script language="JavaScript" src="code/jqGrid-4.1.2/js/jquery.jqGrid.min.js"></script>';
+		$OUT=$OUT.'<script language="JavaScript" src="code/js_func.js"></script>';
+		//$OUT=$OUT.'<script language="JavaScript" src="code/jquery-1.2.6.js"></script>';
+		$OUT=$OUT.'<script language="JavaScript" src="code/wz_jsgraphics.js"></script>';
+		$OUT=$OUT.'<script language="JavaScript" src="code/lsdbfunc.js"></script>';
 		$OUT=$OUT.'<script language="JavaScript" src="code/jq_block_ui.js"></script>';
 				
 		$OUT=$OUT.'<LINK REL="StyleSheet" HREF="theme/Lite/style.css" TYPE="text/css">';
