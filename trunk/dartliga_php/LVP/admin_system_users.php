@@ -43,6 +43,7 @@ function user_form() {
 	
 	$name = '';	$uname = ''; $pass = ''; $useraclevel = ''; $utype = ''; $email = ''; $organisation = ''; $theme = ''; $uactive = ''; $failcount = ''; $location_id = ''; $player_id = '';
 	
+	$uid = '';
 	if ( isset( $_REQUEST['uid'] ) && !empty( $_REQUEST['uid'] ) ) { 
 		$uid = $_REQUEST['uid'];
 		$user_result = sql_query( 'SELECT fullname,	uname, pass, useraclevel, usertype_id, email, verein_id, theme, uactive, failcount,	location_id, player_id FROM tuser WHERE id = '.$uid, $dbi );
@@ -56,14 +57,15 @@ function user_form() {
 	$playr_query_result = sql_query( 'SELECT p.pid, p.pfname, p.plname FROM tplayer p ORDER BY p.plname', $dbi );
 	
 	$ret = '<form action="admin_system_users.php?op=new_user_creation'.$uid.'" method="post">';
-	$ret = $ret.'<table><tr><td>Name and surname:</td><td>';
+	$ret = $ret.'<table><tr><td>Surname and name:</td><td>';
 	$ret = $ret._input( 1, 'name', $name, 50, 50 );
 	$ret = $ret.'</td></tr><tr><td>User name:</td><td>';
 	$ret = $ret._input( 1, 'uname', $uname, 50, 50 );
 	$ret = $ret.'</td></tr><tr><td>Password:</td><td>';
 	$ret = $ret.'<input type="text" size="50" id="pass" name="pass" value="'.$pass.'" '.( empty( $uid ) ? '' : 'disabled' ).' />';
 	$ret = $ret.'<input type="hidden" size="50" id="passHidden" name="passHidden" />';
-	$ret = $ret.'<input type="checkbox" onclick="enablePasswordEdit(this);" '.( empty( $uid ) ? '' : 'checked="checked"' ).' />';
+	$ret = $ret.'<input type="hidden" size="50" value="'.$useraclevel.'" name="aclevel" />';
+	$ret = $ret.'<input type="checkbox" onclick="enablePasswordEdit(this);" />';
 	$ret = $ret.'Click to unlock password editintg.';
 	$ret = $ret.'</td></tr><tr><td>Email:</td><td>';
 	$ret = $ret._input( 1, 'email', $email, 50, 50 );
@@ -111,6 +113,8 @@ function user_validate_form() {
 	global $dbi;
 	
 	$does_password_needs_editing = !empty( $_REQUEST['passHidden'] );
+	
+	var_dump( $_REQUEST );
 	
 	$ret = '<div style="color: red; padding: 5px;">';
 	if ( empty( $_REQUEST['name'] ) ) { $ret = $ret.'Name required!<br/>'; }

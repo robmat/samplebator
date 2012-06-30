@@ -73,11 +73,11 @@ function deleteAdminLiga( id ) {
 // In user creation form, when user is a player, then a select linking to player table should be visible -> admin_system_users.php
 function userTypeChange( userType ) {
 	if ( userType == 0 ) {
-		$("#playerid").show();
-		$("#playeridlbl").show();
+		$("#playerid").slideDown();
+		$("#playeridlbl").slideDown();
 	} else {
-		$("#playerid").hide();
-		$("#playeridlbl").hide();
+		$("#playerid").slideUp();
+		$("#playeridlbl").slideUp();
 	}
 }
 // Show controlls used to edit date of a given match

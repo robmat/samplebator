@@ -104,7 +104,7 @@ $user_access_level = (int) $usertoken["usertype_id"];
 if ( !isset( $user_access_level ) && $user_access_level > 4 ) { //more then LigaVerwaltung
 	echo '<script> window.location.href = "/dso_user.php" </script>';
 } else {
-	echo '<h3>Bereiche landesvarbände</h3><table class="box"><tr><td>'; # header and start table
+	echo '<h3>Bereiche Landesverbände / Ligen </h3><table class="box"><tr><td>'; # header and start table
 	
 	# Left nav pane echoing
 	echo '<div class="navi" style="left: 5px;">'._button( 'Verband NEU', '', 'admin_verband_management.php?op=new_verband' );

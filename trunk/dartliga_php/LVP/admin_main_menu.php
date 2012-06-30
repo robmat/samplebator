@@ -27,7 +27,7 @@ if ( !isset( $user_access_level ) && $user_access_level > 4 ) { //more then Liga
 } else {
 	$ret = '<h3>Benutzer und berecht</h3>  <table border="0" cellpadding="15" align="center"><tr>';
 	if ( $usertoken["usertype_id"] == "6" ) { //sys admin check
-		$ret = $ret._usermenuitem('Bereiche landesvarbände', 'admin_verband_management.php', 'Bereichte / Landesverbandung', 'optimize.gif');
+		$ret = $ret._usermenuitem('Bereiche Landesverbände / Ligen ', 'admin_verband_management.php', 'Bereichte / Landesverbandung', 'optimize.gif');
 	}
 	$ret = $ret._usermenuitem('System benutzer', 'admin_system_users.php', 'System benutzer', 'people.gif');
 	$ret = $ret._usermenuitem('System benutzer typen', 'admin_system_user_types.php', 'System benutzer typen', 'people.gif');
