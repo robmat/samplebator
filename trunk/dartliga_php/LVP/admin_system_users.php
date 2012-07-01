@@ -114,8 +114,6 @@ function user_validate_form() {
 	
 	$does_password_needs_editing = !empty( $_REQUEST['passHidden'] );
 	
-	var_dump( $_REQUEST );
-	
 	$ret = '<div style="color: red; padding: 5px;">';
 	if ( empty( $_REQUEST['name'] ) ) { $ret = $ret.'Name required!<br/>'; }
 	if ( empty( $_REQUEST['uname'] ) ) { $ret = $ret.'User name required!<br/>'; }
@@ -135,7 +133,7 @@ function user_validate_form() {
 		$uactive = $_REQUEST['uactive'];
 		
 		$sql = 'INSERT INTO tuser (id, version, fullname, uname, pass, useraclevel, usertype_id, email, verein_id, theme, uactive, failcount, location_id, player_id) VALUES ';
-		$sql = $sql.' (0, 0, "'.$name.'", "'.$uname.'", "'.$pass.'", "'.$aclevel.'", '.$utype.', "'.$email.'", '.$organisation.', "Lite", '.$uactive.', 0, '.$location.', '.$playerid.') ';
+		$sql = $sql.' (0, 0, "'.$name.'", "'.$uname.'", "'.$pass.'", "'.$aclevel.'", '.$utype.', "'.$email.'", '.(empty($organisation) ? '0' : $organisation).', "Lite", '.$uactive.', 0, '.(empty($location) ? '0' : $location).', '.$playerid.') ';
 		
 		if ( isset( $_REQUEST['uid'] ) && !empty( $_REQUEST['uid'] ) ) {
 			if ( $does_password_needs_editing ) {
