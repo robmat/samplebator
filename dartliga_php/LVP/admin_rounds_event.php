@@ -68,7 +68,7 @@ function round_event_form( $event_id = -1 ) {
 	}
 	$ret = '<form method="POST" action="admin_rounds_event.php?op=save&id='.$id.'">';
 	$ret = $ret.'<table>';
-	$ret = $ret.'<tr><td>Id:</td><td><input size=50 name="id" value="'.$id.'" /></td></tr>';	
+	//$ret = $ret.'<tr><td>Id:</td><td><input size=50 name="id" value="'.$id.'" /></td></tr>';	
 	$ret = $ret.'<tr><td>Name:</td><td><input size=50 name="name" value="'.$name.'" /></td></tr>';
 	$ret = $ret.'<tr><td>Year:</td><td><input size=50 name="year" value="'.$year.'" /></td></tr>';
 	$ret = $ret.'<tr><td>Active:</td><td><input size=50 name="active" value="'.$active.'" /></td></tr>';
