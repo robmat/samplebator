@@ -45,17 +45,87 @@ class PDF extends FPDF {
 	
 	function SetFillColorBasedOnCell($columnIndex, $cellValue) {
 		//echo $columnIndex." ".$cellValue."<BR>";
-		if ($columnIndex == 13) {
-			if ($cellValue >= 30) {
+		if ( $columnIndex == 13 || $columnIndex == 14 ) {
+			if ( $cellValue >= 30 ) {
 				$this->SetFillColor(255, 255, 0);
 			}
-			if ($cellValue <= 29) {
+			if ( $cellValue <= 29 ) {
 				$this->SetFillColor(192, 192, 192);
 			}
-			if ($cellValue <= 14) {
+			if ( $cellValue <= 14 ) {
 				$this->SetFillColor(204, 127, 50);
 			}
-			if ($cellValue <= 5) {
+			if ( $cellValue <= 5 ) {
+				$this->SetFillColor(255, 255, 255);
+			}
+		}
+		if ( $columnIndex == 3 ) {
+			if ( $cellValue >= 21 ) {
+				$this->SetFillColor(255, 255, 0);
+			}
+			if ( $cellValue < 21 ) {
+				$this->SetFillColor(192, 192, 192);
+			}
+			if ( $cellValue < 12 ) {
+				$this->SetFillColor(204, 127, 50);
+			}
+			if ( $cellValue < 5 ) {
+				$this->SetFillColor(255, 255, 255);
+			}
+		}
+		if ( $columnIndex == 4 ) {
+			if ( $cellValue >= 15 ) {
+				$this->SetFillColor(255, 255, 0);
+			}
+			if ( $cellValue < 15 ) {
+				$this->SetFillColor(192, 192, 192);
+			}
+			if ( $cellValue < 9 ) {
+				$this->SetFillColor(204, 127, 50);
+			}
+			if ( $cellValue < 4 ) {
+				$this->SetFillColor(255, 255, 255);
+			}
+		}
+		if ( $columnIndex == 5 ) {
+			if ( $cellValue >= 13 ) {
+				$this->SetFillColor(255, 255, 0);
+			}
+			if ( $cellValue < 13 ) {
+				$this->SetFillColor(192, 192, 192);
+			}
+			if ( $cellValue < 7 ) {
+				$this->SetFillColor(204, 127, 50);
+			}
+			if ( $cellValue < 3 ) {
+				$this->SetFillColor(255, 255, 255);
+			}
+		}
+		if ( $columnIndex == 5 || $columnIndex == 6 || $columnIndex == 7 ) {
+			if ( $cellValue >= 9 ) {
+				$this->SetFillColor(255, 255, 0);
+			}
+			if ( $cellValue < 9 ) {
+				$this->SetFillColor(192, 192, 192);
+			}
+			if ( $cellValue < 5 ) {
+				$this->SetFillColor(204, 127, 50);
+			}
+			if ( $cellValue < 2 ) {
+				$this->SetFillColor(255, 255, 255);
+			}
+		}
+		if ( $columnIndex == 8 || $columnIndex == 9 || $columnIndex == 10 || $columnIndex == 11 ) {
+			if ( $cellValue >= 9 ) {
+				$this->SetFillColor(255, 255, 0);
+			}
+			if ( $cellValue < 9 ) {
+				$this->SetFillColor(192, 192, 192);
+			}
+			if ( $cellValue < 5 ) {
+				$this->SetFillColor(204, 127, 50);
+			}
+			if ( $cellValue < 2 ) {
 				$this->SetFillColor(255, 255, 255);
 			}
 		}
@@ -64,10 +134,10 @@ class PDF extends FPDF {
 
 global $dbi;
 
-$queryResult = sql_query( "SELECT pl.pid AS playerid, pl.pfname AS name, pl.plname AS surname, pl.pfkey2 AS userkey, le.lstart, le.ldarts AS darts, le.lscore, le.lfinish, le.lhighscore, le.lhighscore171, COUNT(*) AS howmany, SUM(le.lhighscore) AS max180, SUM(le.lhighscore171) AS max171 FROM tplayer pl JOIN tblgameplayer gp ON gp.gppid = pl.pid JOIN tblgame ga ON ga.gid = gp.gpgid JOIN tblleg le ON le.lgid = ga.gid WHERE le.lscore = 501 AND pl.pfkey2 LIKE 'HE%' AND le.ldarts BETWEEN 9 AND 18 GROUP BY playerid, le.ldarts ORDER BY surname, playerid, darts", $dbi );
+$queryResult = sql_query( "SELECT pl.pid AS playerid, pl.pfname AS name, pl.plname AS surname, pl.pfkey2 AS userkey, le.lstart, le.ldarts AS darts, le.lscore, le.lfinish, le.lhighscore, le.lhighscore171, COUNT(*) AS howmany, SUM(le.lhighscore) AS max180, SUM(le.lhighscore171) AS max171 FROM tplayer pl JOIN tblleg le ON le.lpid = pl.pid WHERE le.lscore = 501 AND pl.pfkey2 LIKE 'HE%' AND le.ldarts BETWEEN 9 AND 18 GROUP BY playerid, le.ldarts ORDER BY surname, playerid, darts", $dbi );
 $resultArray = createRecordSet( $queryResult, $dbi );
 
-$maxesQueryResult = sql_query( "SELECT playerid, name, surname, userkey, SUM(max180), SUM(max171) FROM (SELECT pl.pid AS playerid, pl.pfname AS name, pl.plname AS surname, pl.pfkey2 AS userkey, le.lstart, le.ldarts AS darts, le.lscore, le.lfinish, le.lhighscore, le.lhighscore171, COUNT(*) AS howmany, SUM(le.lhighscore) AS max180, SUM(le.lhighscore171) AS max171 FROM tplayer pl JOIN tblgameplayer gp ON gp.gppid = pl.pid JOIN tblgame ga ON ga.gid = gp.gpgid JOIN tblleg le ON le.lgid = ga.gid WHERE pl.pfkey2 LIKE 'HE%' GROUP BY playerid, le.ldarts ORDER BY surname, playerid, darts ) AS sub GROUP BY playerid", $dbi );
+$maxesQueryResult = sql_query( "SELECT playerid, name, surname, userkey, SUM(max180), SUM(max171) FROM (SELECT pl.pid AS playerid, pl.pfname AS name, pl.plname AS surname, pl.pfkey2 AS userkey, le.lstart, le.ldarts AS darts, le.lscore, le.lfinish, le.lhighscore, le.lhighscore171, COUNT(*) AS howmany, SUM(le.lhighscore) AS max180, SUM(le.lhighscore171) AS max171 FROM tplayer pl JOIN tblleg le ON le.lpid = pl.pid WHERE pl.pfkey2 LIKE 'HE%' GROUP BY playerid, le.ldarts ORDER BY surname, playerid, darts ) AS sub GROUP BY playerid", $dbi );
 $maxesResultArray = createRecordSet( $maxesQueryResult, $dbi );
 
 $currentPlayerId = "";
