@@ -14,7 +14,7 @@ class PDF extends FPDF {
 	function Header() {
 		$this->SetFont('Arial','B',9);
 		
-		$header = array('Name', 'Surname', 'HDSV nr.', '18', '17', '16', '15', '14', '13', '12', '11', '10', '9', '180er', '171er');
+		$header = array('Vorname', 'Name', 'HDSV nr.', '18', '17', '16', '15', '14', '13', '12', '11', '10', '9', '180er', '171er');
 		
 		$this->MultiCell(200, 2, "Sportabzeichen H.D.S.V. e.V. - Kategorie Short Leg, 180 und 171", 0, 'C', FALSE);		
 		$this->Ln();
@@ -49,13 +49,13 @@ class PDF extends FPDF {
 			if ($cellValue >= 30) {
 				$this->SetFillColor(255, 255, 0);
 			}
-			if ($cellValue < 29) {
+			if ($cellValue <= 29) {
 				$this->SetFillColor(192, 192, 192);
 			}
-			if ($cellValue < 14) {
+			if ($cellValue <= 14) {
 				$this->SetFillColor(204, 127, 50);
 			}
-			if ($cellValue < 5) {
+			if ($cellValue <= 5) {
 				$this->SetFillColor(255, 255, 255);
 			}
 		}
