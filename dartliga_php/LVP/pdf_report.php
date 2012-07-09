@@ -55,7 +55,7 @@ class PDF extends FPDF {
 			if ( $cellValue <= 14 ) {
 				$this->SetFillColor(204, 127, 50);
 			}
-			if ( $cellValue <= 5 ) {
+			if ( $cellValue <= 4 ) {
 				$this->SetFillColor(255, 255, 255);
 			}
 		}
@@ -161,8 +161,8 @@ foreach ( $resultArray as $index => $row ) {
 		$pdfDataTable[$playerCount] = array();
 		$playerCount++;
 	}
-	$pdfDataTable[$playerCount - 1][0] = $row[1];
-	$pdfDataTable[$playerCount - 1][1] = $row[2];
+	$pdfDataTable[$playerCount - 1][0] = $row[2];
+	$pdfDataTable[$playerCount - 1][1] = $row[1];
 	$pdfDataTable[$playerCount - 1][2] = $row[3];
 
 	$dartCounter = 0;
@@ -199,7 +199,7 @@ foreach ( $idsArray as $idsIndex => $id ) {
 }
 
 function pdfReportComparator($row1, $row2) {
-	return $row1[1] > $row2[1];
+	return $row1[0] > $row2[0];
 }
 
 usort( $pdfDataTable, "pdfReportComparator" );
