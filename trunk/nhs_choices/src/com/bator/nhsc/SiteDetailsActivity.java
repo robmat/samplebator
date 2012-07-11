@@ -159,7 +159,7 @@ public class SiteDetailsActivity extends Activity implements ICommentsFinishedLi
 					((TextView) ratingsView.findViewById(R.id.rating_layout_question_text_id)).setText(comment.title);
 					((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setText(comment.body);
 					((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setTextAppearance(SiteDetailsActivity.this, android.R.style.TextAppearance_Medium);
-					//((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setTextColor(android.R.color.white);
+					((TextView) ratingsView.findViewById(R.id.rating_layout_value_text_id)).setTextSize(14);
 					ratingsLayout.addView(ratingsView);
 				}
 			}

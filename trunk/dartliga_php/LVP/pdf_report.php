@@ -14,7 +14,7 @@ class PDF extends FPDF {
 	function Header() {
 		$this->SetFont('Arial','B',9);
 		
-		$header = array('Vorname', 'Name', 'HDSV nr.', '18', '17', '16', '15', '14', '13', '12', '11', '10', '9', '180er', '171er');
+		$header = array('Name', 'Vorname', 'HDSV nr.', '18', '17', '16', '15', '14', '13', '12', '11', '10', '9', '180er', '171er');
 		
 		$this->MultiCell(200, 2, "Sportabzeichen H.D.S.V. e.V. - Kategorie Short Leg, 180 und 171", 0, 'C', FALSE);		
 		$this->Ln();
@@ -193,7 +193,7 @@ foreach ( $resultArray as $index => $row ) {
 foreach ( $idsArray as $idsIndex => $id ) {
 	foreach ( $maxesResultArray as $maxesIndex => $maxesRow ) {
 		if  ( $id != -1 && $maxesRow[0] == $id && ( $maxesRow[4] != 0 || $maxesRow[5] != 0 ) ) {
-			$pdfDataTable[] = array( $maxesRow[1], $maxesRow[2], $maxesRow[3], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, $maxesRow[4], $maxesRow[5] );
+			$pdfDataTable[] = array( $maxesRow[2], $maxesRow[1], $maxesRow[3], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, $maxesRow[4], $maxesRow[5] );
 		}
 	}
 }
