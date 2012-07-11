@@ -16,10 +16,11 @@
 
 package com.google.gson;
 
-import com.google.gson.internal.$Gson$Preconditions;
-import com.google.gson.internal.StringMap;
 import java.util.Map;
 import java.util.Set;
+
+import com.google.gson.internal.$Gson$Preconditions;
+import com.google.gson.internal.StringMap;
 
 /**
  * A class representing an object type in Json. An object consists of name-value pairs where names

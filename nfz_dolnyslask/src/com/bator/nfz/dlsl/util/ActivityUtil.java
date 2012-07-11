@@ -1,8 +1,5 @@
 package com.bator.nfz.dlsl.util;
 
-import com.bator.nfz.dlsl.R;
-import com.bator.nfz.dlsl.app.NfzApp;
-
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
@@ -10,6 +7,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.net.ConnectivityManager;
+
+import com.bator.nfz.dlsl.R;
+import com.bator.nfz.dlsl.app.NfzApp;
 
 public class ActivityUtil {
 	public static boolean isOnline(Activity activity) {

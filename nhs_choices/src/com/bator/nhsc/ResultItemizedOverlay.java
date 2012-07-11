@@ -70,7 +70,7 @@ public class ResultItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 					nextPage = Integer.parseInt(nextPageStr);
 				}
 			}
-			if (nextPage <= pageCount && nextLink != null && nextPage != 4) {
+			if (nextPage <= pageCount && nextLink != null && nextPage != 3) {
 				URL url = new URL(nextLink.replaceAll("\\?", ".xml?"));
 				Log.v(TAG, "Opening URL: " + url.toString());
 				URLConnection connection = url.openConnection();
