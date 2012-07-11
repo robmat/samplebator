@@ -167,7 +167,7 @@ foreach ( $resultArray as $index => $row ) {
 
 	$dartCounter = 0;
 
-	for ($darts = 18; $darts > 8; $darts--) {
+	for ( $darts = 18; $darts > 8; $darts-- ) {
 		if ($darts == $row[5]) {
 			$pdfDataTable[$playerCount - 1][$dartCounter + 3] = $row[10];
 		} else if (!isset($pdfDataTable[$playerCount - 1][$dartCounter + 3])) {
@@ -198,6 +198,40 @@ foreach ( $idsArray as $idsIndex => $id ) {
 	}
 }
 
+//add legacy data from file
+$legacyDataArray = file('short_legs_legacy_data.csv');
+
+foreach ( $legacyDataArray as $legacyIndex => $legacyDataRow ) {
+	$legacyDataRow = split( ';', trim( $legacyDataRow ) );
+	$found = FALSE;
+	foreach ( $pdfDataTable as $pdfDataIndex => $pdfDataRow ) {
+		if ( strcmp( $pdfDataRow[0], $legacyDataRow[0] ) == 0 && strcmp( $pdfDataRow[1], $legacyDataRow[1] ) == 0 && strcmp( $pdfDataRow[2], $legacyDataRow[2] ) == 0 ) {
+			for ($i = 3; $i < 15; $i++) {
+				$pdfDataTable[$pdfDataIndex][$i] = intval( trim ( $pdfDataRow[$i] ) ) + intval( trim ( $legacyDataRow[$i] ) );
+				$found = TRUE;
+			}
+		}
+	}
+	if ( $found ) {
+		$legacyDataArray[$legacyIndex] = -1;
+	}
+}
+
+//var_dump( $legacyDataArray );
+/*
+foreach ( $legacyDataArray as $legacyIndex => $legacyDataRow ) {
+	if ( $legacyDataRow != -1 && strpos( $legacyDataRow, ';;;;;;;;;;;;' ) !== FALSE ) {
+		$legacyDataRow = split( ';', trim ( $legacyDataRow ) );
+		foreach ($legacyDataRow as $legacyCellIndex => $legacyCell) {
+			if ( trim( $legacyCell ) === '' ) {
+				$legacyDataRow[$legacyCellIndex] = 0; //prevent empty cells
+			}
+		}
+		$pdfDataTable[] = $legacyDataRow;
+	}
+}
+*/
+//sort by surname
 function pdfReportComparator($row1, $row2) {
 	return $row1[0] > $row2[0];
 }
