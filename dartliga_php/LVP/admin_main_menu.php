@@ -35,6 +35,8 @@ if ( !isset( $user_access_level ) && $user_access_level > 4 ) { //more then Liga
 	$ret = $ret._usermenuitem('Liga gruppe rechte zuweisung', 'admin_division_rights_to_users.php', 'Liga gruppe rechte zuweisung', 'optimize.gif');
 	$ret = $ret._usermenuitem('Liga gruppe rechte typen', 'admin_division_rights.php', 'Liga gruppe rechte typen', 'optimize.gif');
 	$ret = $ret._usermenuitem('Neue Runde/Event', 'admin_rounds_event.php', 'Neue Runde/Event', 'optimize.gif');
+	$ret = $ret._usermenuitem('Spielsystem', 'admin_event_configs.php', 'Spielsystem', 'optimize.gif');
+	$ret = $ret._usermenuitem('Klassen / Messagegroups', 'admin_liga_types.php', 'Klassen / Messagegroups', 'optimize.gif');
 	# $ret = $ret.'</tr></table>'
 	echo '</tr>'.$ret;
 }
