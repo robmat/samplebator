@@ -217,10 +217,10 @@ foreach ( $legacyDataArray as $legacyIndex => $legacyDataRow ) {
 	}
 }
 
-//var_dump( $legacyDataArray );
-/*
+
 foreach ( $legacyDataArray as $legacyIndex => $legacyDataRow ) {
-	if ( $legacyDataRow != -1 && strpos( $legacyDataRow, ';;;;;;;;;;;;' ) !== FALSE ) {
+	//var_dump( preg_match( '/;;;;;;;;;;;;$/', trim( $legacyDataRow ) ) );
+	if ( $legacyDataRow != -1 && preg_match( '/;;;;;;;;;;;;$/', trim( $legacyDataRow ) ) !== 1 ) {
 		$legacyDataRow = split( ';', trim ( $legacyDataRow ) );
 		foreach ($legacyDataRow as $legacyCellIndex => $legacyCell) {
 			if ( trim( $legacyCell ) === '' ) {
@@ -230,7 +230,9 @@ foreach ( $legacyDataArray as $legacyIndex => $legacyDataRow ) {
 		$pdfDataTable[] = $legacyDataRow;
 	}
 }
-*/
+
+//echo count( $pdfDataTable );
+
 //sort by surname
 function pdfReportComparator($row1, $row2) {
 	return $row1[0] > $row2[0];
