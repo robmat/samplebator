@@ -205,7 +205,7 @@ foreach ( $legacyDataArray as $legacyIndex => $legacyDataRow ) {
 	$legacyDataRow = split( ';', trim( $legacyDataRow ) );
 	$found = FALSE;
 	foreach ( $pdfDataTable as $pdfDataIndex => $pdfDataRow ) {
-		if ( strcmp( $pdfDataRow[0], $legacyDataRow[0] ) == 0 && strcmp( $pdfDataRow[1], $legacyDataRow[1] ) == 0 && strcmp( $pdfDataRow[2], $legacyDataRow[2] ) == 0 ) {
+		if ( strcmp( $pdfDataRow[0], $legacyDataRow[0] ) == 0 /*&& strcmp( $pdfDataRow[1], $legacyDataRow[1] ) == 0*/ && strcmp( $pdfDataRow[2], $legacyDataRow[2] ) == 0 ) {
 			for ($i = 3; $i < 15; $i++) {
 				$pdfDataTable[$pdfDataIndex][$i] = intval( trim ( $pdfDataRow[$i] ) ) + intval( trim ( $legacyDataRow[$i] ) );
 				$found = TRUE;
