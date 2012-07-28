@@ -88,10 +88,10 @@ class PDF extends FPDF {
 			}
 		}
 		if ( $columnIndex == 5 ) {
-			if ( $cellValue >= 13 ) {
+			if ( $cellValue >= 12 ) {
 				$this->SetFillColor(255, 255, 0);
 			}
-			if ( $cellValue < 13 ) {
+			if ( $cellValue < 12 ) {
 				$this->SetFillColor(192, 192, 192);
 			}
 			if ( $cellValue < 7 ) {
