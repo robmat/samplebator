@@ -13,9 +13,9 @@ function list_objects() {
 	# Table header
 	$ret = '<table id="eventtable"><tr>';
 	$ret = $ret.'<td class="thead">Id</td>';
-	$ret = $ret.'<td class="thead">version</td>';
-	$ret = $ret.'<td class="thead">cfgactive</td>';
-	$ret = $ret.'<td class="thead">cfgname</td>';
+	$ret = $ret.'<td class="thead">Versionsnummer</td>';
+	$ret = $ret.'<td class="thead">Aktiv</td>';
+	$ret = $ret.'<td class="thead">Spielsystem Name</td>';
 	/*
 	$ret = $ret.'<td class="thead">evdbldarts</td>';
 	$ret = $ret.'<td class="thead">evdbldist</td>';
@@ -159,41 +159,80 @@ function object_form( $object_id = -1 ) {
 	$ret = '<form method="POST" action="admin_event_configs.php?op=save&id='.$id.'">';
 	$ret = $ret.'<table>';
 	//$ret = $ret.'<tr><td>Id:</td><td><input size=50 name="id" value="'.$id.'" /></td></tr>';	
-	$ret = $ret.'<tr><td>version:</td><td><input size=50 name="version" value="'.$version.'" /></td></tr>';
-	$ret = $ret.'<tr><td>cfgactive:</td><td><input size=50 name="cfgactive" value="'.$cfgactive.'" /></td></tr>';
-	$ret = $ret.'<tr><td>cfgname:</td><td><input size=50 name="cfgname" value="'.$cfgname.'" /></td></tr>';
+	$ret = $ret.'<tr><td>Versionsnummer:</td><td><input size=50 name="version" value="'.$version.'" /></td></tr>';
+	
+	$ret = $ret.'<tr><td>Aktiv:</td><td>';
+	$ret = $ret.'<select name="cfgactive" value="'.$cfgactive.'">';
+	$ret = $ret.'<option value="1" '.($cfgactive == 1 ? 'selected' : '').'>On</option>';
+	$ret = $ret.'<option value="0" '.($cfgactive == 0 ? 'selected' : '').'>Off</option>';
+	$ret = $ret.'</select>';
+	$ret = $ret.'</td></tr>';
+	
+	$ret = $ret.'<tr><td>Spielsystem Name:</td><td><input size=50 name="cfgname" value="'.$cfgname.'" /></td></tr>';
 	$ret = $ret.'<tr><td>evdbldarts:</td><td><input size=50 name="evdbldarts" value="'.$evdbldarts.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evdbldist:</td><td><input size=50 name="evdbldist" value="'.$evdbldist.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evdblfinish:</td><td><input size=50 name="evdblfinish" value="'.$evdblfinish.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evdblhighscore:</td><td><input size=50 name="evdblhighscore" value="'.$evdblhighscore.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evdbllegs:</td><td><input size=50 name="evdbllegs" value="'.$evdbllegs.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evdblrest:</td><td><input size=50 name="evdblrest" value="'.$evdblrest.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evdblroundcheck:</td><td><input size=50 name="evdblroundcheck" value="'.$evdblroundcheck.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evdblroundscore:</td><td><input size=50 name="evdblroundscore" value="'.$evdblroundscore.'" /></td></tr>';
+	$ret = $ret.'<tr><td>Double: Spieldistanz:</td><td><input size=50 name="evdbldist" value="'.$evdbldist.'" /></td></tr>';
+	
+	$ret = $ret.'<tr><td>Double: Finishzahl(wenn Finishzahl miterfasst werden sollen dann bitte hier On ansonsten Off):</td>';
+	$ret = $ret.'<td><select name="evdblfinish" value="'.$evdblfinish.'"><option value="1" '.($evdblfinish == 1 ? 'selected' : '').'>On</option><option value="0" '.($evdblfinish == 0 ? 'selected' : '').'>Off</option></select></td></tr>';
+	
+	$ret = $ret.'<tr><td>Double Highscore (z.B. 180er Wertung dann hier On eintragen sonst Off) :</td>';
+	$ret = $ret.'<td><select name="evdblhighscore" value="'.$evdblhighscore.'"><option value="1" '.($evdblhighscore == 1 ? 'selected' : '').'>On</option><option value="0" '.($evdblhighscore == 0 ? 'selected' : '').'>Off</option></select></td></tr>';
+	
+	$ret = $ret.'<tr><td>Double: Best of x Legs:</td><td><input size=50 name="evdbllegs" value="'.$evdbllegs.'" /></td></tr>';
+	
+	$ret = $ret.'<tr><td>Double: Wenn Restpunkte eingetragen werden sollen dann hier On ansonsten Off:</td>';
+	$ret = $ret.'<td><select name="evdblrest" value="'.$evdblrest.'"><option value="1" '.($evdblrest == 1 ? 'selected' : '').'>On</option><option value="0" '.($evdblrest == 0 ? 'selected' : '').'>Off</option></select></td></tr>';
+	
+	$ret = $ret.'<tr><td>Double: Wenn eingetragen werden soll in welcher Runde gecheckt wurde dann hier On ansonsten Off:</td><td>';
+	$ret = $ret.'<select name="evdblroundcheck" value="'.$evdblroundcheck.'"><option value="1" '.($evdblroundcheck == 1 ? 'selected' : '').'>On</option><option value="0" '.($evdblroundcheck == 0 ? 'selected' : '').'>Off</option></select></td></tr>';
+	
+	$ret = $ret.'<tr><td>Double: Wenn eingetragen werden soll Rundenscore dann hier On ansonsten Off:</td><td>';
+	$ret = $ret.'<select name="evdblroundscore" value="'.$evdblroundscore.'"><option value="1" '.($evdblroundscore == 1 ? 'selected' : '').'>On</option><option value="0" '.($evdblroundscore == 0 ? 'selected' : '').'>Off</option></select></td></tr>';
+	
 	$ret = $ret.'<tr><td>evdblstart:</td><td><input size=50 name="evdblstart" value="'.$evdblstart.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evdoubles:</td><td><input size=50 name="evdoubles" value="'.$evdoubles.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evmaxteamsize:</td><td><input size=50 name="evmaxteamsize" value="'.$evmaxteamsize.'" /></td></tr>';
+	$ret = $ret.'<tr><td>Wieviel Doubles werden gespielt?</td><td><input size=50 name="evdoubles" value="'.$evdoubles.'" /></td></tr>';
+	$ret = $ret.'<tr><td>Maximale Teamanzahl in der Gruppe/Klasse/Event:</td><td><input size=50 name="evmaxteamsize" value="'.$evmaxteamsize.'" /></td></tr>';
 	$ret = $ret.'<tr><td>evnumdown:</td><td><input size=50 name="evnumdown" value="'.$evnumdown.'" /></td></tr>';
 	$ret = $ret.'<tr><td>evnumrounds:</td><td><input size=50 name="evnumrounds" value="'.$evnumrounds.'" /></td></tr>';
 	$ret = $ret.'<tr><td>evnumup:</td><td><input size=50 name="evnumup" value="'.$evnumup.'" /></td></tr>';
 	$ret = $ret.'<tr><td>evplayerfee:</td><td><input size=50 name="evplayerfee" value="'.$evplayerfee.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evpointseven:</td><td><input size=50 name="evpointseven" value="'.$evpointseven.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evpointslost:</td><td><input size=50 name="evpointslost" value="'.$evpointslost.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evpointswin:</td><td><input size=50 name="evpointswin" value="'.$evpointswin.'" /></td></tr>';
+	$ret = $ret.'<tr><td>Wieviel Punkte bei unentschieden?</td><td><input size=50 name="evpointseven" value="'.$evpointseven.'" /></td></tr>';
+	$ret = $ret.'<tr><td>Wieviel Punkte bei verloren?</td><td><input size=50 name="evpointslost" value="'.$evpointslost.'" /></td></tr>';
+	$ret = $ret.'<tr><td>Wieviel Punkte bei gewonnen?</td><td><input size=50 name="evpointswin" value="'.$evpointswin.'" /></td></tr>';
 	$ret = $ret.'<tr><td>evsgldarts:</td><td><input size=50 name="evsgldarts" value="'.$evsgldarts.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evsgldist:</td><td><input size=50 name="evsgldist" value="'.$evsgldist.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evsglfinish:</td><td><input size=50 name="evsglfinish" value="'.$evsglfinish.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evsglhighscore:</td><td><input size=50 name="evsglhighscore" value="'.$evsglhighscore.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evsgllegs:</td><td><input size=50 name="evsgllegs" value="'.$evsgllegs.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evsglrest:</td><td><input size=50 name="evsglrest" value="'.$evsglrest.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evsglroundcheck:</td><td><input size=50 name="evsglroundcheck" value="'.$evsglroundcheck.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evsglroundscore:</td><td><input size=50 name="evsglroundscore" value="'.$evsglroundscore.'" /></td></tr>';
+	$ret = $ret.'<tr><td>Single: Spieldistanz:</td><td><input size=50 name="evsgldist" value="'.$evsgldist.'" /></td></tr>';
+	
+	$ret = $ret.'<tr><td>Single: Finishzahl(wenn Finishzahl miterfasst werden sollen dann bitte hier On ansonsten Off):</td><td>';
+	$ret = $ret.'<select name="evsglfinish" value="'.$evsglfinish.'"><option value="1" '.($evsglfinish == 1 ? 'selected' : '').'>On</option><option value="0" '.($evsglfinish == 0 ? 'selected' : '').'>Off</option></select></td></tr>';
+	
+	$ret = $ret.'<tr><td> Single Highscore (z.B. 180er Wertung dann hier On eintragen sonstOff0):</td>';
+	$ret = $ret.'<td><select name="evsglhighscore" value="'.$evsglhighscore.'"><option value="1" '.($evsglhighscore == 1 ? 'selected' : '').'>On</option><option value="0" '.($evsglhighscore == 0 ? 'selected' : '').'>Off</option></select></td></tr>';
+	
+	$ret = $ret.'<tr><td>Single: Best of x Legs:</td><td><input size=50 name="evsgllegs" value="'.$evsgllegs.'" /></td></tr>';
+	
+	$ret = $ret.'<tr><td>Single: Wenn Restpunkte eingetragen werden sollen dann hier On ansonsten Off:</td>';
+	$ret = $ret.'<td><select name="evsglrest" value="'.$evsglrest.'"><option value="1" '.($evsglrest == 1 ? 'selected' : '').'>On</option><option value="0" '.($evsglrest == 0 ? 'selected' : '').'>Off</option></select></td></tr>';
+	
+	$ret = $ret.'<tr><td>Single: Wenn eingetragen werden soll in welcher Runde gecheckt wurde dann hier On ansonsten Off:</td><td>';
+	$ret = $ret.'<select name="evsglroundcheck" value="'.$evsglroundcheck.'"><option value="1" '.($evsglroundcheck == 1 ? 'selected' : '').'>On</option><option value="0" '.($evsglroundcheck == 0 ? 'selected' : '').'>Off</option></select></td></tr>';
+	
+	$ret = $ret.'<tr><td>Single: Wenn eingetragen werden soll Rundenscore dann hier On ansonsten Off:</td><td>';
+	$ret = $ret.'<select name="evsglroundscore" value="'.$evsglroundscore.'"><option value="1" '.($evsglroundscore == 1 ? 'selected' : '').'>On</option><option value="0" '.($evsglroundscore == 0 ? 'selected' : '').'>Off</option></select></td></tr>';
+	
 	$ret = $ret.'<tr><td>evsglstart:</td><td><input size=50 name="evsglstart" value="'.$evsglstart.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evsingles:</td><td><input size=50 name="evsingles" value="'.$evsingles.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evtabpoints:</td><td><input size=50 name="evtabpoints" value="'.$evtabpoints.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evtabsets:</td><td><input size=50 name="evtabsets" value="'.$evtabsets.'" /></td></tr>';
+	$ret = $ret.'<tr><td>Wieviel Doubles werden gespielt?</td><td><input size=50 name="evsingles" value="'.$evsingles.'" /></td></tr>';
+	
+	$ret = $ret.'<tr><td>Tabellenberechnung erst nach Punkten</td><td>';
+	$ret = $ret.'<select name="evtabpoints" value="'.$evtabpoints.'"><option value="1" '.($evtabpoints == 1 ? 'selected' : '').'>Ja</option><option value="0" '.($evtabpoints == 0 ? 'selected' : '').'>Nein</option></select></td></tr>';
+	
+	$ret = $ret.'<tr><td>Tabellenberechnung erst nach Sätzen:</td><td>';
+	$ret = $ret.'<select name="evtabsets" value="'.$evtabsets.'"><option value="1" '.($evtabsets == 1 ? 'selected' : '').'>Ja</option><option value="0" '.($evtabsets == 0 ? 'selected' : '').'>Nein</option></select></td></tr>';
+	
 	$ret = $ret.'<tr><td>evteamfee:</td><td><input size=50 name="evteamfee" value="'.$evteamfee.'" /></td></tr>';
-	$ret = $ret.'<tr><td>evsglhighscore171:</td><td><input size=50 name="evsglhighscore171" value="'.$evsglhighscore171.'" /></td></tr>';
+	
+	$ret = $ret.'<tr><td>Single Highscore (z.B. 171er Wertung dann hier On eintragen sonst Off):</td><td>';
+	$ret = $ret.'<select name="evsglhighscore171" value="'.$evsglhighscore171.'"><option value="1"  '.($evsglhighscore171 == 1 ? 'selected' : '').'>On</option><option value="0" '.($evsglhighscore171 == 0 ? 'selected' : '').'>Off</option></select></td></tr>';
+	
 	$ret = $ret.'<tr><td colspan="2" align="center"><input type="submit" value="Save" /></td></tr>';
 	$ret = $ret.'</table>';
 	$ret = $ret.'</form>';
