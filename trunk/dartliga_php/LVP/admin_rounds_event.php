@@ -13,32 +13,44 @@ function round_event_list() {
 	# Table header
 	$ret = '<table id="eventtable"><tr>';
 	$ret = $ret.'<td class="thead">Id</td>';
-	$ret = $ret.'<td class="thead">Name</td>';
-	$ret = $ret.'<td class="thead">Year</td>';
+	$ret = $ret.'<td class="thead">Rundenname/Eventname</td>';
+	$ret = $ret.'<td class="thead">Spieljahr</td>';
 	$ret = $ret.'<td class="thead">Active</td>';
 	$ret = $ret.'<td class="thead">Status code</td>';
-	$ret = $ret.'<td class="thead">List (?)</td>';
-	$ret = $ret.'<td class="thead">Pass field</td>';
+	$ret = $ret.'<td class="thead">Vielleicht Sortierreihenfolge</td>';
+	$ret = $ret.'<td class="thead">Welches Passfeld</td>';
 	$ret = $ret.'<td class="thead">Type</td>';
-	$ret = $ret.'<td class="thead">Member code</td>';
-	$ret = $ret.'<td class="thead">Version</td>';
-	$ret = $ret.'<td class="thead">Config id</td>';
+	$ret = $ret.'<td class="thead">Verband/Liga</td>';
+	$ret = $ret.'<td class="thead">Versionsnummer</td>';
+	$ret = $ret.'<td class="thead">Spielsystem</td>';
 	$ret = $ret.'<td class="thead">Edit</td>';
 	$ret = $ret.'<td class="thead">Delete</td>';
 	
-	while ( list( $id, $name, $year, $active, $status_code, $list, $pass_field, $type, $member_code, $version, $config_id ) = sql_fetch_row( $eventsResult, $dbi ) ) {
+	while ( list ( $id, $name, $year, $active, $status_code, $list, $pass_field, $type, $member_code, $version, $config_id ) = sql_fetch_row( $eventsResult, $dbi ) ) {
 		$ret = $ret.'<tr>';
 		$ret = $ret.'<td>'.$id.'</td>';
 		$ret = $ret.'<td>'.$name.'</td>';
 		$ret = $ret.'<td>'.$year.'</td>';
-		$ret = $ret.'<td>'.$active.'</td>';
+		$ret = $ret.'<td>'.($active == 1 ? 'Ja' : 'Nein').'</td>';
 		$ret = $ret.'<td>'.$status_code.'</td>';
 		$ret = $ret.'<td>'.$list.'</td>';
 		$ret = $ret.'<td>'.$pass_field.'</td>';
-		$ret = $ret.'<td>'.$type.'</td>';
-		$ret = $ret.'<td>'.$member_code.'</td>';
+		
+		$result = sql_query( 'SELECT typdesc FROM ttypeliga WHERE id = '.$type, $dbi );
+		$type_name = sql_fetch_row( $result, $dbi );
+		
+		$ret = $ret.'<td>'.$type_name[0].'</td>';
+		
+		$result = sql_query( 'SELECT vname FROM tverband WHERE id = '.$member_code, $dbi );
+		$member_name = sql_fetch_row( $result, $dbi );
+		
+		$ret = $ret.'<td>'.$member_name[0].'</td>';
 		$ret = $ret.'<td>'.$version.'</td>';
-		$ret = $ret.'<td>'.$config_id.'</td>';
+		
+		$result = sql_query( 'SELECT cfgname FROM tbleventconfig WHERE config_id = '.$config_id, $dbi );
+		$config_name = sql_fetch_row( $result, $dbi );
+		
+		$ret = $ret.'<td>'.$config_name[0].'</td>';
 		$ret = $ret.'<td><img src="images/edit24.png" style="cursor: pointer;" onclick="window.location.href = \'admin_rounds_event.php?op=edit&id='.$id.'\'" /></td>';
 		$ret = $ret.'<td align="center"><img src="images/del_icon.png" style="cursor: pointer;" onclick="window.location.href = \'admin_rounds_event.php?op=delete&id='.$id.'\'" /></td>';
 		$ret = $ret.'</tr>';
@@ -64,21 +76,60 @@ function round_event_form( $event_id = -1 ) {
 	
 	if ( $event_id != -1 ) {
 		$eventResult = sql_query( 'SELECT * FROM tblevent WHERE id = '.$event_id, $dbi );
-		list( $id, $name, $year, $active, $status_code, $list, $pass_field, $type, $member_code, $version, $config_id ) = sql_fetch_row( $eventResult, $dbi );
+		list( $id, $name, $year, $active, $status_code, $list, $pass_field, $type, $member_code, $version, $evconfig_id ) = sql_fetch_row( $eventResult, $dbi );
 	}
 	$ret = '<form method="POST" action="admin_rounds_event.php?op=save&id='.$id.'">';
 	$ret = $ret.'<table>';
 	//$ret = $ret.'<tr><td>Id:</td><td><input size=50 name="id" value="'.$id.'" /></td></tr>';	
 	$ret = $ret.'<tr><td>Name:</td><td><input size=50 name="name" value="'.$name.'" /></td></tr>';
 	$ret = $ret.'<tr><td>Year:</td><td><input size=50 name="year" value="'.$year.'" /></td></tr>';
-	$ret = $ret.'<tr><td>Active:</td><td><input size=50 name="active" value="'.$active.'" /></td></tr>';
+	
+	$ret = $ret.'<tr><td>Aktiv:</td><td>';
+	$ret = $ret.'<select name="active">';
+	$ret = $ret.'<option value="1" '.($active == 1 ? 'selected' : '').'>On</option>';
+	$ret = $ret.'<option value="0" '.($active == 0 ? 'selected' : '').'>Off</option>';
+	$ret = $ret.'</select>';
+	$ret = $ret.'</td></tr>';
+	
 	$ret = $ret.'<tr><td>Status code:</td><td><input size=50 name="status_code" value="'.$status_code.'" /></td></tr>';
 	$ret = $ret.'<tr><td>List:</td><td><input size=50 name="list" value="'.$list.'" /></td></tr>';
-	$ret = $ret.'<tr><td>Pass field:</td><td><input size=50 name="pass_field" value="'.$pass_field.'" /></td></tr>';
-	$ret = $ret.'<tr><td>Type:</td><td><input size=50 name="type" value="'.$type.'" /></td></tr>';
-	$ret = $ret.'<tr><td>Member code:</td><td><input size=50 name="member_code" value="'.$member_code.'" /></td></tr>';
+	
+	$ret = $ret.'<tr><td>Welches Passfeld soll benutzt werden:</td><td>';
+	$ret = $ret.'<select name="pass_field" value="'.$pass_field.'">';
+	$ret = $ret.'<option value="pfkey2" '.($pass_field == 'pfkey2' ? 'selected' : '').'>pfkey2</option>';
+	$ret = $ret.'<option value="pfkey1" '.($pass_field == 'pfkey1' ? 'selected' : '').'>pfkey1</option>';
+	$ret = $ret.'</select>';
+	$ret = $ret.'</td></tr>';
+	
+	$ret = $ret.'<tr><td>Type:</td><td>';
+	$ret = $ret.'<select name="type">';
+	$types_result = sql_query( 'SELECT id, typdesc FROM ttypeliga', $dbi );
+	while ( list( $type_id, $type_name ) = sql_fetch_row( $types_result, $dbi ) ) {
+		$ret = $ret.'<option value="'.$type_id.'" '.($type_id == $type ? 'selected' : '').'>'.$type_name.'</option>';
+	} 
+	$ret = $ret.'</select>';
+	$ret = $ret.'</td></tr>';
+	
+	$ret = $ret.'<tr><td>Member code:</td><td>';
+	$ret = $ret.'<select name="member_code">';
+	$member_result = sql_query( 'SELECT id, vname FROM tverband', $dbi );
+	while ( list( $member_id, $member_name ) = sql_fetch_row( $member_result, $dbi ) ) {
+		$ret = $ret.'<option value="'.$member_id.'" '.($member_id == $member_code ? 'selected' : '').'>'.$member_name.'</option>';
+	} 
+	$ret = $ret.'</select>';
+	$ret = $ret.'</td></tr>';
+	
 	$ret = $ret.'<tr><td>Version:</td><td><input size=50 name="version" value="'.$version.'" /></td></tr>';
-	$ret = $ret.'<tr><td>Config id:</td><td><input size=50 name="config_id" value="'.$config_id.'" /></td></tr>';
+	
+	$ret = $ret.'<tr><td>Config id:</td><td>';
+	$ret = $ret.'<select name="config_id">';
+	$config_result = sql_query( 'SELECT config_id, cfgname FROM tbleventconfig', $dbi );
+	while ( list( $config_id, $config_name ) = sql_fetch_row( $config_result, $dbi ) ) {
+		$ret = $ret.'<option value="'.$config_id.'" '.($config_id == $evconfig_id ? 'selected' : '').'>'.$config_name.'</option>';
+	} 
+	$ret = $ret.'</select>';
+	$ret = $ret.'</td></tr>';
+	
 	$ret = $ret.'<tr><td colspan="2" align="center"><input type="submit" value="Save" /></td></tr>';
 	$ret = $ret.'</table>';
 	$ret = $ret.'</form>';
