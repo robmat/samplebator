@@ -63,7 +63,7 @@ function list_objects() {
 		$ret = $ret.'<tr>';
 		$ret = $ret.'<td>'.$id.'</td>';
 		$ret = $ret.'<td>'.$version.'</td>';
-		$ret = $ret.'<td>'.$cfgactive.'</td>';
+		$ret = $ret.'<td>'.($cfgactive == 1 ? 'Ja' : 'Nein').'</td>';
 		$ret = $ret.'<td>'.$cfgname.'</td>';
 		/*
 		$ret = $ret.'<td>'.$evdbldarts.'</td>';
