@@ -8,6 +8,8 @@ if (!stristr($_SERVER['SCRIPT_NAME'], "modules.php")) {
     die ("You can't access this file directly...");
 }
 */
+error_reporting(E_ERROR | E_PARSE);
+
 require_once("db.php");
 require_once("html.php");
 //require_once("mainfile.php");
