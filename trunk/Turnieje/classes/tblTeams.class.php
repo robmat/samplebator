@@ -49,7 +49,7 @@ var $tbl = 'teams';
 		$res = mysql_query($sql);
 		
 		$out .= ""._Zawodnicy." <br /><br />";
-		$out .= '<a href="modules.php?name=Turnieje&op=addteamplayer&id='.$obj->id.'">'._Dodajzawodnika.'</a> <br />';
+		$out .= '<a href="index.php?name=Turnieje&op=addteamplayer&id='.$obj->id.'">'._Dodajzawodnika.'</a> <br />';
 		if(mysql_num_rows($res)) {
 			$out .= '<form name="players" method="post" action="'.$_SERVER['PHP_SELF'].'"><table>';
 			while($obj = mysql_fetch_object($res)) {
@@ -84,7 +84,7 @@ var $tbl = 'teams';
 		$out = _Dodajzawodnikowdodruzyny.' '.$obj->team.'<br /><br />';
 		
 		for($i=65; $i<=90; $i++) {
-			$out .= '<a href="modules.php?name=Turnieje&op=addteamplayer&id='.$tid.'&lttr='.chr($i).'">'.chr($i).'</a> ';
+			$out .= '<a href="index.php?name=Turnieje&op=addteamplayer&id='.$tid.'&lttr='.chr($i).'">'.chr($i).'</a> ';
 		}
 		$out .= "<br /><br />";
 		

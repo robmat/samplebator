@@ -23,22 +23,22 @@ class Table {
 		$out='';
 		if($option) {
 			for($i=65; $i<=90; $i++) {
-				$out .= '<a href="modules.php?name='.$this->name.'&op='.$option.'&lttr='.chr($i).'">'.chr($i).'</a> ';
+				$out .= '<a href="index.php?name='.$this->name.'&op='.$option.'&lttr='.chr($i).'">'.chr($i).'</a> ';
 				switch($i) {
 					case(79):
-					$out .= '<a href="modules.php?name='.$this->name.'&op='.$option.'&lttr=Ö">Ö</a> ';
+					$out .= '<a href="index.php?name='.$this->name.'&op='.$option.'&lttr=Ö">Ö</a> ';
 					break;
 					
 					case(65):
-					$out .= '<a href="modules.php?name='.$this->name.'&op='.$option.'&lttr=Ä">Ä</a> ';
+					$out .= '<a href="index.php?name='.$this->name.'&op='.$option.'&lttr=Ä">Ä</a> ';
 					break;
 					
 					/*case(85):
-					$out .= '<a href="modules.php?name='.$this->name.'&op='.$option.'&lttr=Ü">Ü</a> ';
+					$out .= '<a href="index.php?name='.$this->name.'&op='.$option.'&lttr=Ü">Ü</a> ';
 					break;
 					
 					case(90):
-					$out .= '<a href="modules.php?name='.$this->name.'&op='.$option.'&lttr=¯">¯</a> ';
+					$out .= '<a href="index.php?name='.$this->name.'&op='.$option.'&lttr=¯">¯</a> ';
 					break;*/
 				}
 			}
@@ -58,7 +58,7 @@ class Table {
 			$out .= '<tr>';
 			foreach($this->cfg as $key => $value) {
 				if($value->no_list != 1) {
-					if($value->edit == 1) $out .= '<td><a href="modules.php?name='.$this->name.'&op='.$this->op.'&id='.$obj->id.'">'.$obj->{$key}.'</a></td>';
+					if($value->edit == 1) $out .= '<td><a href="index.php?name='.$this->name.'&op='.$this->op.'&id='.$obj->id.'">'.$obj->{$key}.'</a></td>';
 					else $out .= "<td>".$obj->{$key}."</td>";
 				}
 			}

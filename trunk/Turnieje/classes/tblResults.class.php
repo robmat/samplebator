@@ -251,7 +251,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 		$out .= _Data.' '.implode("-", array_reverse(explode("-", $obj->dt))).'<br />';
 		$out .= _Wspolczynnikturnieju.' '.$obj->ratio.'<br /><br />';
 		if(!$printMe) 
-      $out .= '<a href="modules.php?name=Turnieje&op=print&id='.$this->id.'" >'._Wersjadodruku.'</a><br /><br />';
+      $out .= '<a href="index.php?name=Turnieje&op=print&id='.$this->id.'" >'._Wersjadodruku.'</a><br /><br />';
 		
     $sql = "SELECT game_id, pn, position, score, CONCAT(lname, ' ', fname) AS name, nick ";
     $sql.= " FROM nuke_results LEFT JOIN nuke_players ";
@@ -273,7 +273,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 		}
 		$out .= '</table>';
 		
-		$out .= '<a href="modules.php?name=Turnieje">'._Wyniki.'</a>';
+		$out .= '<a href="index.php?name=Turnieje">'._Wyniki.'</a>';
 	return $out;
 	}
 	
@@ -286,7 +286,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 		$out = _Turniej.' '.$obj->game.'<br />';
 		$out .= _Data.' '.implode("-", array_reverse(explode("-", $obj->dt))).'<br />';
 		$out .= _Wspolczynnikturnieju.' '.$obj->ratio.'<br /><br />';
-		if(!$printMe) $out .= '<a href="modules.php?name=Turnieje&op=print&id='.$this->id.'" >'._Wersjadodruku.'</a><br /><br />';
+		if(!$printMe) $out .= '<a href="index.php?name=Turnieje&op=print&id='.$this->id.'" >'._Wersjadodruku.'</a><br /><br />';
 		$sql = "SELECT game_id, pn, position, score, CONCAT(lname, ' ', fname) AS name, nick ";
     $sql.= " FROM nuke_results LEFT JOIN nuke_players ";
     $sql.= " ON nuke_players.player_number = pn and nuke_players.cup_id =".$obj->cup_id;
@@ -306,7 +306,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 		}
 		$out .= '</table>';
 		
-		$out .= '<a href="modules.php?name=Turnieje">'._Wyniki.'</a>';
+		$out .= '<a href="index.php?name=Turnieje">'._Wyniki.'</a>';
 	return $out;
 	}
 
@@ -420,7 +420,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 		}
 		}
 
-//	header("Location: ../dart24/modules.php?name=Turnieje&op=editresult&id=".$this->id."");
+//	header("Location: ../dart24/index.php?name=Turnieje&op=editresult&id=".$this->id."");
 	}
 	
 	function showRanks($id, $genre) {
@@ -439,7 +439,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 
 		$out .= _Liczbarozegranychturniejow.': '.$obj->suma.' <br /><br />';
 		
-		if(!$printMe) $out .= '<a href="modules.php?name=Turnieje&op=print&id='.$id.'&genre='.$genre.'">'._Wersjadodruku.'</a><br /><br />';
+		if(!$printMe) $out .= '<a href="index.php?name=Turnieje&op=print&id='.$id.'&genre='.$genre.'">'._Wersjadodruku.'</a><br /><br />';
 
 		if($genre == 3)
       { 
@@ -476,7 +476,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 			} else {
 				$tbl .= '<tr><td>';
 				$points == $obj->score ? $tbl .= '' : $tbl .= $i;
-				$tbl .= '</td><td><a href="modules.php?name=Turnieje&op=playergames&id='.$obj->pn.'&cupid='.$id.'">'.$obj->name.' '; 
+				$tbl .= '</td><td><a href="index.php?name=Turnieje&op=playergames&id='.$obj->pn.'&cupid='.$id.'">'.$obj->name.' '; 
 				if($obj->nick) $tbl .= ' &#132;'.$obj->nick.'&#148;';
 				$tbl .= '</a></td><td>'.$obj->player_number.'</td><td>'.$obj->team.'</td><td>'.$obj->city.'</td><td align="right">'.number_format(round($obj->score, 2), 2, ',', ' ').'</td><td align="right">'.$obj->games.'</td></tr>';
 				$shares += $obj->games;
@@ -511,7 +511,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 
 		$out .= _Liczbarozegranychturniejow.': '.$obj->suma.' <br /><br />';
 		
-		if(!$printMe) $out .= '<a href="modules.php?name=Turnieje&op=print&id='.$id.'&genre='.$genre.'">'._Wersjadodruku.'</a><br /><br />';
+		if(!$printMe) $out .= '<a href="index.php?name=Turnieje&op=print&id='.$id.'&genre='.$genre.'">'._Wersjadodruku.'</a><br /><br />';
 
 		if($genre == 3) 
      {
@@ -593,7 +593,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 		$total = 0;
 		$out .= '<table><tr><td>Nr</td><td>'._Turniej.'</td><td>'._Data.'</td><td>'._Miasto.'</td><td>'._Miejsce.'</td><td>'._Iloscgraczy.'</td><td>'._Wspolczynnik.'</td><td>'._Punkty.'</td></tr>';
 		while($obj = mysql_fetch_object($res)) {
-			$out .= '<tr><td>'.$i.'</td><td><a href="modules.php?name=Turnieje&op=showgame&id='.$obj->game_id.'">'.$obj->game.'</a></td><td>'.implode("-", array_reverse(explode("-", $obj->dt))).'</td><td>'.$obj->town.'</td><td>'.$obj->position.'</td><td>'.$players[$obj->game_id].'</td><td>'.$obj->ratio.'</td><td>'.$obj->score.'</td></tr>';
+			$out .= '<tr><td>'.$i.'</td><td><a href="index.php?name=Turnieje&op=showgame&id='.$obj->game_id.'">'.$obj->game.'</a></td><td>'.implode("-", array_reverse(explode("-", $obj->dt))).'</td><td>'.$obj->town.'</td><td>'.$obj->position.'</td><td>'.$players[$obj->game_id].'</td><td>'.$obj->ratio.'</td><td>'.$obj->score.'</td></tr>';
 			$i++;
 			$total += $obj->score;
 		}

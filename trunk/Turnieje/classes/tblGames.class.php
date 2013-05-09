@@ -146,12 +146,12 @@ var $mode_select = array('1' => 'Einzel', '2' => 'Doppel', '3' => 'Triple');
 		$this->err = _NOQUERY;
 			return false;
 		}
-			if(!$printMe) $out .= '<a href="modules.php?name=Turnieje&op=print'.$printChunk.'">'._Wersjadodruku.'</a><br /><br />';
+			if(!$printMe) $out .= '<a href="index.php?name=Turnieje&op=print'.$printChunk.'">'._Wersjadodruku.'</a><br /><br />';
 			$out .= '<table width="100%"><tr><td>'._CUP.'</td><td>'._Ilosczawodnikow.'</td><td>'._GAME.'</td><td>'._GAMETOWN.'</td><td>'._GAMEPLACE.'</td><td>'._GAMEDATE.'</td></tr>';
 	
 		if(mysql_num_rows($res)) {
 			while($obj = mysql_fetch_object($res)) {
-				$out .= '<tr><td>'.$obj->cup.'</td><td>'.$obj->players.'</td><td><a href="modules.php?name=Turnieje&op='.$option.'&id='.$obj->id.'">'.$obj->game.'</a></td><td>'.$obj->town.'</td><td>'.$obj->place.'</td><td>'.implode("-", array_reverse(explode("-", $obj->dt))).'</td></tr>';
+				$out .= '<tr><td>'.$obj->cup.'</td><td>'.$obj->players.'</td><td><a href="index.php?name=Turnieje&op='.$option.'&id='.$obj->id.'">'.$obj->game.'</a></td><td>'.$obj->town.'</td><td>'.$obj->place.'</td><td>'.implode("-", array_reverse(explode("-", $obj->dt))).'</td></tr>';
 			}
 			$out .= '</table>';
 			return $out;
@@ -192,7 +192,7 @@ var $mode_select = array('1' => 'Einzel', '2' => 'Doppel', '3' => 'Triple');
 		$this->err = _NOQUERY;
 			return false;
 		}
-			if(!$printMe) $out .= '<a href="modules.php?name=Turnieje&op=print'.$printChunk.'">'._Wersjadodruku.'</a><br /><br />';
+			if(!$printMe) $out .= '<a href="index.php?name=Turnieje&op=print'.$printChunk.'">'._Wersjadodruku.'</a><br /><br />';
 			$out .= '<table border="0" rules="all" width="100%"><tr><td style="font-size:13px"><center>'._CUP.'</center></td><td style="font-size:13px"><center>Anz. Teiln.</center></td><td style="font-size:13px"><center>'._GAME.'</center></td><td style="font-size:13px"><center>'._GAMETOWN.'</center></td><td style="font-size:13px"><center>'._GAMEPLACE.'</center></td><td style="font-size:13px"><center>'._GAMEDATE.'</center></td></tr>';
 	
 		if(mysql_num_rows($res)) {
@@ -231,7 +231,7 @@ var $mode_select = array('1' => 'Einzel', '2' => 'Doppel', '3' => 'Triple');
 	
 	function searchCupNoTable($genre) {
 		global $genre_select;
-		$out .= '<form name="cup_search" method="post" action="modules.php">';
+		$out .= '<form name="cup_search" method="post" action="index.php">';
 		$out .= '<br> '.$this->getListFromDB('id', 'cup_id', 'nuke_cups', 'cup');
 		
 		$out .= '<br><input type="hidden" name="name" value="Turnieje">' .
