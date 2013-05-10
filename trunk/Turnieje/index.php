@@ -10,7 +10,7 @@ if (!stristr($_SERVER['SCRIPT_NAME'], "modules.php")) {
 */
 error_reporting(E_ERROR | E_PARSE);
 
-require_once("db.php");
+include_once("db.php");
 require_once("html.php");
 //require_once("mainfile.php");
 $module_name = basename(dirname(__FILE__));
@@ -104,7 +104,7 @@ function menu() {
 global $pcat;  
   if($pcat > 1)
   {
-   	$sql = 'select cup from nuke_cups where id='.$_COOKIE['CUP_ID'];
+   	$sql = 'select cup from '._DB_PREFIX.'_cups where id='.$_COOKIE['CUP_ID'];
     $result = mysql_query($sql);
     $row = mysql_fetch_row($result);
 
@@ -190,9 +190,9 @@ function playerManager($lttr) {
 		$out = menu();
 		$out .= '<a href="index.php?op=addplayer">'._Dodajzawodnika.'</a><br /><br />';
 		$out .= '<a href="index.php?op=playerbynumber">'._ByNumber.'</a><br /><br />';
-		$sql = "SELECT * FROM nuke_players WHERE lname LIKE '".$lttr."%' ";
+		$sql = "SELECT * FROM "._DB_PREFIX."_players WHERE lname LIKE '".$lttr."%' ";
     $sql.= " and cup_id=".$_COOKIE['CUP_ID']." ORDER BY lname";
-		//$sql = "SELECT * FROM nuke_players ORDER BY player_number";
+		//$sql = "SELECT * FROM "._DB_PREFIX."_players ORDER BY player_number";
 		$out .= $tblPlayers->display($sql, 'playermanager');
 		echo $out;
 	CloseTable();
@@ -207,8 +207,8 @@ function PlayerByNumber() {
 		$out = menu();
 		$out .= '<a href="index.php?op=addplayer">'._Dodajzawodnika.'</a><br /><br />';
 		$out .= '<a href="index.php?op=playerbynumber">'._ByNumber.'</a><br /><br />';
-		//$sql = "SELECT * FROM nuke_players WHERE lname LIKE '".$lttr."%' ORDER BY lname";
-		$sql = "SELECT * FROM nuke_players ";
+		//$sql = "SELECT * FROM "._DB_PREFIX."_players WHERE lname LIKE '".$lttr."%' ORDER BY lname";
+		$sql = "SELECT * FROM "._DB_PREFIX."_players ";
     $sql.= " where cup_id=".$_COOKIE['CUP_ID'];
     $sql.= " ORDER BY player_number";
 		$out .= $tblPlayers->display($sql, 'playermanager');
@@ -336,7 +336,7 @@ global $pid;
 				//zmiana daty na format sql...
 				$tblGames->c->dt = implode("-", array_reverse(explode("-", $tblGames->c->dt)));
 				
-    	 	$sql = 'select player_number from nuke_players where id='.$pid;
+    	 	$sql = 'select player_number from '._DB_PREFIX.'_players where id='.$pid;
         $result = mysql_query($sql);
         $row = mysql_fetch_row($result);
         
@@ -409,9 +409,9 @@ function cupManager() {
 	OpenTable();
 		$out = menu();
 		$out .= '<a href="index.php?op=addcup">'._DodajPuchar.'</a><br /><br />';
-		$sql = "SELECT nuke_cups.id, cup,close, CONCAT(lname, ' ', fname) ";
-    $sql.= " AS chief_pn FROM nuke_cups LEFT JOIN nuke_players ";
-    $sql.= " ON chief_pn = nuke_players.player_number and nuke_cups.id = cup_id ";
+		$sql = "SELECT "._DB_PREFIX."_cups.id, cup,close, CONCAT(lname, ' ', fname) ";
+    $sql.= " AS chief_pn FROM "._DB_PREFIX."_cups LEFT JOIN "._DB_PREFIX."_players ";
+    $sql.= " ON chief_pn = "._DB_PREFIX."_players.player_number and "._DB_PREFIX."_cups.id = cup_id ";
     $sql.= " ORDER BY cup";
 		$out .= $tblCups->display($sql);
 		echo $out;
@@ -442,13 +442,13 @@ global $pid;
 		$ok = $tblCups->checkTable();
 		if($ok) {
 		
-			$sql = 'select max(id) as id from nuke_cups ';
+			$sql = 'select max(id) as id from '._DB_PREFIX.'_cups ';
       $result = mysql_query($sql);
       $row = mysql_fetch_row($result);
       $old_cup_id = $row[0]; //id poprzedniego sezonu
 		
 		
-    	 	$sql = 'select player_number from nuke_players where id='.$pid;
+    	 	$sql = 'select player_number from '._DB_PREFIX.'_players where id='.$pid;
         $result = mysql_query($sql);
         $row = mysql_fetch_row($result);
         
@@ -458,20 +458,20 @@ global $pid;
 			$res = mysql_query($tblCups->sql);
       $new_cup_id = mysql_insert_id(); //id ostatnio dodanego
 			
-			$sql1 = ' insert into nuke_teams ';
+			$sql1 = ' insert into '._DB_PREFIX.'_teams ';
 			$sql1.= ' (team,cpt_pn,cup_id) ';
 			$sql1.= ' select team,cpt_pn,'.$new_cup_id;
-			$sql1.= ' from nuke_teams ';
+			$sql1.= ' from '._DB_PREFIX.'_teams ';
 		 	$sql1.= ' where cup_id='.$old_cup_id;
       $res2 = mysql_query($sql1);
       			
-      $sql2 = ' insert into nuke_players ';
+      $sql2 = ' insert into '._DB_PREFIX.'_players ';
       $sql2.= ' (team_id,player_number,fname,lname,pass,nick,city,sex,cat,cup_id) ';
-      $sql2.= ' select (select t1.id from nuke_teams t1 where t1.team = ';
-      $sql2.= ' ( select t2.team from nuke_teams t2 where t2.id = team_id ) ';
+      $sql2.= ' select (select t1.id from '._DB_PREFIX.'_teams t1 where t1.team = ';
+      $sql2.= ' ( select t2.team from '._DB_PREFIX.'_teams t2 where t2.id = team_id ) ';
       $sql2.= ' and t1.cup_id = '.$new_cup_id.' ) ';
       $sql2.= ' ,player_number,fname,lname,pass,nick,city,sex,cat,'.$new_cup_id;
-      $sql2.= ' from nuke_players';
+      $sql2.= ' from '._DB_PREFIX.'_players';
       $sql2.= ' where cup_id = '.$old_cup_id;			
       $res2 = mysql_query($sql2);
       			
@@ -496,10 +496,10 @@ $tblCups = new TblCups('Turnieje', 'savecup', '');
 	
 	$tblCups->DeleteGamesInCup($_GET[id]);
 	
-	$sql = 'delete from nuke_teams where cup_id='.$_GET[id];
+	$sql = 'delete from '._DB_PREFIX.'_teams where cup_id='.$_GET[id];
 	$res = mysql_query($sql);
 	
-	$sql = 'delete from nuke_players where cup_id='.$_GET[id];
+	$sql = 'delete from '._DB_PREFIX.'_players where cup_id='.$_GET[id];
 	$res = mysql_query($sql);
 
 	$out = menu();
@@ -575,7 +575,7 @@ function saveTeam() {
 		$ok = $tblTeams->checkTable();
 	
 		if($tblTeams->c->cpt_pn) {
-			$sql = "SELECT cpt_pn from nuke_teams WHERE cpt_pn = ".$tblTeams->c->cpt_pn;
+			$sql = "SELECT cpt_pn from "._DB_PREFIX."_teams WHERE cpt_pn = ".$tblTeams->c->cpt_pn;
 			$sql.= " and cup_id = ".$_COOKIE['CUP_ID'];
 			$res = mysql_query($sql);
 			$rows = mysql_num_rows($res);
@@ -592,7 +592,7 @@ function saveTeam() {
 			$id = mysql_insert_id();
 			if ($tblTeams->c->cpt_pn)
 			 {
-			  $sql = "UPDATE nuke_players SET team_id = '".$id."' WHERE player_number=".$tblTeams->c->cpt_pn;
+			  $sql = "UPDATE "._DB_PREFIX."_players SET team_id = '".$id."' WHERE player_number=".$tblTeams->c->cpt_pn;
 			  $sql.= " and cup_id = ".$_COOKIE['CUP_ID'];
 			  $res = mysql_query($sql);
 		   }	
@@ -618,7 +618,7 @@ function saveTeam() {
 		$ok = $tblTeams->checkTable();
 	
 		if($tblTeams->c->cpt_id) {
-			$sql = "SELECT cpt_id from nuke_teams WHERE cpt_id = ".$tblTeams->c->cpt_id;
+			$sql = "SELECT cpt_id from "._DB_PREFIX."_teams WHERE cpt_id = ".$tblTeams->c->cpt_id;
 			$res = mysql_query($sql);
 			$rows = mysql_num_rows($res);
 		
@@ -632,7 +632,7 @@ function saveTeam() {
 			$res = mysql_query($tblTeams->sql);
 			
 			$id = mysql_insert_id();
-			$sql = "UPDATE nuke_players SET team_id = '".$id."' WHERE id=".$tblTeams->c->cpt_id;
+			$sql = "UPDATE "._DB_PREFIX."_players SET team_id = '".$id."' WHERE id=".$tblTeams->c->cpt_id;
 			$res = mysql_query($sql);
 			
 			$out .= _druzynaZapisana;
@@ -708,7 +708,7 @@ global $pid, $pcat;
 		$out = menu();
 		$ok = true;
      		
-    	 	$sql = 'select player_number from nuke_players where id='.$pid;
+    	 	$sql = 'select player_number from '._DB_PREFIX.'_players where id='.$pid;
         $result = mysql_query($sql);
         $row = mysql_fetch_row($result);
 		
@@ -732,7 +732,7 @@ function checkGameProperties() {
 			$tblGames = new TblGames('Turnieje', 'checkratio', $_POST['id']);
 			$out = $tblGames->addGameProperties($ratioErr, $playersErr);
 		} else {
-			$sql = "UPDATE nuke_games SET ratio = '".$_POST['ratio']."' WHERE id = ".$_POST['id'];
+			$sql = "UPDATE "._DB_PREFIX."_games SET ratio = '".$_POST['ratio']."' WHERE id = ".$_POST['id'];
 			$res = mysql_query($sql);
 			
 			include('classes/tblResults.class.php');
@@ -755,11 +755,11 @@ global $pid, $pcat;
 			$tblResults->err->rato = _NieprawidlowyWspolczynnik;
 		}
 		else {
-			$sql = "UPDATE nuke_games SET ratio = '".$_POST['ratio']."' WHERE id = ".$_POST['id'];
+			$sql = "UPDATE "._DB_PREFIX."_games SET ratio = '".$_POST['ratio']."' WHERE id = ".$_POST['id'];
 			$res = mysql_query($sql);
 		}
 		
-    	 	$sql = 'select player_number from nuke_players where id='.$pid;
+    	 	$sql = 'select player_number from "._DB_PREFIX."_players where id='.$pid;
         $result = mysql_query($sql);
         $row = mysql_fetch_row($result);
         		
@@ -778,7 +778,7 @@ function saveResults() {
 		$ok = $tblResults->checkGameResults();
 		if($ok) {
 			$tblResults->saveGameResults();
-			$sql = "UPDATE nuke_games SET game_status = 'closed' WHERE id = ".$_POST['id'];
+			$sql = "UPDATE "._DB_PREFIX."_games SET game_status = 'closed' WHERE id = ".$_POST['id'];
 			$res = mysql_query($sql);
 			echo menu()._WynikiZapisane;
 		} else {
@@ -811,7 +811,7 @@ include("header.php");
   		echo'<br /><br />';
   		$tblResults = new TblResults('Turnieje', 'updateresult', $_GET['id']);
   		
-  	 	$sql = 'select player_number from nuke_players where id='.$pid;
+  	 	$sql = 'select player_number from '._DB_PREFIX.'_players where id='.$pid;
       $result = mysql_query($sql);
       $row = mysql_fetch_row($result);
       
@@ -849,7 +849,7 @@ global $pid, $pcat;
 		
 		$out = menu();
  
-/*	 	$sql = 'select player_number from nuke_players where id='.$pid;
+/*	 	$sql = 'select player_number from '._DB_PREFIX.'_players where id='.$pid;
     $result = mysql_query($sql);
     $row = mysql_fetch_row($result);*/
       
@@ -959,10 +959,10 @@ function teamManager() {
 		$out = menu();
 		$out .= '<a href="index.php?op=addteam">'._DodajDruzyne.'</a><br /><br />';
 //		$out .= '<a href="index.php?op=dellteam">usun</a><br /><br />';
-		$sql = "SELECT nuke_teams.id, team, CONCAT(lname, ' ', fname) AS cpt_pn ";
-    $sql.= " FROM nuke_teams LEFT JOIN nuke_players ON cpt_pn = nuke_players.player_number ";
-    $sql.= " and nuke_players.cup_id= ".$_COOKIE['CUP_ID'];
-    $sql.= " WHERE nuke_teams.cup_id = ".$_COOKIE['CUP_ID'];
+		$sql = "SELECT "._DB_PREFIX."_teams.id, team, CONCAT(lname, ' ', fname) AS cpt_pn ";
+    $sql.= " FROM "._DB_PREFIX."_teams LEFT JOIN "._DB_PREFIX."_players ON cpt_pn = "._DB_PREFIX."_players.player_number ";
+    $sql.= " and "._DB_PREFIX."_players.cup_id= ".$_COOKIE['CUP_ID'];
+    $sql.= " WHERE "._DB_PREFIX."_teams.cup_id = ".$_COOKIE['CUP_ID'];
     $sql.= " ORDER BY team";
 		$out .= $tblTeams->display($sql);
 		echo $out;
@@ -1107,7 +1107,7 @@ function importPlayers() {
                     
                     $dane_usera[8] = str_replace('"','', $dane_usera[8] );  
                     
-                    $sql = " select count(*) as ilosc from nuke_teams ";
+                    $sql = " select count(*) as ilosc from "._DB_PREFIX."_teams ";
                   	$sql.= " where team = '".htmlspecialchars($dane_usera[8], ENT_QUOTES)."'";
                   	$sql.= " and cup_id = ".$_COOKIE['CUP_ID'];
                     $result = mysql_query($sql);
@@ -1115,14 +1115,14 @@ function importPlayers() {
                     $row = mysql_fetch_row($result);
                     if ($row[0] == 0)
                       {
-                        $sql = " insert into nuke_teams (cup_id,team) values ( ";
+                        $sql = " insert into "._DB_PREFIX."_teams (cup_id,team) values ( ";
                         $sql.= $_COOKIE['CUP_ID'].",";
                         $sql.= "'".htmlspecialchars($dane_usera[8], ENT_QUOTES)."')";
              //  echo  $sql.'<br /><br />';     
                         $result = mysql_query($sql); 
                       }               
                   
-                  	$sql = " insert into nuke_players";
+                  	$sql = " insert into "._DB_PREFIX."_players";
                   	$sql.= " (team_id, player_number, fname, lname, ";
                   	$sql.= " pass, nick, city, sex, cat, cup_id ";
                   	$sql.= " ) values (";
@@ -1131,7 +1131,7 @@ function importPlayers() {
           //             || strtoupper($dane_usera[4]) == 'RANKINLEITER' )
                       if (Trim($dane_usera[8]) != '' )
                      {
-                      $sql.= "(select id from nuke_teams ";
+                      $sql.= "(select id from "._DB_PREFIX."_teams ";
                       $sql.= "where team = '".htmlspecialchars($dane_usera[8], ENT_QUOTES)."'";
                     	$sql.= " and cup_id = ".$_COOKIE['CUP_ID']."),";
                   	 }
@@ -1165,7 +1165,7 @@ function importPlayers() {
                     if (strtoupper($dane_usera[4]) == 'TURNIERLEITER' 
                        || strtoupper($dane_usera[4]) == 'RANKINLEITER' )
                      {
-                       $sql = "update nuke_teams set cpt_pn = '".$player_number."' ";
+                       $sql = "update "._DB_PREFIX."_teams set cpt_pn = '".$player_number."' ";
                        $sql.= "where team = '".htmlspecialchars($dane_usera[8], ENT_QUOTES)."'";
                        $sql.= " and cup_id = ".$_COOKIE['CUP_ID'];
                        $result = mysql_query($sql);

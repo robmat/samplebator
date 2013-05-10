@@ -9,7 +9,7 @@ var $tbl = 'results';
 		
 		$this->cfg->game_id->name = "game_id";
 		$this->cfg->game_id->public_name = _GAME;
-		$this->cfg->game_id->db_list = 'nuke_games';
+		$this->cfg->game_id->db_list = ''._DB_PREFIX.'_games';
 		$this->cfg->game_id->db_list_pk = "id";
 		$this->cfg->game_id->db_list_sel = "game";
 		$this->cfg->game_id->not_empty = 1;
@@ -32,7 +32,7 @@ var $tbl = 'results';
 
 	function addGameResults($ratio, $players) {
 
-  	$sql = "SELECT game_mode,cup_id FROM nuke_games WHERE id = ".$this->id;
+  	$sql = "SELECT game_mode,cup_id FROM "._DB_PREFIX."_games WHERE id = ".$this->id;
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
 	
@@ -53,7 +53,7 @@ var $tbl = 'results';
         ";
 	
   
-      	  $sql = "select id,fname,lname,player_number FROM nuke_players ";
+      	  $sql = "select id,fname,lname,player_number FROM "._DB_PREFIX."_players ";
           $sql.= " where cup_id=".$obj->cup_id;
     		  $result = mysql_query($sql);
   
@@ -109,7 +109,7 @@ var $tbl = 'results';
 	
 	function editGameResults($pid, $pcat, $err=false) {
 		$sql = 'SELECT game, chief_pn, game_status, ratio, game_mode, cup_id ';
-    $sql.= ' FROM nuke_games WHERE id = '.$this->id;
+    $sql.= ' FROM '._DB_PREFIX.'_games WHERE id = '.$this->id;
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
 
@@ -123,9 +123,9 @@ var $tbl = 'results';
 		
 		$cup_id = $obj->cup_id;
 		
-		$sql = "SELECT nuke_results.id, pn, position, score, CONCAT(lname, ' ', fname) AS name ";
-    $sql.= " FROM nuke_results ";
-    $sql.= " LEFT JOIN nuke_players ON player_number = pn and nuke_players.cup_id =".$cup_id;
+		$sql = "SELECT "._DB_PREFIX."_results.id, pn, position, score, CONCAT(lname, ' ', fname) AS name ";
+    $sql.= " FROM "._DB_PREFIX."_results ";
+    $sql.= " LEFT JOIN "._DB_PREFIX."_players ON player_number = pn and "._DB_PREFIX."_players.cup_id =".$cup_id;
     $sql.= " WHERE game_id = '".$this->id."' ORDER BY position";
 		$res = mysql_query($sql);
 		$players = mysql_num_rows($res);
@@ -242,7 +242,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 	
 	function showGameResults() {
 	global $printMe;
-		$sql = 'SELECT game, ratio, dt, cup_id FROM nuke_games WHERE id = '.$this->id;
+		$sql = 'SELECT game, ratio, dt, cup_id FROM '._DB_PREFIX.'_games WHERE id = '.$this->id;
 		
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
@@ -254,8 +254,8 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
       $out .= '<a href="index.php?name=Turnieje&op=print&id='.$this->id.'" >'._Wersjadodruku.'</a><br /><br />';
 		
     $sql = "SELECT game_id, pn, position, score, CONCAT(lname, ' ', fname) AS name, nick ";
-    $sql.= " FROM nuke_results LEFT JOIN nuke_players ";
-    $sql.= " ON nuke_players.player_number = pn and nuke_players.cup_id =".$obj->cup_id;
+    $sql.= " FROM "._DB_PREFIX."_results LEFT JOIN "._DB_PREFIX."_players ";
+    $sql.= " ON "._DB_PREFIX."_players.player_number = pn and "._DB_PREFIX."_players.cup_id =".$obj->cup_id;
     $sql.= " WHERE game_id = '".$this->id."' ORDER BY position";
 		
     $res = mysql_query($sql);
@@ -279,7 +279,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 	
 		function showGameResults2() {
 	global $printMe;
-		$sql = 'SELECT game, ratio, dt, cup_id FROM nuke_games WHERE id = '.$this->id;
+		$sql = 'SELECT game, ratio, dt, cup_id FROM '._DB_PREFIX.'_games WHERE id = '.$this->id;
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
 		$ratio = $obj->ratio;
@@ -288,8 +288,8 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 		$out .= _Wspolczynnikturnieju.' '.$obj->ratio.'<br /><br />';
 		if(!$printMe) $out .= '<a href="index.php?name=Turnieje&op=print&id='.$this->id.'" >'._Wersjadodruku.'</a><br /><br />';
 		$sql = "SELECT game_id, pn, position, score, CONCAT(lname, ' ', fname) AS name, nick ";
-    $sql.= " FROM nuke_results LEFT JOIN nuke_players ";
-    $sql.= " ON nuke_players.player_number = pn and nuke_players.cup_id =".$obj->cup_id;
+    $sql.= " FROM "._DB_PREFIX."_results LEFT JOIN "._DB_PREFIX."_players ";
+    $sql.= " ON "._DB_PREFIX."_players.player_number = pn and "._DB_PREFIX."_players.cup_id =".$obj->cup_id;
     $sql.= " WHERE game_id = '".$this->id."' ORDER BY position";
 		$res = mysql_query($sql);
 		
@@ -335,7 +335,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 				$key=ereg_replace('p_','',$key);
 				if(is_numeric($key)) {
 					$score = $this->computeResults($players, $key);
-					$sql = "INSERT INTO nuke_results (game_id, pn, position, score) VALUES ('".$this->id."', '".$value."', '".$key."', '".$score."')";
+					$sql = "INSERT INTO "._DB_PREFIX."_results (game_id, pn, position, score) VALUES ('".$this->id."', '".$value."', '".$key."', '".$score."')";
 					
 					$res = mysql_query($sql);
 				}
@@ -351,7 +351,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 						$score = $this->computeResults($players/$mode, $place);
 					}
 
-					$sql = "INSERT INTO nuke_results (game_id, pn, position, score) VALUES ('".$this->id."', '".$value."', '".$place."', '".$score."')";	
+					$sql = "INSERT INTO "._DB_PREFIX."_results (game_id, pn, position, score) VALUES ('".$this->id."', '".$value."', '".$place."', '".$score."')";	
 					$res = mysql_query($sql);
 				}
 			}
@@ -384,7 +384,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 				$key=ereg_replace('p_','',$key);
 				if(is_numeric($key) && $value == 'on') {
 					
-					$sql = "DELETE FROM nuke_results WHERE id = ".$key." LIMIT 1";
+					$sql = "DELETE FROM "._DB_PREFIX."_results WHERE id = ".$key." LIMIT 1";
 					$res = mysql_query($sql);
 				
 				
@@ -401,7 +401,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 				$position = $_POST[$key.'_position'];
 				$score = $this->computeResults($players/$mode, $position);
 				
- 			 $sql = "UPDATE nuke_results SET pn='$pn', position = '".$position."', score = '".$score."' WHERE id = ".$key;
+ 			 $sql = "UPDATE "._DB_PREFIX."_results SET pn='$pn', position = '".$position."', score = '".$score."' WHERE id = ".$key;
 				$res = mysql_query($sql);
 			
 			}elseif(ereg('new_',$key)){
@@ -411,7 +411,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 				$pn=$_POST['pn_'.$value];
 				$score = $this->computeResults($players/$mode, $pos);
 				
-	  		$sql = "INSERT INTO nuke_results (`game_id`,  `pn`,  `position`,  `score`) " .
+	  		$sql = "INSERT INTO "._DB_PREFIX."_results (`game_id`,  `pn`,  `position`,  `score`) " .
 						"VALUES " .
 						"('$_POST[gameiD]',  '$pn',  '$pos' , '$score') ";
 				
@@ -425,7 +425,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 	
 	function showRanks($id, $genre) {
 	global $printMe;
-		$sql = 'SELECT cup FROM nuke_cups WHERE id = '.$id;
+		$sql = 'SELECT cup FROM '._DB_PREFIX.'_cups WHERE id = '.$id;
 		
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
@@ -433,7 +433,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 		$out = _Puchar.' '.$obj->cup.' <br /><br />';
 		$out .= _Data.' '.date("d-m-Y").' <br /><br />';
 	
-		$sql = 'SELECT COUNT(*) AS suma FROM nuke_games WHERE cup_id = '.$id;
+		$sql = 'SELECT COUNT(*) AS suma FROM '._DB_PREFIX.'_games WHERE cup_id = '.$id;
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
 
@@ -443,22 +443,22 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 
 		if($genre == 3)
       { 
-       $sql = "SELECT SUM(score*ratio) AS score, team, nuke_games.cup_id ";
-       $sql.= " FROM nuke_results ";
-       $sql.= " LEFT JOIN nuke_players ON nuke_players.player_number = pn  and nuke_players.cup_id = '".$id."'";
-       $sql.= " LEFT JOIN nuke_teams ON team_id = nuke_teams.id ";
-       $sql.= " LEFT JOIN nuke_games ON game_id = nuke_games.id ";
-       $sql.= " WHERE nuke_games.cup_id='".$id."' GROUP BY team ORDER BY score DESC";
+       $sql = "SELECT SUM(score*ratio) AS score, team, "._DB_PREFIX."_games.cup_id ";
+       $sql.= " FROM "._DB_PREFIX."_results ";
+       $sql.= " LEFT JOIN "._DB_PREFIX."_players ON "._DB_PREFIX."_players.player_number = pn  and "._DB_PREFIX."_players.cup_id = '".$id."'";
+       $sql.= " LEFT JOIN "._DB_PREFIX."_teams ON team_id = "._DB_PREFIX."_teams.id ";
+       $sql.= " LEFT JOIN "._DB_PREFIX."_games ON game_id = "._DB_PREFIX."_games.id ";
+       $sql.= " WHERE "._DB_PREFIX."_games.cup_id='".$id."' GROUP BY team ORDER BY score DESC";
       }
 		else
       { 
       $sql = "SELECT pn, COUNT(pn) AS games, SUM(score*ratio) AS score, ";
-      $sql.= " CONCAT(lname, ' ', fname) AS name, nick, player_number, city,team, nuke_games.cup_id ";
-      $sql.= " FROM nuke_results ";
-      $sql.= " LEFT JOIN nuke_players ON nuke_players.player_number = pn and nuke_players.cup_id = '".$id."'";
-      $sql.= " LEFT JOIN nuke_teams ON team_id = nuke_teams.id ";
-      $sql.= " LEFT JOIN nuke_games ON game_id = nuke_games.id ";
-      $sql.= " WHERE nuke_players.sex='".$genre."' AND nuke_games.cup_id='".$id."' ";
+      $sql.= " CONCAT(lname, ' ', fname) AS name, nick, player_number, city,team, "._DB_PREFIX."_games.cup_id ";
+      $sql.= " FROM "._DB_PREFIX."_results ";
+      $sql.= " LEFT JOIN "._DB_PREFIX."_players ON "._DB_PREFIX."_players.player_number = pn and "._DB_PREFIX."_players.cup_id = '".$id."'";
+      $sql.= " LEFT JOIN "._DB_PREFIX."_teams ON team_id = "._DB_PREFIX."_teams.id ";
+      $sql.= " LEFT JOIN "._DB_PREFIX."_games ON game_id = "._DB_PREFIX."_games.id ";
+      $sql.= " WHERE "._DB_PREFIX."_players.sex='".$genre."' AND "._DB_PREFIX."_games.cup_id='".$id."' ";
       $sql.= " GROUP BY pn ORDER BY score DESC";
 		  }
 		$res = mysql_query($sql);
@@ -497,7 +497,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 	
 	function showRanks2($id, $genre) {
 	global $printMe;
-		$sql = 'SELECT cup FROM nuke_cups WHERE id = '.$id;
+		$sql = 'SELECT cup FROM '._DB_PREFIX.'_cups WHERE id = '.$id;
 		
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
@@ -505,7 +505,7 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 		$out = _Puchar.' '.$obj->cup.' <br /><br />';
 		$out .= _Data.' '.date("d-m-Y").' <br /><br />';
 	
-		$sql = 'SELECT COUNT(*) AS suma FROM nuke_games WHERE cup_id = '.$id;
+		$sql = 'SELECT COUNT(*) AS suma FROM '._DB_PREFIX.'_games WHERE cup_id = '.$id;
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
 
@@ -515,23 +515,23 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 
 		if($genre == 3) 
      {
-     $sql = "SELECT SUM(score*ratio) AS score, team, nuke_games.cup_id ";
-     $sql.= " FROM nuke_results ";
-     $sql.= " LEFT JOIN nuke_players ON nuke_players.player_number = pn and nuke_players.cup_id = '".$id."'";
-     $sql.= " LEFT JOIN nuke_teams ON team_id = nuke_teams.id ";
-     $sql.= " LEFT JOIN nuke_games ON game_id = nuke_games.id ";
-     $sql.= " WHERE nuke_games.cup_id='".$id."' ";
+     $sql = "SELECT SUM(score*ratio) AS score, team, "._DB_PREFIX."_games.cup_id ";
+     $sql.= " FROM "._DB_PREFIX."_results ";
+     $sql.= " LEFT JOIN "._DB_PREFIX."_players ON "._DB_PREFIX."_players.player_number = pn and "._DB_PREFIX."_players.cup_id = '".$id."'";
+     $sql.= " LEFT JOIN "._DB_PREFIX."_teams ON team_id = "._DB_PREFIX."_teams.id ";
+     $sql.= " LEFT JOIN "._DB_PREFIX."_games ON game_id = "._DB_PREFIX."_games.id ";
+     $sql.= " WHERE "._DB_PREFIX."_games.cup_id='".$id."' ";
      $sql.= " GROUP BY team ORDER BY score DESC";
 		 }
     else 
      {
      $sql = "SELECT pn, COUNT(pn) AS games, SUM(score*ratio) AS score, ";
-     $sql.= " CONCAT(lname, ' ', fname) AS name, nick, player_number, city, team, nuke_games.cup_id ";
-     $sql.= " FROM nuke_results ";
-     $sql.= " LEFT JOIN nuke_players ON nuke_players.player_number = pn and nuke_players.cup_id = '".$id."'";
-     $sql.= " LEFT JOIN nuke_teams ON team_id = nuke_teams.id ";
-     $sql.= " LEFT JOIN nuke_games ON game_id = nuke_games.id ";
-     $sql.= " WHERE nuke_players.sex='".$genre."' AND nuke_games.cup_id='".$id."' ";
+     $sql.= " CONCAT(lname, ' ', fname) AS name, nick, player_number, city, team, "._DB_PREFIX."_games.cup_id ";
+     $sql.= " FROM "._DB_PREFIX."_results ";
+     $sql.= " LEFT JOIN "._DB_PREFIX."_players ON "._DB_PREFIX."_players.player_number = pn and "._DB_PREFIX."_players.cup_id = '".$id."'";
+     $sql.= " LEFT JOIN "._DB_PREFIX."_teams ON team_id = "._DB_PREFIX."_teams.id ";
+     $sql.= " LEFT JOIN "._DB_PREFIX."_games ON game_id = "._DB_PREFIX."_games.id ";
+     $sql.= " WHERE "._DB_PREFIX."_players.sex='".$genre."' AND "._DB_PREFIX."_games.cup_id='".$id."' ";
      $sql.= " GROUP BY pn ORDER BY score DESC";
 		 }
 		
@@ -570,13 +570,13 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 	}
 	
 	function tblPlayerResult($id, $cupid) {
-		$sql = "SELECT CONCAT(lname, ' ', fname) AS name, nick FROM nuke_players ";
+		$sql = "SELECT CONCAT(lname, ' ', fname) AS name, nick FROM "._DB_PREFIX."_players ";
     $sql.= " WHERE player_number = ".$id." and cup_id = '".$cupid."'";
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
 		$out = _Zawodnik.': '.$obj->name.' '.$obj->nick.'<br /><br />';
 	
-		$sql = 'SELECT game_id, COUNT(game_id) AS players FROM nuke_results GROUP BY game_id';
+		$sql = 'SELECT game_id, COUNT(game_id) AS players FROM '._DB_PREFIX.'_results GROUP BY game_id';
 		$res = mysql_query($sql);
 		
 		$players = array();
@@ -584,9 +584,9 @@ $out .= '<tr><td><input type="checkbox" name="new_'.$_POST[dodajGr].'" value='.$
 			$players[$obj->game_id] = $obj->players;
 		}
 		
-		$sql = "SELECT position, (score*ratio) AS score, game_id, game, town, place, ratio, dt, nuke_games.cup_id ";
-    $sql.= " FROM nuke_results LEFT JOIN nuke_games ON game_id = nuke_games.id ";
-    $sql.= " WHERE pn = '".$id."' AND nuke_games.cup_id = '".$cupid."' ORDER BY dt DESC";
+		$sql = "SELECT position, (score*ratio) AS score, game_id, game, town, place, ratio, dt, "._DB_PREFIX."_games.cup_id ";
+    $sql.= " FROM "._DB_PREFIX."_results LEFT JOIN "._DB_PREFIX."_games ON game_id = "._DB_PREFIX."_games.id ";
+    $sql.= " WHERE pn = '".$id."' AND "._DB_PREFIX."_games.cup_id = '".$cupid."' ORDER BY dt DESC";
 		$res = mysql_query($sql);
 		
 		$i = 1;

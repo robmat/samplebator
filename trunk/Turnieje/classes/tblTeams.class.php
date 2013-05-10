@@ -16,7 +16,7 @@ var $tbl = 'teams';
 				
 		$this->cfg->cpt_pn->name = "cpt_pn";
 		$this->cfg->cpt_pn->public_name = _Kapitan;
-		$this->cfg->cpt_pn->db_list2 = 'nuke_players';
+		$this->cfg->cpt_pn->db_list2 = ''._DB_PREFIX.'_players';
 		$this->cfg->cpt_pn->db_list_pk = "player_number";
 		$this->cfg->cpt_pn->db_list_sel1 = "lname";
 		$this->cfg->cpt_pn->db_list_sel2 = "fname";
@@ -27,7 +27,7 @@ var $tbl = 'teams';
 
 		$this->cfg->cup_id->name = "cup_id";
 		$this->cfg->cup_id->public_name = _CUPNAME;
-		$this->cfg->cup_id->db_list = 'nuke_cups';
+		$this->cfg->cup_id->db_list = ''._DB_PREFIX.'_cups';
 		$this->cfg->cup_id->db_list_pk = "id";
 		$this->cfg->cup_id->db_list_sel = "cup";
 		$this->cfg->cup_id->db_list_cond = " close = 0";
@@ -36,7 +36,7 @@ var $tbl = 'teams';
 	}
 	
 	function teamMenu($cid) {
-		$sql = "SELECT * FROM nuke_teams WHERE cpt_pn = ".$cid;
+		$sql = "SELECT * FROM "._DB_PREFIX."_teams WHERE cpt_pn = ".$cid;
 		$sql.= " and cup_id = ".$_COOKIE['CUP_ID'];
  		
 		$res = mysql_query($sql);
@@ -44,7 +44,7 @@ var $tbl = 'teams';
 		
 		$out = _Druzyna." ".$obj->team." <br /><br />";
 		
-		$sql = "SELECT id, CONCAT(lname, ,fname) AS name FROM nuke_players ";
+		$sql = "SELECT id, CONCAT(lname, ,fname) AS name FROM "._DB_PREFIX."_players ";
     $sql.= " WHERE team_id = ".$obj->id." ORDER BY lname";
 		$res = mysql_query($sql);
 		
@@ -62,7 +62,7 @@ var $tbl = 'teams';
 	}
 
 	function teamName($team_id) {
-		$sql = "SELECT * FROM nuke_teams WHERE id = ".$team_id;
+		$sql = "SELECT * FROM "._DB_PREFIX."_teams WHERE id = ".$team_id;
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
 		
@@ -72,13 +72,13 @@ var $tbl = 'teams';
 
 	function SetFreePlayer($team_id) 
 	{
-		$sql = "UPDATE nuke_players set team_id = 0 where team_id = ".$team_id; 
+		$sql = "UPDATE "._DB_PREFIX."_players set team_id = 0 where team_id = ".$team_id; 
 		$res = mysql_query($sql);
 	}		
 	
 	
 	function showFreePlayers($tid, $lttr) {
-		$sql = "SELECT team FROM nuke_teams WHERE id = ".$tid;
+		$sql = "SELECT team FROM "._DB_PREFIX."_teams WHERE id = ".$tid;
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
 		$out = _Dodajzawodnikowdodruzyny.' '.$obj->team.'<br /><br />';
@@ -89,7 +89,7 @@ var $tbl = 'teams';
 		$out .= "<br /><br />";
 		
 		if(!$lttr) $lttr = 'A';
-		$sql = "SELECT id, CONCAT(lname, ,fname) AS name FROM nuke_players ";
+		$sql = "SELECT id, CONCAT(lname, ,fname) AS name FROM "._DB_PREFIX."_players ";
     $sql.= " WHERE lname LIKE '".$lttr."%' AND user_group != '0' ";
     $sql.= " AND user_group != '2' AND username !='Anonymous' ";
     $sql.= " AND (team_id IS NULL OR team_id = '0') ORDER BY lname";
@@ -109,7 +109,7 @@ var $tbl = 'teams';
 	function saveTeamPlayers() {
 		foreach($_POST as $key => $value) {
 			if(is_numeric($key) && $value == 'on') {
-				$sql = "UPDATE nuke_players SET team_id = '".$_POST['id']."' WHERE id = ".$key;
+				$sql = "UPDATE "._DB_PREFIX."_players SET team_id = '".$_POST['id']."' WHERE id = ".$key;
 				$res = mysql_query($sql);
 			}
 		}
@@ -118,7 +118,7 @@ var $tbl = 'teams';
 	function delTeamPlayers() {
 		foreach($_POST as $key => $value) {
 			if(is_numeric($key) && $value == 'on') {
-				$sql = "UPDATE nuke_players SET team_id = 0 WHERE id = ".$key;
+				$sql = "UPDATE "._DB_PREFIX."_players SET team_id = 0 WHERE id = ".$key;
 				$res = mysql_query($sql); 
 			}
 		}	
