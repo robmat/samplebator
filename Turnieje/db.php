@@ -7,6 +7,8 @@ $dbname = "usr_web239_1";
 global $prefix;
 $prefix = "nuke";
 
+define("_DB_PREFIX", "nuke");
+
 global $db;
 $db = mysql_connect($dbhost, $dbuname, $dbpass);
 mysql_select_db($dbname, $db);

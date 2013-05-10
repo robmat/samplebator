@@ -23,7 +23,7 @@ echo 'hallo<br>';
 						else 
 							$pieces[5] = 2;
 								
-						echo $sql2 = "select id from nuke_teams where team = '".mysql_escape_string(trim($pieces[7]))."'";
+						echo $sql2 = "select id from "._DB_PREFIX."_teams where team = '".mysql_escape_string(trim($pieces[7]))."'";
 						
 						$result = mysql_query($sql2, $this->conn);
 						$wynik = mysql_fetch_row($result);
@@ -33,7 +33,7 @@ echo 'hallo<br>';
 						echo "<br>".$id_team;
 						echo "<br>";		
 								
-						$sql = "insert into nuke_players (player_number, fname, lname, pass, nick";
+						$sql = "insert into "._DB_PREFIX."_players (player_number, fname, lname, pass, nick";
 						$sql.= " ,city, sex, cat, team_id)";
 						$sql.= " values (".mysql_escape_string(trim($pieces[0])).",'".mysql_escape_string(trim($pieces[2]))."','".mysql_escape_string(trim($pieces[1]));
 						$sql.= "','".mysql_escape_string(trim($pieces[8]))."','".mysql_escape_string(trim($pieces[3]))."','".mysql_escape_string(trim($pieces[4]))."'";
@@ -66,14 +66,14 @@ echo 'gotowe';
     		if ($buffer != "")
     		   {	
         			$pieces = explode(",", $buffer);
-							$sql = " select id from nuke_teams where team = '".mysql_escape_string(trim($pieces[7]))."'";
+							$sql = " select id from "._DB_PREFIX."_teams where team = '".mysql_escape_string(trim($pieces[7]))."'";
 							$wynik = mysql_query($sql, $this->conn);
 							$wiersz=mysql_fetch_array($wynik);
 			
 							if (! $wiersz)
 								{
 												
-									$sql = "insert into nuke_teams (team)";
+									$sql = "insert into "._DB_PREFIX."_teams (team)";
 									//$sql.= " ,city, sex, cat)";
 									$sql.= " values ('".mysql_escape_string(trim($pieces[7]));
 									echo $sql.= "')";

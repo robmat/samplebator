@@ -11,7 +11,7 @@ var $mode_select = array('1' => 'Einzel', '2' => 'Doppel', '3' => 'Triple');
 		
 		$this->cfg->cup_id->name = "cup_id";
 		$this->cfg->cup_id->public_name = _CUPNAME;
-		$this->cfg->cup_id->db_list = 'nuke_cups';
+		$this->cfg->cup_id->db_list = _DB_PREFIX.'_cups';
 		$this->cfg->cup_id->db_list_pk = "id";
 		$this->cfg->cup_id->db_list_sel = "cup";
 		$this->cfg->cup_id->db_list_cond = "close!=1";
@@ -59,7 +59,7 @@ var $mode_select = array('1' => 'Einzel', '2' => 'Doppel', '3' => 'Triple');
 	
 	function checkOwner($cup_id, $user_id, $user_group) {
 		if($user_group == 4) return true;
-		$sql = "SELECT chief_pn FROM nuke_cups WHERE id = ".$cup_id;
+		$sql = "SELECT chief_pn FROM "._DB_PREFIX."_cups WHERE id = ".$cup_id;
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
 		if($obj->chief_pn != $user_id) return false;
@@ -67,7 +67,7 @@ var $mode_select = array('1' => 'Einzel', '2' => 'Doppel', '3' => 'Triple');
 	}
 	
 	function checkGameStatus($pid, $pcat) {
-		$sql = "SELECT game_status, chief_pn, dt FROM nuke_games WHERE id = ".$this->id;
+		$sql = "SELECT game_status, chief_pn, dt FROM "._DB_PREFIX."_games WHERE id = ".$this->id;
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
 
@@ -88,7 +88,7 @@ var $mode_select = array('1' => 'Einzel', '2' => 'Doppel', '3' => 'Triple');
 	function addGameProperties($ratioErr=false, $playersErr=false) {
 		
 		isset($_POST['ratio']) ? $ratio = $_POST['ratio'] : $ratio = '1.0';
-		$sql = "SELECT game, game_mode FROM nuke_games WHERE id = ".$this->id;
+		$sql = "SELECT game, game_mode FROM "._DB_PREFIX."_games WHERE id = ".$this->id;
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
 		$out = _Turniej.': '.$obj->game.'<br /><br />';
@@ -130,11 +130,11 @@ var $mode_select = array('1' => 'Einzel', '2' => 'Doppel', '3' => 'Triple');
 		
 		if ($sqlchunk) {
 			$sqlchunk = substr($sqlchunk, 0, strlen($sqlchunk)-4);
-			//$sql = 'SELECT nuke_games.id, cup_id, game, town, place, dt, cup, COUNT(game_id) AS players FROM nuke_games LEFT JOIN nuke_cups ON nuke_cups.id = nuke_games.cup_id LEFT JOIN nuke_results ON nuke_games.id = game_id WHERE'.$sqlchunk.' GROUP BY game_id ORDER BY dt DESC';
+			//$sql = 'SELECT '._DB_PREFIX.'_games.id, cup_id, game, town, place, dt, cup, COUNT(game_id) AS players FROM '._DB_PREFIX.'_games LEFT JOIN '._DB_PREFIX.'_cups ON '._DB_PREFIX.'_cups.id = '._DB_PREFIX.'_games.cup_id LEFT JOIN '._DB_PREFIX.'_results ON '._DB_PREFIX.'_games.id = game_id WHERE'.$sqlchunk.' GROUP BY game_id ORDER BY dt DESC';
 			//zmiana - teraz wyszukuje tylko nie zamkniete puchary
-			$sql = 'SELECT nuke_games.id, cup_id, game, town, place, dt, cup, COUNT(game_id) AS players ';
-      $sql.= ' FROM nuke_games LEFT JOIN nuke_cups ON nuke_cups.id = nuke_games.cup_id ';
-      $sql.= ' LEFT JOIN nuke_results ON nuke_games.id = game_id ';
+			$sql = 'SELECT '._DB_PREFIX.'_games.id, cup_id, game, town, place, dt, cup, COUNT(game_id) AS players ';
+      $sql.= ' FROM '._DB_PREFIX.'_games LEFT JOIN '._DB_PREFIX.'_cups ON '._DB_PREFIX.'_cups.id = '._DB_PREFIX.'_games.cup_id ';
+      $sql.= ' LEFT JOIN '._DB_PREFIX.'_results ON '._DB_PREFIX.'_games.id = game_id ';
       $sql.= ' WHERE'.$sqlchunk.' AND  close <> 1 ';
       $sql.= ' GROUP BY game_id ORDER BY dt DESC';
 			
@@ -176,11 +176,11 @@ var $mode_select = array('1' => 'Einzel', '2' => 'Doppel', '3' => 'Triple');
 		
 		if ($sqlchunk) {
 			$sqlchunk = substr($sqlchunk, 0, strlen($sqlchunk)-4);
-			//$sql = 'SELECT nuke_games.id, cup_id, game, town, place, dt, cup, COUNT(game_id) AS players FROM nuke_games LEFT JOIN nuke_cups ON nuke_cups.id = nuke_games.cup_id LEFT JOIN nuke_results ON nuke_games.id = game_id WHERE'.$sqlchunk.' GROUP BY game_id ORDER BY dt DESC';
+			//$sql = 'SELECT '._DB_PREFIX.'_games.id, cup_id, game, town, place, dt, cup, COUNT(game_id) AS players FROM '._DB_PREFIX.'_games LEFT JOIN '._DB_PREFIX.'_cups ON '._DB_PREFIX.'_cups.id = '._DB_PREFIX.'_games.cup_id LEFT JOIN '._DB_PREFIX.'_results ON '._DB_PREFIX.'_games.id = game_id WHERE'.$sqlchunk.' GROUP BY game_id ORDER BY dt DESC';
 			//zmiana - teraz wyszukuje tylko nie zamkniete puchary
-			$sql = 'SELECT nuke_games.id, cup_id, game, town, place, dt, cup, COUNT(game_id) AS players ';
-      $sql.= ' FROM nuke_games LEFT JOIN nuke_cups ON nuke_cups.id = nuke_games.cup_id ';
-      $sql.= ' LEFT JOIN nuke_results ON nuke_games.id = game_id ';
+			$sql = 'SELECT '._DB_PREFIX.'_games.id, cup_id, game, town, place, dt, cup, COUNT(game_id) AS players ';
+      $sql.= ' FROM '._DB_PREFIX.'_games LEFT JOIN '._DB_PREFIX.'_cups ON '._DB_PREFIX.'_cups.id = '._DB_PREFIX.'_games.cup_id ';
+      $sql.= ' LEFT JOIN '._DB_PREFIX.'_results ON '._DB_PREFIX.'_games.id = game_id ';
       $sql.= ' WHERE'.$sqlchunk.' AND  close <> 1 ';
       $sql.= ' GROUP BY game_id ORDER BY dt DESC';
 			
@@ -208,7 +208,7 @@ var $mode_select = array('1' => 'Einzel', '2' => 'Doppel', '3' => 'Triple');
 	}
 	
 	function killMe() {
-		$sql = "DELETE FROM nuke_results WHERE game_id = ".$this->id;
+		$sql = "DELETE FROM "._DB_PREFIX."_results WHERE game_id = ".$this->id;
 		$res = mysql_query($sql);
 			
 		$this->makeSQL('DELETE');
@@ -223,7 +223,7 @@ var $mode_select = array('1' => 'Einzel', '2' => 'Doppel', '3' => 'Triple');
 		global $genre_select;
 		$out .= _Panelwyswietlaniaklasyfikacjipucharowych.' <br /><br />';
 		$out .= '<form name="cup_search" method="post" action="'.$_SERVER['PHP_SELF'].'"><table>';
-		$out .= '<tr><td>'._Nazwacyklu.': </td><td>'.$this->getListFromDB('id', 'cup', 'nuke_cups', 'cup').'</td></tr>';
+		$out .= '<tr><td>'._Nazwacyklu.': </td><td>'.$this->getListFromDB('id', 'cup', ''._DB_PREFIX.'_cups', 'cup').'</td></tr>';
 		$out .= '<tr><td>'._Klasyfikacja.': </td><td>'.$this->getListFromVar('genre', $genre_select,$genre).'</td></tr>';
 		$out .= '<tr><td colspan="2"><input type="hidden" name="name" value="Turnieje"><input type="hidden" name="op" value="rank"><input type="submit" name="search" value="'._Wyslij.'"></td></tr></table></form>';
 		return $out;
@@ -232,7 +232,7 @@ var $mode_select = array('1' => 'Einzel', '2' => 'Doppel', '3' => 'Triple');
 	function searchCupNoTable($genre) {
 		global $genre_select;
 		$out .= '<form name="cup_search" method="post" action="index.php">';
-		$out .= '<br> '.$this->getListFromDB('id', 'cup_id', 'nuke_cups', 'cup');
+		$out .= '<br> '.$this->getListFromDB('id', 'cup_id', ''._DB_PREFIX.'_cups', 'cup');
 		
 		$out .= '<br><input type="hidden" name="name" value="Turnieje">' .
 				

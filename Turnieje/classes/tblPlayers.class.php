@@ -1,4 +1,5 @@
 <?php
+
 class TblPlayers extends Table {
 
 	var $tbl = 'players';
@@ -59,7 +60,7 @@ class TblPlayers extends Table {
 
 		$this->cfg->team_id->name = "team_id";
 		$this->cfg->team_id->public_name = _Druzyna;
-		$this->cfg->team_id->db_list = 'nuke_teams';
+		$this->cfg->team_id->db_list = _DB_PREFIX.'_teams';
 		$this->cfg->team_id->db_list_pk = "id";
 		$this->cfg->team_id->db_list_sel = "team";
 		$this->cfg->team_id->db_list_cond = 'cup_id = '.$_COOKIE['CUP_ID'];
@@ -74,7 +75,7 @@ class TblPlayers extends Table {
 
 		$this->cfg->cup_id->name = "cup_id";
 		$this->cfg->cup_id->public_name = _CUPNAME;
-		$this->cfg->cup_id->db_list = 'nuke_cups';
+		$this->cfg->cup_id->db_list = _DB_PREFIX.'_cups';
 		$this->cfg->cup_id->db_list_pk = "id";
 		$this->cfg->cup_id->db_list_sel = "cup";
 		$this->cfg->cup_id->db_list_cond = " close = 0";
@@ -82,7 +83,8 @@ class TblPlayers extends Table {
 	}
 
 	function checkPass() {
-		$sql = "SELECT id, player_number, pass, cat, cup_id FROM nuke_players ";
+		echo 'prefix: '._DB_PREFIX;
+		$sql = "SELECT id, player_number, pass, cat, cup_id FROM "._DB_PREFIX."_players ";
 		$sql.= " WHERE player_number = '".$_POST['login']."'";
 		$sql.= " and pass = '".$_POST['pass']."'";
 		$sql.= " order by cup_id desc ";
@@ -100,7 +102,7 @@ class TblPlayers extends Table {
 	}
 
 	function getPlayerNumber() {
-		$sql = "SELECT MAX(player_number) AS pn FROM nuke_players";
+		$sql = "SELECT MAX(player_number) AS pn FROM "._DB_PREFIX."_players";
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
 		return ($obj->pn);
@@ -108,7 +110,7 @@ class TblPlayers extends Table {
 
 	function getPlayerNumber2() {
 		$sql = "SELECT MAX(player_number) AS pn ";
-		$sql.= " FROM nuke_players where player_number >= 5000 and player_number < 7999";
+		$sql.= " FROM "._DB_PREFIX."_players where player_number >= 5000 and player_number < 7999";
 		$res = mysql_query($sql);
 		$obj = mysql_fetch_object($res);
 		return ($obj->pn);
@@ -116,7 +118,7 @@ class TblPlayers extends Table {
 
 	function updateJsPlayers() {
 		/*		$sql = "SELECT player_number, CONCAT(lname, ' ', fname) AS name, nick ";
-		 $sql.= " FROM nuke_players WHERE player_number IS NOT NULL AND player_number != 0";
+		 $sql.= " FROM "._DB_PREFIX."_players WHERE player_number IS NOT NULL AND player_number != 0";
 		 $res = mysql_query($sql);
 
 		 $js = "<!--\n\r";
@@ -137,7 +139,7 @@ class TblPlayers extends Table {
 
 	function deleteplayer($id)
 	{
-		$sql = "DELETE FROM nuke_players WHERE id = ".$id." and player_number <> 5000";
+		$sql = "DELETE FROM "._DB_PREFIX."_players WHERE id = ".$id." and player_number <> 5000";
 		$res = mysql_query($sql);
 	}
 }

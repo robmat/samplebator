@@ -31,7 +31,7 @@ var $pucharClose_select = array('0' => 'Otwarty', '1' => 'Zamkniêty');
 	
 	function DeleteGamesInCup($cup_id) 
 	{
-		$sql = "DELETE FROM nuke_games WHERE cup_id = ".$cup_id;
+		$sql = "DELETE FROM "._DB_PREFIX."_games WHERE cup_id = ".$cup_id;
 		$res = mysql_query($sql);
 			
 //		$this->makeSQL('DELETE');
