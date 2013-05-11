@@ -83,7 +83,6 @@ class TblPlayers extends Table {
 	}
 
 	function checkPass() {
-		echo 'prefix: '._DB_PREFIX;
 		$sql = "SELECT id, player_number, pass, cat, cup_id FROM "._DB_PREFIX."_players ";
 		$sql.= " WHERE player_number = '".$_POST['login']."'";
 		$sql.= " and pass = '".$_POST['pass']."'";
