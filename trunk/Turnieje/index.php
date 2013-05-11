@@ -924,7 +924,8 @@ function printRank($cid, $genre) {
 	include('classes/tblResults.class.php');
 	$tblResults = new TblResults('', '', '');
 
-	global $cup,$genre; if($cup==''){
+	//global $cup,$genre; 
+	if($cid==''){
 		
 		require_once('classes/tblGames.class.php');
 		$tblGames = new TblGames('Turnieje', $option, '');
@@ -1026,7 +1027,11 @@ function showRank($cid, $genre) {
 	include("header.php");
 	OpenTable();
 	
-	global $cup,$genre; if($cup==''){
+	//global $cup,$genre; 
+
+	echo $genre;
+	
+	if($cid==''){
 		
 		require_once('classes/tblGames.class.php');
 		$tblGames = new TblGames('Turnieje', $option, '');
@@ -1041,7 +1046,6 @@ function showRank($cid, $genre) {
 		echo $out;
 		die();
 	}
-	
 	
 		$out = $tblResults->showRanks($cid, $genre);
 		echo $out;
