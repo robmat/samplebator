@@ -8,6 +8,8 @@ if (!stristr($_SERVER['SCRIPT_NAME'], "modules.php")) {
     die ("You can't access this file directly...");
 }
 */
+header('Content-type: text/html; charset=ISO-8859-1');
+
 error_reporting(E_ERROR | E_PARSE);
 
 include_once("db.php");
