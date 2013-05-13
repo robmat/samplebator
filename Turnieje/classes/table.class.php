@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 class Table {
 	var $c; //aktualna wartosc
 	var $cfg; //wartosci konfiguracyjne
@@ -26,19 +26,19 @@ class Table {
 				$out .= '<a href="index.php?name='.$this->name.'&op='.$option.'&lttr='.chr($i).'">'.chr($i).'</a> ';
 				switch($i) {
 					case(79):
-					$out .= '<a href="index.php?name='.$this->name.'&op='.$option.'&lttr=Ö">Ö</a> ';
+					$out .= '<a href="index.php?name='.$this->name.'&op='.$option.'&lttr=Ã–">Ã–</a> ';
 					break;
 					
 					case(65):
-					$out .= '<a href="index.php?name='.$this->name.'&op='.$option.'&lttr=Ä">Ä</a> ';
+					$out .= '<a href="index.php?name='.$this->name.'&op='.$option.'&lttr=Ã„">Ã„</a> ';
 					break;
 					
 					/*case(85):
-					$out .= '<a href="index.php?name='.$this->name.'&op='.$option.'&lttr=Ü">Ü</a> ';
+					$out .= '<a href="index.php?name='.$this->name.'&op='.$option.'&lttr=Ãœ">Ãœ</a> ';
 					break;
 					
 					case(90):
-					$out .= '<a href="index.php?name='.$this->name.'&op='.$option.'&lttr=¯">¯</a> ';
+					$out .= '<a href="index.php?name='.$this->name.'&op='.$option.'&lttr=Â¯">Â¯</a> ';
 					break;*/
 				}
 			}
@@ -131,7 +131,7 @@ class Table {
 				if($this->c->{$key.'#chkbox#'.$i} == "on") $out .= 'checked';
 				$out .= '> '.$this->{$value->checkbox}[$i].'</td>';
 				
-				//dorysowanie pustych pól w tabeli
+				//dorysowanie pustych pÃ³l w tabeli
 				if($i+1 == $elements) {
 					while(($i+1)%$this->{$key.'_cols'} != 0) {
 					  $out .= '<td>&nbsp;</td>';
@@ -291,24 +291,23 @@ class Table {
   }
   
   function makeSQL($sqlOption) {
-	global $prefix;
   	if($sqlOption == "INSERT") {
 		$this->makeFieldsAndValuesList();
-		$this->sql = "INSERT INTO ".$prefix."_".$this->tbl." (".$this->fields.") VALUES (".$this->values.")";
+		$this->sql = "INSERT INTO "._DB_PREFIX."_".$this->tbl." (".$this->fields.") VALUES (".$this->values.")";
 
 	}
 	
 	if($sqlOption == "SELECT") {
-		$this->sql = "SELECT * FROM ".$prefix."_".$this->tbl." WHERE id = ".$this->id;
+		$this->sql = "SELECT * FROM "._DB_PREFIX."_".$this->tbl." WHERE id = ".$this->id;
 	}
 	
 	if($sqlOption == "UPDATE") {
 		$this->makeUpdateList();
-		$this->sql = "UPDATE ".$prefix."_".$this->tbl." SET ".$this->updates." WHERE id = ".$this->id;
+		$this->sql = "UPDATE "._DB_PREFIX."_".$this->tbl." SET ".$this->updates." WHERE id = ".$this->id;
 	}
 	
 	if($sqlOption == "DELETE") {
-		$this->sql = "DELETE FROM ".$prefix."_".$this->tbl." WHERE id = ".$this->id;
+		$this->sql = "DELETE FROM "._DB_PREFIX."_".$this->tbl." WHERE id = ".$this->id;
 	}
   }
   
@@ -330,8 +329,7 @@ class Table {
   }
   
   function killMe($updir = '') {
-  global $prefix;
-  	$this->sql = "DELETE FROM ".$prefix."_".$this->tbl." WHERE id = ".$this->id;
+  	$this->sql = "DELETE FROM "._DB_PREFIX."_".$this->tbl." WHERE id = ".$this->id;
   
   foreach($this->cfg as $key => $value) {
   	  if($value->type == "picture") {
@@ -342,7 +340,6 @@ class Table {
   }
   
   function checkPhotoScaledUpload($id, $file, $uploaddir, $width) {
-  global $prefix;
   $errorFlag = 0;
   
 	$filename = $_FILES[$file]['tmp_name'];
@@ -361,7 +358,7 @@ class Table {
 
 		//zaktualizowanie wpisu nazwy zdjecia w bazie
 		$filename = $file.'_'.$id.'.jpg';
-		$sql = "UPDATE ".$prefix."_".$this->tbl." SET ".$file." = '".$filename."' WHERE id = ".$id;
+		$sql = "UPDATE "._DB_PREFIX."_".$this->tbl." SET ".$file." = '".$filename."' WHERE id = ".$id;
 
 		if(!mysql_query($sql)) {
 			$this->err->{$file} = "Problem with updating picture";

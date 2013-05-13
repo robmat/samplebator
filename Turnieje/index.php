@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 /*COMMERCIAL MODULE DARTS_LEAGUE FOR PHPNUKE COPRIGHT: DOGMAT Sp. z o.o. 
  * http://www.dogmat.eu office@dogmat.eu
  * All Rights Reserved
@@ -8,7 +8,7 @@ if (!stristr($_SERVER['SCRIPT_NAME'], "modules.php")) {
     die ("You can't access this file directly...");
 }
 */
-header('Content-type: text/html; charset=ISO-8859-1');
+header('Content-type: text/html; charset=utf-8');
 
 error_reporting(E_ERROR | E_PARSE);
 
@@ -357,7 +357,7 @@ global $pid;
 					$out .= $tblGames->buildTable();
 				}
 			} else $out .= $tblGames->buildTable();
-//		} else $out = "Nie jeste¶ Szefem tego turnieju. Nie mo¿esz za³o¿yæ gry.";
+//		} else $out = "Nie jesteÂ¶ Szefem tego turnieju. Nie mo?esz za3o?ya gry.";
 		echo $out;
 	CloseTable();
 	include("footer.php");
@@ -1199,15 +1199,15 @@ $op = $_REQUEST['op'];
 switch($op) {
 	// ************ Funkcje Logowania *********************//
 	
-	case "adm": //panel administracyjny modu³u
+	case "adm": //panel administracyjny modu3u
 		admin();
 	break;
 	
-	case "logout": //panel administracyjny modu³u
+	case "logout": //panel administracyjny modu3u
 		logout();
 	break;
 	
-    // ************ Funkcje obs³ugi Zawodników *********************//	
+    // ************ Funkcje obs3ugi ZawodnikÃ³w *********************//	
 	case "playermanager": //
 		$_GET['lttr'] ? $lttr = $_GET['lttr'] : $lttr = 'A';
 		if($pcat == 3 || $pcat == 4) playerManager($lttr);
@@ -1249,7 +1249,7 @@ switch($op) {
 		else admin();
 	break;
 	
-	// ************ Funkcje obs³ugi Gier *********************//
+	// ************ Funkcje obs3ugi Gier *********************//
 	case "addgame": //formularz dodawania turnieju
 		if($pcat == 3 || $pcat == 4) gameTable('savegame');
 		else admin();
@@ -1270,7 +1270,7 @@ case "updategames": //formularz edycji turnieju
 		else admin();
 	break;
 	
-	// ************ Funkcje obs³ugi Pucharów *********************//
+	// ************ Funkcje obs3ugi PucharÃ³w *********************//
 	
 	case "cupmanager": //formularz dodawania pucharu
 	  	if($pcat == 4) cupManager();
@@ -1302,67 +1302,67 @@ case "updategames": //formularz edycji turnieju
 		else admin();
 	break;
 	
-	// ************ Funkcje obs³ugi Zespo³ów *********************//
+	// ************ Funkcje obs3ugi Zespo3Ã³w *********************//
 	
-	case "teammanager": //menager zespo³ów
+	case "teammanager": //menager zespo3Ã³w
 		if($pcat == 4) teamManager();
 		else admin();
 	break;
 
-	case "addteam": //formularz dodawania zespo³u
+	case "addteam": //formularz dodawania zespo3u
 		if($pcat == 4) addTeam();
 		else admin();
 	break;
 	
-	case "saveteam": //zapisywanie dodanego zespo³u
+	case "saveteam": //zapisywanie dodanego zespo3u
 		if($pcat == 4) saveTeam();
 		else admin();
 	break;
 	
-	case "dellteam": //usuwanie zespo³u
+	case "dellteam": //usuwanie zespo3u
 		if($pcat == 4) dellteam();
 		else admin();
 	break;
 	
 	
-	case "editteam": //edycja zespo³u
+	case "editteam": //edycja zespo3u
 		if($pcat == 4) editTeam();
 		else admin();
 	break;
 	
-	case "updateteam": //zapisywanie zmienionego zespo³u
+	case "updateteam": //zapisywanie zmienionego zespo3u
 		if($pcat == 4) updateTeam();
 		else admin();
 	break;
 	
-	case "menageteam": //zarz±dzanie dru¿yn±
+	case "menageteam": //zarzÂ±dzanie dru?ynÂ±
 		if($pcat == 4) menageTeam();
 		else admin();
 	break;
 	
-	case "addteamplayer": //listowanie dostêpnych zawodników
+	case "addteamplayer": //listowanie dostepnych zawodnikÃ³w
 		if($pcat == 4) addTeamPlayer($_GET['id'], $_GET['lttr']);
 		else admin();
 	break;
 	
-	case "saveteamplayer": //zapisywanie do dru¿yny wybranych zawodników
+	case "saveteamplayer": //zapisywanie do dru?yny wybranych zawodnikÃ³w
 		if($pcat == 4) saveTeamPlayer();
 		else admin();
 	break;
 	
-	case "delteamplayer": //usuniêcie zawodnika z dru¿yny
+	case "delteamplayer": //usuniecie zawodnika z dru?yny
 		if($pcat == 4) delTeamPlayer();
 		else admin();
 	break;
 	
-	// ************ Funkcje dodawania Wyników *********************//
+	// ************ Funkcje dodawania WynikÃ³w *********************//
 	
 	case "searchadd": //formularz wyszukiwania turnieju w celu zapisu wynikow
 		if($pcat == 3 || $pcat == 4) gameTable('listresults');
 		else admin();
 	break;
 	
-	case "listresults": //listowanie turniei z opcja zapisu wyników
+	case "listresults": //listowanie turniei z opcja zapisu wynikÃ³w
 		if($pcat == 3 || $pcat == 4) showGames('checkgame', 'listresults');
 		else admin();
 	break;
@@ -1372,59 +1372,59 @@ case "updategames": //formularz edycji turnieju
 		else admin();
 	break;
 	
-	case "checkratio": //sprawdzenie i dodanie wspó³czynnika 
+	case "checkratio": //sprawdzenie i dodanie wspÃ³3czynnika 
 		if($pcat == 3 || $pcat == 4) checkGameProperties();
 		else admin();
 	break;
 	
-	case "saveresults": //zapisanie wyników turnieju
+	case "saveresults": //zapisanie wynikÃ³w turnieju
 		if($pcat == 3 || $pcat == 4) saveResults();
 		else admin();
 	break;
 	
-	// ************ Funkcje edycji Wyników *********************//
+	// ************ Funkcje edycji WynikÃ³w *********************//
 	
 	case "searchresults": //formularz wyszukiwania turnieju w celu edycji wynikow
 		if($pcat == 3 || $pcat == 4) gameTable('editresults');
 		else admin();
 	break;
 	
-	case "editresults": //listowanie turniei z opcja edycji wyników
+	case "editresults": //listowanie turniei z opcja edycji wynikÃ³w
 		if($pcat == 3 || $pcat == 4)
       showGames('editresult', 'editresults');
 		else admin();
 	break;
 	
-	case "editresult": //formularz edycji wyników turnieju
+	case "editresult": //formularz edycji wynikÃ³w turnieju
 		if($pcat == 3 || $pcat == 4) editResult();
 		else admin();
 	break;
 	
-	case "checkeditedratio": //sprawdzenie edytowanego wspó³czynnika 
+	case "checkeditedratio": //sprawdzenie edytowanego wspÃ³3czynnika 
 		if($pcat == 3 || $pcat == 4) checkEditedRatio();
 		else admin();
 	break;
 	
-	case "updateresult": //zapisanie poprawionych wyników turnieju
+	case "updateresult": //zapisanie poprawionych wynikÃ³w turnieju
 		if($pcat == 3 || $pcat == 4) updateGameResult();
 		else admin();
 	break;
 	
-	// ************ Funkcje wy¶wietlania Wyników *********************//
+	// ************ Funkcje wyÂ¶wietlania WynikÃ³w *********************//
 	
-	case "searchgame": //formularz wyszukiwania turnieju w celu obejrzenia wyników
+	case "searchgame": //formularz wyszukiwania turnieju w celu obejrzenia wynikÃ³w
 		searchAll('showgames', $genre_select);
 	break;
 	
-	case "showgames": //listowanie turniei z opcja ogl±dania wyników
+	case "showgames": //listowanie turniei z opcja oglÂ±dania wynikÃ³w
 		showGames('showgame', 'showgames');
 	break;
 	
-	case "showgame": //listing wyników turnieju
+	case "showgame": //listing wynikÃ³w turnieju
 		showGameResult();
 	break;
 
-	case "rank": //wy¶wietlanie rankingów
+	case "rank": //wyÂ¶wietlanie rankingÃ³w
 		if($_SERVER['REQUEST_METHOD'] == 'POST') showRank($_POST['cup'], $_POST['genre']);
 		if($_SERVER['REQUEST_METHOD'] == 'GET') showRank($_GET['id'], $_GET['genre']);
 	break;
@@ -1433,7 +1433,7 @@ case "updategames": //formularz edycji turnieju
 		showPlayerResult();
 	break;
 	
-	case "print": //drukowanie wyników
+	case "print": //drukowanie wynikÃ³w
 		$printMe = true;
 		if(!empty($_GET['cup_id']) || !empty($_GET['game']) || !empty($_GET['town']) || !empty($_GET['place']) || !empty($_GET['dt'])) printGamesList();
 		//else if(!empty($_GET['genre'])) showRank($_GET['id'], $_GET['genre']);
@@ -1447,3 +1447,4 @@ case "updategames": //formularz edycji turnieju
 }
 
 ?>
+
