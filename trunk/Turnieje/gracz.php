@@ -24,8 +24,11 @@ function wstaw44(p_nr,p_fname,p_lname){
 
 error_reporting(E_ERROR | E_PARSE);
 include_once("db.php");
-global $currentlang; //TODO get locale
+global $currentlang; 
 $currentlang = "german";
+if (!strncmp($_SERVER['HTTP_ACCEPT_LANGUAGE'], 'pl', strlen('2'))) {
+	$currentlang = "polish";
+}
 include_once("language/lang-".$currentlang.".php");
 
 echo _Wybierzgracza;

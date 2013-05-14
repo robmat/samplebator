@@ -40,6 +40,15 @@ define("_ZmianyZachowane","Änderungen wurden gespeichert");
 define("_Pucharusuniety","Ranking wurde gelöscht");
 define("_Usunietodruzyne","Mannschaft wurde gelöscht");
 define("_Turniejzaktualizowany","Turnier wurde aktualisiert");
+
+define("_Skasuj", "Stornieren");
+define("_Zmien", "Ändere");
+define("_Dodaj", "Hinzufügen");
+define("_Usun", "Entfernen");
+define("_Zaznaczwszystkie", "Aktivieren Sie alle");
+define("_Odznaczwszystkie", "Deaktivieren Sie alle");
+define("_Wybierzzlisty", "Wählen Sie aus der Liste");
+
 define("_","");
 
 // tblResults.class.php

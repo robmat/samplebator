@@ -17,8 +17,11 @@ require_once("html.php");
 //require_once("mainfile.php");
 $module_name = basename(dirname(__FILE__));
 //get_lang($module_name);
-global $currentlang; //TODO get locale
+global $currentlang; 
 $currentlang = "german";
+if (!strncmp($_SERVER['HTTP_ACCEPT_LANGUAGE'], 'pl', strlen('2'))) {
+	$currentlang = "polish";
+}
 include_once("language/lang-".$currentlang.".php");
 
 
