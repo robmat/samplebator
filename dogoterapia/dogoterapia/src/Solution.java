@@ -1,23 +1,33 @@
-import java.util.Arrays;
+import java.math.BigInteger;
+import java.util.Random;
 
 public class Solution {
-  public int solution(int[] A) {
-    Arrays.sort(A);
-    for (int i = 0; i < A.length - 2; i++) {
-      int p = i;
-      int q = i + 1;
-      int r = i + 2;
-      if (A[p] + A[q] > A[r] && A[q] + A[r] > A[p] && A[r] + A[p] > A[q]) {
-        return 1;
+
+  static char[] HEX_CHARS = new char[] {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+
+  public int solution(String S) {
+    int count = 0;
+
+    for (int i = 0; i < S.length(); i++) {
+      final String singleLetter = new String(new char[]{S.charAt(i)});
+      String binary = new BigInteger(singleLetter, 16).toString(2);
+      for (int j = 0; j < binary.length(); j++) {
+        if (binary.charAt(j) == '1') count++;
       }
     }
-    return 0;
-  }
 
+    return count;
+  }
   public static void main(String[] args) {
-    System.out.println(new Solution().solution(new int[]{10, 2, 5, 1, 8, 20}));
-    System.out.println(new Solution().solution(new int[]{10, 50, 5, 1}));
-    System.out.println(new Solution().solution(new int[]{10, 2, 5, 1, 8, 20}));
-    System.out.println(new Solution().solution(new int[]{10, 50, 5, 1}));
+    System.out.println(new Solution().solution("2F"));
+    System.out.println(new Solution().solution("2FAD43F"));
+
+    StringBuilder sb = new StringBuilder();
+    Random random = new Random();
+    for (int i = 0; i < 999999; i++) {
+      sb.append(HEX_CHARS[random.nextInt(HEX_CHARS.length)]);
+    }
+
+    System.out.println(new Solution().solution(sb.toString()));
   }
 }
