@@ -109,7 +109,7 @@ body {
   list-style: none;
   float: left;
   margin: 0;
-  padding: 0 52.5px;
+  padding: 0 35px;
 }
 #nav li.home {
   background: bottom left url(../images/nav_drk.gif) repeat-x;
@@ -180,7 +180,7 @@ body {
 #content ul {
   margin-left: 10px;
 }
-#content li {
+#content ul li {
   list-style-image: url('../images/dog_icon.gif');
   height: 21px;
 }
@@ -315,4 +315,15 @@ body {
   text-align: center;
   color: #CFB472;
   padding: 14px;
+}
+
+#plan-zajec-content table td, #plan-zajec-content table th {
+    border-bottom: 1px solid #615331;
+    border-left: 1px solid #615331;
+    font-size: 11px;
+}
+
+#plan-zajec-content table ol {
+    margin: 0px;
+    padding: 0px;
 }
